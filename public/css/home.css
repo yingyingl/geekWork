@@ -1,0 +1,2164 @@
+@-ms-viewport {
+    width: auto;
+}
+/*nav-left*/
+#side-menu li a{
+    padding: 10px 20px;
+    border-bottom: 1px solid #E7EAEC;
+}
+#side-menu > li.active > a{
+    background: #00ab9f;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+.top-border{
+    border-top: 4px solid #E7EAEC;
+    border-left: 1px solid #E7EAEC;
+    border-right: 1px solid #E7EAEC;
+}
+#side-menu > li.active > .left-m{
+    text-indent:5px;
+    background: #f9f9f9;
+    border: none;
+}
+#side-menu > li.active > .left-m > .active a{
+    background: #00ab9f;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #E7EAEC;
+}
+/*ins_tabs*/
+#ins_tabs{
+    padding-left: 0;
+    list-style: none;
+    padding-bottom: 41px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #00ab9f;
+
+}
+#ins_tabs > li {
+    position: relative;
+    display: block;
+    border-bottom:0;
+}
+#ins_tabs > li > a{
+    position: relative;
+    display: block;
+}
+/*table*/
+.table-h {
+    border-radius: 1px;
+    color: inherit;
+    display: block;
+    padding: 9px 0px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.dataTables_wrapper,.top-navigation table{
+     font-size: 12px;
+ }
+table tr th,table tr td{
+    font-size: 12px;
+}
+.dataTables_filter{
+    float: right;
+}
+/*table-name*/
+.table-name{
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.pagination{
+    float: right;
+    margin-top: 0;
+    padding-top: 0;
+}
+.nav-top{
+    color: #999;
+    background: #fff;
+    line-height:34px;
+    font-size: 14px
+}
+
+a{
+    color: #666;
+}
+a:hover{
+    color: #00ab9f;
+}
+.f-14{
+    font-size: 14px;
+}
+.f-12{
+    font-size: 12px;
+}
+/* E-commerce */
+.product-box {
+    padding: 0;
+    border: 1px solid #e7eaec;
+}
+.product-box:hover,
+.product-box.active {
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 3px 7px 0 #a8a8a8;
+    -moz-box-shadow: 0 3px 7px 0 #a8a8a8;
+    box-shadow: 0 3px 7px 0 #a8a8a8;
+}
+.insurancelist_title_top{
+    overflow: hidden;
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    background-color: #DDDDDD;
+    padding: 5px 20px;
+    min-width: 30%;
+    font-size: 12px;
+    color: #6f6f6f;
+    border-radius:0 15px 15px 0;
+}
+.product-imitation {
+    padding: 30px 20px;
+    background-color: #f8f8f9;
+    color: #666666;
+    text-align: center;
+}
+.product-imitation .product-title{
+    font-size: 16px;
+    line-height: 28px;
+    min-height: 28px;
+    color: #333;
+}
+.product-imitation .product-subhead{
+    font-size: 14px;
+    line-height: 28px;
+    min-height: 28px;
+}
+.product-imitation.xl {
+    padding: 120px 0;
+}
+.product-desc {
+    padding: 20px;
+    position: relative;
+}
+.ecommerce .tag-list {
+    padding: 0;
+}
+.ecommerce .fa-star {
+    color: #d1dade;
+}
+.ecommerce .fa-star.active {
+    color: #f8ac59;
+}
+.ecommerce .note-editor {
+    border: 1px solid #e7eaec;
+}
+.product-name {
+    font-size: 16px;
+    color: #6f6f6f;
+    display: block;
+}
+.product-name:hover,
+.product-name:focus {
+    color: #00ab9f;
+}
+.product-price {
+    font-size: 14px;
+    font-weight: 100;
+    color: #ffffff;
+    background-color: #00ab9f;
+    padding: 6px 12px;
+    position: absolute;
+    top: -32px;
+    right: 0;
+}
+/*foot*/
+.insfoot{
+    border-top: 1px solid #ddd;font-size: 14px;line-height: 24px;padding-top: 30px;
+}
+
+/*zy固定定位样式*/
+.position-fixed{
+    position: fixed;
+    right:0;
+    top:0;
+    width:5px;
+    height:1080px;
+    background-color: #00a599;
+    z-index:1005;
+}
+.position-menu{
+    position: fixed;
+    right: 0;
+    top: 40%;
+    width: 36px;
+}
+.position-menu .position-icon{
+    width: 36px;
+    height: 36px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    float: left;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.position-menu .position-icon i{
+    display: block;
+    width:100%;
+    height:100%;
+    background-image: url("../../public/images/right-nav.png");
+    background-repeat: no-repeat;
+    background-color: #00a599;
+    border-radius: 5px;
+    position: absolute;
+    z-index:10;
+}
+.position-menu .position-icon-1{
+    background-position: 0 0;
+}
+.position-menu .position-icon-2{
+    background-position: 0 -37px;
+}
+.position-menu .position-icon-3{
+    background-position: 0 -74px;
+}
+.position-menu .position-icon-4{
+    background-position: 1px -113px;
+}
+.position-menu .position-icon-5{
+    background-position: 0 -148px;
+}
+.position-menu .enter-top{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    position: fixed;
+    right:-36px;
+    bottom:50px;
+    background-color: #00a599;
+    border-radius: 5px;
+}
+.position-menu img{
+    display: block;
+    float: left;
+    width: 100%;
+}
+.position-icon .position-pec{
+    width: 100px;
+    height: 100px;
+}
+/*隐藏的公共属性*/
+.position-icon .hover-font{
+    position: absolute;
+    left: 36px;
+    top: -36px;
+    width: 180px;
+    line-height: 24px;
+    padding:12px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-right: 10px;
+    background-color: #00a599;
+}
+.position-icon .hover-wechat{
+    padding: 8px;
+    top: -70px !important;
+    left:36px;
+}
+.hover-wechat .hover-wechat-img{
+    width: 100%;
+    height: auto;
+}
+
+    /*定义hover-table的样式*/
+/*hover-table的特殊属性以及顶部选项卡的样式*/
+.position-icon .hover-table{
+    width: 300px;
+    height: 370px;
+    left: 36px;
+    top: -334px;
+    padding: 15px 30px 15px 20px;
+}
+.position-icon .table-triangle{
+    right: -10px;
+    top: 330px;
+}
+.position-icon .error-font{
+    color: #ffd800;
+    display: block;
+    line-height: 35px;
+}
+.we-contact-font{
+    font-size: 14px;
+    line-height: 30px;
+}
+/*顶部样式结束*/
+/*个人版面的表单样式*/
+.hover-table .panel-body{
+    padding: 0;
+}
+.hover-table .panel-body .form-group{
+    margin: 18px 0 0 0;
+}
+.submit-success .btn-backup,
+.hover-table .panel-body .last-form-group button{
+    border: 1px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 4px 12px;
+}
+.hover-table .panel-body .left-font{
+    text-align: right;
+    line-height: 34px;
+    width: 64px;
+}
+.hover-table .panel-body .right-table{
+    width: 165px;
+    color: #888;
+    outline: none;
+    border: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.hover-table .panel-body .right-table:focus{
+    outline: none;
+}
+/*个人版面的表单样式结束*/
+.position-icon img:nth-of-type(2){
+    width: 100px;
+}
+.position-icon img:nth-of-type(2){
+    left: -100px;
+    z-index: 10;
+    top: -50px;
+}
+/*zy固定定位样式结束*/
+
+#parallax {position:relative; overflow:hidden; width:100%; min-height:650px;
+
+}
+.parallax-layer {
+    position: absolute;
+}
+/*.login_bg{*/
+    /*background: url(../img/login_bg.jpg) 0 0 no-repeat;*/
+/*}*/
+/*zy-login-verity*/
+.login-box{
+    padding: 1px;
+    width: 99px;
+    height: 34px;
+    position: relative;
+    overflow: hidden;
+}
+.login-box img.verity-pec{
+    height: 38px;
+    position: absolute;
+    left: -14px;
+    top: -4px;
+}
+/*!*----------------zy 企业服务一级页面-------------------*!*/
+
+/*----------------zy财务中心------------------*/
+body{
+    min-width: 1200px;
+}
+/*每个记录表格上面选择时间的下拉选框的公共样式*/
+.finance-recharge .public-ibox-title-style{
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+}
+/*弹窗文字*/
+.alert-danger .fa-minus-square{
+    margin-right: 5px;
+}
+/*------财务中心对应右侧按钮的显示隐藏的css----*/
+#usersidemenu .my-ul{
+    position: absolute;
+    right: -163px;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 100;
+    display: none;
+}
+#usersidemenu .my-ul li a{
+    width: 163px;
+    height: auto;
+    padding: 20px;
+}
+/*-----finance-table----*/
+.finance-table tr{
+    background-color: #fff;
+}
+.finance-table tr th,
+.finance-table tr td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+.my-table-hover .clickShowTr,
+.finance-table .clickShowTr{
+    cursor: pointer;
+}
+.finance-table .clickShowTr:hover{
+    background-color: #eee;
+}
+.finance-table .clickShow ul li{
+    display: block;
+}
+.list-group .select-form{
+    height: 30px;
+    padding: 0 5px;
+}
+.finance-list{
+    height: 165px;
+    background-color: #fff;
+}
+/*----------------zy财务中心的充值/缴费/提现中的group------------------*/
+em,i{
+    font-style: normal;
+}
+/*group为组*/
+.charge-group .charge-head{
+    float: left;
+    padding: 0;
+    width: 100px;
+    text-align: right;
+}
+.charge-group .charge-body{
+    width: 610px;
+    float: left;
+    padding-left: 0;
+    /*margin-left: 15px;*/
+}
+.charge-head.large-charge-head{
+    width:232px;
+}
+.charge-body .input-medium-width{
+    width:467px;
+}
+.charge-body .input-min-width{
+    width:260px;
+}
+.favorable{
+    height: 40px;
+}
+h2.favorable{
+    margin: 0;
+    font-weight: bold;
+    line-height:40px;
+    color: #18a689;
+}
+.favorable .charge-head{
+    line-height: 40px;
+}
+.favorable ul>li{
+    border: 1px solid #e5e6e7;
+    margin-right: 5px;
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: #fff;
+    width:104px;
+    height:40px;
+}
+.favorable ul>li.alipay{
+    padding:4px 8px;
+    margin-bottom: 0;
+}
+.favorable ul>li.alipay img{
+    display: block;
+    width:100%;
+}
+.favorable ul>li.wxpay{
+    padding:4px 8px;
+    margin-bottom: 0;
+}
+.favorable ul>li.wxpay img{
+    display: block;
+    width:100%;
+}
+.favorable ul>li:nth-of-type(7){
+    margin-bottom: 0;
+    width: 500px;
+}
+.favorable ul>li form{
+    padding: 0;
+    width: 150px;
+}
+.favorable ul>li em{
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height:40px;
+}
+.favorable ul>li:nth-of-type(7){
+    cursor:default ;
+}
+.favorable .custom{
+    border: 0;
+}
+.favorable .custom input{
+    width: 100%;;
+    height: 40px;
+}
+.btn-de{
+    display: block;
+    margin: 10px auto;
+    font-size: 14px;
+    width: 106px;
+    height: 40px;
+}
+.finance-recharge-table tr th,
+.finance-recharge-table tr td{
+    text-align: center;
+}
+.finance-recharge .form-group>span{
+    margin-left: 20px;
+    font-size: 14px;
+    line-height:34px;
+}
+.submit-success .success-font{
+    display: inline-block;
+    line-height: 24px;
+}
+/*-------------------zy财务中心缴费---------------*/
+.payment-clickShow{
+    padding-right:30px;
+}
+.payment-clickShow .payment-clickShow-right{
+    width:300px;
+    height:auto;
+}
+.payment-clickShow .payment-hidden{
+    width:100%;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.payment-clickShow .payment-hidden .charge-group{
+    margin-bottom: 15px;
+    /*margin-left: 0;*/
+}
+.payment-clickShow .payment-hidden .charge-group:nth-of-type(1){
+    margin-top: 15px;
+}
+.payment-clickShow .charge-group-click{
+    cursor: pointer;
+    text-align: left;
+}
+.payment-clickShow .charge-group-click i{
+    margin-right: 5px;
+    color: #676a6c;
+}
+.payment-clickShow .charge-group-payment{
+    margin-left: 2px;/*原来24*/
+}
+.payment-clickShow .charge-group-payment label{
+    font-weight: normal;
+    margin: 0 10px 0 0;
+    line-height: 34px;
+}
+.charge-group-payment .form-group{
+    margin: 0;
+}
+.finance-payment .btn-de{
+    margin: 0;
+}
+.payment-last-money{
+    line-height: 40px;
+}
+/*.payment-last-money span{*/
+    /*font-size: 16px;*/
+/*}*/
+/*.payment-last-money span strong{*/
+    /*font-size: 24px;*/
+    /*color: #18a689;*/
+    /*display: block;*/
+    /*float: right;*/
+/*}*/
+.payment-last-money .btn{
+    margin:0 auto;
+}
+/*缴费弹窗样式*/
+.modal-dialog .charge-group .charge-head{
+    width: 100px !important;
+}
+.modal-dialog .charge-group .charge-body{
+    width: 370px !important;
+}
+.modal-dialog .alert-times .form-group{
+    width: 140px;
+    margin: 0;
+}
+.alert-times .payment-check-times{
+    margin-left: 10px !important;
+}
+.alert-times .payment-check-times label{
+    margin-left: 5px !important;
+}
+.modal-dialog .charge-group .charge-body .alert-times label{
+    margin-left: 10px !important;
+}
+/*支票缴费*/
+.deposit-password .charge-body span.input-group-addon{
+    width: 40px;
+    text-align: center;
+}
+.deposit-password .charge-body .payment-check-times{
+    width: auto;
+    height: 34px;
+    display: block;
+    padding-top: 8px;
+    margin-left: 30px;
+}
+.deposit-password .charge-body .payment-check-times label{
+    margin-left: 30px;
+}
+.payment-check{
+    width: 292px;
+    height: 55px;
+    margin: 0 auto;
+    padding: 0;
+}
+.payment-check button:nth-of-type(1){
+    margin-right: 80px;
+}
+.font-center{
+    text-align: center;
+}
+/*转账支付*/
+.finance-payment-transfor .transfor-font{
+    line-height: 34px;
+}
+.finance-payment-transfor .transfor-font span{
+    float: left;
+}
+.finance-payment-transfor .transfor-font span:first-child{
+    margin-right: 20px;
+}
+/*第三方缴费*/
+
+/*----------------zy财务中心提现中的验证码------------------*/
+.deposit-table{
+    height: 34px;
+}
+/*--------------zy财务中心密码管理----------------*/
+/*公共样式*/
+.deposit-password .charge-body span.login-box{
+    padding: 0;
+    margin: 0;
+    line-height: 32px;
+    width: 99px;
+    text-align: right;
+    border: 1px solid #e5e6e7;
+}
+.deposit-password .charge-head{
+    line-height: 34px;
+}
+/*----------------各自的样式------------------*/
+
+.finance-recharge .password-table .charge-head{
+    width: 320px;
+}
+.finance-recharge .password-table .charge-body{
+    width: 570px;
+    margin: 0;
+}
+.finance-recharge .password-table .charge-body.read-only-box{
+    border: 1px solid #e5e6e7;
+    height:34px;
+}
+#offLinePaymentContent .password-table .charge-body input{
+    width:270px;
+    margin-bottom: 15px;
+}
+.finance-recharge .password-table .charge-body .click-show-modal{
+    font-size: 14px;
+    line-height:34px;
+    text-align: right;
+    cursor: pointer;
+}
+.finance-recharge .password-table .charge-body .click-show-modal:hover{
+    color: #18a689;
+}
+    /*--------------zy财务中心管理页面--------------*/
+/*收款账户*/
+.finance-manage .manage-add-type-1,
+.finance-manage .manage-add-account-1,
+.finance-manage .manage-add-account-2{
+    margin-right: 20px;
+}
+.finance-manage .manage-add-type-1{
+    width: 200px;
+}
+.finance-manage .manage-add-account-1{
+    width: 300px;
+}
+.finance-manage .manage-add-account-2{
+    width: 145px;
+}
+/*定义了缴费界面和管理设置界面的字体图标的公共样式以及在缴费界面的cursor:default的样式*/
+.finance-payment table tr i,
+.finance-manage table tr i{
+    font-size: 20px;
+    color: #00ab9f;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    vertical-align:middle;
+}
+.finance-payment table tr i{
+    cursor: default;
+}
+/*缴费界面和管理设置界面的字体图标的公共样式结束*/
+.finance-manage table tr i:nth-of-type(1){
+    margin-right: 30px;
+}
+.finance-manage table tr i:nth-of-type(2):hover{
+    color: #c9302c;
+}
+/*12/31新增收取地址页面的默认地址按钮*/
+#shipping-addr tr:not(.tr-none){
+    cursor: pointer;
+}
+#shipping-addr tr:not(.tr-none):hover{
+    background-color: #ddd;
+}
+#shipping-addr tr .click-addr,
+#shipping-addr tr .default-addr{
+    line-height:15px;
+    margin-bottom: 0;
+}
+#shipping-addr tr .default-addr{
+    display: inline-block;
+}
+/*发票抬头*/
+.finance-manage .manage-add-type-2{
+    margin-right: 20px;
+    width: 685px;
+}
+.finance-manage .manage-same-select{
+    width: 261px;
+    margin-left: 20px;
+}
+.finance-manage td{
+    vertical-align:middle !important;
+}
+/*财务中心click选中后的样式*/
+.finance-active{
+    background: url("../../public/images/finance/selected-icon.png") no-repeat right bottom;
+    border: 1px solid #e4393c !important;
+}
+
+/*------------------zy保单管家---------------*/
+/*-------------------主页面------------------*/
+.ins-information .ibox-title{
+    border: 0;
+}
+.ins-information .group-guarantee{
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+}
+.ins-information .group-guarantee-border-bottom{
+    border-bottom: 1px solid #e7eaec;
+}
+.my-tab-pane .ibox{
+    margin: 0;
+}
+.my-tab-pane .ibox-content{
+    border: 0;
+    margin: 0;
+    display: none;
+}
+.group-guarantee .rotate{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -17px;
+}
+.group-guarantee .left-pec{
+    width: 70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.group-guarantee .right-font>em{
+    display: block;
+    font-style: normal;
+}
+.group-guarantee .right-font>em:nth-of-type(1){
+    color: #00ab9f;
+    font-size: 24px;
+    margin: 10px 0;
+}
+/*保单管家每个表格最上面的下拉框及时间选择*/
+.top-input-group-all{
+    width:100%;
+    height:auto;
+    margin-bottom: 15px;
+}
+.top-input-group-all #company,
+.top-input-group-all #category{
+    width:200px;
+    float: left;
+    margin-left: 20px;
+}
+.top-input-group-all .input-daterange{
+    width:350px;
+}
+.top-input-group-all #company{
+    margin-left: 0;
+}
+.link-hover>tbody>tr:not(:first-child){
+    cursor: pointer;
+}
+.link-hover>tbody>tr:nth-of-type(odd){
+
+}
+.link-hover>tbody>tr:hover{
+
+}
+.link-hover>tbody>tr:hover>td{
+    color: #000;
+}
+
+.table-responsive .my-table-hover{
+    margin-bottom: 10px;
+}
+.table-responsive .more-show{
+    text-align: right;
+}
+.table-responsive .more-show a{
+    color: #676a6c;
+}
+.table-responsive .more-show a:hover{
+    color:  #00ab9f;
+}
+.table-responsive .group-guarantee-inner{
+    text-align: center;
+    cursor: pointer;
+    color: #00ab9f;
+}
+.table-responsive .invalid{
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.my-table-hover{
+    border: 1px solid #E7EAEC;
+}
+.my-table-hover thead tr th,
+.my-table-hover tbody tr th{
+    background-color: #f5f5f5;
+}
+.my-table-hover thead tr th,
+.my-table-hover tbody tr td,
+.my-table-hover tbody tr th{
+    text-align: center;
+    vertical-align: middle !important;
+}
+.my-table-hover tbody tr td.client-status{
+    text-align: center;
+}
+.dataTables_wrapper{
+    padding-bottom: 0px !important;
+}
+.pay-table{
+    border: 1px solid #E7EAEC;
+    margin: 20px 0 20px 0;
+}
+.pay-table thead tr th,
+.pay-table tbody tr th{
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
+.pay-table thead tr th,
+.pay-table tbody tr td,
+.pay-table tbody tr th{
+    text-align: left;
+    vertical-align: middle !important;
+    font-size: 14px;
+}
+.pay-table tbody tr td.client-status{
+    text-align: center;
+}
+.pay-table thead tr th.pay-table-font-r{
+    text-align: right!important;
+    padding-right: 20px;
+}
+.pay-table tbody tr td.pay-table-font-r{
+    text-align: right!important;
+    padding-right: 27px;
+}
+
+#billLog{
+    table-layout: fixed;
+}
+#billLog tbody tr td:nth-of-type(3){
+    width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#billLog tbody tr td:nth-of-type(3):hover{
+    overflow:visible;
+}
+
+#billLog tbody tr td:nth-of-type(4){
+    text-align: right!important;
+    padding-right: 27px;
+}
+#transLog{
+    table-layout: fixed;
+    margin: 0 0 20px 0;
+}
+#transLog tbody tr td:nth-of-type(3){
+    width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#transLog tbody tr td:nth-of-type(3):hover{
+    overflow:visible;
+}
+
+#transLog tbody tr td:nth-of-type(4){
+    text-align: right!important;
+    padding-right: 27px;
+}
+#chargeTradeLog tbody tr td:nth-of-type(2){
+    text-align: right!important;
+    padding-right: 27px;
+}
+#withdrawTradeLog tbody tr td:nth-of-type(3){
+    text-align: right!important;
+    padding-right: 27px;
+}
+.table-striped>tbody>tr>td:nth-of-type(5)>a{
+    color: #00ab9f;
+}
+.invalid{
+    height: 0;
+    overflow: hidden;
+}
+.invalid td{
+    height: 100% !important;
+    overflow: hidden;
+}
+.theme{
+    color: #00ab9f;
+}
+.danger{
+    color: #ed5565;
+}
+.clients-list .tab-pane{
+    position: relative;
+    height: 500px;
+}
+.ibox-content .advanced-search{
+    width: 70px;
+    line-height: 34px;
+}
+.ibox-content .advanced-search a{
+    color: #676a6c;
+}
+.ibox-content .advanced-search a:hover{
+    color: #00ab9f;
+}
+.top-navigation .ins-info-head > li > a{
+    padding: 10px 20px 10px 25px;
+}
+.top-navigation .ins-info-head > li.active > a{
+    border-bottom:1px solid #ddd;
+}
+.top-navigation .ins-info-head > li > a:hover{
+    border-bottom: 1px solid transparent;
+}
+.top-navigation .ins-info-head > li.active > a:hover{
+    border-bottom:1px solid #ddd;
+}
+/*这版先去掉*/
+/*.my-table-hover tr{*/
+    /*cursor: pointer;*/
+/*}*/
+.my-table-hover tr p{
+    margin:0;
+}
+.my-table-hover tr th,
+.my-table-hover tr td{
+    font-size: 14px;
+}
+/*理赔协助按钮样式*/
+.click-button button.link-button{
+    padding:0;
+}
+.click-button button.link-button a{
+    color: #fff;
+}
+.click-button a{
+    padding:6px 12px;
+}
+.click-button .click-modal-show{
+    position: absolute;
+    right:50%;
+    top:50%;
+    margin-right: -41px;
+    margin-top: -17px;
+    z-index:999;
+}
+/*----------------------------------------------*/
+/*------------------表格页面---------------------*/
+i{
+    font-style: normal;
+}
+.mytable{
+    width: 100%;
+    height: auto;
+}
+.mytable td{
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 10px;
+}
+.mytable tr:nth-of-type(odd){
+    background-color: #c9f5f0;
+}
+.mytable tr:nth-of-type(even){
+    background-color: #E5F7F5;
+}
+.mytable tr:nth-of-type(3) i{
+    display: block;
+}
+/*----------------------------------------------*/
+/*------------------高级搜索------------------*/
+.from-horizontal .form-group{
+    margin: 0;
+    padding: 0 50px;
+}
+.select{
+    margin-bottom: 20px;
+}
+.search-head-table{
+    width: 80px;
+    text-align: right;
+}
+.search-body-table{
+    width: 940px;
+}
+/*------------------------------------------*/
+/*----------------保单管家新增--------------*/
+.finance-left .active a{
+    color: #00ab9f;
+    font-weight:bold;
+}
+.payment-success strong,
+.payment-success span{
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.payment-success strong{
+    font-size:20px;
+}
+.zyRelative{
+    position: relative;
+}
+/*mouse on this will show bubble*/
+.publicBubble{
+    background-color: #00ab9f;
+    height:auto;
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    position: absolute;
+    /*opacity:0;*/
+    display: none;
+    z-index:999;
+}
+#zyOnmouseDep,
+#zyOnmouse{
+    cursor: pointer;
+}
+.zyShow{
+    padding:10px 18px;
+    width:100%;
+    left:0;
+    top:70px;
+}
+.triangle-zyShow-public{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #00ab9f;
+    position: absolute;
+}
+.triangle-zyShow{
+    left:46%;
+    top:-8px;
+    z-index:100;
+}
+.zyShowDep{
+    padding:1px 10px;
+    margin-left:20px;
+}
+.triangle-zyShowDep{
+    left:-10px;
+    top:6px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    z-index:100;
+}
+.citySelect{
+    padding:5px;
+    margin-left: 20px;
+    width:120px;
+    border:1px solid #e5e6e7;
+    font-size:14px;
+}
+.citySelect_change:focus,
+.citySelect:focus{
+    outline: 1px solid #18a689;
+}
+.citySelect_change{
+    padding:5px;
+    width:100%;
+    border: 1px solid #E5E6E7;
+}
+/*财务中心首页财务账户信息按钮*/
+.marginBtn button.btn{
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.finance-table-all tbody tr:hover{
+    background-color: #eee;
+    cursor: pointer;
+}
+/*添加tr对应的active样式*/
+.finance-table-all tbody tr.active{
+    background-color: #eee;
+}
+/*添加tr对应的active样式结束*/
+.ibox-title .ibox-title-top{
+    margin-right: 40px;
+}
+.user-defined-show{
+    display: none;
+}
+.select-time{
+    height:30px;
+}
+/*财务中心支付页面新增*/
+.js-ibox-content{
+    display: none;
+}
+/*财务中心首页新增2*/
+.finance-remain-btn{
+    margin-top: 5px;
+}
+#finance-payFees h1{
+    /*float: left;*/
+    margin:0;
+}
+/*在线支付对应的下面对应的选框的选中状态*/
+.finance-online-active{
+    border:1px solid red !important;
+}
+/*现金提取中付款付款账户（付款方式）选择*/
+.pattern-payment .bank-name,
+.pattern-payment select{
+    width:187px !important;
+}
+.pattern-payment .bank-detail{
+    margin-left: 20px;
+    width:260px;
+}
+/*财务中心首页点击详细表单关闭按钮样式*/
+.table-show-close{
+    position: absolute;
+    right:10px;
+    top:10px;
+    color: #ccc;
+    cursor: pointer;
+    display: inline-block;
+    width:20px;
+    height:20px;
+    text-align: center;
+}
+.table-show-close:hover{
+    color: #00ab9f;
+}
+
+/*信息管理中收件地址新增样式*/
+.address-add-one,
+.address-add-two {
+    width:100%;
+}
+.address-add-one input{
+    width:564px;
+    margin-left: 20px;
+}
+.address-add-two input{
+    margin-right: 20px;
+    width:365px;
+}
+/*01/20财务中心信息管理P*/
+.margin-reset{
+    margin: 0;
+}
+/***********财务中心结束*************/
+/*----------------zy保单管家结束--------------*/
+/*-------loading-----*/
+.loading{
+    background: url("../../public/images/loading.png") center top no-repeat;
+}
+/*企业产品介绍背景*/
+.qiyejieshao_1{
+    background: url("../../public/images/qiyeyuanfu_bg.png") 0 0 no-repeat;
+    height: 500px;
+}
+/*-------------zy warranty steward change-----------------*/
+.city_list_mode_class select{
+    width:113px;
+    height:100%;
+
+}
+#city_list select{
+    width:110px;
+    height: 33px;
+    padding:5px;
+    border: 1px solid #e5e6e7;
+}
+#city_list select:nth-of-type(1){
+    margin-left:0;
+}
+#city_list select:focus{
+    outline:1px solid #00ab9f;
+}
+
+/*top*/
+.width-max{
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+}
+.text-white{
+    color: #ffffff;
+}
+.font-16{
+    font-size: 16px;
+}
+.login a{
+    color: #ffffff;padding: 9px 15px;
+}
+
+.login a:hover{
+    background-color: #2C8F7B;padding: 9px 15px;
+}
+
+.nav-box {
+    float:right;
+    position:relative;
+    z-index:1000;
+}
+.nav-box .navbar-spacing{
+    letter-spacing:20px;
+}
+.nav-box ul {
+    height: 70px;
+    margin-bottom: 0;
+}
+.nav-box ul li {
+    list-style:none;
+    float:left;
+}
+.nav-box ul li a {
+    margin: 0 35px;
+    line-height: 66px;
+    display: block;
+}
+.nav-box ul li a:hover {
+    color: #00ab9f;
+    border-bottom: 4px solid #00ab9f;
+}
+/*.nav-box ul li a:visited{*/
+    /*color:#676a6c;*/
+/*}*/
+.nav-box ul li.last{
+    font-family:\5b8b\4f53; font-size:12px; padding-top:1px;
+}
+.nav-box ul li.last a {
+    color:#a2a2a1;
+}
+.nav-box ul li.active a{
+    text-align: center;
+    border-bottom: 4px solid #00ab9f;
+    color: #00ab9f;
+}
+/*bottom*/
+.foot-bar{
+    padding: 60px 0;
+}
+.foot-bar ul li {
+    line-height: 34px;
+}
+.foot-bar ul li a{
+    color: #ffffff;font-size: 14px;
+}
+/*修改group sidemenu样式*/
+
+.groupmenu{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    position:relative;
+}
+.groupmenu li,.groupmenu li a,.groupmenu li a:visited{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    width:100%;
+    height:60px;
+    line-height:60px;
+    border-bottom: 1px solid #E7EAEC;
+}
+.groupmenu li a:hover{
+    background: #00A599;
+    color: #fff;
+}
+
+.next-menu{
+    padding-left: 20px;
+    background-color: #fafafa;
+}
+.groupmenu .active a{
+    background-color: #00A599;
+    color: #fff;
+}
+.table-14{
+    margin: 40px auto;
+    width: 90%;
+}
+.table-14 tr td{
+    font-size: 14px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+/*头部三个二维码*/
+ul.head-erwei,
+.head-erwei li{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+.head-erwei{
+    padding-right:30px;
+}
+.head-erwei li{
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    z-index:1001;
+}
+.head-erwei li span.head-hover{
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.head-erwei li span.head-hover-zeo{
+    background: url("../../public/images/weixin-icon.png") no-repeat center center;
+}
+.head-erwei li span.head-hover-one{
+    background: url("../../public/images/weibo-icon.png") no-repeat center center;
+}
+.head-erwei li span.head-hover-two{
+    background: url("../../public/images/bao-icon.png") no-repeat center center;
+}
+.head-erwei li:hover{
+    background-color: #2C8F7B;
+}
+.head-erwei .head-hover-show{ 
+    position: absolute;
+    left: -50px;
+    top: 34px;
+    z-index: 999;
+    display: none;
+    width: 135px;
+    height: 182px;
+}
+.head-erwei .head-hover-show .hover-top-triangle{
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 6px solid #00ab9f;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}
+.head-erwei .head-hover-show .pec-box {
+    display: block;
+    padding: 5px;
+    background-color: #00ab9f;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.head-erwei .head-hover-show .pec-box .remind-font{
+    display: block;
+    font-size: 12px;
+    line-height:18px;
+    margin-top: 6px;
+}
+.table-font tr th,.table-font tr td{
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    vertical-align:middle;
+}
+.list-h{
+    width: 90%;
+    margin: auto;
+}
+.list-h li {
+    line-height: 40px;
+    padding-left: 10px;
+}
+.list-h li:hover{
+    background: #fafafa;
+}
+/*01.04财务中心支付密码样式*/
+.pwdInput {
+    border-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    border-right-width: 1px;
+    border-color: #D4D4D4;
+    text-align: center;
+}
+.pwdInput[disabled]{
+    background-color: #eee;
+    cursor: not-allowed !important;
+}
+.first {
+    border-left-width: 1px;
+}
+.gap {
+    border-left-width: 1px;
+    border-left-style: dashed;
+    border-left-color: #D4D4D4;
+}
+.financial-password-input{
+    width:190px;
+}
+.charge-body.financial-box-width{
+    width:350px;
+}
+/*帮助左侧导航样式*/
+.help-menu{
+    padding: 0;
+    list-style: none;
+}
+.help-menu li{
+    margin-bottom: 0 !important;
+}
+.help-menu li a{
+    padding: 15px 0!important;
+    border-bottom: 1px solid #ffffff;
+    display: block;
+}
+.help-menu li.left-body a{
+    padding:10px 0!important;
+}
+/*01/27关于我们中的左侧帮助导航的样式*/
+#side-menu > li.left-title.active > a{
+    background-color: #fff;
+    color: #676a6c;
+    border-bottom: 1px solid #E7EAEC;
+}
+#side-menu .left-body.active a:hover,
+#side-menu .left-body.active a{
+    color: #fff;
+    background-color: #00ab9f;
+}
+#side-menu .left-body a:hover{
+    color: #fff;
+    background-color: #00ab9f;
+}
+#side-menu .left-body a{
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+.foot-bar .bottom-erwei-font{
+    display: block;
+    margin-top: 1px;
+    font-size: 14px;
+}
+.foot-bar .bottom-erwei-pec{
+    display: block;
+    margin:0 auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none;
+}
+#indent p {
+    text-indent: 2em;
+}
+/*0301财务中心首页表格修改*/
+.ibox-content-no-border{
+    padding: 0 15px;
+    border: 0;
+}
+.no-border{
+    border:0;
+}
+.manage-card{
+    position: relative;
+}
+.manage-card i.fa-times{
+    font-size: 20px;
+    color: #00ab9f;
+    position: absolute;
+    right:10px;
+    top:10px;
+    cursor: pointer;
+}
+.manage-line{
+   margin-bottom: 10px;
+}
+.manage-card i.fa-times:hover{
+    color: #ed5565;
+}
+.manage-card .manage-card-head{
+    width:80px;
+    color: #999;
+}
+.manage-card .manage-card-body{
+    width:770px;
+}
+.manage-card .manage-change{
+    font-size: 14px;
+    position: absolute;
+    right:10px;
+    bottom:10px;
+}
+#receipTitleList .manage-card .manage-change{
+    right:40px;
+    bottom:3px;
+}
+/*财务密码输入框css*/
+.alieditContainer{
+    display: inline-block;
+    zoom: 1;
+    width: 190px;
+    height: 34px;
+    vertical-align: bottom;
+    position: relative;
+    box-sizing: border-box;
+}
+.alieditContainer *{
+    vertical-align: bottom;
+}
+.ui-input{
+    font-size: 12px;
+    color: #595959;
+    vertical-align: middle;
+    outline: none;
+    margin-left: -999px;
+    width: 170px;
+    padding: 2px 5px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    border-top-color: #a6a6a6;
+}
+div.sixDigitPassword{
+    cursor: text;
+    background-color: #fff;
+    outline: none;
+    position: absolute;
+    left:0;
+    top:0;
+    height: 30px;
+    border: 1px solid #ccc;
+    box-sizing: content-box;
+}
+.alieditContainer[data-disabled=disabled] div.sixDigitPassword{
+    background-color: #eee;
+    cursor: not-allowed !important;
+}
+div.sixDigitPassword i{
+    float: left;
+    display: block;
+    height: 6px;
+    padding:12px 0;
+    box-sizing: content-box;
+}
+div.sixDigitPassword i:not(:nth-of-type(1)){
+    border-left: 1px solid #ccc;
+}
+div.sixDigitPassword i.active{
+    background-image: url("../../public/images/pwd/light.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+div.sixDigitPassword b{
+    display: block;
+    margin:0 auto;
+    width: 7px;
+    height: 7px;
+    overflow: hidden;
+    background-image: url("../../public/images/pwd/dot.png");
+}
+div.sixDigitPassword span {
+    position: absolute;
+    display: block;
+    left: -1px;
+    top: -1px;
+    height: 30px;
+    border: 1px solid rgba(82, 168, 236, .8);
+    border: 1px solid #00ffff \9;
+    border-radius: 2px;
+    visibility: hidden;
+    -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-sizing: content-box;
+}
+.payment-right{
+    margin:15px 0;
+}
+.payment-right .payment-left-group{
+    margin-bottom: 15px;
+}
+.login-modal-dialog{
+    width:440px;
+}
+.login-modal-dialog #company_verifyID,
+.login-modal-dialog #verifyID{
+    width:180px;
+    float: left;
+}
+.login-modal-dialog .modal-body{
+    padding:20px 80px 30px;
+}
+.login-modal-dialog .form-group{
+    margin:0;
+}
+.login-modal-dialog .login-name{
+    margin-bottom: 6px;
+}
+.login-modal-dialog .login-input{
+
+}
+/*重新定义各个表格的文字排列*/
+.withdrawTradeLog tr>td:nth-of-type(4),
+.withdrawTradeLog tr>td:nth-of-type(5),
+.chargeTradeLog tr>td:nth-of-type(3),
+.transLog tr>td:nth-of-type(3){
+    text-align: left;
+}
+.money-align-th,
+.billLog tr>th:nth-of-type(4),
+.withdrawTradeLog tr>th:nth-of-type(3),
+.chargeTradeLog tr>th:nth-of-type(2),
+.transLog tr>th:nth-of-type(4){
+    width:120px !important;
+}
+.money-align-td,
+.billLog tr>td:nth-of-type(4),
+.withdrawTradeLog tr>td:nth-of-type(3),
+.chargeTradeLog tr>td:nth-of-type(2),
+.transLog tr>td:nth-of-type(4){
+    width:100px !important;
+    padding:5px 56px !important;
+    text-align: right !important;
+}
+.payment-record tr>td:nth-of-type(3){
+    width:108px !important;
+    padding:5px 30px !important;
+    text-align: right !important;;
+}
+.payment-record tr>td:nth-of-type(4){
+    text-align: left !important;;
+}
+.buy-tab-content{
+    padding: 15px;
+}
+.buy-tab-content p{
+    line-height: 32px;
+    text-indent:2em;
+}
+.buy-tab-content li{
+    line-height: 32px;
+}
+h4.list-group-item-heading{
+    margin-top: 14px;
+}
+.no-text-indent{
+    text-indent: 0 !important;
+}
+.panel-body-table{
+    margin-left: 30px;
+}
+.panel-body-table td{
+    padding:10px;
+}
+.white-bg .form-control[readonly]{
+    background-color: #fff;
+}
+/*理赔协助弹出框样式*/
+/*头部文字*/
+.modal-body-defined h3.top-font{
+    font-weight: normal;
+    color: #18a689;
+    margin:53px 0 36px 0;
+}
+/*下方主体内容*/
+.defined-box .bottom-body,
+.modal-body-defined .defined-box{
+    list-style-type: none;
+}
+.defined-box{
+    padding:0 40px;
+}
+/*下面左右两块儿的样式*/
+.defined-box .ibox{
+    width:100%;
+    height:300px;
+    -webkit-box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    -moz-box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+/*下面左右两块儿的样式--头部*/
+.defined-box .top-head-font{
+    width:100%;
+    height:40px;
+    line-height:40px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+.top-head-font.head-A{
+    background-color: #1aa68b;
+}
+.top-head-font.head-B{
+    background-color: #f6a54a;
+}
+/*下面左右两块儿的样式--body*/
+.bottom-body{
+    padding-top:16px;
+}
+.bottom-body li::before{
+    content: '';
+    width:10px;
+    height:10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.body-A li::before{
+    background-color: #1aa68b;
+}
+.body-B li::before{
+    background-color: #f6a54a;
+}
+.body-A li{
+    line-height:43px;
+}
+.body-B li{
+    line-height:54px;
+}
+.border-A{
+    width:1px;
+    height:180px;
+    background-color: #1aa68b;
+    position: absolute;
+    left:44px;
+    top:74px;
+}
+.border-B{
+    width:1px;
+    height:166px;
+    background-color: #f6a54a;
+    position: absolute;
+    left:44px;
+    top:80px;
+}
+/*claim_sep2文件上传loading...*/
+.upload_mask{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index:9999;
+    display: none;
+}
+.upload_mask_bg{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background-color: rgba(0,0,0,0.2);
+}
+.upload_mask .upload_mask_box{
+    width:336px;
+    height:86px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-168px;
+    margin-top: -43px;
+}
+.upload_mask .upload_mask_gif{
+    display: block;
+    width:auto;
+    height:auto;
+    margin:0 auto 20px;
+}
+.upload_mask_font{
+    width:100%;
+    height:auto;
+    position: absolute;
+    top:53%;
+    left:0;
+    text-align: center;
+    z-index:10;
+    color: #000;
+}
+/*claim_sep2文件上传loading...结束*/
+/*claim_sep2文件上传添加文字说明*/
+.claim_sep2_example .light_box{
+    width:1045px;
+    height:auto;
+    margin:0 auto;
+}
+.claim_sep2_example a{
+    display: block;
+    width:100px;
+    height:auto;
+    float: left;
+    margin-right:35px;
+}
+.claim_sep2_example a span{
+    display: block;
+    text-align: center;
+}
+/*claim_sep2文件上传添加文字说明结束*/
+/*模态框垂直居中*/
+.modal.in .modal-dialog{
+    margin:0;
+    position: absolute;
+    left:50%;
+    top:50%;
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+    transform: 	translate(-50%,-50%);
+}
+/*模态框垂直居中结束*/
+/*start*******swal内容样式***********/
+.swal-h2-style{
+    width:300px !important;
+    margin:25px auto !important;
+}
+.swal-p-style{
+    width:300px !important;
+    margin:0 auto !important;
+    text-align:left !important;
+}
+/*end*******swal内容样式***********/
+/*-----企业和个人帮助----*/
+.help_video{
+    padding:0 40px;
+    list-style: none;
+}
+.help_video .video-click-pec{
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.help_video .video-click-pec img{
+    width:100%;
+    border: 1px solid #FFF;
+}
+.help_video img:hover{
+    border: 1px solid #00ab9f;
+}
+.video-mask-box{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index:9999;
+    display: none;
+}
+.video-mask-box .video-mask{
+    width:100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.video-mask-box .video-box{
+    width:1000px;
+    height:640px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -500px;
+    margin-top: -320px;
+}
+.video-mask-box .video-quit{
+    width:30px;
+    height:30px;
+    position: absolute;
+    top:30px;
+    right:30px;
+    cursor: pointer;
+}
+/*企业和个人帮助技术结束*/
+/*媒体报道样式*/
+.news_item .img_box,
+.news_item .content{
+    float: left;
+}
+.news_item .img_box img{
+ width:100%;
+}
+.news_item .img_box{
+    width:160px;
+    height:100px; 
+}
+.news_item a{
+    padding:20px 0 !important;
+}
+.news_item .bottom,
+.news_item .top{
+    padding-bottom:10px;
+}
+.news_item .content{
+    width:80%;
+    height:auto;
+    line-height:20px;
+}
+.news_item .content .content_title{
+    margin-bottom: 10px;
+}
+.news_item .content .content_abstract{
+    font-size:14px;
+    color: #7f8c8d;
+    text-align: justify;
+    padding-left:32px;
+}
+.news_item .time{
+    color: #BDBDBD;
+    font-size: 12px;
+    float: right;
+}
+.news_item .time i{
+    color: #BDBDBD;
+}
+.news_item span{
+    display: block;
+}
+.top .title{
+    float: left;
+    font-size: 20px;
+}
+/*媒体报道样式结束*/
+/*----新增保险管家链接帮助按钮----*/
+.right-show-box{
+    position: relative;
+    overflow: hidden;
+}
+.right-show-pub{
+    width:130px;
+    height:auto;
+    position: absolute;
+    top:4px;
+    line-height:36px;
+    text-align: center;
+    display: block;
+    background-color: #00ab9f;
+    padding:0 10px;
+    color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 20px 0 0 20px;
+}
+.right-show #icon{
+    font-size: 19px;
+    vertical-align: middle;
+}
+.right-show{
+    right:-85px;
+}
+.right-show a{
+    margin-left: 10px;
+    color: #fff;
+}
+/*-----------结束--------------*/
+/*-----------友情链接-----------*/
+.footer-bottom{
+    background-color: #2F4050;
+    padding: 25px 0 20px 0;
+}
+.friendly-link a:not(:nth-of-type(1)){
+    margin-left: 20px;
+}
+.footer-bottom a{
+    color: #888;
+}
+.footer-bottom a:hover{
+    color: #00ab9f;
+}
+/*-----------连带表格-----------*/
+.table-lian > thead > tr > th{
+    padding: 10px;
+    color: #666666;
+}
+.table-lian > tbody > tr > td{
+    padding: 10px;
+}
+.table-lian > tfoot > tr > td{
+    padding: 10px;
+    color: #D60000;
+}
+.table-error{
+    background: #F5F5F6;
+    color: #D60000;
+}
+/*#1238*/
+.lightBoxGallery-user-defined .feed-photo{
+    max-width:120px;
+}
+/*#1238结束*/
+/*地址选择器*/
+._citys {
+    width: 640px;
+    display: inline-block;
+    border: 1px solid #eeeeee;
+    padding: 5px;
+
+    position: absolute;
+    background-color: #ffffff;
+}
+
+._citys span {
+    color: #00ab9f;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 1px solid #00ab9f;
+    cursor: pointer;
+}
+
+._citys0 {
+    width: 100%;
+    height: 34px;
+    display: inline-block;
+    border-bottom: 2px solid #00ab9f;
+    padding: 0;
+    margin: 0;
+}
+
+._citys0 li {
+    display: inline-block;
+    line-height: 34px;
+    font-size: 15px;
+    color: #888;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.citySel {
+    background-color: #00ab9f;
+    color: #fff !important;
+}
+
+._citys1 {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 0;
+}
+
+._citys1 a {
+    width: 83px;
+    height: 35px;
+    display: inline-block;
+    background-color: #f5f5f5;
+    color: #666;
+    margin-left: 6px;
+    margin-top: 3px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+._citys1 a:hover {
+    color: #fff;
+    background-color: #00ab9f;
+}
+
+.AreaS {
+    background-color: #00ab9f !important;
+    color: #fff !important;
+}

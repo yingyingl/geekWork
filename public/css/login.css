@@ -1,0 +1,117 @@
+#login{
+    min-width:1280px;
+    height:700px;
+    position: relative;
+    overflow: hidden;
+    background-color: #0d0e12;
+}
+#login .bg-img{
+    width:1920px;
+    height:auto;
+    position: absolute;
+    opacity:0;
+    left:50%;
+    top:0;
+    margin-left: -960px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none;
+}
+#login .login-content{
+    width:1140px;
+    height:100%;
+    margin:0 auto;
+    position: relative;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -o-user-select:none;
+    -ms-user-select:none;
+}
+#login .login-font{
+    color: #FFFFFF;
+    font-size: 38px;
+    width:100%;
+    margin: 30px auto 0px;
+    text-align: center;
+}
+#login .login-font img{
+    display: block;
+    width:100%;
+    float: left;
+}
+#login .loginAll{
+    background:rgba(255,255,255,0.8);
+    width: 380px;
+    margin: auto;
+    webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.loginAll .loginAll-box{
+    padding:20px;
+}
+.loginAll .loginAll-box .loginAll-box-bottom{
+    margin:10px 0;
+}
+/*登陆框样式调整*/
+.nav-tabs{
+    border-bottom: 0;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+    background-color: transparent;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+    border:0;
+    color: #666;
+    border-bottom: 2px solid #00a599;
+}
+.nav-tabs > li{
+    width:50%;
+    text-align: center;
+}
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus{
+    color: #666;
+    background-color: transparent;
+    border:0;
+}
+/*注册页面css*/
+#login .login-register{
+    width:400px;
+    top:80px;
+}
+.reg-agreement:hover{
+    color: #ed5565;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
