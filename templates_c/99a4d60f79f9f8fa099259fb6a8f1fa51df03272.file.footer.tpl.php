@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-09 15:06:45
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-09 15:26:13
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:22024589c7775a63a90-70028018%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '99a4d60f79f9f8fa099259fb6a8f1fa51df03272' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\footer.tpl',
-      1 => 1486648990,
+      1 => 1486650320,
       2 => 'file',
     ),
   ),
@@ -15,16 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_589c7775a6ac60_33038999',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_589c7775a6ac60_33038999')) {function content_589c7775a6ac60_33038999($_smarty_tpl) {?><!-- footer 开始 -->
 <div class="row foot-bar navy-bg">
     <div class="container">
         <div class="col-xs-8">
             <div class="col-xs-4" onselectstart="return false;" unselectable="on">
-                <img class="bottom-erwei-pec" src="../../public/images/foot-er.png">
+                <img class="bottom-erwei-pec" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/images/foot-er.png">
                 <span class="bottom-erwei-font text-center">微信关注保险极客</span>
             </div>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
@@ -99,13 +100,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="col-xs-12 text-center">
                 <div class="photos">
                     <a href="../index.htm">
-                        <img src="../../public/images/logo_a.png" alt="logo" title="保险极客"/>
+                        <img src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/images/logo_a.png" alt="logo" title="保险极客"/>
                     </a>
-                    <a id='___szfw_logo___' href="https://credit.szfw.org/CX20150928011852880188.html" target='_blank'><img src="../../public/images/cert.png" border='0' width="90" height="33"/></a>
+                    <a id='___szfw_logo___' href="https://credit.szfw.org/CX20150928011852880188.html" target='_blank'><img src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/images/cert.png" border='0' width="90" height="33"/></a>
                     <?php echo '<script'; ?>
  type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();<?php echo '</script'; ?>
 >
-                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e15072711010859602eeyb000000&a=1&pa=0.06950726862664514" target='_blank'  rel="nofollow"><img src="../../public/images/knet_logo.png" border='0'/></a>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e15072711010859602eeyb000000&a=1&pa=0.06950726862664514" target='_blank'  rel="nofollow"><img src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/images/knet_logo.png" border='0'/></a>
                 </div>
             </div>
         </div>

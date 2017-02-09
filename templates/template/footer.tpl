@@ -3,7 +3,7 @@
     <div class="container">
         <div class="col-xs-8">
             <div class="col-xs-4" onselectstart="return false;" unselectable="on">
-                <img class="bottom-erwei-pec" src="../../public/images/foot-er.png">
+                <img class="bottom-erwei-pec" src="{#static_path#}/images/foot-er.png">
                 <span class="bottom-erwei-font text-center">微信关注保险极客</span>
             </div>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
@@ -78,11 +78,11 @@
             <div class="col-xs-12 text-center">
                 <div class="photos">
                     <a href="../index.htm">
-                        <img src="../../public/images/logo_a.png" alt="logo" title="保险极客"/>
+                        <img src="{#static_path#}/images/logo_a.png" alt="logo" title="保险极客"/>
                     </a>
-                    <a id='___szfw_logo___' href="https://credit.szfw.org/CX20150928011852880188.html" target='_blank'><img src="../../public/images/cert.png" border='0' width="90" height="33"/></a>
+                    <a id='___szfw_logo___' href="https://credit.szfw.org/CX20150928011852880188.html" target='_blank'><img src="{#static_path#}/images/cert.png" border='0' width="90" height="33"/></a>
                     {literal}<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>{/literal}
-                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e15072711010859602eeyb000000&a=1&pa=0.06950726862664514" target='_blank'  rel="nofollow"><img src="../../public/images/knet_logo.png" border='0'/></a>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e15072711010859602eeyb000000&a=1&pa=0.06950726862664514" target='_blank'  rel="nofollow"><img src="{#static_path#}/images/knet_logo.png" border='0'/></a>
                 </div>
             </div>
         </div>

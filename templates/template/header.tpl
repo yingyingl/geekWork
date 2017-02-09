@@ -9,7 +9,7 @@
                                 <span class="head-hover-show">
                                     <span class="hover-top-triangle"></span>
                                     <span class="pec-box">
-                                        <img src="../../public/images/weixin_erweima.jpg" alt="微信二维码">
+                                        <img src="{#static_path#}/images/weixin_erweima.jpg" alt="微信二维码">
                                         <span class="remind-font">关注极客公众号<br/>随身便携百保箱</span>
                                     </span>
                                 </span>
@@ -19,7 +19,7 @@
                                 <span class="head-hover-show">
                                     <span class="hover-top-triangle"></span>
                                     <span class="pec-box">
-                                        <img src="../../public/images/sina_erweima.jpg" alt="微博二维码">
+                                        <img src="{#static_path#}/images/sina_erweima.jpg" alt="微博二维码">
                                         <span class="remind-font">关注极客微博，简约<br/>文字，博览保险众生态</span>
                                     </span>
                                 </span>
@@ -29,7 +29,7 @@
                                 <span class="head-hover-show">
                                     <span class="hover-top-triangle"></span>
                                     <span class="pec-box">
-                                        <img src="../../public/images/baoyan_erweima.jpg" alt="保研班二维码">
+                                        <img src="{#static_path#}/images/baoyan_erweima.jpg" alt="保研班二维码">
                                         <span class="remind-font">关注保研班<br/>洞悉风险，乐享保障</span>
                                     </span>
                                 </span>
@@ -45,7 +45,7 @@
 <div class="row white-bg head-warp">
     <div class="container head">
         <a href="../index.htm" class="pull-left">
-            <img src="../../public/images/logo.png" alt="logo" title="保险极客"/>
+            <img src="{#static_path#}/images/logo.png" alt="logo" title="保险极客"/>
         </a>
                 <span style="float: left;height: 30px;line-height:30px;margin: 20px 0 20px 5px;font-size: 16px;color: #00ab9f;padding-left: 10px;border-left: 1px solid #00ab9f" title="中小企业员工保障">
                     中小企业员工保障
