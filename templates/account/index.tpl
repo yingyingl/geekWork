@@ -4,8 +4,9 @@
 
 {block name="container"}
     <div id="login">
-        <img class="bg-img" src="{#static_path#}/images/login/enterprise.jpg" alt="企业登录背景图" style="opacity: 1;">
-        <img class="bg-img" src="{#static_path#}/images/login/user.jpg" alt="个人用户登录背景图">
+        <img class="bg-img" src="{#static_path#}/images/login/enterprise.jpg"  alt="企业登录背景图" data-evernote-hover-show="true" style="opacity: 1;">
+        <img class="bg-img" src="{#static_path#}/images/login/user.jpg" data-evernote-hover-show="true" alt="个人用户登录背景图">
+
         <div class="login-content">
             <div class="login-font">
                 中小企业员工保障
