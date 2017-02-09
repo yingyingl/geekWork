@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-09 15:58:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-09 16:11:55
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6366589c759c73aa28-09635693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0afa42904bd51713a994380b316ebbcb569c961a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\account\\index.tpl',
-      1 => 1486652256,
+      1 => 1486653113,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -124,9 +124,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         
     <div id="login">
         <img class="bg-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/login/enterprise.jpg"  alt="企业登录背景图" data-evernote-hover-show="true" style="opacity: 1;">
+/images/login/enterprise.jpg"  alt="企业登录背景图" style="opacity: 1;">
         <img class="bg-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/login/user.jpg" data-evernote-hover-show="true" alt="个人用户登录背景图">
+/images/login/user.jpg" alt="个人用户登录背景图">
 
         <div class="login-content">
             <div class="login-font">中小企业员工保障</div>
@@ -144,42 +144,43 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </ul>
 
                     <div class="tab-content">
+                        <!-- 企业用户登录 -->
                         <div id="tab-1" class="tab-pane active">
-                            <!-- 企业用户登录 -->
                             <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
 
-                            <form name="form1" id="companyFormID" action="/login/logindo" method="post">
-                                <div class="alert alert-danger alert-dismissable">
-                                    <p class="small" id="companyErrorMsgID">您输入用户名或密码错误</p>
-                                </div>
+                            <div class="alert alert-danger alert-dismissable">
+                                <p class="small" id="companyErrorMsgID">您输入用户名或密码错误</p>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>企业账号</label>
-                                    <input name="user" id="company_userID" type="text" class="form-control" placeholder="企业账号">
-                                </div>
+                            <div class="form-group">
+                                <label>企业账号</label>
+                                <input name="user" id="company_userID" type="text" class="form-control" placeholder="企业账号">
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="passwordID">登录密码</label>
-                                    <input name="password" id="company_pwdID" type="password" class="form-control" placeholder="密码">
-                                </div>
+                            <div class="form-group">
+                                <label for="passwordID">登录密码</label>
+                                <input name="password" id="company_pwdID" type="password" class="form-control" placeholder="密码">
+                            </div>
 
-                                <div class="form-group">
-                                    <label>验证</label>
-                                    <div class="input-group drag-public" id="dr ag" style="width: 100%;">
-                                        <div id="drag" class="drag-public"></div>
-                                    </div>
+                            <div class="form-group">
+                                <label>验证</label>
+                                <div class="input-group drag-public" id="dr ag" style="width: 100%;">
+                                    <div id="drag" class="drag-public"></div>
                                 </div>
+                            </div>
 
-                                <input type="hidden" value="1" name="isGroupUser"/>
-                                <button type="button" id="company_submit" class="btn btn-warning btn-block">企业用户登录</button>
-                            </form>
+                            <input type="hidden" value="1" name="isGroupUser"/>
+                            <button type="button" id="company_submit" class="btn btn-warning btn-block">企业用户登录</button>
+
                             <div class="loginAll-box-bottom text-right small">
                                 没有账号？
                                 <a href="#" style="border-bottom: 1px solid">企业注册</a>
                             </div>
                         </div>
+
+                        <!-- 个人用户登录 -->
                         <div id="tab-2" class="tab-pane">
-                            <!-- 个人用户登录 -->
+
                             <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
                             <form id="form_password" name="form" action="/Login/logindo" method="post">
                                 <div class="alert alert-danger alert-dismissable">

@@ -1,10 +1,136 @@
-$(document).ready(function(){
-    /*两个拖动插件调用*/
-    var groupDrag=$('#drag');
-    var userDrag=$('#drag2');
-    groupDrag.drag();
-    userDrag.drag();
+/*
+* 登陆
+* */
 
+
+var login = {
+    init: function() {
+        this.start();
+    },
+
+    start: function() {
+        //两个拖动插件调用
+        $('#drag').drag();    //企业登陆拖拽
+        $('#drag2').drag();   //用户登陆拖拽
+
+        //点击切换背景图片
+        var insTabsLi = $("#ins_tabs").find("li"),
+            bgImg = $(".bg-img"),
+            preNum = 0;
+
+        insTabsLi.on("click", function() {
+            var liNum = $(this).index();
+
+            if(preNum != liNum) {
+                bgImg.eq(preNum).animate({
+                    opacity:0
+                });
+                bgImg.eq(liNum).finish();
+                bgImg.eq(liNum).animate({
+                    opacity:1
+                });
+            }
+
+            preNum = liNum;
+        });
+    },
+
+    //企业登录相关
+    companyLogin: function() {
+        //校验企业账号失去焦点
+        $('#company_userID').blur(function() {
+            tool.check.companyNum(this);
+        });
+
+        //
+        $('#company_submit').click(function() {
+            if(tool.company.indenty()) {
+                var options = {
+                    id: this,
+                    url: '/login/postEnterpriseLogin',
+                    data: {
+                        username: $.trim($('#company_userID').val()),
+                        password: $.trim($('#company_pwdID').val())
+                    }
+                };
+
+                tool.ajax.callAjax(options);
+            }
+        });
+
+    }
+};
+
+
+var tool = {
+    dom: {
+        errorBox: '#companyErrorMsgID'
+    },
+
+    company: {
+        indenty: function() {
+            if(!tool.check.companyNum('#company_userID')) {
+                return false;
+            }
+        }
+    },
+
+    check: {
+        //验证企业账号
+        companyNum: function(obj) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                $(tool.dom.errorBox).html('请输入企业账号').parent().show();
+                return false;
+            }
+
+            return true;
+        }
+    },
+
+    ajax: {
+        callAjax: function(options) {
+            if(options.id) {
+                $(options.id).addClass('on');
+            }
+
+            $.ajax({
+                url: options.url,
+                data: options.data,
+                type: options.type ? options.type : 'POST',
+                dataType: "json",
+                success: function(data) {
+                    if (data.success == 1) {
+                        options.success();
+                    }  else {
+                        $(tool.dom.errorBox).html(data.message).parent().show();
+                    }
+                },
+                error: function() {
+                    $(tool.dom.errorBox).html('网络异常').parent().show();
+                }
+            });
+        },
+
+        error: function(obj, message, txt) {
+            $.loading('close');
+            $.tips(message);
+
+            if(obj) {
+                $(obj).removeClass('on');
+            }
+
+            if(obj && txt) {
+                $(obj).text(txt);
+            }
+        }
+    }
+};
+
+login.init();
+
+$(document).ready(function(){
   /*  $('a[data-toggle="tab"]').on('http://www.insgeek.com/Login/show.bs.tab', function (e) {
         $($(e.target).attr('href')+' img').click();
     });*/
@@ -264,23 +390,5 @@ $(document).ready(function(){
             }
         }
     });
-    /*点击切换背景图片*/
-    var insTabsLi=insTabs.find("li"),
-        bgImg=$(".bg-img"),
-        preNum= 0;
-    insTabsLi.on("click", function () {
-        var liNum=$(this).index();
-        if(preNum!=liNum){
-            bgImg.eq(preNum).animate({
-                opacity:0
-            });
-            bgImg.eq(liNum).finish();
-            bgImg.eq(liNum).animate({
-                opacity:1
-            });
-        }else {
 
-        }
-        preNum=liNum;
-    });
 });
