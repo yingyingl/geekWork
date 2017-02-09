@@ -175,26 +175,20 @@
         {include file="template/header.tpl"}
 
         {block name="container"}{/block}
+
         {include file="template/footer.tpl"}
-
-        <!-- Mainly scripts -->
-        <script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
-        <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>
-        <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- Topup -->
-        <script type="text/javascript" src="{#static_path#}/js/topup.js"></script>
-        <!-- 浮动菜单 -->
-        <script type="text/javascript" src="{#static_path#}/js/zzsc.js"></script>
-        <script type="text/javascript" src="{#static_path#}/js/common_ajax.js"></script>
-        <!-- login -->
-        <script src="{#static_path#}/js/igCustom.js"></script>
-
-        {block name="js"}{/block}
     </div>
 </div>
 
 
+<script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
+<script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>
+<script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{#static_path#}/js/topup.js"></script>
+<script src="{#static_path#}/js/zzsc.js"></script>
+<script src="{#static_path#}/js/common_ajax.js"></script>
+<script src="{#static_path#}/js/igCustom.js"></script>
 <script src="{#static_path#}/js/vuejs/vue.js"></script>
 <script src="{#static_path#}/js/ig_common.js"></script>
 <script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>
@@ -209,6 +203,21 @@
 <script src="{#static_path#}/js/plugins/pace/pace.min.js"></script>
 <script src="{#static_path#}/js/plugins/slick/slick.min.js"></script>
 <script src="{#static_path#}/js/plugins/drag/drag.js"></script>
+
+{block name="js"}{/block}
+
+<script>
+    var url1 = window.location.href;
+    if (url1.indexOf('/puser/1') >= 0)
+    {
+        $("#login img").css("opacity","2");
+        $('#groupuser').removeClass("active");
+        $('#tab-1').removeClass("active");
+        $('#puser').addClass("active");
+        $('#tab-2').addClass("active");
+    }
+</script>
+
 <script type="text/javascript">
     $(function () {
         var page= "#"+ $("#page").attr("data-page");
