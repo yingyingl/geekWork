@@ -4,7 +4,7 @@
   ),
   'vars' => 
   array (
-    'static_path' => '/geekwork/public',
+    'static_path' => '/geekwork/static',
     'static_version' => '2016121301',
   ),
 ); ?>
