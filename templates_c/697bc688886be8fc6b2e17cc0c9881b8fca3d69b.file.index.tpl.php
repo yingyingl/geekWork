@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 08:46:00
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 09:33:38
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486712758,
+      1 => 1486715585,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -16,14 +16,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       1 => 1486711384,
       2 => 'file',
     ),
+    '1274aa4b66132fed7876bd1d3251a277d2585188' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
+      1 => 1486715566,
+      2 => 'file',
+    ),
   ),
   'nocache_hash' => '19528589d6fb8f1a826-12757569',
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_589d6fb913e1e4_60934958',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_589d6fb913e1e4_60934958')) {function content_589d6fb913e1e4_60934958($_smarty_tpl) {?><!DOCTYPE HTML>
 <html>
@@ -77,6 +83,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <![endif]-->
 
     
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/group/proshow.css" rel="stylesheet">
+
 </head>
 <body class="top-navigation gray-bg">
 <!--固定定位回到顶部-->
@@ -122,91 +131,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="wrapper wrapper-content">
     <div class="container">
     <div class="row">
-    <div class="col-xs-2">
-        <div class="top-border white-bg">
-            <ul class="nav metismenu" id="side-menu">
-                <li id="index-group">
-                    <a href="/templates/group/index.html">
-                        <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-calendar-o"></i><span class="nav-label">保障管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav left-m collapse">
-                        <li id="insurance">
-                            <a href="/templates/group/insuranceList.html">
-                                <i class="fa fa-list-alt"></i>保障方案
-                            </a>
-                        </li>
-                        <li id="userlist">
-                            <a href="/templates/group/userList">
-                                <i class="fa fa-sitemap"></i>成员管理
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i><span class="nav-label">数据统计</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav left-m collapse">
-                        <li id="lipei_s">
-                            <a href="/templates/group/DataStatistics/lipei_statistical">
-                                <i class="fa fa-line-chart"></i>报销统计
-                            </a>
-                        </li>
-                        <li id="user_s">
-                            <a href="/templates/group/DataStatistics/user_statistical">
-                                <i class="fa fa-area-chart"></i>人管统计
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-calculator"></i><span class="nav-label">财务中心</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav left-m nav-second-level collapse">
-                        <li id="financialIndex">
-                            <a href="financial/index"><i class="fa fa-list"></i> 总览</a>
-                        </li>
-                        <li id="charge">
-                            <a href="financial/charge"><i class="fa fa-money"></i> 充值</a>
-                        </li>
-                        <li id="payment">
-                            <a href="financial/payment"><i class="fa fa-external-link"></i> 缴费</a>
-                        </li>
-                        <li id="withdraw">
-                            <a href="financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
-                        </li>
-                        <li id="manageInfo">
-                            <a href="financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
-                        </li>
-                        <li id="changeFinancialPassword" style="margin-bottom:0">
-                            <a href="financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
-                        </li>
-                    </ul>
-                </li>
-                <li id="updateGroupUserInfo">
-                    <a href="group/updateGroupUserInfo">
-                        <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
-                    </a>
-                </li>
-                <li id="admin_log">
-                    <a href="DataStatistics/admin_log">
-                        <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/group/proshow.css" rel="stylesheet">
+
+    <?php /*  Call merged included template "template/sidebar.tpl" */
+$_tpl_stack[] = $_smarty_tpl;
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
+content_589d7ae20da7c6_73902433($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); 
+/*  End of included template "template/sidebar.tpl" */?>
+
     <div id="page" data-page="index-group"></div>
     <div class="col-xs-10">
     <div class="ibox-title">
@@ -2401,3 +2333,88 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 </body>
 </html><?php }} ?>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 09:33:38
+         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_589d7ae20da7c6_73902433')) {function content_589d7ae20da7c6_73902433($_smarty_tpl) {?><div class="col-xs-2">
+    <div class="top-border white-bg">
+        <ul class="nav metismenu" id="side-menu">
+            <li id="index-group">
+                <a href="/templates/group/index.html">
+                    <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-calendar-o"></i><span class="nav-label">保障管理</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="insurance">
+                        <a href="/templates/group/insuranceList.html">
+                            <i class="fa fa-list-alt"></i>保障方案
+                        </a>
+                    </li>
+                    <li id="userlist">
+                        <a href="/templates/group/userList">
+                            <i class="fa fa-sitemap"></i>成员管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i><span class="nav-label">数据统计</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="lipei_s">
+                        <a href="/templates/group/DataStatistics/lipei_statistical">
+                            <i class="fa fa-line-chart"></i>报销统计
+                        </a>
+                    </li>
+                    <li id="user_s">
+                        <a href="/templates/group/DataStatistics/user_statistical">
+                            <i class="fa fa-area-chart"></i>人管统计
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-calculator"></i><span class="nav-label">财务中心</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m nav-second-level collapse">
+                    <li id="financialIndex">
+                        <a href="financial/index"><i class="fa fa-list"></i> 总览</a>
+                    </li>
+                    <li id="charge">
+                        <a href="financial/charge"><i class="fa fa-money"></i> 充值</a>
+                    </li>
+                    <li id="payment">
+                        <a href="financial/payment"><i class="fa fa-external-link"></i> 缴费</a>
+                    </li>
+                    <li id="withdraw">
+                        <a href="financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
+                    </li>
+                    <li id="manageInfo">
+                        <a href="financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
+                    </li>
+                    <li id="changeFinancialPassword" style="margin-bottom:0">
+                        <a href="financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="updateGroupUserInfo">
+                <a href="group/updateGroupUserInfo">
+                    <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
+                </a>
+            </li>
+            <li id="admin_log">
+                <a href="DataStatistics/admin_log">
+                    <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div><?php }} ?>
