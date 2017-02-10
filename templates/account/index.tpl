@@ -29,8 +29,8 @@
                         <div id="tab-1" class="tab-pane active">
                             <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
 
-                            <div class="alert alert-danger alert-dismissable">
-                                <p class="small" id="companyErrorMsgID">您输入用户名或密码错误</p>
+                            <div class="alert alert-danger alert-dismissable" style="display: none;">
+                                <p class="small" id="companyErrorMsgID"></p>
                             </div>
 
                             <div class="form-group">
@@ -64,8 +64,8 @@
 
                             <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
                             <form id="form_password" name="form" action="/Login/logindo" method="post">
-                                <div class="alert alert-danger alert-dismissable">
-                                    <p class="small" id="errorMsgID">您输入用户名或密码错误.</p>
+                                <div class="alert alert-danger alert-dismissable" style="display: none;">
+                                    <p class="small" id="errorMsgID"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>登录名称</label>
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <input name="fromURL" type="hidden" value="/login/reg" />
-                                <button type="button" id="form_password_submit" class="btn btn-warning btn-block">个人用户登录</button>
+                                <button type="button" id="user_submit" class="btn btn-warning btn-block">个人用户登录</button>
                             </form>
 
                             <div class="loginAll-box-bottom text-right small">
@@ -95,6 +95,8 @@
             </div>
         </div>
     </div>
+
+    <input type="hidden" id="redirect" value="{$data.redirect}" >
 {/block}
 
 

@@ -1,13 +1,13 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 08:24:22
-         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6366589c759c73aa28-09635693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 08:30:10
+         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\reset.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:6048589d6be46ca0e0-74115103%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '0afa42904bd51713a994380b316ebbcb569c961a' => 
+    '8af48f90540018cba8c25de92c7867112da3e7d1' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\account\\index.tpl',
-      1 => 1486711415,
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\account\\reset.tpl',
+      1 => 1486711807,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -17,15 +17,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6366589c759c73aa28-09635693',
+  'nocache_hash' => '6048589d6be46ca0e0-74115103',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_589c759c790fd3_71384231',
+  'unifunc' => 'content_589d6be477eaa3_38100584',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_589c759c790fd3_71384231')) {function content_589c759c790fd3_71384231($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_589d6be477eaa3_38100584')) {function content_589d6be477eaa3_38100584($_smarty_tpl) {?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -77,9 +77,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <![endif]-->
 
     
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/login.css"  rel="stylesheet">
-
 </head>
 <body class="top-navigation gray-bg">
 <!--固定定位回到顶部-->
@@ -122,91 +119,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
         
-    <div id="login">
-        <img class="bg-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/login/enterprise.jpg"  alt="企业登录背景图" style="opacity: 1;">
-        <img class="bg-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/login/user.jpg" alt="个人用户登录背景图">
-
-        <div class="login-content">
-            <div class="login-font">中小企业员工保障</div>
-
-            <div class="loginAll"  onselectstart="return false;" unselectable="on">
-                <div class="loginAll-box">
-
-                    <ul id="ins_tabs" class="nav-tabs">
-                        <li class="active" id="groupuser">
-                            <a data-toggle="tab" href="#tab-1" aria-expanded="true">企业管理员登录</a>
-                        </li>
-                        <li class="" id="puser">
-                            <a data-toggle="tab" href="#tab-2" aria-expanded="false" class="count-info">个人用户登录</a>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <!-- 企业用户登录 -->
-                        <div id="tab-1" class="tab-pane active">
-                            <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
-
-                            <div class="alert alert-danger alert-dismissable" style="display: none;">
-                                <p class="small" id="companyErrorMsgID"></p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>企业账号</label>
-                                <input name="user" id="company_userID" type="text" class="form-control" placeholder="企业账号">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="passwordID">登录密码</label>
-                                <input name="password" id="company_pwdID" type="password" class="form-control" placeholder="密码">
-                            </div>
-
-                            <div class="form-group">
-                                <label>验证</label>
-                                <div class="input-group drag-public" id="dr ag" style="width: 100%;">
-                                    <div id="drag" class="drag-public"></div>
-                                </div>
-                            </div>
-
-                            <input type="hidden" value="1" name="isGroupUser"/>
-                            <button type="button" id="company_submit" class="btn btn-warning btn-block">企业用户登录</button>
-
-                            <div class="loginAll-box-bottom text-right small">
-                                没有账号？
-                                <a href="#" style="border-bottom: 1px solid">企业注册</a>
-                            </div>
+    <div class="row wrapper wrapper-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            找回密码
                         </div>
+                        <div class="ibox-content">
+                            <div class="alert alert-warning">
+                                <h2>开始找回密码</h2>
+                                请输入您注册时使用的用户名/手机号码/身份证号码<br />如果需要帮助，请联系我们的 <strong>客服专员400-886-2309</strong>
+                            </div>
+                            <div class="passwordBox" style="padding-top: 50px;padding-bottom: 50px">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
 
-                        <!-- 个人用户登录 -->
-                        <div id="tab-2" class="tab-pane">
+                                            <div class="col-lg-12">
+                                                <div class="alert alert-danger alert-dismissable" id="errorMsgID">
+                                                    错误信息提示.
+                                                </div>
+                                                <form id="submitUserNameFormID" class="m-t" role="form" method="post" action="http://www.insgeek.com/Login/forget_pw2.html">
+                                                    <div class="form-group">
+                                                        <input name="username" id="usernameID" type="text" class="form-control" placeholder="账号 / 手机号码 / 身份证号码"/>
+                                                    </div>
 
-                            <div class="alert alert-warning" style="font-size: 13px;">不建议您在公共场所登录或保存登录信息</div>
-                            <form id="form_password" name="form" action="/Login/logindo" method="post">
-                                <div class="alert alert-danger alert-dismissable" style="display: none;">
-                                    <p class="small" id="errorMsgID"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>登录名称</label>
-                                    <input name="user" id="userID" type="text" class="form-control" placeholder="账号 / 手机号码 / 身份证">
-                                </div>
-                                <div class="form-group">
-                                    <label for="passwordID">登录密码</label>
-                                    <input name="password" id="passwordID" type="password" class="form-control" placeholder="密码">
-                                </div>
-                                <div class="form-group">
-                                    <label>验证</label>
-
-                                    <div class="input-group">
-                                        <div id="drag2" class="drag-public" style="width: 340px"></div>
+                                                    <button type="button" id="submitBtnId" class="btn btn-primary block full-width m-b">下一步</button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <input name="fromURL" type="hidden" value="/login/reg" />
-                                <button type="button" id="user_submit" class="btn btn-warning btn-block">个人用户登录</button>
-                            </form>
-
-                            <div class="loginAll-box-bottom text-right small">
-                                <a href="#" style="border-bottom: 1px solid">忘记密码?</a>
+                                <hr>
                             </div>
                         </div>
                     </div>
@@ -214,9 +160,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
         </div>
     </div>
-
-    <input type="hidden" id="redirect" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['redirect'];?>
-" >
 
 
         <?php echo $_smarty_tpl->getSubTemplate ("template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -314,11 +257,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /js/plugins/drag/drag.js"><?php echo '</script'; ?>
 >
 
-
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/login/login02.js"><?php echo '</script'; ?>
->
 
 
 <?php echo '<script'; ?>

@@ -217,22 +217,5 @@
         $('#tab-2').addClass("active");
     }
 </script>
-
-<script type="text/javascript">
-    $(function () {
-        var page= "#"+ $("#page").attr("data-page");
-        $(page).addClass("active");
-        $(page).parent().addClass("in");
-        $(page).parent().parent().addClass("active");
-        //alert(page);
-        $('.date').datepicker({
-            format: 'yyyy-mm-dd',
-            keyboardNavigation: false,
-            forceParse: false,
-            autoclose: true
-            //todayBtn: 'linked'
-        });
-    });
-</script>
 </body>
 </html>

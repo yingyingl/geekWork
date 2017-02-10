@@ -1,11 +1,8 @@
-/*
-* 登陆
-* */
-
-
 var login = {
     init: function() {
         this.start();
+        this.companyLogin();
+        this.userLogin();
     },
 
     start: function() {
@@ -33,58 +30,199 @@ var login = {
 
             preNum = liNum;
         });
+
+        $('.form-control').focus(function() {
+            tool.ajax.errorHide();
+            $(this).parent().removeClass('has-error');
+        });
+
+        $(document).on("keydown", function (event) {
+            var e = event || window.event;
+            if(e && e.keyCode == 13) {
+                var num = $("#ins_tabs").find("li.active").index();
+                if(num == 0) {
+                    $('#company_submit').click();
+                }else if(num==1){
+                    $('#user_submit').click();
+                }
+            }
+        });
     },
 
     //企业登录相关
     companyLogin: function() {
         //校验企业账号失去焦点
         $('#company_userID').blur(function() {
-            tool.check.companyNum(this);
+            tool.check.userId(this, 1);
         });
 
-        //
+        //校验企业密码失去焦点
+        $('#company_pwdID').blur(function() {
+            tool.check.userPwd(this, 1);
+        });
+
+        //企业用户登录按钮
         $('#company_submit').click(function() {
-            if(tool.company.indenty()) {
-                var options = {
-                    id: this,
-                    url: '/login/postEnterpriseLogin',
-                    data: {
-                        username: $.trim($('#company_userID').val()),
-                        password: $.trim($('#company_pwdID').val())
-                    }
-                };
+           tool.company.load(this, 1);
+        });
+    },
 
-                tool.ajax.callAjax(options);
-            }
+    //个人用户登录
+    userLogin: function() {
+        //校验用户账号失去焦点
+        $('#userID').blur(function() {
+            tool.check.userId(this, 2);
         });
 
+        //校验用户密码失去焦点
+        $('#passwordID').blur(function() {
+            tool.check.userPwd(this, 2);
+        });
+
+        //个人用户登录按钮
+        $('#user_submit').click(function() {
+            tool.user.load(this, 2);
+        });
     }
 };
 
 
 var tool = {
-    dom: {
-        errorBox: '#companyErrorMsgID'
-    },
-
     company: {
-        indenty: function() {
-            if(!tool.check.companyNum('#company_userID')) {
+        indenty: function(obj, flag) {
+            if($(obj).hasClass('on')) {
                 return false;
             }
+
+            if(!tool.check.userId('#company_userID', flag) || !tool.check.userPwd('#company_pwdID', flag)) {
+                $('#drag').reset();
+                return false;
+            }
+
+            if(!tool.check.drag('#drag', flag)) {
+                return false;
+            }
+
+            return true;
+        },
+
+        load: function(obj, flag) {
+            if(!tool.company.indenty(obj, flag)) {
+                return;
+            }
+
+            var options = {
+                id: obj,
+                flag: flag,
+                url: '/login/postEnterpriseLogin',
+                data: {
+                    username: $.trim($('#company_userID').val()),
+                    password: $.trim($('#company_pwdID').val())
+                },
+                success: function() {
+                    location.href = $('#redirect').val();
+                },
+                error: function() {
+                    $('#company_pwdID').val('');
+                    $('#drag').reset();
+                }
+            };
+
+            tool.ajax.callAjax(options);
+
+        }
+    },
+
+    user: {
+        indenty: function(obj, flag) {
+            if($(obj).hasClass('on')) {
+                return false;
+            }
+
+            if(!tool.check.userId('#userID', flag) || !tool.check.userPwd('#passwordID', flag)) {
+                $('#drag2').reset();
+                return false;
+            }
+
+            if(!tool.check.drag('#drag2', flag)) {
+                return false;
+            }
+
+            return true;
+        },
+
+        load: function(obj, flag) {
+            if(!tool.user.indenty(obj, flag)) {
+                return;
+            }
+
+            var options = {
+                id: obj,
+                flag: flag,
+                url: '/login/postPersonLogin',
+                data: {
+                    username: $.trim($('#userID').val()),
+                    password: $.trim($('#passwordID').val())
+                },
+                success: function() {
+                    location.href = $('#redirect').val();
+                },
+                error: function() {
+                    $('#passwordID').val('');
+                    $('#drag2').reset();
+                }
+            };
+
+            tool.ajax.callAjax(options);
+
         }
     },
 
     check: {
-        //验证企业账号
-        companyNum: function(obj) {
+        //账号
+        userId: function(obj, flag) {
             var v = $.trim($(obj).val());
 
             if(v == '') {
-                $(tool.dom.errorBox).html('请输入企业账号').parent().show();
+                tool.ajax.error('请输入' + (flag == 2 ? '登陆名称' : '企业账号'), flag);
+                $(obj).parent().addClass('has-error');
                 return false;
             }
 
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        //密码
+        userPwd: function(obj, flag) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                tool.ajax.error('请输入登陆密码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            if(v.length < 6 || v.length > 12) {
+                tool.ajax.error('请输入正确的登陆密码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        drag: function(obj, flag) {
+            if(!$(obj).isOk()){
+                tool.ajax.error('请拖动滑块进行验证', flag);
+
+                return;
+            }
+
+            tool.ajax.errorHide(flag);
             return true;
         }
     },
@@ -104,291 +242,31 @@ var tool = {
                     if (data.success == 1) {
                         options.success();
                     }  else {
-                        $(tool.dom.errorBox).html(data.message).parent().show();
+                        tool.ajax.error(data.message, options.flag);
+
+                        options.error();
                     }
                 },
                 error: function() {
-                    $(tool.dom.errorBox).html('网络异常').parent().show();
+                    tool.ajax.error('网络异常' , options.flag);
+
+                    options.error();
                 }
             });
         },
 
-        error: function(obj, message, txt) {
-            $.loading('close');
-            $.tips(message);
+        error: function(message, flag, obj) {
+            $(flag == 1 ? '#companyErrorMsgID' : '#errorMsgID').html(message).parent().show();
 
             if(obj) {
                 $(obj).removeClass('on');
             }
+        },
 
-            if(obj && txt) {
-                $(obj).text(txt);
-            }
+        errorHide: function(flag) {
+            $(flag == 1 ? '#companyErrorMsgID' : '#errorMsgID').html('').parent().hide();
         }
     }
 };
 
 login.init();
-
-$(document).ready(function(){
-  /*  $('a[data-toggle="tab"]').on('http://www.insgeek.com/Login/show.bs.tab', function (e) {
-        $($(e.target).attr('href')+' img').click();
-    });*/
-    var scene = document.getElementById('scene');
-    var errorMsgObj=$('#errorMsgID');
-    var root = "../index.htm"
-    var errorMsgGroupObj=errorMsgObj.parent();
-    errorMsgGroupObj.hide();
-    /*检查用户名*/
-    $('#userID').on('blur',function()
-    {
-        var parent=$(this).parent();
-        parent.removeClass('has-error');
-        errorMsgGroupObj.hide();
-        var user=$.trim($(this).val());
-        if(user.length==0)
-        {
-            parent.addClass('has-error');
-        }
-    });
-
-
-    /*检查用户密码*/
-    $('#passwordID').on('blur',function()
-    {
-        var parent=$(this).parent();
-        parent.removeClass('has-error');
-        var password=$(this).val();
-        var result=check_password_format(password);
-        if(result==0)
-        {
-            parent.addClass('has-error');
-        }
-    });
-
-    function check_all_inputs()
-    {
-        if(!userDrag.isOk()) {
-            return showUserError('请拖动滑块进行验证');
-        }
-        var user=$.trim($('#userID').val());
-        var userParent=$('#userID').parent();
-        var password=$('#passwordID').val();
-        var passwordParent=$('#passwordID').parent();
-        userParent.removeClass('has-error');
-        passwordParent.removeClass('has-error');
-        errorMsgGroupObj.hide();
-        var account_flag=true;
-        var password_flag=true;
-//            var verify_flag=true;
-        var user_examine_flag = '';
-//            var verify_empty_flag=true;
-        var password_empty_flag = true;
-        callAjax({'user': user},0,function (response){
-            user_examine_flag = response;
-        },"../check/getGroupUserListData/index.htm"/*tpa=http://www.insgeek.com/check/getGroupUserListData/*/);
-        if (user.length==0)
-        {
-            account_flag=false;
-        }
-//            /****************用户名错误时候的验证*********************/
-        else if (check_password_format(password)==0) {
-            password_empty_flag=false;
-        }else if(!check_user_password_match_ajax(user,password,root)) {
-            password_flag=false;
-        }
-        //检查验证码
-        /*var verifyCode=$.trim($('#verifyID').val());
-         var verifyCodeParent=$('#verifyID').parent().parent();
-         var verifyCodeImgChange=$("#verify_code");
-         verifyCodeParent.removeClass('has-error');
-
-         var verifyRel = check_img_verify_mob(verifyCode, root);
-         if (verifyRel==0) {
-         verify_empty_flag=false;
-         } else if(verifyRel==2||verifyRel==3){
-         verify_flag=false;
-         }*/
-        /*用户名错误时候的验证*/
-        if(!account_flag) {
-            userDrag.reset();
-            userParent.addClass('has-error');
-            return showUserError('用户名格式错误，请使用用户名/手机号/身份证进行登录');
-        }else if(!password_empty_flag) {
-            userDrag.reset();
-//                verifyCodeImgChange.find("img").click();
-            passwordParent.addClass('has-error');
-            return showUserError('密码不能为空');
-        }else if(user_examine_flag ==0){
-            userDrag.reset();
-//                verifyCodeImgChange.find("img").click();
-            userParent.addClass('has-error');
-            passwordParent.addClass('has-error');
-            return showUserError('您申请的保障方案正在审核中，请联系贵公司HR或服务提供商');
-        }else if(!password_flag) {
-            userDrag.reset();
-//                verifyCodeImgChange.find("img").click();
-            userParent.addClass('has-error');
-            passwordParent.addClass('has-error');
-            return showUserError('用户名或密码错误');
-        }
-        return true;
-    }
-    function showUserError(msg){
-        errorMsgObj.html(msg).show();
-        errorMsgGroupObj.show();
-        return false;
-    }
-
-    $('#verifyID').on('focus',function()
-    {
-        $(this).parent().parent().removeClass('has-error');
-    });
-
-
-    /*提交登录表单*/
-    function userClick(){
-        if(check_all_inputs())
-        {
-            $('#form_password').submit();
-        }
-    }
-    $('#form_password_submit').on('click',userClick);
-
-
-    /*******************************企业登录相关*******************************/
-    var companyErrorMsgObj=$('#companyErrorMsgID');
-    var companyErrorParentObj=companyErrorMsgObj.parent();
-    var companyUserObj=$('#company_userID');
-    var companyUserObjParent=companyUserObj.parent();
-    var companyPwdObj=$('#company_pwdID');
-    var companyPwdObjParent=companyPwdObj.parent();
-    var companyVerifyObj=$('#company_verifyID');
-    var companyVerifyObjParent=companyVerifyObj.parent();
-    var companySubmitID=$('#company_submit');
-    companyErrorMsgObj.html('');
-    companyErrorParentObj.hide();
-    companyUserObj.on('blur',function(){
-        var account=$.trim($(this).val());
-        if(!checkUserFormat(account))
-        {
-            companyUserObjParent.addClass("has-error");
-        }else if(companyUserObjParent.attr("class").indexOf("has-error")!=-1){
-            companyUserObjParent.removeClass("has-error");
-        }
-    });
-
-    companyPwdObj.on('blur',function(){
-        var password=$(this).val();
-        if (!checkPasswordFormat(password))
-        {
-            companyPwdObjParent.addClass("has-error");
-        }else  if(companyPwdObjParent.attr("class").indexOf("has-error")!=-1){
-            companyPwdObjParent.removeClass("has-error");
-        }
-    });
-
-
-    function checkUserFormat(user)
-    {
-        var flag=true;
-        if(user.length==0)
-        {
-            flag=false;
-        }
-        return flag;
-    }
-
-    function checkPasswordFormat(password)
-    {
-        return password.length!=0;
-    }
-
-    function checkCompanyAllInputs()
-    {
-        var flag=false;
-        var account=$.trim(companyUserObj.val());
-        var password=companyPwdObj.val();
-        companyErrorMsgObj.html('');
-        if(!groupDrag.isOk()){
-            showCompanyError('请拖动滑块进行验证',false);
-        }else if (!checkUserFormat(account))
-        {
-            groupDrag.reset();
-            companyUserObjParent.addClass("has-error");
-            showCompanyError('请输入公司账号',false);
-        } else if (!checkPasswordFormat(password))
-        {
-            groupDrag.reset();
-            companyPwdObjParent.addClass("has-error");
-            showCompanyError('账户或密码错误',true);
-        }else if(!checkPassword(account,password))
-        {
-            groupDrag.reset();
-            companyPwdObjParent.addClass("has-error");
-            companyUserObjParent.addClass("has-error");
-            showCompanyError('账户或密码错误',true);
-        }
-        else
-        {
-            flag=true;
-        }
-        return flag;
-
-    }
-    function showCompanyError(msg,isRefreshVerify){
-        if(isRefreshVerify){
-            companyVerifyObj.next().find('img').click();
-        }
-        companyErrorMsgObj.html(msg);
-        companyErrorParentObj.show();
-    }
-    function checkGroupUserExists(account)
-    {
-        var flag=false;
-        callAjax( { "user": account }, 0, function ( response ) {
-            if ( response ) {
-                flag=true;
-            }
-        }, "../check/checkGroupUserExistsAjax/index.htm"/*tpa=http://www.insgeek.com/check/checkGroupUserExistsAjax/*/ );
-        return flag;
-    }
-    function checkPassword(account,password)
-    {
-        var flag=false;
-        var option='group';
-        callAjax( { 'option' : option, 'password' : password, 'user' : account }, 0, function ( response ) {
-            if ( response == 1 ) {
-                flag= true;/*密码正确*/
-            }
-        }, "../check/check_password_ajax/index.htm"/*tpa=http://www.insgeek.com/check/check_password_ajax/*/ );
-        return flag;
-    }
-    function companyClick(){
-        if(companyPwdObjParent.attr("class").indexOf("has-error")!=-1){
-            companyPwdObjParent.removeClass("has-error");
-        }else if(companyUserObjParent.attr("class").indexOf("has-error")!=-1){
-            companyUserObjParent.removeClass("has-error");
-        }
-        if(checkCompanyAllInputs())
-        {
-            $('#companyFormID').submit();
-        }
-    }
-
-    companySubmitID.on('click',companyClick);
-    /*点击enter键实现同样的点击效果*/
-    var insTabs=$("#ins_tabs");
-    $(document).on("keydown", function (event) {
-        var e=event||window.event;
-        if(e&& e.keyCode==13){
-            var num=insTabs.find("li.active").index();
-            if(num==0){
-                companyClick();
-            }else if(num==1){
-                userClick();
-            }
-        }
-    });
-
-});

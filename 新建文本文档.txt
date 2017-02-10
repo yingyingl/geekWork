@@ -1,0 +1,7 @@
+post   /login/postEnterpriseLogin  参数 username   password
+
+返回： success=1 表示成功 0 错误  ，  message
+
+个人登录：  post   /login/postPersonLogin  参数 username   password
+
+登录成功后，跳转到 $data.redirect 
