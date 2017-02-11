@@ -99,24 +99,7 @@
                                                 <th rowspan="1" colspan="1" style="width: 121px;">操作</th>
                                             </tr>
                                             </thead>
-                                            <tbody id="tbody_2955" starttime="1485187200">
-                                            <tr id="77104" class="odd">
-                                                <td class=" "><input type="checkbox" name="idArr[]" value="77104" class="form-control"></td>
-                                                <td class=" "><div class="table-h table-name" style="width: 70px" title="啦啦"> 啦啦</div></td>
-                                                <td class=" "><div class="table-h"> 522634197506235758</div></td>
-                                                <td><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
-                                                <td class=" "><div class="table-h text-center">2017-03-24</div></td>
-                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
-                                                <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
-                                                <td class=" ">
-                                                    <div class="btn-group">
-                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>
-                                                        <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
 
                                         <div class="pagination" id="pagination{$insuranceList.id}"></div>
