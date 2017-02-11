@@ -211,7 +211,7 @@ a:hover{
     display: block;
     width:100%;
     height:100%;
-    background-image: url("../../public/images/right-nav.png");
+    background-image: url("../images/right-nav.png");
     background-repeat: no-repeat;
     background-color: #00a599;
     border-radius: 5px;
@@ -767,7 +767,7 @@ h2.favorable{
 }
 /*财务中心click选中后的样式*/
 .finance-active{
-    background: url("../../public/images/finance/selected-icon.png") no-repeat right bottom;
+    background: url("../images/finance/selected-icon.png") no-repeat right bottom;
     border: 1px solid #e4393c !important;
 }
 
@@ -1243,11 +1243,11 @@ i{
 /*----------------zy保单管家结束--------------*/
 /*-------loading-----*/
 .loading{
-    background: url("../../public/images/loading.png") center top no-repeat;
+    background: url("../images/loading.png") center top no-repeat;
 }
 /*企业产品介绍背景*/
 .qiyejieshao_1{
-    background: url("../../public/images/qiyeyuanfu_bg.png") 0 0 no-repeat;
+    background: url("../images/qiyeyuanfu_bg.png") 0 0 no-repeat;
     height: 500px;
 }
 /*-------------zy warranty steward change-----------------*/
@@ -1405,13 +1405,13 @@ ul.head-erwei,
     height: 100%;
 }
 .head-erwei li span.head-hover-zeo{
-    background: url("../../public/images/weixin-icon.png") no-repeat center center;
+    background: url("../images/weixin-icon.png") no-repeat center center;
 }
 .head-erwei li span.head-hover-one{
-    background: url("../../public/images/weibo-icon.png") no-repeat center center;
+    background: url("../images/weibo-icon.png") no-repeat center center;
 }
 .head-erwei li span.head-hover-two{
-    background: url("../../public/images/bao-icon.png") no-repeat center center;
+    background: url("../images/bao-icon.png") no-repeat center center;
 }
 .head-erwei li:hover{
     background-color: #2C8F7B;
@@ -1642,7 +1642,7 @@ div.sixDigitPassword i:not(:nth-of-type(1)){
     border-left: 1px solid #ccc;
 }
 div.sixDigitPassword i.active{
-    background-image: url("../../public/images/pwd/light.gif");
+    background-image: url("../images/pwd/light.gif");
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -1652,7 +1652,7 @@ div.sixDigitPassword b{
     width: 7px;
     height: 7px;
     overflow: hidden;
-    background-image: url("../../public/images/pwd/dot.png");
+    background-image: url("../images/pwd/dot.png");
 }
 div.sixDigitPassword span {
     position: absolute;

@@ -187,7 +187,7 @@
 <script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="{#static_path#}/js/topup.js"></script>
 <script src="{#static_path#}/js/zzsc.js"></script>
-<script src="{#static_path#}/js/common_ajax.js"></script>
+{*<script src="{#static_path#}/js/common_ajax.js"></script>*}
 <script src="{#static_path#}/js/igCustom.js"></script>
 <script src="{#static_path#}/js/vuejs/vue.js"></script>
 <script src="{#static_path#}/js/ig_common.js"></script>

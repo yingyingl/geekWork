@@ -3,6 +3,7 @@ var login = {
         this.start();
         this.companyLogin();
         this.userLogin();
+        this.register();
     },
 
     start: function() {
@@ -82,6 +83,52 @@ var login = {
         //个人用户登录按钮
         $('#user_submit').click(function() {
             tool.user.load(this, 2);
+        });
+    },
+
+    //注册
+    register: function() {
+        //改变图形验证码
+        $('#changeCode').click(function() {
+            var flag = $(this).data('flag'),
+                dates = (new Date()).getTime();
+
+            $(this).attr('src', flag + '&v=' + dates);
+        });
+
+        //发送短信验证码
+        $('#setMobileVerifyID').click(function() {
+            tool.reg.code(this, 0);
+        });
+
+        //校验用户账号失去焦点
+        $('#groupAccountIDEnterprise').blur(function() {
+            tool.check.userId(this, 0);
+        });
+
+        $('#imgCodeID').blur(function() {
+            tool.check.imgCode(this, 0);
+        });
+
+        $('#mobileID').blur(function() {
+            tool.check.mobile(this, 0);
+        });
+
+        $('#codeID').blur(function() {
+            tool.check.code(this, 0);
+        });
+
+        //校验用户密码失去焦点
+        $('#passwordIDEnterprise').blur(function() {
+            tool.check.userPwd(this, 0);
+        });
+        $('#repeatIDEnterprise').blur(function() {
+            tool.check.repeatPwd(this, 0);
+        });
+
+        //个人用户注册
+        $('#register_submit').click(function() {
+            tool.reg.load(this, 0);
         });
     }
 };
@@ -178,13 +225,94 @@ var tool = {
         }
     },
 
+    reg: {
+        indenty: function(obj, flag) {
+            if($(obj).hasClass('on')) {
+                return false;
+            }
+
+            if(!$('#checkAgree').is(':checked')) {
+                tool.ajax.error('请输入阅读并同意条款', flag);
+                return false;
+            }
+
+            if(!tool.check.userId('#groupAccountIDEnterprise', flag) || !tool.check.imgCode('#imgCodeID', flag)
+                || !tool.check.mobile('#mobileID', flag) || !tool.check.code('#codeID', flag)
+                || !tool.check.userPwd('#passwordIDEnterprise', flag) || !tool.check.repeatPwd('#repeatIDEnterprise', flag)) {
+                return false;
+            }
+
+            return true;
+        },
+
+        load: function(obj, flag) {
+            if(!tool.reg.indenty(obj, flag)) {
+                return;
+            }
+
+            var options = {
+                id: obj,
+                flag: flag,
+                url: '/login/postReg',
+                data: {
+                    username: $.trim($('#groupAccountIDEnterprise').val()),
+                    mobile: $.trim($('#mobileID').val()),
+                    smscode: $.trim($('#codeID').val()),
+                    password: $.trim($('#passwordIDEnterprise').val())
+                },
+                success: function() {
+                    location.href = $('#redirect').val();
+                }
+            };
+
+            tool.ajax.callAjax(options);
+        },
+
+        code: function(obj, flag) {
+            if($(obj).hasClass('on') || !tool.check.mobile('#mobileID', 0) || !tool.check.imgCode('#imgCodeID', 0)) {
+                return false;
+            }
+
+            var options = {
+                id: obj,
+                flag: flag,
+                url: '/util/postsms',
+                data: {
+                    flag: 'reg',
+                    captcha: $.trim($('#imgCodeID').val()),
+                    mobile: $.trim($('#mobileID').val())
+                },
+                success: function() {
+                    var count = 60,
+                        timer = null;
+
+                    timer = setInterval(function () {
+                        if (count > 0) {
+                            $(obj).text(count + 's重新获取');
+                            count--;
+                        } else {
+                            clearInterval(timer);
+                            $(obj).removeClass('on').text('获取验证码');
+                        }
+                    }, 1000);
+                },
+                error: function() {
+                    $(obj).removeClass('on').text('获取验证码');
+                }
+            };
+
+            tool.ajax.callAjax(options);
+        }
+    },
+
     check: {
         //账号
         userId: function(obj, flag) {
-            var v = $.trim($(obj).val());
+            var v = $.trim($(obj).val()),
+                txt = ['企业账号', '企业账号', '登陆名称'];
 
             if(v == '') {
-                tool.ajax.error('请输入' + (flag == 2 ? '登陆名称' : '企业账号'), flag);
+                tool.ajax.error('请输入' + txt[flag], flag);
                 $(obj).parent().addClass('has-error');
                 return false;
             }
@@ -206,6 +334,84 @@ var tool = {
 
             if(v.length < 6 || v.length > 12) {
                 tool.ajax.error('请输入正确的登陆密码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        repeatPwd: function(obj, flag) {
+            var v = $.trim($(obj).val()),
+                pwd = $.trim($('#passwordIDEnterprise').val());
+
+            if(v == pwd) {
+                tool.ajax.error('请输入确认密码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            if(v != pwd) {
+                tool.ajax.error('请输入正确的确认密码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        //手机号
+        mobile: function(obj, flag) {
+            var v = $.trim($(obj).val()),
+                b = /^1[3-9][0-9]\d{8}$/;
+
+            if(v == '') {
+                tool.ajax.error('请输入手机号码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            if(!b.test(v)) {
+                tool.ajax.error('手机号码格式不对', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        //验证码
+        code: function(obj, flag) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                tool.ajax.error('请输入验证码', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            if(v.length != 6) {
+                tool.ajax.error('验证码错误', flag);
+                $(obj).parent().addClass('has-error');
+                return false;
+            }
+
+            tool.ajax.errorHide(flag);
+            $(obj).parent().removeClass('has-error');
+            return true;
+        },
+
+        imgCode: function(obj, flag) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                tool.ajax.error('请输入验证码', flag);
                 $(obj).parent().addClass('has-error');
                 return false;
             }
@@ -256,7 +462,8 @@ var tool = {
         },
 
         error: function(message, flag, obj) {
-            $(flag == 1 ? '#companyErrorMsgID' : '#errorMsgID').html(message).parent().show();
+            var errorid = ['#errorMsgIDEnterprise', '#companyErrorMsgID', '#errorMsgID'];
+            $(errorid[flag]).html(message).parent().show();
 
             if(obj) {
                 $(obj).removeClass('on');
@@ -264,7 +471,15 @@ var tool = {
         },
 
         errorHide: function(flag) {
-            $(flag == 1 ? '#companyErrorMsgID' : '#errorMsgID').html('').parent().hide();
+            var errorid = ['#errorMsgIDEnterprise', '#companyErrorMsgID', '#errorMsgID'];
+
+            if(typeof(flag) == 'undefined') {
+                for(var i = 0; i < errorid.length; i++) {
+                    $(errorid[i]).html('').parent().hide();
+                }
+            } else {
+                $(errorid[flag]).html('').parent().hide();
+            }
         }
     }
 };

@@ -21,7 +21,7 @@ ul,li{
 #banner{
     width:100%;
     min-height:400px;
-    background-image: url("../../public/images/proshow/banner.jpg");
+    background-image: url("../images/proshow/banner.jpg");
     background-position: center;
     background-size: auto 100%;
     background-repeat:no-repeat;
@@ -256,7 +256,7 @@ ul,li{
     width:100%;
     height:120px;
     margin:0 auto;
-    background-image: url("../../public/images/proshow/process.png");
+    background-image: url("../images/proshow/process.png");
     background-repeat:no-repeat;
     margin-bottom: 10px;
 }
@@ -264,7 +264,7 @@ ul,li{
     width:100%;
     height:120px;
     margin:0 auto;
-    background: url("../../public/images/proshow/process-1.png") no-repeat center;
+    background: url("../images/proshow/process-1.png") no-repeat center;
     background-size: 100% auto;
     background-repeat:no-repeat;
     margin-bottom: 10px;
@@ -289,37 +289,37 @@ ul,li{
 }
 
 .toubao li:nth-of-type(1)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_1_c.png") no-repeat center;
+    background: url("../images/proshow/toubao_1_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .toubao li:hover:nth-of-type(1)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_1.png") no-repeat center;
+    background: url("../images/proshow/toubao_1.png") no-repeat center;
     background-size: auto 70%;
     background-color: #00AB9F;
     transform: scale(1);
 }
 .toubao li:nth-of-type(2)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_2_c.png") no-repeat center;
+    background: url("../images/proshow/toubao_2_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .toubao li:hover:nth-of-type(2)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_2.png") no-repeat center;
+    background: url("../images/proshow/toubao_2.png") no-repeat center;
     background-size: auto 70%;
     background-color: #00AB9F;
     transform: scale(1);
 }
 .toubao li:nth-of-type(3)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_3_c.png") no-repeat center;
+    background: url("../images/proshow/toubao_3_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .toubao li:hover:nth-of-type(3)>.icon_bg{
-    background: url("../../public/images/proshow/toubao_3.png") no-repeat center;
+    background: url("../images/proshow/toubao_3.png") no-repeat center;
     background-size: auto 70%;
     background-color: #00AB9F;
     transform: scale(1);
@@ -343,37 +343,37 @@ ul,li{
 }
 
 .lipei li:nth-of-type(1)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_1_c.png") no-repeat center;
+    background: url("../images/proshow/lipei_1_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .lipei li:hover:nth-of-type(1)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_1.png") no-repeat center;
+    background: url("../images/proshow/lipei_1.png") no-repeat center;
     background-size: auto 70%;
     background-color: #F7A54A;
     transform: scale(1);
 }
 .lipei li:nth-of-type(2)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_2_c.png") no-repeat center;
+    background: url("../images/proshow/lipei_2_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .lipei li:hover:nth-of-type(2)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_2.png") no-repeat center;
+    background: url("../images/proshow/lipei_2.png") no-repeat center;
     background-size: auto 70%;
     background-color: #F7A54A;
     transform: scale(1);
 }
 .lipei li:nth-of-type(3)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_3_c.png") no-repeat center;
+    background: url("../images/proshow/lipei_3_c.png") no-repeat center;
     background-size: auto 60%;
     background-color: #F5F5F5;
     transition:all .2s ease-in 0s;
 }
 .lipei li:hover:nth-of-type(3)>.icon_bg{
-    background: url("../../public/images/proshow/lipei_3.png") no-repeat center;
+    background: url("../images/proshow/lipei_3.png") no-repeat center;
     background-size: auto 70%;
     background-color: #F7A54A;
     transform: scale(1);
@@ -410,7 +410,7 @@ ul,li{
     transition: all 0.6s;
 }
 #toubao li:nth-of-type(1)>div{
-    background: url("../../public/images/proshow/toubao_1_c.png") no-repeat right;
+    background: url("../images/proshow/toubao_1_c.png") no-repeat right;
     background-size: auto 50%;
 
 }
@@ -419,7 +419,7 @@ ul,li{
     background-size: auto 70%;
 }
 #toubao li:nth-of-type(2)>div{
-    background: url("../../public/images/proshow/toubao_2_c.png") no-repeat right;
+    background: url("../images/proshow/toubao_2_c.png") no-repeat right;
     background-size: auto 50%;
 }
 #toubao li:nth-of-type(2)>div:hover{
@@ -427,7 +427,7 @@ ul,li{
     background-size: auto 70%;
 }
 #toubao li:nth-of-type(3)>div{
-    background: url("../../public/images/proshow/toubao_3_c.png") no-repeat right;
+    background: url("../images/proshow/toubao_3_c.png") no-repeat right;
     background-size: auto 50%;
 }
 #toubao li:nth-of-type(3)>div:hover{
@@ -448,7 +448,7 @@ ul,li{
     transition: all 0.6s;
 }
 #lipei li:nth-of-type(1)>div{
-    background: url("../../public/images/proshow/lipei_1_c.png") no-repeat right;
+    background: url("../images/proshow/lipei_1_c.png") no-repeat right;
     background-size: auto 50%;
 }
 #lipei li:nth-of-type(1)>div:hover{
@@ -456,7 +456,7 @@ ul,li{
     background-size: auto 70%;
 }
 #lipei li:nth-of-type(2)>div{
-    background: url("../../public/images/proshow/lipei_2_c.png") no-repeat right;
+    background: url("../images/proshow/lipei_2_c.png") no-repeat right;
     background-size: auto 50%;
 }
 #lipei li:nth-of-type(2)>div:hover{
@@ -464,7 +464,7 @@ ul,li{
     background-size: auto 70%;
 }
 #lipei li:nth-of-type(3)>div{
-    background: url("../../public/images/proshow/lipei_3_c.png") no-repeat right;
+    background: url("../images/proshow/lipei_3_c.png") no-repeat right;
     background-size: auto 50%;
 }
 #lipei li:nth-of-type(3)>div:hover{
@@ -570,7 +570,7 @@ ul,li{
     color:#676767;
 }
 .base_attr_on{
-    background: url("../../public/images/insurancetemplate/selected-icon.png") no-repeat right bottom;
+    background: url("../images/insurancetemplate/selected-icon.png") no-repeat right bottom;
     border: 1px solid #00ab9f !important;
 }
 .add_base_attr{
@@ -609,21 +609,21 @@ ul,li{
     display: inline-block;
     width:16px;
     height:16px;
-    background: url("../../public/images/proshow/icon-1.png") no-repeat;
+    background: url("../images/proshow/icon-1.png") no-repeat;
     vertical-align: middle;
 }
 .template_icon-2{
     display: inline-block;
     width:16px;
     height:16px;
-    background: url("../../public/images/proshow/icon-2.png") no-repeat;
+    background: url("../images/proshow/icon-2.png") no-repeat;
     vertical-align: middle;
 }
 .template_icon-3{
     display: inline-block;
     width:16px;
     height:16px;
-    background: url("../../public/images/proshow/icon-3.png") no-repeat;
+    background: url("../images/proshow/icon-3.png") no-repeat;
     vertical-align: middle;
 }
 .icon2{
@@ -631,7 +631,7 @@ ul,li{
     width:20px;
     height:26px;
     margin-right: 10px;
-    background: url("../../public/images/proshow/icon2.png") no-repeat;
+    background: url("../images/proshow/icon2.png") no-repeat;
     vertical-align: middle;
 }
 #accordion .panel-default{

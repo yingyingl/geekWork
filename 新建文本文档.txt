@@ -1,3 +1,5 @@
+==========================登陆====================
+
 post   /login/postEnterpriseLogin  参数 username   password
 
 返回： success=1 表示成功 0 错误  ，  message
@@ -5,3 +7,11 @@ post   /login/postEnterpriseLogin  参数 username   password
 个人登录：  post   /login/postPersonLogin  参数 username   password
 
 登录成功后，跳转到 $data.redirect 
+
+
+====================注册==================
+图形验证码 /util/captcha?flag=
+
+发送短信 post    /util/postsms   参数：flag    captcha   mobile
+
+注册post：/login/postReg    mobile  smscode username  password
