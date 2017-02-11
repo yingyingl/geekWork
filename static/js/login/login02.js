@@ -132,6 +132,7 @@ var login = {
         $('#passwordIDEnterprise').blur(function() {
             tool.check.userPwd(this, 0);
         });
+
         $('#repeatIDEnterprise').blur(function() {
             tool.check.repeatPwd(this, 0);
         });
@@ -285,7 +286,7 @@ var tool = {
 
             var options = {
                 id: obj,
-                flag: flag,
+                //flag: flag,
                 url: '/util/postsms',
                 data: {
                     flag: 'reg',
