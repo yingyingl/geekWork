@@ -2,6 +2,7 @@ var group = {
     init: function() {
         this.start();
         this.ewmCode();
+        this.dataList();
     },
 
     start: function() {
@@ -36,15 +37,6 @@ var group = {
         $('#all').click(function() {
             tool.all.allOpen(this);
         });
-
-        //表格显示多少行
-        $('.table-hover').dataTable({
-            ordering:false,
-            "searching": true,
-            "bStateSave": true,
-            "lengthMenu": [10, 20, 50, 100, 200, 500]
-        });
-
     },
 
     //加入推送点击
@@ -61,6 +53,13 @@ var group = {
         //刷新二维码
         $('#refreshEwm').click(function() {
             tool.ewmCode.refreshs(this);
+        });
+    },
+
+    //数据列表
+    dataList: function() {
+        $('.iboxlist').each(function() {
+            tool.list.load(this);
         });
     }
 };
@@ -80,6 +79,99 @@ var tool = {
 
             $('.updown').removeClass('fa-chevron-down');
             $('.updown').addClass('fa-chevron-up');
+        },
+
+        //分页
+        pagination: function(obj, count, pageSize, callbackLoadList) {
+            //调用分页插件
+            $(obj).pagination(count, {
+                num_edge_entries: 2,
+                num_display_entries: 8,
+                items_per_page: pageSize,
+                prev_text: '上一页',
+                next_text: '下一页',
+                link_to: 'javascript:void(0)',
+                callback: callbackLoadList  //回调函数
+            });
+        }
+    },
+
+    list: {
+        load: function(obj) {
+            var id = $(obj).attr('data-id'),
+                page = $(obj).attr('data-page') ? $(obj).attr('data-page') : 1,
+                first = $(obj).attr('data-first'),
+                tbody = $(obj).find('.table tbody'),
+                lists = tbody.find('tr').length;
+
+            if($(obj).attr('data-load') == 'false') {
+                return;
+            }
+
+            $(obj).attr('data-load', 'false');
+
+            var param = {
+                url: '/group/memberList',
+                data: {
+                    insurance_id: id,
+                    page: page
+                },
+                success: function(data) {
+                    var datas = data.list,
+                        html = '';
+
+                    if(datas.length != 0) {
+                        for(var i = 0; i < datas.length; i++) {
+                            if(datas[i].mobile == '') {
+                                datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
+                            }
+
+                            html += '<tr id="'+ datas[i].id +'" class="odd">' +
+                                '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
+                                '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                '<td><div class="table-h text-left">'+ datas[i].mobile +'</div></td>' +
+                                '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
+                                '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
+                                '<td><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>' +
+                                '<td><div class="btn-group">' +
+                                '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
+                                '<button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div>' +
+                                '</td></tr>';
+                        }
+
+                        $(obj).attr('data-load', 'true');
+                        tbody.html(html);
+
+                        //第一次加载添加分页
+                        if(typeof first == 'undefined' || first == 'true') {
+                            tool.all.pagination($('#pagination' + id), data.total, data.pageSize, tool.list.pageCallback);
+
+                            $(obj).attr('data-first', 'false');
+                        }
+                    } else {
+                        if(lists.length == 0) {
+                            tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">没有数据</td></tr>');
+                        }
+                    }
+                },
+                error: function(message) {
+                    if(lists.length == 0) {
+                        tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">'+ message +'</td></tr>');
+                    }
+                }
+            };
+
+            tool.ajax.callAjax(param);
+        },
+
+        pageCallback: function(page_id, jq) {
+            var box = jq.closest('.iboxlist'),
+                page = page_id - 0 + 1;
+
+            box.attr('data-page', page);
+
+            tool.list.load(box);
         }
     },
 
@@ -136,14 +228,17 @@ var tool = {
                 dataType: "json",
                 success: function(data) {
                     if (data.success == 1) {
-                        options.success();
+                        options.success(data);
                     }  else {
-                        tool.ajax.error(data.message, options.flag);
+                        tool.ajax.error(data.message);
 
-                        options.error();
+                        options.error(data.message);
                     }
                 },
                 error: function() {
+                    tool.ajax.error('网络异常');
+
+                    options.error('网络异常');
                 }
             });
         },

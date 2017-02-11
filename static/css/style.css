@@ -6703,3 +6703,40 @@ body.skin-3 {
 .hztitle{
   font-size:20px;
 }
+
+
+
+/* 分页 */
+.pagination {
+    text-align: right;
+    padding: 20px 0;
+}
+.pagination a, .pagination .current {
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    margin: 0 2px;
+    border: 1px solid #CCC;
+    text-align: center;
+    color: #333;
+    padding: 0 6px;
+}
+
+.pagination a:hover {
+    border-color: #00ab9f;
+}
+
+.pagination .prev, .pagination .next {
+    width: 50px;
+}
+.pagination .current {
+    border-color: #00ab9f;
+    background-color: #00ab9f;
+    color: #fff;
+}
+.pagination .prev.current, .pagination .next.current {
+    color: #CCC;
+    background: none;
+    border: 1px solid #CCC;
+    cursor: default;
+}

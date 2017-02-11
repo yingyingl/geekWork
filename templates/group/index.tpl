@@ -39,9 +39,9 @@
 
                         <div class="col-xs-3">
                             <div style="margin-left: 20px;border-right: 1px solid #e7eaec">
-                                <p><a href="group/insuranceList"><small><i class="fa fa-file-text"></i> 共 {$data.insurance_num} 种保障方案</small></a></p>
-                                <p><a href="group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 {$data.wait_people_num} 人等待审核</small></a></p>
-                                <p><a href="group/userList"><small><i class="fa fa-umbrella"></i> 共 {$data.insurance_people_num} 人在保</small></a></p>
+                                <p><a href="/group/insuranceList"><small><i class="fa fa-file-text"></i> 共 {$data.insurance_num} 种保障方案</small></a></p>
+                                <p><a href="/group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 {$data.wait_people_num} 人等待审核</small></a></p>
+                                <p><a href="/group/userList"><small><i class="fa fa-umbrella"></i> 共 {$data.insurance_people_num} 人在保</small></a></p>
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@
 
                     <!-- list -->
                     {foreach from=$data.insurance_list item=insuranceList key=key}
-                        <div class="ibox float-e-margins">
+                        <div class="ibox float-e-margins iboxlist" data-id="{$insuranceList.id}" data-load="true">
                             <div class="ibox-title">
                                  <span>
                                     {$insuranceList.product_name}
@@ -103,7 +103,7 @@
                                                 <td class=" "><input type="checkbox" name="idArr[]" value="77104" class="form-control"></td>
                                                 <td class=" "><div class="table-h table-name" style="width: 70px" title="啦啦"> 啦啦</div></td>
                                                 <td class=" "><div class="table-h"> 522634197506235758</div></td>
-                                                <td class=" "><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
+                                                <td><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
                                                 <td class=" "><div class="table-h text-center">2017-03-24</div></td>
                                                 <td class=" "><div class="table-h text-center">2018-01-23</div></td>
                                                 <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
@@ -114,24 +114,11 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr id="75523" class="odd">
-                                                <td class=" "><input type="checkbox" name="idArr[]" value="75523" class="form-control"></td>
-                                                <td class=" "><div class="table-h table-name" style="width: 70px" title="王女"> 王女</div></td>
-                                                <td class=" "><div class="table-h"> 130106198711150603</div></td>
-                                                <td class=" "><div class="table-h text-left">18600182395</div></td>
-                                                <td class=" "><div class="table-h text-center">2017-01-25</div></td>
-                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
-                                                <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
-                                                <td class=" ">
-                                                    <div class="btn-group">
-                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>
-                                                        <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            {*<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">没有数据</td></tr>*}
+
                                             </tbody>
                                         </table>
+
+                                        <div class="pagination" id="pagination{$insuranceList.id}"></div>
                                     </div>
 
                                     <div class="text-center"><div class="btn-group"></div></div>
@@ -182,10 +169,14 @@
 
                                         <div class="col-xs-7">
                                             <select name="eid" class="form-control">
-                                                <option value="2955">【极客保 - 意外型】测试</option><option value="2958">【极客保 - 重疾型】测试</option><option value="2960">【极客保 - 医疗型】测试</option><option value="2964">【极客保 - 基础版】测试</option>                            </select>
+                                                <option value="2955">【极客保 - 意外型】测试</option>
+                                                <option value="2958">【极客保 - 重疾型】测试</option>
+                                                <option value="2960">【极客保 - 医疗型】测试</option>
+                                                <option value="2964">【极客保 - 基础版】测试</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <!--新增连带被保险人功能开始-->
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人姓名：</label>
 
@@ -199,6 +190,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group discern_0">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人证件：</label>
 
@@ -207,10 +199,12 @@
                                                 <select class="form-control input-group-addon pull-left" name="certType" id="certTypeId" style="width: 30%">
                                                     <option value="0">身份证</option>
                                                 </select>
+
                                                 <input type="text" name="id_number" placeholder="被保险人证件号码" class="form-control pull-left" style="width: 70%">
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group" style="display: none" id="relBirthDiv">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人信息：</label>
                                         <div class="col-xs-3" style="padding-right: 0px;">
@@ -229,6 +223,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml">被保险人手机：</label>
 
@@ -236,6 +231,7 @@
                                             <input aria-required="true" class="form-control" name="mobile" placeholder="手机号为重要信息，空号码可能影响成员的保障" required="" type="text" onkeyup="value=value.replace(/[\D]/g,'')"/>
                                         </div>
                                     </div>
+
                                     <div class="form-group" style="display: none" id="mainCertCodeDiv">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>主被保险人身份证：</label>
 
@@ -244,7 +240,6 @@
                                         </div>
                                     </div>
 
-                                    <!--新增连带被保险人功能结束-->
                                     <div class="form-group health_insurance" style="display: none">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人医保信息：</label>
                                         <div class="col-xs-7">
@@ -260,29 +255,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--新增连带被保险人功能结束-->
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>保障期间：</label>
 
                                         <div class="col-xs-7">
-                                                        <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="starttime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
-                                                        <span class="input-group-addon pull-left"
-                                                              style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
-                                                        <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="endtime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="starttime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
+                                            <span class="input-group-addon pull-left" style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
+                                            <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="endtime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -303,14 +289,12 @@
                     </div>
                 </div>
 
-
-
+                <!-- 修改成员弹窗 -->
                 <div class="modal inmodal" id="edit_user" tabindex="-1" role="dialog" aria-hidden="true" style="font-size: 14px">
                     <div class="modal-dialog" style="width: 700px">
                         <div class="modal-content animated fadeIn">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                                            class="sr-only">Close</span></button>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                 <h3>成员修改</h3>
                                 <small>请确认变更成员信息</small>
                             </div>
@@ -321,13 +305,11 @@
 
                                         <div class="col-xs-7">
                                             <div class="input-group" style="width: 100%">
-                                                <select class="form-control input-group-addon" name="relTypeDis" id="relTypeEditId"
-                                                        style="width: 30%" disabled>
+                                                <select class="form-control input-group-addon" name="relTypeDis" id="relTypeEditId" style="width: 30%" disabled>
                                                     <option value="1">本人</option>
                                                     <option value="2">子女</option>
                                                 </select>
-                                                <input name="realname" minlength="2" type="text" class="form-control" required=""
-                                                       aria-required="true" value="" style="width: 70%" readonly="readonly"/>
+                                                <input name="realname" minlength="2" type="text" class="form-control" required="" aria-required="true" value="" style="width: 70%" readonly="readonly"/>
                                             </div>
                                         </div>
                                     </div>
@@ -336,12 +318,10 @@
 
                                         <div class="col-xs-7">
                                             <div class="input-group" style="width: 100%">
-                                                <select class="form-control input-group-addon pull-left" name="certTypeDis"
-                                                        id="certTypeEditId" style="width: 30%" disabled>
+                                                <select class="form-control input-group-addon pull-left" name="certTypeDis" id="certTypeEditId" style="width: 30%" disabled>
                                                     <option value="0">身份证</option>
                                                 </select>
-                                                <input name="id_number" type="text" class="form-control" required=""
-                                                       aria-required="true" value="" style="width: 70%" readonly="readonly"/>
+                                                <input name="id_number" type="text" class="form-control" required="" aria-required="true" value="" style="width: 70%" readonly="readonly"/>
                                             </div>
                                             <input name="id_number_self" type="hidden" value=""/>
                                         </div>
@@ -360,8 +340,7 @@
                                             <div class="input-group plan_date" data-date="2017-02-08"
                                                  data-date-format="yyyy-mm-dd">
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                <input type="text" id="relBirthDayEditId" name="relBirthDay" class="form-control"
-                                                       value="2017-02-08" readonly="readonly"/>
+                                                <input type="text" id="relBirthDayEditId" name="relBirthDay" class="form-control" value="2017-02-08" readonly="readonly"/>
                                             </div>
                                         </div>
                                     </div>
@@ -369,9 +348,7 @@
                                         <label class="col-xs-4 control-label font-noraml">被保险人手机：</label>
 
                                         <div class="col-xs-7">
-                                            <input type="text" class="form-control" name="mobile" required="" aria-required="true"
-                                                   placeholder="手机号为重要信息，为空可能会影响成员的保障" value=""
-                                                   onkeyup="value=value.replace(/[\D]/g,'')"/>
+                                            <input type="text" class="form-control" name="mobile" required="" aria-required="true" placeholder="手机号为重要信息，为空可能会影响成员的保障" value="" onkeyup="value=value.replace(/[\D]/g,'')"/>
                                             <input type="hidden" name="oldmobile" value=""/>
                                         </div>
                                     </div>
@@ -379,8 +356,7 @@
                                         <label class="col-xs-4 control-label font-noraml">主被保险人身份证：</label>
 
                                         <div class="col-xs-7">
-                                            <input type="text" placeholder="18位身份证号码 （必须是在保成员）" class="form-control" name='mainCertCode'
-                                                   id="mainEditId" readonly="readonly">
+                                            <input type="text" placeholder="18位身份证号码 （必须是在保成员）" class="form-control" name='mainCertCode' id="mainEditId" readonly="readonly">
                                         </div>
                                     </div>
                                     <div class="form-group medicare" style="display: none">
@@ -394,8 +370,7 @@
                                                     <option value="3">新型农村合作医疗</option>
                                                     <option value="4">均未参加</option>
                                                 </select>
-                                                <input type="text" placeholder="点击选择医保所在地" data-prefix="edit"
-                                                       class="form-control pull-left health_insurance_address" style="width: 55.2%;" readonly/>
+                                                <input type="text" placeholder="点击选择医保所在地" data-prefix="edit" class="form-control pull-left health_insurance_address" style="width: 55.2%;" readonly/>
                                             </div>
                                         </div>
                                     </div>
@@ -403,25 +378,16 @@
                                         <label class="col-xs-4 control-label font-noraml">保障期间：</label>
 
                                         <div class="col-xs-7">
-                                                        <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="starttime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="starttime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                             <input type="hidden" name="oldstarttime" value=""/>
-                                                        <span class="input-group-addon pull-left"
-                                                              style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
-                                                        <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="endtime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group-addon pull-left" style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
+                                            <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="endtime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                         </div>
                                         <input type="hidden" name="oldendtime" value=""/>
                                     </div>
@@ -467,8 +433,9 @@
 
 {block name="js"}
     <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 -->
-    <script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>  <!-- 表格显示行数以及分页 --->
-    <script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="{#static_path#}/js/plugins/pagination.js"></script>
+   {* <script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>  <!-- 表格显示行数以及分页 --->
+    <script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>*}
     <script src="{#static_path#}/js/plugins/bootstrap-datepicker.js"></script>
     <script src="{#static_path#}/js/group/index.js"></script>
 

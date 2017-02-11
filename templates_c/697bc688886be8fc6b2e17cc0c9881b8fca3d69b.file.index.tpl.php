@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 11:46:16
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 15:19:34
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486809961,
+      1 => 1486822749,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -121,7 +121,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_589eeb79036e42_33803322($_smarty_tpl);
+content_589f1d76b560b4_77170439($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -153,11 +153,11 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
                         <div class="col-xs-3">
                             <div style="margin-left: 20px;border-right: 1px solid #e7eaec">
-                                <p><a href="group/insuranceList"><small><i class="fa fa-file-text"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['insurance_num'];?>
+                                <p><a href="/group/insuranceList"><small><i class="fa fa-file-text"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['insurance_num'];?>
  种保障方案</small></a></p>
-                                <p><a href="group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['wait_people_num'];?>
+                                <p><a href="/group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['wait_people_num'];?>
  人等待审核</small></a></p>
-                                <p><a href="group/userList"><small><i class="fa fa-umbrella"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['insurance_people_num'];?>
+                                <p><a href="/group/userList"><small><i class="fa fa-umbrella"></i> 共 <?php echo $_smarty_tpl->tpl_vars['data']->value['insurance_people_num'];?>
  人在保</small></a></p>
                             </div>
                         </div>
@@ -190,7 +190,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['insuranceList']->key => $_smarty_tpl-
 $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
  $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['insuranceList']->key;
 ?>
-                        <div class="ibox float-e-margins">
+                        <div class="ibox float-e-margins iboxlist" data-id="<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+" data-load="true">
                             <div class="ibox-title">
                                  <span>
                                     <?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['product_name'];?>
@@ -232,7 +233,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                                 <td class=" "><input type="checkbox" name="idArr[]" value="77104" class="form-control"></td>
                                                 <td class=" "><div class="table-h table-name" style="width: 70px" title="啦啦"> 啦啦</div></td>
                                                 <td class=" "><div class="table-h"> 522634197506235758</div></td>
-                                                <td class=" "><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
+                                                <td><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
                                                 <td class=" "><div class="table-h text-center">2017-03-24</div></td>
                                                 <td class=" "><div class="table-h text-center">2018-01-23</div></td>
                                                 <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
@@ -243,24 +244,12 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr id="75523" class="odd">
-                                                <td class=" "><input type="checkbox" name="idArr[]" value="75523" class="form-control"></td>
-                                                <td class=" "><div class="table-h table-name" style="width: 70px" title="王女"> 王女</div></td>
-                                                <td class=" "><div class="table-h"> 130106198711150603</div></td>
-                                                <td class=" "><div class="table-h text-left">18600182395</div></td>
-                                                <td class=" "><div class="table-h text-center">2017-01-25</div></td>
-                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
-                                                <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
-                                                <td class=" ">
-                                                    <div class="btn-group">
-                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>
-                                                        <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            
+
                                             </tbody>
                                         </table>
+
+                                        <div class="pagination" id="pagination<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+"></div>
                                     </div>
 
                                     <div class="text-center"><div class="btn-group"></div></div>
@@ -311,10 +300,14 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
                                         <div class="col-xs-7">
                                             <select name="eid" class="form-control">
-                                                <option value="2955">【极客保 - 意外型】测试</option><option value="2958">【极客保 - 重疾型】测试</option><option value="2960">【极客保 - 医疗型】测试</option><option value="2964">【极客保 - 基础版】测试</option>                            </select>
+                                                <option value="2955">【极客保 - 意外型】测试</option>
+                                                <option value="2958">【极客保 - 重疾型】测试</option>
+                                                <option value="2960">【极客保 - 医疗型】测试</option>
+                                                <option value="2964">【极客保 - 基础版】测试</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <!--新增连带被保险人功能开始-->
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人姓名：</label>
 
@@ -328,6 +321,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group discern_0">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人证件：</label>
 
@@ -336,10 +330,12 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                                 <select class="form-control input-group-addon pull-left" name="certType" id="certTypeId" style="width: 30%">
                                                     <option value="0">身份证</option>
                                                 </select>
+
                                                 <input type="text" name="id_number" placeholder="被保险人证件号码" class="form-control pull-left" style="width: 70%">
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group" style="display: none" id="relBirthDiv">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人信息：</label>
                                         <div class="col-xs-3" style="padding-right: 0px;">
@@ -358,6 +354,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml">被保险人手机：</label>
 
@@ -365,6 +362,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                             <input aria-required="true" class="form-control" name="mobile" placeholder="手机号为重要信息，空号码可能影响成员的保障" required="" type="text" onkeyup="value=value.replace(/[\D]/g,'')"/>
                                         </div>
                                     </div>
+
                                     <div class="form-group" style="display: none" id="mainCertCodeDiv">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>主被保险人身份证：</label>
 
@@ -373,7 +371,6 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                         </div>
                                     </div>
 
-                                    <!--新增连带被保险人功能结束-->
                                     <div class="form-group health_insurance" style="display: none">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>被保险人医保信息：</label>
                                         <div class="col-xs-7">
@@ -389,29 +386,20 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                             </div>
                                         </div>
                                     </div>
-                                    <!--新增连带被保险人功能结束-->
+
                                     <div class="form-group">
                                         <label class="col-xs-4 control-label font-noraml"><span style="color: red">*</span>保障期间：</label>
 
                                         <div class="col-xs-7">
-                                                        <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="starttime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
-                                                        <span class="input-group-addon pull-left"
-                                                              style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
-                                                        <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="endtime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="starttime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
+                                            <span class="input-group-addon pull-left" style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
+                                            <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="endtime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -432,14 +420,12 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                     </div>
                 </div>
 
-
-
+                <!-- 修改成员弹窗 -->
                 <div class="modal inmodal" id="edit_user" tabindex="-1" role="dialog" aria-hidden="true" style="font-size: 14px">
                     <div class="modal-dialog" style="width: 700px">
                         <div class="modal-content animated fadeIn">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                                            class="sr-only">Close</span></button>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                 <h3>成员修改</h3>
                                 <small>请确认变更成员信息</small>
                             </div>
@@ -450,13 +436,11 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
                                         <div class="col-xs-7">
                                             <div class="input-group" style="width: 100%">
-                                                <select class="form-control input-group-addon" name="relTypeDis" id="relTypeEditId"
-                                                        style="width: 30%" disabled>
+                                                <select class="form-control input-group-addon" name="relTypeDis" id="relTypeEditId" style="width: 30%" disabled>
                                                     <option value="1">本人</option>
                                                     <option value="2">子女</option>
                                                 </select>
-                                                <input name="realname" minlength="2" type="text" class="form-control" required=""
-                                                       aria-required="true" value="" style="width: 70%" readonly="readonly"/>
+                                                <input name="realname" minlength="2" type="text" class="form-control" required="" aria-required="true" value="" style="width: 70%" readonly="readonly"/>
                                             </div>
                                         </div>
                                     </div>
@@ -465,12 +449,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
                                         <div class="col-xs-7">
                                             <div class="input-group" style="width: 100%">
-                                                <select class="form-control input-group-addon pull-left" name="certTypeDis"
-                                                        id="certTypeEditId" style="width: 30%" disabled>
+                                                <select class="form-control input-group-addon pull-left" name="certTypeDis" id="certTypeEditId" style="width: 30%" disabled>
                                                     <option value="0">身份证</option>
                                                 </select>
-                                                <input name="id_number" type="text" class="form-control" required=""
-                                                       aria-required="true" value="" style="width: 70%" readonly="readonly"/>
+                                                <input name="id_number" type="text" class="form-control" required="" aria-required="true" value="" style="width: 70%" readonly="readonly"/>
                                             </div>
                                             <input name="id_number_self" type="hidden" value=""/>
                                         </div>
@@ -489,8 +471,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                             <div class="input-group plan_date" data-date="2017-02-08"
                                                  data-date-format="yyyy-mm-dd">
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                <input type="text" id="relBirthDayEditId" name="relBirthDay" class="form-control"
-                                                       value="2017-02-08" readonly="readonly"/>
+                                                <input type="text" id="relBirthDayEditId" name="relBirthDay" class="form-control" value="2017-02-08" readonly="readonly"/>
                                             </div>
                                         </div>
                                     </div>
@@ -498,9 +479,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                         <label class="col-xs-4 control-label font-noraml">被保险人手机：</label>
 
                                         <div class="col-xs-7">
-                                            <input type="text" class="form-control" name="mobile" required="" aria-required="true"
-                                                   placeholder="手机号为重要信息，为空可能会影响成员的保障" value=""
-                                                   onkeyup="value=value.replace(/[\D]/g,'')"/>
+                                            <input type="text" class="form-control" name="mobile" required="" aria-required="true" placeholder="手机号为重要信息，为空可能会影响成员的保障" value="" onkeyup="value=value.replace(/[\D]/g,'')"/>
                                             <input type="hidden" name="oldmobile" value=""/>
                                         </div>
                                     </div>
@@ -508,8 +487,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                         <label class="col-xs-4 control-label font-noraml">主被保险人身份证：</label>
 
                                         <div class="col-xs-7">
-                                            <input type="text" placeholder="18位身份证号码 （必须是在保成员）" class="form-control" name='mainCertCode'
-                                                   id="mainEditId" readonly="readonly">
+                                            <input type="text" placeholder="18位身份证号码 （必须是在保成员）" class="form-control" name='mainCertCode' id="mainEditId" readonly="readonly">
                                         </div>
                                     </div>
                                     <div class="form-group medicare" style="display: none">
@@ -523,8 +501,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                                     <option value="3">新型农村合作医疗</option>
                                                     <option value="4">均未参加</option>
                                                 </select>
-                                                <input type="text" placeholder="点击选择医保所在地" data-prefix="edit"
-                                                       class="form-control pull-left health_insurance_address" style="width: 55.2%;" readonly/>
+                                                <input type="text" placeholder="点击选择医保所在地" data-prefix="edit" class="form-control pull-left health_insurance_address" style="width: 55.2%;" readonly/>
                                             </div>
                                         </div>
                                     </div>
@@ -532,25 +509,16 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                         <label class="col-xs-4 control-label font-noraml">保障期间：</label>
 
                                         <div class="col-xs-7">
-                                                        <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="starttime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group date plan_date startTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="starttime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                             <input type="hidden" name="oldstarttime" value=""/>
-                                                        <span class="input-group-addon pull-left"
-                                                              style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
-                                                        <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08"
-                                                              data-date-format="yyyy-mm-dd" style="width: 45%">
-                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                                                                                                        name="endtime"
-                                                                                                                                        class="form-control"
-                                                                                                                                        value="2017-02-08"
-                                                                                                                                        readonly="readonly"/>
-                                                        </span>
+                                            <span class="input-group-addon pull-left" style="width: 10%;height: 34px;border-left: 0;border-right: 0;padding:0;line-height: 34px">至</span>
+                                            <span class="input-group date plan_date endTimeBox pull-left" data-date="2017-02-08" data-date-format="yyyy-mm-dd" style="width: 45%">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" name="endtime" class="form-control" value="2017-02-08" readonly="readonly"/>
+                                            </span>
                                         </div>
                                         <input type="hidden" name="oldendtime" value=""/>
                                     </div>
@@ -630,12 +598,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >  <!-- 鼠标经过效果 -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/dataTables/jquery.dataTables.js"><?php echo '</script'; ?>
->  <!-- 表格显示行数以及分页 --->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/dataTables/dataTables.bootstrap.js"><?php echo '</script'; ?>
+/js/plugins/pagination.js"><?php echo '</script'; ?>
 >
+   
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/bootstrap-datepicker.js"><?php echo '</script'; ?>
@@ -1945,9 +1910,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 11:46:17
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 15:19:34
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_589eeb79036e42_33803322')) {function content_589eeb79036e42_33803322($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_589f1d76b560b4_77170439')) {function content_589f1d76b560b4_77170439($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

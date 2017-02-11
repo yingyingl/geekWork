@@ -1,3 +1,5 @@
+
+wh2000292   1233651406wh
 ==========================登陆====================
 
 post   /login/postEnterpriseLogin  参数 username   password
@@ -70,3 +72,8 @@ Array
     [should_pay] => 0 //当前应缴
     [wait_pay] => 0.00 //未出账单
 )
+
+
+
+http://www.jikebao.com/group/memberList?insurance_id=6&page=1
+http://www.jikebao.com/group/memberList?insurance_id=6&page=1&search=
