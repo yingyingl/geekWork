@@ -3,6 +3,7 @@ var group = {
         this.start();
         this.ewmCode();
         this.dataList();
+        this.dataDel();
     },
 
     start: function() {
@@ -60,6 +61,22 @@ var group = {
     dataList: function() {
         $('.iboxlist').each(function() {
             tool.list.load(this);
+        });
+    },
+
+    //删除
+    dataDel: function() {
+        //批量删除
+        $(document).on("click",".del_user_all",function() {
+           tool.list.delAll(this);
+        });
+
+        //单个删除
+        $(document).on("click",'.del_user',function () {
+            var lines = $(this).closest('tr'),
+                memberIdArr = [lines.attr('data-id')];
+
+            tool.list.del(memberIdArr, lines);
         });
     }
 };
@@ -131,7 +148,7 @@ var tool = {
                                 datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
                             }
 
-                            html += '<tr id="'+ datas[i].id +'" class="odd">' +
+                            html += '<tr data-id="'+ datas[i].id +'" class="odd">' +
                                 '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
                                 '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
                                 '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
@@ -179,6 +196,74 @@ var tool = {
             box.attr('data-page', page);
 
             tool.list.load(box);
+        },
+
+        delAll: function(obj) {
+            var checkAll = $(obj).parent('.btn-group').siblings('.m-t-35').find("input[name='idArr[]']:checked"),
+                lines = checkAll.parents('tr'),
+                len = checkAll.length,
+                memberIdArr = [];
+
+            for(var i = 0; i < len; i++) {
+                memberIdArr.push(checkAll.eq(i).closest('tr').attr('data-id'));
+            }
+
+            if(memberIdArr == "") {
+                swal({
+                    title: "提示！",
+                    type: "warning",
+                    text: "您是不是忘了勾选需要解除保障的成员？",
+                    confirmButtonText: "确认"
+                });
+                return;
+            }
+
+            tool.list.del(memberIdArr, lines);
+        },
+
+        del: function(dataArr, lines) {
+            var todayDate = new Date(),
+                tipDate = new Date(todayDate.getFullYear() + '-' + (todayDate.getMonth() - 0 + 1) + '-' + (todayDate.getDate() - 0 + 1)),
+                nextDate = tipDate.getFullYear() + '-' + (tipDate.getMonth() - 0 + 1) + '-' + tipDate.getDate(),
+                txt = dataArr.length == 1 ? '此人' : '';
+
+            swal({
+                title : '您确定要删减'+ txt +'吗？',
+                text  : '所选人员的保单将从 '+ nextDate +' 失效。',
+                type  : 'warning',
+                showCancelButton   : true,
+                confirmButtonColor : '#DD6B55',
+                confirmButtonText  : '确认删减',
+                cancelButtonText   : '取消删减',
+                closeOnConfirm: false
+            }, function (isConfirm) {
+                if(isConfirm) {
+                    var param = {
+                        url: '/group/delMember',
+                        data: {
+                            member_id: dataArr,
+                            insurance_id: lines.attr('data-id')
+                        },
+                        success: function() {
+                            swal({
+                                title: '删除成功',
+                                type: "success",
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "确认",
+                                closeOnConfirm: true
+                            });
+
+                            lines.each(function() {
+                                $(this).slideUp(function() {
+                                    $(this).remove();
+                                });
+                            });
+                        }
+                    };
+
+                    tool.ajax.callAjax(param);
+                }
+            });
         }
     },
 
@@ -250,12 +335,13 @@ var tool = {
             });
         },
 
-        error: function(message, flag, obj) {
-
-        },
-
-        errorHide: function(flag) {
-
+        error: function(message, obj) {
+            swal({
+                title: "提示！",
+                type: "warning",
+                text: message,
+                confirmButtonText: "确认"
+            });
         }
     }
 };

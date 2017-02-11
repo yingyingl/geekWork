@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 15:38:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 16:24:58
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486823910,
+      1 => 1486826675,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -121,7 +121,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_589f21e8ad66f8_14016780($_smarty_tpl);
+content_589f2cca6a4a46_01398910($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -229,27 +229,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                                 <th rowspan="1" colspan="1" style="width: 121px;">操作</th>
                                             </tr>
                                             </thead>
-                                            <tbody id="tbody_2955" starttime="1485187200">
-                                            <tr id="77104" class="odd">
-                                                <td class=" "><input type="checkbox" name="idArr[]" value="77104" class="form-control"></td>
-                                                <td class=" "><div class="table-h table-name" style="width: 70px" title="啦啦"> 啦啦</div></td>
-                                                <td class=" "><div class="table-h"> 522634197506235758</div></td>
-                                                <td><div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div></td>
-                                                <td class=" "><div class="table-h text-center">2017-03-24</div></td>
-                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
-                                                <td class=" "><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>
-                                                <td class=" ">
-                                                    <div class="btn-group">
-                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>
-                                                        <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
 
-                                        <div class="pagination" id="pagination<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+                                        <div class="pagination-list clearfix" id="pagination<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
 "></div>
                                     </div>
 
@@ -1652,194 +1635,6 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
     $(document).ready(function()
     {
 
-        //批量删除
-        $(document).on("click",".del_user_all",function()
-        {
-            var obj=$(this).parent('.btn-group').siblings('.m-t-35').find("input[name='idArr[]']:checked");
-            var idArrStr=obj.serialize();
-            if(idArrStr=="")
-            {
-                swal({
-                    title: "提示！",
-                    type: "warning",
-                    text: "您是不是忘了勾选需要解除保障的成员？",
-                    confirmButtonText: "确认"
-                });
-                return;
-            }
-            var lines=obj.parents('tr');
-            var wantToDelCount=obj.length;
-
-
-            swal({
-                title : '您确定要删减吗？',
-                text  : '所选人员的保单将从 2017-02-09 失效。',
-                type  : 'warning',
-                showCancelButton   : true,
-                confirmButtonColor : '#DD6B55',
-                confirmButtonText  : '确认删减',
-                cancelButtonText   : '取消删减',
-                closeOnConfirm: false
-            }, function (isConfirm)
-            {
-                if (isConfirm)
-                {
-                    var msg='';
-                    var title='删减失败';
-                    var del=false;
-                    if(idArrStr)
-                    {
-                        callAjax( idArrStr, 0, function(response)
-                        {
-                            if(response!=-1)
-                            {
-                                var notDelCount=response.length;
-                                /*如果不删除的数量小于勾选的人数，说明有人被删除了*/
-                                if (notDelCount<wantToDelCount)
-                                {
-                                    del=true;
-                                    if (notDelCount!=0)
-                                    {
-                                        title='部分人员删减成功';
-                                        msg='以下人员有尚未完结的报销申请，暂时不能删减：\n';
-                                    }
-                                    else
-                                    {
-                                        title='删减成功';
-                                    }
-                                    for (var i=0; i<lines.length; i++)
-                                    {
-                                        if (findAll(response, lines.eq(i).attr('id')).length==0)
-                                        {
-                                            lines.eq(i).remove();
-                                        }
-                                        else
-                                        {
-                                            var dates=lines.eq(i).children('td');
-                                            msg+=dates[1].innerText.replace('\n', ' ');
-                                            msg+=dates[2].innerText;
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    title='无法删减';
-                                    msg='您选择的人员有尚未完成的报销申请，在报销完结之前不能删减';
-                                }
-                                del_user_warning(del,title,msg);
-                            }
-                            else
-                            {
-                                swal({
-                                    title: '错误',
-                                    text: '操作失败，请重新提交',
-                                    type: 'error',
-                                    confirmButtonText: '关闭'
-                                });
-                            }
-                        }, "group/delUser/" );
-                    }
-                }
-                else
-                {
-                    swal( '取消删减', '您已经取消了这次删减操作', 'warning' ) ;
-                }
-            });
-        });
-
-        function del_user_warning(del,title,msg)
-        {
-            if(del)
-            {
-                swal({
-                    title: title,
-                    text: msg,
-                    type: "success",
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确认",
-                    closeOnConfirm: true
-                }, function (isConfirm)
-                {
-                    $('._loading').show();
-                    location.reload();
-                });
-
-            }
-            else
-            {
-                swal({
-                    title: title,
-                    text: msg,
-                    type: "warning",
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确认",
-                    closeOnConfirm: true
-                }, function (isConfirm)
-                {
-                });
-            }
-        }
-
-        $(document).on("click",'.del_user',function ()
-        {
-            var obj=$(this);
-            var eid_starttime = $.trim(obj.parents('tbody').attr("starttime"));
-            var line=obj.parents('tr');
-            var id=obj.parents('td').siblings().find("input[name='idArr[]']").val();
-            var text = "";
-            if(eid_starttime < "1486523164"){
-                text = '所选人员的保单将从 2017-02-09 失效。';
-            }
-            var htmlMsg = '';
-            callAjax( { "idArr": new Array(id.toString())}, 0, function(response){
-                if(response == 1)
-                {
-                    htmlMsg = ' 400-886-2309';
-                    showConfirmWindow('您确定要删减此人吗？','该成员在当前方案下有未结案理赔，暂时不能对该成员做减人操作，如有疑问，请致电保险极客',false,true,'确认',function(){checkStyle(false);});
-                }else if(response ==2)
-                {
-                    showConfirmWindow(
-                            '您确定要删减此人吗？',
-                            '该成员在当前方案下有理赔案件，按照投保协议，我们将：\n1、所缴保费不会退\n2、原定保险期内未缴保费需补缴',
-                            true,
-                            false,
-                            '确认删减',
-                            delUserByAjax(id,line)
-                    );
-
-                }else
-                {
-
-                    showConfirmWindow(
-                            '您确定要删减此人吗？',
-                            text,
-                            true,
-                            false,
-                            '确认删减',
-                            delUserByAjax(id,line)
-                    );
-
-                }
-            },'Group/getCurUserClaimStatus/');
-            checkStyle(true, htmlMsg);
-        });
-
-        var $showSweetAlert=null;
-        var $h2 = null;
-        var $p = null;
-        function checkStyle(addClass, htmlMsg){
-            $showSweetAlert = $showSweetAlert==null?$('.showSweetAlert'):$showSweetAlert;
-            $h2 = $h2==null?$showSweetAlert.find('h2'):$h2;
-            $p = $p==null?$showSweetAlert.find('p'):$p;
-
-            $h2.toggleClass('swal-h2-style',addClass);
-            $p.toggleClass('swal-p-style',addClass);
-
-            if(typeof htmlMsg != 'undefined'){
-                $( "<span style='color: red'>" + htmlMsg + "</span>" ).appendTo($p);
-            }
-        }
-
         function showConfirmWindow(title,msg,showCancelBtn,closeOnConfirm,confirmBtnMsg,callback){
             swal({
                 title : title,
@@ -1911,9 +1706,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 15:38:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 16:24:58
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_589f21e8ad66f8_14016780')) {function content_589f21e8ad66f8_14016780($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_589f2cca6a4a46_01398910')) {function content_589f2cca6a4a46_01398910($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

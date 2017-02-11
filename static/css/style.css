@@ -30,6 +30,22 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+* html .clearfix {
+    zoom: 1;
+}
+*:first-child + html .clearfix {
+    zoom: 1;
+}
+
 .nav > li > a {
   color: #a7b1c2;
   padding: 14px 20px 14px 25px;
@@ -6707,11 +6723,11 @@ body.skin-3 {
 
 
 /* 分页 */
-.pagination {
+.pagination-list {
     text-align: right;
     padding: 20px 0;
 }
-.pagination a, .pagination .current {
+.pagination-list a, .pagination-list .current {
     height: 20px;
     line-height: 20px;
     display: inline-block;
@@ -6722,19 +6738,19 @@ body.skin-3 {
     padding: 0 6px;
 }
 
-.pagination a:hover {
+.pagination-list a:hover {
     border-color: #00ab9f;
 }
 
-.pagination .prev, .pagination .next {
+.pagination-list .prev, .pagination-list .next {
     width: 50px;
 }
-.pagination .current {
+.pagination-list .current {
     border-color: #00ab9f;
     background-color: #00ab9f;
     color: #fff;
 }
-.pagination .prev.current, .pagination .next.current {
+.pagination-list .prev.current, .pagination-list .next.current {
     color: #CCC;
     background: none;
     border: 1px solid #CCC;
