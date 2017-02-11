@@ -279,7 +279,7 @@ var tool = {
         },
 
         code: function(obj, flag) {
-            if($(obj).hasClass('on') || !tool.check.mobile('#mobileID', 0) || !tool.check.imgCode('#imgCodeID', 0)) {
+            if($(obj).hasClass('on') || !tool.check.mobile('#mobileID', flag) || !tool.check.imgCode('#imgCodeID', flag)) {
                 return false;
             }
 

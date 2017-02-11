@@ -8,6 +8,9 @@ post   /login/postEnterpriseLogin  参数 username   password
 
 登录成功后，跳转到 $data.redirect 
 
+type=person  个人
+type=enterprise 企业
+
 
 ====================注册==================
 图形验证码 /util/captcha?flag=
