@@ -2,7 +2,7 @@
 /* Slider */
 .slick-loading .slick-list
 {
-    background: #fff url("ajax-loader.gif"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/ajax-loader.gif*/) center center no-repeat;
+    background: #fff url("../../../images/slick/ajax-loader.gif") center center no-repeat;
 }
 /* Icons */
 @font-face
@@ -11,8 +11,11 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url("fonts/slick.eot"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/fonts/slick.eot*/);
-    src: url("fonts/slick.eot-#iefix"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/fonts/slick.eot?#iefix*/) format('embedded-opentype'), url("fonts/slick.woff"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/fonts/slick.woff*/) format('woff'), url("fonts/slick.ttf"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/fonts/slick.ttf*/) format('truetype'), url("fonts/slick.svg#slick"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/fonts/slick.svg#slick*/) format('svg');
+    src: url("../../../fonts/slick.eot");
+    src: url("../../../fonts/slick.eot-#iefix") format('embedded-opentype'),
+    url("../../../fonts/slick.woff") format('woff'),
+    url("../../../fonts/slick.ttf") format('truetype'),
+    url("../../../fonts/slick.svg#slick") format('svg');
 }
 /* Arrows */
 .slick-prev,
@@ -43,14 +46,14 @@
 .slick-prev:focus{
     color: transparent;
     outline: none;
-    background: url("topicarrow_hover.png"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/topicarrow_hover.png*/) 0 0;
+    background: url("../../../images/slick/topicarrow_hover.png") 0 0;
 }
 .slick-next:hover,
 .slick-next:focus
 {
     color: transparent;
     outline: none;
-    background: url("topicarrow_hover.png"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/topicarrow_hover.png*/) 40px 0;
+    background: url("../../../images/slick/topicarrow_hover.png") 40px 0;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -86,7 +89,7 @@
     left: 25px;/*原来是-25px*/
     height: 60px;
     width: 40px;
-    background: url("topicarrow.png"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/topicarrow.png*/) 0 0;
+    background: url("../../../images/slick/topicarrow.png") 0 0;
 }
 [dir='rtl'] .slick-prev
 {
@@ -107,7 +110,7 @@
     right: 25px;/*原来是-25px*/
     height: 60px;
     width: 40px;
-    background: url("topicarrow.png"/*tpa=http://www.insgeek.com/public/insgeek2.0/css/plugins/slick/topicarrow.png*/) 40px 0;
+    background: url("../../../images/slick/topicarrow.png") 40px 0;
 }
 [dir='rtl'] .slick-next
 {

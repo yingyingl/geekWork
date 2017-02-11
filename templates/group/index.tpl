@@ -1,5 +1,7 @@
 {extends file="template/front.tpl"}
 
+{block name="title"}用户首页{/block}
+
 {block name="css"}
     <link href="{#static_path#}/css/group/proshow.css" rel="stylesheet">
 {/block}
@@ -15,394 +17,177 @@
 
                 <div class="col-xs-10">
 
+                    <!-- 面包屑 -->
                     <div class="ibox-title">
                         用户首页
                         <div class="pull-right">
-                            <button data-toggle="dropdown" class="btn btn-xs btn-primary" onclick="location.href='UploadUserInfo/flow_batch.html'" >批量加人
-                            </button>
-                            <button class="btn btn-xs btn-primary" id="all" onclick="show()">全部收起</button>
+                            <button data-toggle="dropdown" class="btn btn-xs btn-primary" onclick="location.href='UploadUserInfo/flow_batch.html'" >批量加人</button>
+                            <button class="btn btn-xs btn-primary" data-all="true" id="all">全部收起</button>
                         </div>
                     </div>
 
+                    <!-- top -->
                     <div class="row border-bottom white-bg dashboard-header" style="margin: 0 0 20px 0;border-top: #e7eaec 1px solid">
                         <div class="col-xs-4" style="padding: 0;border-right: 1px solid #e7eaec">
                             <div class="text-center">
                                 <div class="m-b-sm">
                                     <img alt="image" class="img-circle" src="{#static_path#}/images/group/group.png">
                                 </div>
-                                <small>测试</small>
-                                <!--<a class="btn btn-danger btn-circle" title="预付费状态">预</a>-->
-                                <!--<a class="btn btn-warning btn-circle" title="未付费状态">未</a>-->
+                                <small>{$data.enterprise_name}</small>
                             </div>
                         </div>
+
                         <div class="col-xs-3">
                             <div style="margin-left: 20px;border-right: 1px solid #e7eaec">
-                                <p><a href="group/insuranceList"><small><i class="fa fa-file-text"></i> 共 4 种保障方案</small></a></p>
-                                <p><a href="group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 0 人等待审核</small></a></p>
-                                <p><a href="group/userList"><small><i class="fa fa-umbrella"></i> 共 7 人在保</small></a></p>
+                                <p><a href="group/insuranceList"><small><i class="fa fa-file-text"></i> 共 {$data.insurance_num} 种保障方案</small></a></p>
+                                <p><a href="group/userList/wait/1"><small><i class="fa fa-plus-square"></i> 共 {$data.wait_people_num} 人等待审核</small></a></p>
+                                <p><a href="group/userList"><small><i class="fa fa-umbrella"></i> 共 {$data.insurance_people_num} 人在保</small></a></p>
                             </div>
                         </div>
+
                         <div class="col-xs-5">
                             <div style="margin-left: 0px">
                                 <p class="tooltip-demo">
                                     <small>
-                                        <i class="fa fa-external-link-square"></i> 当前应缴：<span class="text-danger">0.00</span>
-                                        元
+                                        <i class="fa fa-external-link-square"></i>当前应缴：<span class="text-danger">{$data.should_pay}</span>元
                                     </small>
                                 </p>
                                 <p class="tooltip-demo">
                                     <small>
-                                        <i class="fa fa-history"></i> 未出账单：<span class="text-danger">858.11</span>
-                                        元 <button type="button" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="计费周期：2017-01-24 至
-                                                                    2017-02-23。计费中的金额可能会随着您的增、减人操作而相应变化，最终账单金额以账单日的结算金额为准。">计费中</button>
+                                        <i class="fa fa-history"></i>未出账单：<span class="text-danger">{$data.wait_pay}</span>
+                                        元 <button type="button" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="计费周期：2017-01-24 至 2017-02-23。计费中的金额可能会随着您的增、减人操作而相应变化，最终账单金额以账单日的结算金额为准。">计费中</button>
                                     </small>
-                                </p>                        <p><small><i class="fa fa-info-circle"></i><a href="help/group_help.html" target="_self"> 企业用户操作帮助</a></small></p>
+                                </p>
+                                <p><small><i class="fa fa-info-circle"></i><a href="help/group_help.html" target="_self">企业用户操作帮助</a></small></p>
                             </div>
                         </div>
                     </div>
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                                            <span>【极客保 - 意外型】测试                                <small>
-                                                    此方案目前共2人，
-                                                    保障日期<notemtpy name="vo['starttime']">2017-01-24</notemtpy> 至 <notemtpy name="vo['endtime']">2018-01-23</notemtpy>
-                                                </small>
-                                            </span>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up updown"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="btn-group tooltip-demo">
-                                <button class="btn btn-white del_user_all" type="button" >批量删减</button>
-                                <button class="btn btn-white add_user" type="button" data-toggle="modal" data-target="#add_user" data-is-medicare="0" >增加成员</button>                <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code" >加人推送</button>
-                                <!--<button class="btn btn-white" type="button" onclick="location.href='flow_batch.html'">批量增加</button>-->
-                            </div>
-                            <input type="hidden" name="eid" value="2955" />
-                            <div class="m-t-35">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th><input type="checkbox" class="checkboxAll"></th>
-                                        <th>姓名</th>
-                                        <th>证件号码</th>
-                                        <th>手机号码</th>
-                                        <th class="text-center">保障开始</th>
-                                        <th class="text-center">保障结束</th>
-                                        <th class="text-center" style="width: 60px">状态</th>
-                                        <th>操作</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="tbody_2955" starttime="1485187200">
 
-                                    <tr id="75832">
-                                        <td>
-                                            <input type="checkbox" name="idArr[]" value="75832" class="form-control">
-                                        </td>
-                                        <td>
-                                            <div class="table-h table-name" style="width: 70px" title="飞飞飞"> 飞飞飞</div>
-                                        </td>
-                                        <td><div class="table-h"> 350206197710229143</div></td>
-                                        <td>
-                                            <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user"  style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
-                                        </td>
-                                        <td><div class="table-h text-center">2017-02-24</div></td>
-                                        <td><div class="table-h text-center">2018-01-23</div></td>
-                                        <td>
-                                            <div class="table-h text-center">
-                                                <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr><tr id="75523">
-                                        <td>
-                                            <input type="checkbox" name="idArr[]" value="75523" class="form-control">
-                                        </td>
-                                        <td>
-                                            <div class="table-h table-name" style="width: 70px" title="王女"> 王女</div>
-                                        </td>
-                                        <td><div class="table-h"> 130106198711150603</div></td>
-                                        <td>
-                                            <div class="table-h text-left">18600182395</div>
-                                        </td>
-                                        <td><div class="table-h text-center">2017-01-25</div></td>
-                                        <td><div class="table-h text-center">2018-01-23</div></td>
-                                        <td>
-                                            <div class="table-h text-center">
-                                                <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                    <!-- list -->
+                    {foreach from=$data.insurance_list item=insuranceList key=key}
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                 <span>
+                                    {$insuranceList.product_name}
+                                     <small>此方案目前共 {$insuranceList.people_num} 人，保障日期 <notemtpy>{$insuranceList.begin_date}</notemtpy> 至 <notemtpy>{$insuranceList.end_date}</notemtpy></small>
+                                </span>
+
+                                <div class="ibox-tools"><a class="collapse-link"><i class="fa updown fa-chevron-up"></i></a></div>
                             </div>
-                            <div class="text-center">
-                                <div class="btn-group">
+
+                            <div class="ibox-content" style="display: block;">
+                                <div class="btn-group tooltip-demo">
+                                    <button class="btn btn-white del_user_all" type="button">批量删减</button>
+                                    <button class="btn btn-white add_user" type="button" data-toggle="modal" data-target="#add_user" data-is-medicare="0">增加成员</button>
+                                    <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code">加人推送</button>
+                                    <!--<button class="btn btn-white" type="button" onclick="location.href='flow_batch.html'">批量增加</button>-->
+                                </div>
+                                <input type="hidden" name="eid" value="2955">
+                                <div class="m-t-35">
+                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid">
+
+                                        <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="20">20</option><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="500">500</option></select> 条记录显示</label></div></div><div class="col-sm-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>查找：<input type="search" class="form-control input-sm" aria-controls="DataTables_Table_0"></label></div></div></div>
+
+                                        <table class="table table-hover dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                            <tr role="row"><th rowspan="1" colspan="1" style="width: 24px;">
+                                                    <input type="checkbox" class="checkboxAll"></th>
+                                                <th rowspan="1" colspan="1" style="width: 110px;">姓名</th><th rowspan="1" colspan="1" style="width: 195px;">证件号码</th><th rowspan="1" colspan="1" style="width: 121px;">手机号码</th><th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障开始</th><th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障结束</th><th class="text-center" style="width: 50px;" rowspan="1" colspan="1">状态</th><th rowspan="1" colspan="1" style="width: 121px;">操作</th></tr>
+                                            </thead>
+                                            <tbody id="tbody_2955" starttime="1485187200">
+
+
+                                            <tr id="77104" class="odd">
+                                                <td class=" ">
+                                                    <input type="checkbox" name="idArr[]" value="77104" class="form-control">
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="table-h table-name" style="width: 70px" title="啦啦"> 啦啦</div>
+                                                </td>
+                                                <td class=" "><div class="table-h"> 522634197506235758</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
+                                                </td>
+                                                <td class=" "><div class="table-h text-center">2017-03-24</div></td>
+                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-center">
+                                                        <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="btn-group">
+                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr><tr id="75832" class="even">
+                                                <td class=" ">
+                                                    <input type="checkbox" name="idArr[]" value="75832" class="form-control">
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="table-h table-name" style="width: 70px" title="飞飞飞"> 飞飞飞</div>
+                                                </td>
+                                                <td class=" "><div class="table-h"> 350206197710229143</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
+                                                </td>
+                                                <td class=" "><div class="table-h text-center">2017-02-24</div></td>
+                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-center">
+                                                        <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="btn-group">
+                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr><tr id="75523" class="odd">
+                                                <td class=" ">
+                                                    <input type="checkbox" name="idArr[]" value="75523" class="form-control">
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="table-h table-name" style="width: 70px" title="王女"> 王女</div>
+                                                </td>
+                                                <td class=" "><div class="table-h"> 130106198711150603</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-left">18600182395</div>
+                                                </td>
+                                                <td class=" "><div class="table-h text-center">2017-01-25</div></td>
+                                                <td class=" "><div class="table-h text-center">2018-01-23</div></td>
+                                                <td class=" ">
+                                                    <div class="table-h text-center">
+                                                        <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
+                                                </td>
+                                                <td class=" ">
+                                                    <div class="btn-group">
+                                                        <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr></tbody>
+                                        </table>
+
+                                        <table class="table table-hover dataTable no-footer" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+                                            <thead>
+                                            <tr role="row"><th rowspan="1" colspan="1" style="width: 49px;"><input type="checkbox" class="checkboxAll"></th><th rowspan="1" colspan="1" style="width: 79px;">姓名</th><th rowspan="1" colspan="1" style="width: 141px;">证件号码</th><th rowspan="1" colspan="1" style="width: 141px;">手机号码</th><th class="text-center" rowspan="1" colspan="1" style="width: 142px;">保障开始</th><th class="text-center" rowspan="1" colspan="1" style="width: 142px;">保障结束</th><th class="text-center" style="width: 50px;" rowspan="1" colspan="1">状态</th><th rowspan="1" colspan="1" style="width: 81px;">操作</th></tr>
+                                            </thead>
+                                            <tbody id="tbody_2958" starttime="1485187200">
+
+
+                                            <tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">没有数据</td></tr></tbody>
+                                        </table>
+
+                                        <div class="row"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="alert" aria-live="polite" aria-relevant="all">显示 1 到 3 项，共 3 项</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="DataTables_Table_0" tabindex="0" id="DataTables_Table_0_previous"><a href="#">上一页</a></li><li class="paginate_button active" aria-controls="DataTables_Table_0" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="DataTables_Table_0" tabindex="0" id="DataTables_Table_0_next"><a href="#">下一页</a></li></ul></div></div></div></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="btn-group">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                                        <span>【极客保 - 重疾型】测试                                <small>
-                                                此方案目前共0人，
-                                                保障日期<notemtpy name="vo['starttime']">2017-01-24</notemtpy> 至 <notemtpy name="vo['endtime']">2018-01-23</notemtpy>
-                                            </small>
-                                        </span>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up updown"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="btn-group tooltip-demo">
-                            <button class="btn btn-white del_user_all" type="button" >批量删减</button>
-                            <button class="btn btn-white add_user" type="button" data-toggle="modal" data-target="#add_user" data-is-medicare="0" >增加成员</button>                <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code" >加人推送</button>
-                            <!--<button class="btn btn-white" type="button" onclick="location.href='flow_batch.html'">批量增加</button>-->
-                        </div>
-                        <input type="hidden" name="eid" value="2958" />
-                        <div class="m-t-35">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th><input type="checkbox" class="checkboxAll"></th>
-                                    <th>姓名</th>
-                                    <th>证件号码</th>
-                                    <th>手机号码</th>
-                                    <th class="text-center">保障开始</th>
-                                    <th class="text-center">保障结束</th>
-                                    <th class="text-center" style="width: 60px">状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tbody_2958" starttime="1485187200">
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center">
-                            <div class="btn-group">
-                            </div>
-                        </div>
-                    </div>
+                    {/foreach}
                 </div>
 
-                    <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                                        <span>【极客保 - 医疗型】测试                                <small>
-                                                此方案目前共4人，
-                                                保障日期<notemtpy name="vo['starttime']">2017-01-25</notemtpy> 至 <notemtpy name="vo['endtime']">2018-01-24</notemtpy>
-                                            </small>
-                                        </span>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up updown"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="btn-group tooltip-demo">
-                            <button class="btn btn-white del_user_all" type="button" >批量删减</button>
-                            <button class="btn btn-white add_user" type="button" data-toggle="modal" data-target="#add_user" data-is-medicare="1" >增加成员</button>                <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code" >加人推送</button>
-                            <!--<button class="btn btn-white" type="button" onclick="location.href='flow_batch.html'">批量增加</button>-->
-                        </div>
-                        <input type="hidden" name="eid" value="2960" />
-                        <div class="m-t-35">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th><input type="checkbox" class="checkboxAll"></th>
-                                    <th>姓名</th>
-                                    <th>证件号码</th>
-                                    <th>手机号码</th>
-                                    <th class="text-center">保障开始</th>
-                                    <th class="text-center">保障结束</th>
-                                    <th class="text-center" style="width: 60px">状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tbody_2960" starttime="1485273600">
-
-                                <tr id="75835">
-                                    <td>
-                                        <input type="checkbox" name="idArr[]" value="75835" class="form-control">
-                                    </td>
-                                    <td>
-                                        <div class="table-h table-name" style="width: 70px" title="是是是"> 是是是</div>
-                                    </td>
-                                    <td><div class="table-h"> 440402199405138671</div></td>
-                                    <td>
-                                        <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user"  style="cursor: pointer" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" data-medicare-address="100000" data-is-medicare="1" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
-                                    </td>
-                                    <td><div class="table-h text-center">2017-03-01</div></td>
-                                    <td><div class="table-h text-center">2018-01-24</div></td>
-                                    <td>
-                                        <div class="table-h text-center">
-                                            <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" title="编辑" data-medicare-address="100000" data-is-medicare="1"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                        </div>
-                                    </td>
-                                </tr><tr id="75834">
-                                    <td>
-                                        <input type="checkbox" name="idArr[]" value="75834" class="form-control">
-                                    </td>
-                                    <td>
-                                        <div class="table-h table-name" style="width: 70px" title="飞飞"> 飞飞</div>
-                                    </td>
-                                    <td><div class="table-h"> 211002199101194275</div></td>
-                                    <td>
-                                        <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user"  style="cursor: pointer" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" data-medicare-address="100000" data-is-medicare="1" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
-                                    </td>
-                                    <td><div class="table-h text-center">2017-03-03</div></td>
-                                    <td><div class="table-h text-center">2018-01-24</div></td>
-                                    <td>
-                                        <div class="table-h text-center">
-                                            <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" title="编辑" data-medicare-address="100000" data-is-medicare="1"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                        </div>
-                                    </td>
-                                </tr><tr id="75831">
-                                    <td>
-                                        <input type="checkbox" name="idArr[]" value="75831" class="form-control">
-                                    </td>
-                                    <td>
-                                        <div class="table-h table-name" style="width: 70px" title="二测"> 二测</div>
-                                    </td>
-                                    <td><div class="table-h"> 150104197811139299</div></td>
-                                    <td>
-                                        <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user"  style="cursor: pointer" data-toggle="modal" data-medicare-type="4" data-target="#edit_user" data-medicare-address="100000" data-is-medicare="1" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
-                                    </td>
-                                    <td><div class="table-h text-center">2017-02-03</div></td>
-                                    <td><div class="table-h text-center">2018-01-24</div></td>
-                                    <td>
-                                        <div class="table-h text-center">
-                                            <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="4" data-target="#edit_user" title="编辑" data-medicare-address="100000" data-is-medicare="1"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                        </div>
-                                    </td>
-                                </tr><tr id="75830">
-                                    <td>
-                                        <input type="checkbox" name="idArr[]" value="75830" class="form-control">
-                                    </td>
-                                    <td>
-                                        <div class="table-h table-name" style="width: 70px" title="个测"> 个测</div>
-                                    </td>
-                                    <td><div class="table-h"> 230129197810155550</div></td>
-                                    <td>
-                                        <div class="table-h text-left">18600182395</div>
-                                    </td>
-                                    <td><div class="table-h text-center">2017-02-03</div></td>
-                                    <td><div class="table-h text-center">2018-01-24</div></td>
-                                    <td>
-                                        <div class="table-h text-center">
-                                            <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="2" data-target="#edit_user" title="编辑" data-medicare-address="100000" data-is-medicare="1"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center">
-                            <div class="btn-group">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                                        <span>【极客保 - 基础版】测试                                <small>
-                                                此方案目前共1人，
-                                                保障日期<notemtpy name="vo['starttime']">2017-02-03</notemtpy> 至 <notemtpy name="vo['endtime']">2018-02-02</notemtpy>
-                                            </small>
-                                        </span>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up updown"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="btn-group tooltip-demo">
-                            <button class="btn btn-white del_user_all" type="button" >批量删减</button>
-                            <button class="btn btn-white add_user" type="button" data-toggle="modal" data-target="#add_user" data-is-medicare="1" >增加成员</button>                <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code" >加人推送</button>
-                            <!--<button class="btn btn-white" type="button" onclick="location.href='flow_batch.html'">批量增加</button>-->
-                        </div>
-                        <input type="hidden" name="eid" value="2964" />
-                        <div class="m-t-35">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th><input type="checkbox" class="checkboxAll"></th>
-                                    <th>姓名</th>
-                                    <th>证件号码</th>
-                                    <th>手机号码</th>
-                                    <th class="text-center">保障开始</th>
-                                    <th class="text-center">保障结束</th>
-                                    <th class="text-center" style="width: 60px">状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tbody_2964" starttime="1486051200">
-
-                                <tr id="75833">
-                                    <td>
-                                        <input type="checkbox" name="idArr[]" value="75833" class="form-control">
-                                    </td>
-                                    <td>
-                                        <div class="table-h table-name" style="width: 70px" title="李膜"> 李膜</div>
-                                    </td>
-                                    <td><div class="table-h"> 370684198709155131</div></td>
-                                    <td>
-                                        <div class="table-h text-left"><i class="fa fa-exclamation-triangle text-navy editor_user"  style="cursor: pointer" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" data-medicare-address="100000" data-is-medicare="1" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i></div>
-                                    </td>
-                                    <td><div class="table-h text-center">2017-02-03</div></td>
-                                    <td><div class="table-h text-center">2018-02-02</div></td>
-                                    <td>
-                                        <div class="table-h text-center">
-                                            <i class="fa fa-check text-navy" title="保障中"></i>                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="1" data-target="#edit_user" title="编辑" data-medicare-address="100000" data-is-medicare="1"><i class="fa fa-edit text-navy"></i></button>                                <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center">
-                            <div class="btn-group">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
+                <!-- 加入推送二维码弹窗 -->
                 <div aria-hidden="true" class="modal inmodal" id="two_code" role="dialog" tabindex="-1">
                     <div class="modal-dialog">
                         <div class="modal-content animated fadeIn">
@@ -416,7 +201,7 @@
                             <div class="modal-body text-center">
                                 <img id="qrcodePic" src=""/>
                                 <div id="regURl" style="-o-text-overflow: ellipsis; font-size: 16px; margin: 20px auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 75%;"></div>
-                                <button class="btn btn-info" onclick="javascript:refreshQRCode( this );" style="margin-top: 15px;" type="button">刷新二维码</button>
+                                <button class="btn btn-info" id="refreshEwm" style="margin-top: 15px;" type="button">刷新二维码</button>
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-white" data-dismiss="modal" type="button">关闭</button>
@@ -1745,43 +1530,15 @@
 
 
 {block name="js"}
-    <script src="{#static_path#}/js/group/group.js"></script>
+    <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>
+    <script src="{#static_path#}/js/group/index.js"></script>
 
 {literal}
     <script>
 
     var root="http://www.insgeek.com";
-    var curQRDialogEID = 0 ;
     var qrcodePicObj = $( '#qrcodePic' ) ;
     var regURlObj = $( '#regURl' ) ;
-
-    // 刷新二维码
-    function refreshQRCode( srcObj ) {
-        swal( {
-                    cancelButtonText : '取消',
-                    closeOnConfirm : true,
-                    confirmButtonColor : '#DD6B55',
-                    confirmButtonText : '确认',
-                    showCancelButton : true,
-                    text : '您的员工将不能够再通过刷新之前的二维码和链接申请保障。',
-                    title : '是否刷新二维码？',
-                    type : 'warning'
-                },
-                function ( isConfirm ) {
-                    if ( isConfirm ) {
-                        callAjax(
-                                { 'eid' : curQRDialogEID, 'mode' : 1 }, 0,
-                                function ( response ) {
-                                    qrcodePicObj.attr( 'src', 'http://www.insgeek.com' + response.picurl ) ;
-                                    var url = response.shortUrl ;
-                                    regURlObj.html( '<span style="font-weight: bold">或将该链接分享给员工完成加人：</span><a href="' + url + '" target="_balnk">' + url + '</a>' ) ;
-                                },
-                                'group/getQrcodeAjax/'
-                        ) ;
-                    }
-                }
-        ) ;
-    }
 
 
     $(document).ready(function()
@@ -1792,37 +1549,6 @@
             "bStateSave": true,
             "lengthMenu": [10, 20, 50, 100, 200, 500]
         });
-
-
-
-        $('.user_waitID').on('click',function(){
-            $('#formID').submit();
-        });
-
-        //扫描二维码
-        $(document).on("click",".two_code",function()
-        {
-            var eid=$(this).parent().siblings("input[name='eid']").val();
-            curQRDialogEID = eid ;
-            var obj = $("#qrcodePic");
-            callAjax(
-                    { 'eid': eid }, 0, function(response) {
-                obj.attr('src',"http://www.insgeek.com"+response.picurl);
-                $("#regURl").html('<span style="font-weight: bold">或分享链接，引导成员申请：</span><a href="'+ response.shortUrl+'" target="_balnk">'+ response.shortUrl+'</a>');
-
-            }, "group/getQrcodeAjax/");
-
-        });
-
-
-
-        //选择全部
-        $('.checkboxAll').on('change',function(){
-            var objTable=$(this).parents('.table');
-            var obj=objTable.find("input[name='idArr[]']");
-            obj.prop('checked',$(this).is(':checked'));
-        });
-
 
         //批量删除
         $(document).on("click",".del_user_all",function()
@@ -2063,20 +1789,6 @@
         }
 
     });
-    function show(){
-        $('.ibox-content').css('display','none');
-        $('#all').text('全部打开');
-        $('#all').attr('onclick','down()');
-        $('.updown').removeClass('fa-chevron-up');
-        $('.updown').addClass('fa-chevron-down');
-    }
-    function down(){
-        $('.ibox-content').css('display','block');
-        $('#all').text('全部收起');
-        $('#all').attr('onclick','show()');
-        $('.updown').removeClass('fa-chevron-down');
-        $('.updown').addClass('fa-chevron-up');
-    }
     </script>
 {/literal}
 {/block}

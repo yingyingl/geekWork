@@ -13,7 +13,10 @@
 
 
     <link href="{#static_path#}/css/bootstrap.css" rel="stylesheet">
-    {*   <link href="{#static_path#}/css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="{#static_path#}/css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
+    <link href="{#static_path#}/css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
+
+    {*
        <link href="{#static_path#}/css/plugins/blueimp/css/blueimp-gallery.css" rel="stylesheet">
        <link href="{#static_path#}/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
        <link href="{#static_path#}/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
@@ -38,8 +41,8 @@
     {block name="css"}{/block}
 </head>
 <body class="top-navigation gray-bg">
-<!--固定定位回到顶部-->
 
+<!--固定定位回到顶部-->
 <div class="position-fixed">
     <div class="position-menu">
         <a class="position-icon position-icon-same myclear">
@@ -67,109 +70,8 @@
         </span>
     </div>
 </div>
-{*<script>
-    {literal}
-    $(function () {
-        //提交预约报价
-        $(document).on("click", "#feedbackForm_submit", function ()
-        {
-            var showMsgObj=$("#showMsg");
-            var formObj = $("#feedbackForm");
-            var feedback_company_name=$.trim(formObj.find("input[name='feedback_company_name']").val());
-            var feedback_realname=$.trim(formObj.find("input[name='feedback_realname']").val());
-            var feedback_mobile=$.trim(formObj.find("input[name='feedback_mobile']").val());
-            var feedback_email=$.trim(formObj.find("input[name='feedback_email']").val());
-            var feedback_number=$.trim(formObj.find("input[name='feedback_number']").val());
-
-
-            if(feedback_company_name) {
-
-            }
-            else {
-                showMsgObj.show().html("必须填写公司名称");
-                return false;
-            }
-
-            if(feedback_realname) {
-                var realnameReg = /^[\u4e00-\u9fa5]{2, 15}$/;
-                if (!realnameReg.test(feedback_realname)) {
-                    showMsgObj.show().html("联系人姓名：2-15个汉字");
-                    return false;
-                }
-
-            }
-            else {
-                showMsgObj.show().html("必须填写真实姓名");
-                return false;
-            }
-
-            if(feedback_mobile) {
-                var mobileReg = /^1[3-8][0-9]{9}$/;
-                if (!mobileReg.test(feedback_mobile))
-                {
-                    showMsgObj.show().html("手机号码只能是11位数字");
-                    return false;
-                }
-            }
-            else {
-                showMsgObj.show().html("必须填写手机号码");
-                return false;
-            }
-
-            if(feedback_email) {
-                var emailReg = /^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/gi;
-                if (!emailReg.test(feedback_email)) {
-                    showMsgObj.show().html("邮箱格式错误");
-                    return false;
-                }
-            }
-            else {
-                showMsgObj.show().html("必须填写邮箱");
-                return false;
-            }
-
-            if(feedback_number) {
-                var numberReg = /^[0-9]+$/;
-                if (!numberReg.test(feedback_number)) {
-                    showMsgObj.show().html("员工人数只能是数字");
-                    return false;
-                }
-            }
-            else {
-                showMsgObj.show().html("员工人数必须填写");
-                return false;
-            }
-
-            showMsgObj.hide().html("");
-
-            $.ajax({
-                type:"post",
-                url:"http://www.insgeek.com/feedback/bespeak_save/"+Math.random(),
-                data:formObj.serialize(),
-                dataType:"json",
-                cache:false,
-                async:false,
-                success:function(response)
-                {
-                    if(response==1)
-                    {
-                        formObj.hide();
-                        $("#showReturn").show();
-                    }
-                }
-            });//end ajax
-
-        });
-        $(document).on("click","#returnForm",function() {
-            $("#feedbackForm").show();
-            $("#showReturn").hide();
-            $("#feedbackForm")[0].reset();
-        });
-    });
-    {/literal}
-</script>*}
-
 <!--回到顶部结束-->
+
 <div id="wrapper">
     <div class="gray-bg" id="page-wrapper" style="padding: 0">
     <!--头部内容开始-->
@@ -183,6 +85,7 @@
 
 
 <script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
+<script src="{#static_path#}/js/plugins/sweetalert.min.js"></script>        <!-- 确认弹窗 -->
 <script src="{#static_path#}/js/topup.js"></script>
 
 {*
@@ -197,7 +100,6 @@
 <script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 <script src="{#static_path#}/js/plugins/iCheck/icheck.min.js"></script>
 <script src="{#static_path#}/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="{#static_path#}/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="{#static_path#}/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
 <script src="{#static_path#}/js/plugins/staps/jquery.steps.min.js"></script>
 <script src="{#static_path#}/js/plugins/footable/footable.all.min.js"></script>

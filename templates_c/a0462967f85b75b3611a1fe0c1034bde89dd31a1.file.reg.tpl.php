@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 04:50:58
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 09:47:25
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\reg.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:27039589d69e95d8c15-35428357%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a0462967f85b75b3611a1fe0c1034bde89dd31a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\account\\reg.tpl',
-      1 => 1486777505,
+      1 => 1486800899,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486785001,
+      1 => 1486802825,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>注册</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="" />
@@ -41,20 +41,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/blueimp/css/blueimp-gallery.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/steps/jquery.steps.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/footable/footable.core.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/morris/morris-0.4.3.css" rel="stylesheet">
+    
+    
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/animate.css"  rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -63,12 +51,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/home.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/drag/drag.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/css/plugins/slick/slick-theme.css" rel="stylesheet">
+
 
     <!--[if lt IE 9]>
     <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
@@ -82,8 +65,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 </head>
 <body class="top-navigation gray-bg">
-<!--固定定位回到顶部-->
 
+<!--固定定位回到顶部-->
 <div class="position-fixed">
     <div class="position-menu">
         <a class="position-icon position-icon-same myclear">
@@ -112,9 +95,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </span>
     </div>
 </div>
-
-
 <!--回到顶部结束-->
+
 <div id="wrapper">
     <div class="gray-bg" id="page-wrapper" style="padding: 0">
     <!--头部内容开始-->

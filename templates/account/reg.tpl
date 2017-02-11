@@ -1,5 +1,7 @@
 {extends file="template/front.tpl"}
 
+{block name="title"}注册{/block}
+
 {block name="css"}
     <link href="{#static_path#}/css/login.css"  rel="stylesheet">
 {/block}

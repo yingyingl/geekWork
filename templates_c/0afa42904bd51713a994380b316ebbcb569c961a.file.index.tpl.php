@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 05:01:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 09:15:06
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6366589c759c73aa28-09635693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486785399,
+      1 => 1486800846,
       2 => 'file',
     ),
   ),
@@ -64,8 +64,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 </head>
 <body class="top-navigation gray-bg">
-<!--固定定位回到顶部-->
 
+<!--固定定位回到顶部-->
 <div class="position-fixed">
     <div class="position-menu">
         <a class="position-icon position-icon-same myclear">
@@ -94,9 +94,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </span>
     </div>
 </div>
-
-
 <!--回到顶部结束-->
+
 <div id="wrapper">
     <div class="gray-bg" id="page-wrapper" style="padding: 0">
     <!--头部内容开始-->

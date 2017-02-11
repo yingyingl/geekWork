@@ -100,7 +100,7 @@ var login = {
     register: function() {
         //改变图形验证码
         $('#changeCode').click(function() {
-            var flag = $(this).data('flag'),
+            var flag = $(this).attr('data-flag'),
                 dates = (new Date()).getTime();
 
             $(this).attr('src', flag + '&v=' + dates);

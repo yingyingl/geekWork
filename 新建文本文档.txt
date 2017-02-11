@@ -13,8 +13,60 @@ type=enterprise 企业
 
 
 ====================注册==================
+
 图形验证码 /util/captcha?flag=
 
 发送短信 post    /util/postsms   参数：flag    captcha   mobile
 
 注册post：/login/postReg    mobile  smscode username  password
+
+
+
+==================首页=============================
+Array
+(
+    [enterprise_name] => 企业名称1
+    [insurance_num] => 2 //共2种保障方案
+    [insurance_list] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 3
+                    [enterprise_uid] => 6
+                    [product_id] => 1
+                    [product_name] => 极客保 - 意外型
+                    [enterprise_name] => 测试公司
+                    [begin_date] => 2017-01-28
+                    [end_date] => 2017-02-28
+                    [contract] => 
+                    [people_num] => 
+                    [status] => 0
+                    [payment_circle] => 0
+                    [price] => 0.00
+                    [status_text] => 未生效
+                )
+
+            [1] => Array
+                (
+                    [id] => 10
+                    [enterprise_uid] => 6
+                    [product_id] => 3
+                    [product_name] => 【医疗保险】 企业名称1
+                    [enterprise_name] => 企业名称1
+                    [begin_date] => 2017-02-11
+                    [end_date] => 2018-02-10
+                    [contract] => 
+                    [people_num] => 
+                    [status] => 0
+                    [payment_circle] => 1
+                    [price] => 384.00
+                    [status_text] => 未生效
+                )
+
+        )
+
+    [wait_people_num] => 0  //待审核人数
+    [insurance_people_num] => 0  //在保人数
+    [should_pay] => 0 //当前应缴
+    [wait_pay] => 0.00 //未出账单
+)
