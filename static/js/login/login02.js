@@ -45,9 +45,19 @@ var login = {
                     $('#company_submit').click();
                 }else if(num==1){
                     $('#user_submit').click();
+                } else {
+                    tool.reg.load(this, 0);
                 }
             }
         });
+
+        var nowUrl = location.href;
+        if(nowUrl.indexOf('person') != -1) {
+            $('#puser').addClass('active').siblings().removeClass('active');
+            $('#tab-2').addClass('active').siblings().removeClass('active');
+            $('.bg-img').eq(0).css({opacity: 0});
+            $('.bg-img').eq(1).css({opacity:1});
+        }
     },
 
     //企业登录相关

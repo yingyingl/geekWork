@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 02:33:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 02:48:29
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\reg.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:27039589d69e95d8c15-35428357%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a0462967f85b75b3611a1fe0c1034bde89dd31a1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\account\\reg.tpl',
-      1 => 1486776822,
+      1 => 1486777505,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -206,6 +206,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
         </div>
     </div>
+
+    <input type="hidden" id="redirect" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['redirect'];?>
+" >
 
 
         <?php echo $_smarty_tpl->getSubTemplate ("template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>

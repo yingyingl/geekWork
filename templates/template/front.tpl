@@ -189,7 +189,7 @@
 <script src="{#static_path#}/js/zzsc.js"></script>
 {*<script src="{#static_path#}/js/common_ajax.js"></script>*}
 <script src="{#static_path#}/js/igCustom.js"></script>
-<script src="{#static_path#}/js/vuejs/vue.js"></script>
+{*<script src="{#static_path#}/js/vuejs/vue.js"></script>*}
 <script src="{#static_path#}/js/ig_common.js"></script>
 <script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>
 <script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-10 08:24:22
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 03:03:53
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6366589c759c73aa28-09635693%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486711384,
+      1 => 1486777962,
       2 => 'file',
     ),
   ),
@@ -249,18 +249,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/zzsc.js"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/common_ajax.js"><?php echo '</script'; ?>
->
+
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/igCustom.js"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/vuejs/vue.js"><?php echo '</script'; ?>
->
+
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/ig_common.js"><?php echo '</script'; ?>
