@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>{block name="title"}{/block}</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="" />
@@ -13,20 +13,21 @@
 
 
     <link href="{#static_path#}/css/bootstrap.css" rel="stylesheet">
-    <link href="{#static_path#}/css/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/blueimp/css/blueimp-gallery.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/steps/jquery.steps.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/footable/footable.core.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/morris/morris-0.4.3.css" rel="stylesheet">
+    {*   <link href="{#static_path#}/css/font-awesome/css/font-awesome.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/blueimp/css/blueimp-gallery.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/footable/footable.core.css" rel="stylesheet">
+       <link href="{#static_path#}/css/plugins/morris/morris-0.4.3.css" rel="stylesheet">*}
     <link href="{#static_path#}/css/animate.css"  rel="stylesheet">
     <link href="{#static_path#}/css/style.css" rel="stylesheet">
     <link href="{#static_path#}/css/home.css" rel="stylesheet">
     <link href="{#static_path#}/css/plugins/drag/drag.css" rel="stylesheet">
+{*
     <link href="{#static_path#}/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="{#static_path#}/css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="{#static_path#}/css/plugins/slick/slick-theme.css" rel="stylesheet">*}
 
     <!--[if lt IE 9]>
     <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
@@ -182,15 +183,16 @@
 
 
 <script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
-<script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>
+<script src="{#static_path#}/js/topup.js"></script>
+
+{*
 <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="{#static_path#}/js/topup.js"></script>
-<script src="{#static_path#}/js/zzsc.js"></script>
+<script src="{#static_path#}/js/zzsc.js"></script>*}
 {*<script src="{#static_path#}/js/common_ajax.js"></script>*}
-<script src="{#static_path#}/js/igCustom.js"></script>
+{*<script src="{#static_path#}/js/igCustom.js"></script>*}
 {*<script src="{#static_path#}/js/vuejs/vue.js"></script>*}
-<script src="{#static_path#}/js/ig_common.js"></script>
+{*<script src="{#static_path#}/js/ig_common.js"></script>
 <script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>
 <script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 <script src="{#static_path#}/js/plugins/iCheck/icheck.min.js"></script>
@@ -202,6 +204,7 @@
 <script src="{#static_path#}/js/inspinia.js"></script>
 <script src="{#static_path#}/js/plugins/pace/pace.min.js"></script>
 <script src="{#static_path#}/js/plugins/slick/slick.min.js"></script>
+*}
 <script src="{#static_path#}/js/plugins/drag/drag.js"></script>
 
 {block name="js"}{/block}

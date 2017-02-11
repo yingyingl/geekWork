@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 02:48:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 04:50:58
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\account\reg.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:27039589d69e95d8c15-35428357%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486737779,
+      1 => 1486785001,
       2 => 'file',
     ),
   ),
@@ -223,81 +223,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/bootstrap.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/metisMenu/jquery.metisMenu.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/slimscroll/jquery.slimscroll.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/topup.js"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/zzsc.js"><?php echo '</script'; ?>
->
 
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/igCustom.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/vuejs/vue.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/ig_common.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/dataTables/jquery.dataTables.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/dataTables/dataTables.bootstrap.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/iCheck/icheck.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/datapicker/bootstrap-datepicker.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/sweetalert/sweetalert.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/blueimp/jquery.blueimp-gallery.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/staps/jquery.steps.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/footable/footable.all.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/inspinia.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/pace/pace.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/slick/slick.min.js"><?php echo '</script'; ?>
->
+
+
+
+
+
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/drag/drag.js"><?php echo '</script'; ?>

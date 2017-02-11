@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-09 15:26:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-11 05:01:24
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28587589c7775a3d195-30623656%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9bb3d8f1ee1aed186788ba815c744c97fcaf10e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\header.tpl',
-      1 => 1486650368,
+      1 => 1486785529,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </li>
                 </ul>
                                                       <span id="login_reg" class="login">
-                                 <a href="index.htm" tppabs="http://www.insgeek.com/login/index" rel="nofollow">登录</a><a href="reg.htm" tppabs="http://www.insgeek.com/login/reg" rel="nofollow">注册</a>
+                                 <a href="/login/login" rel="nofollow">登录</a><a href="/login/reg" rel="nofollow">注册</a>
                              </span>                    </div>
         </div>
     </div>
@@ -68,7 +68,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div class="row white-bg head-warp">
     <div class="container head">
-        <a href="../index.htm" class="pull-left">
+        <a href="#" class="pull-left">
             <img src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /images/logo.png" alt="logo" title="保险极客"/>
         </a>
@@ -79,13 +79,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="nav-box" id="navbar" style="margin-right: -20px">
             <ul>
                 <li id="index">
-                    <a href="../index.htm" tppabs="http://www.insgeek.com/"><span class="navbar-spacing">首</span>页</a>
+                    <a href="#"><span class="navbar-spacing">首</span>页</a>
                 </li>
                 <li id="insurancetemplate">
-                    <a href="../InsuranceTemplate/index.htm" tppabs="http://www.insgeek.com/InsuranceTemplate/index">产品中心</a>
+                    <a href="#">产品中心</a>
                 </li>
                 <li id="user">
-                    <a href="javascript:if(confirm('http://www.insgeek.com/user/insurance  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ����һ��λ���ѱ�վ����������ų��׼��������Ե�·����ַ��(Teleport Pro ���ԶԸ�ѡ��������ã�����ġ��������ԡ�-������淶��)  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.insgeek.com/user/insurance'" tppabs="http://www.insgeek.com/user/insurance">保险管家</a>
+                    <a href="/login/login">保险管家</a>
                 </li>
             </ul>
         </div>

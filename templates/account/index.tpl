@@ -1,5 +1,7 @@
 {extends file="template/front.tpl"}
 
+{block name="title"}登陆{/block}
+
 {block name="css"}
     <link href="{#static_path#}/css/login.css"  rel="stylesheet">
 {/block}
@@ -55,7 +57,7 @@
 
                             <div class="loginAll-box-bottom text-right small">
                                 没有账号？
-                                <a href="#" style="border-bottom: 1px solid">企业注册</a>
+                                <a href="/login/reg" style="border-bottom: 1px solid">企业注册</a>
                             </div>
                         </div>
 
@@ -87,7 +89,7 @@
                             </form>
 
                             <div class="loginAll-box-bottom text-right small">
-                                <a href="#" style="border-bottom: 1px solid">忘记密码?</a>
+                                <a href="/login/reset" style="border-bottom: 1px solid">忘记密码?</a>
                             </div>
                         </div>
                     </div>
@@ -101,5 +103,6 @@
 
 
 {block name="js"}
+    <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>
     <script src="{#static_path#}/js/login/login02.js"></script>
 {/block}

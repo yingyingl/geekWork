@@ -36,7 +36,7 @@
                     </li>
                 </ul>
                                                       <span id="login_reg" class="login">
-                                 <a href="index.htm" tppabs="http://www.insgeek.com/login/index" rel="nofollow">登录</a><a href="reg.htm" tppabs="http://www.insgeek.com/login/reg" rel="nofollow">注册</a>
+                                 <a href="/login/login" rel="nofollow">登录</a><a href="/login/reg" rel="nofollow">注册</a>
                              </span>                    </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
 
 <div class="row white-bg head-warp">
     <div class="container head">
-        <a href="../index.htm" class="pull-left">
+        <a href="#" class="pull-left">
             <img src="{#static_path#}/images/logo.png" alt="logo" title="保险极客"/>
         </a>
                 <span style="float: left;height: 30px;line-height:30px;margin: 20px 0 20px 5px;font-size: 16px;color: #00ab9f;padding-left: 10px;border-left: 1px solid #00ab9f" title="中小企业员工保障">
@@ -54,13 +54,13 @@
         <div class="nav-box" id="navbar" style="margin-right: -20px">
             <ul>
                 <li id="index">
-                    <a href="../index.htm" tppabs="http://www.insgeek.com/"><span class="navbar-spacing">首</span>页</a>
+                    <a href="#"><span class="navbar-spacing">首</span>页</a>
                 </li>
                 <li id="insurancetemplate">
-                    <a href="../InsuranceTemplate/index.htm" tppabs="http://www.insgeek.com/InsuranceTemplate/index">产品中心</a>
+                    <a href="#">产品中心</a>
                 </li>
                 <li id="user">
-                    <a href="javascript:if(confirm('http://www.insgeek.com/user/insurance  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ����һ��λ���ѱ�վ����������ų��׼��������Ե�·����ַ��(Teleport Pro ���ԶԸ�ѡ��������ã�����ġ��������ԡ�-������淶��)  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.insgeek.com/user/insurance'" tppabs="http://www.insgeek.com/user/insurance">保险管家</a>
+                    <a href="/login/login">保险管家</a>
                 </li>
             </ul>
         </div>

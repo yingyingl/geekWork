@@ -8,28 +8,28 @@
             </div>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
                 <h3>探索极客</h3>
-                <li><a href="../help/view/cid/8.html" rel="nofollow">关于我们</a></li>
-                <li><a href="../help/team.html" rel="nofollow">极客团队</a></li>
-                <li><a href="../help/view/cid/19.html" rel="nofollow">资质展示</a></li>
-                <li><a href="../help/view/cid/9.html" rel="nofollow">联系我们</a></li>
+                <li><a href="#" rel="nofollow">关于我们</a></li>
+                <li><a href="#" rel="nofollow">极客团队</a></li>
+                <li><a href="#" rel="nofollow">资质展示</a></li>
+                <li><a href="#" rel="nofollow">联系我们</a></li>
             </ul>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
                 <h3>享用极客</h3>
-                <li><a href="../help/view/cid/10.html" rel="nofollow">企业员福</a></li>
-                <li><a href="../help/view/cid/11.html" rel="nofollow">企业保障</a></li>
-                <li><a href="../help/view/cid/12.html" rel="nofollow">个人服务</a></li>
-                <li><a href="../help/view/cid/13.html" rel="nofollow">战略合作</a></li>
+                <li><a href="#" rel="nofollow">企业员福</a></li>
+                <li><a href="#" rel="nofollow">企业保障</a></li>
+                <li><a href="#" rel="nofollow">个人服务</a></li>
+                <li><a href="#" rel="nofollow">战略合作</a></li>
             </ul>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
                 <h3>极客动态</h3>
-                <li><a href="../help/view/cid/6.html" rel="nofollow">媒体报道</a></li>
-                <li><a href="../help/view/cid/7.html" rel="nofollow">极客快讯</a></li>
+                <li><a href="#" rel="nofollow">媒体报道</a></li>
+                <li><a href="#" rel="nofollow">极客快讯</a></li>
             </ul>
             <ul class="list-unstyled col-xs-2 foot-md text-center">
                 <h3>极客帮助</h3>
-                <li><a href="../help/view/cid/14.html" target="_blank" rel="nofollow">新人指南</a></li>
-                <li><a href="../help/view/cid/15.html" rel="nofollow">常见问题</a></li>
-                <li><a href="../help/view/cid/16.html" target="_blank" rel="nofollow">服务协议</a></li>
+                <li><a href="#" target="_blank" rel="nofollow">新人指南</a></li>
+                <li><a href="#" rel="nofollow">常见问题</a></li>
+                <li><a href="#" target="_blank" rel="nofollow">服务协议</a></li>
             </ul>
         </div>
         <div class="col-xs-4 text-center">
@@ -66,7 +66,7 @@
             <div class="col-xs-12 text-center text-muted">
                 <p>
                     <small>
-                        保险极客<a href="../index.htm" tppabs="http://www.insgeek.com/">员工福利</a>产品&nbsp;? 2014-2016 Insgeek.com All Rights Reserved
+                        保险极客<a href="#" tppabs="http://www.insgeek.com/">员工福利</a>产品&nbsp;? 2014-2016 Insgeek.com All Rights Reserved
                         <a target="_blank" rel="nofollow">京ICP备15030724号 </a>
                     </small>
                     <br>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-xs-12 text-center">
                 <div class="photos">
-                    <a href="../index.htm">
+                    <a href="#">
                         <img src="{#static_path#}/images/logo_a.png" alt="logo" title="保险极客"/>
                     </a>
                     <a id='___szfw_logo___' href="https://credit.szfw.org/CX20150928011852880188.html" target='_blank'><img src="{#static_path#}/images/cert.png" border='0' width="90" height="33"/></a>
