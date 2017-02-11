@@ -6740,3 +6740,14 @@ body.skin-3 {
     border: 1px solid #CCC;
     cursor: default;
 }
+
+.ajax-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 32px;
+    background: url(../images/ajax-loader.gif) no-repeat center;
+    display: none;
+}

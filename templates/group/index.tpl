@@ -85,6 +85,7 @@
                                 <input type="hidden" name="eid" value="2955">
                                 <div class="m-t-35">
                                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                                        <p class="ajax-loading"></p>
                                         <table class="table table-hover dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                                             <thead>
                                             <tr role="row">

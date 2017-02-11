@@ -101,6 +101,7 @@ var tool = {
             var id = $(obj).attr('data-id'),
                 page = $(obj).attr('data-page') ? $(obj).attr('data-page') : 1,
                 first = $(obj).attr('data-first'),
+                loading = $(obj).find('.ajax-loading'),
                 tbody = $(obj).find('.table tbody'),
                 lists = tbody.find('tr').length;
 
@@ -109,9 +110,11 @@ var tool = {
             }
 
             $(obj).attr('data-load', 'false');
+            loading.show();
 
             var param = {
                 url: '/group/memberList',
+                type: 'GET',
                 data: {
                     insurance_id: id,
                     page: page
@@ -119,6 +122,8 @@ var tool = {
                 success: function(data) {
                     var datas = data.list,
                         html = '';
+
+                    loading.hide();
 
                     if(datas.length != 0) {
                         for(var i = 0; i < datas.length; i++) {
@@ -156,6 +161,8 @@ var tool = {
                     }
                 },
                 error: function(message) {
+                    loading.hide();
+
                     if(lists.length == 0) {
                         tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">'+ message +'</td></tr>');
                     }

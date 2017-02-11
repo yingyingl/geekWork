@@ -888,6 +888,7 @@ h2.favorable{
     text-align: center;
 }
 .dataTables_wrapper{
+    position: relative;
     padding-bottom: 0px !important;
     margin-top: 10px;
 }
