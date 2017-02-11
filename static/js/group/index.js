@@ -37,6 +37,14 @@ var group = {
             tool.all.allOpen(this);
         });
 
+        //表格显示多少行
+        $('.table-hover').dataTable({
+            ordering:false,
+            "searching": true,
+            "bStateSave": true,
+            "lengthMenu": [10, 20, 50, 100, 200, 500]
+        });
+
     },
 
     //加入推送点击

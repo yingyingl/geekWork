@@ -459,13 +459,13 @@ var tool = {
                     if (data.success == 1) {
                         options.success();
                     }  else {
-                        tool.ajax.error(data.message, options.flag);
+                        tool.ajax.error(data.message, options.flag, options.id);
 
                         options.error();
                     }
                 },
                 error: function() {
-                    tool.ajax.error('网络异常' , options.flag);
+                    tool.ajax.error('网络异常' , options.flag, options.id);
 
                     options.error();
                 }
