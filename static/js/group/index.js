@@ -142,7 +142,7 @@ var tool = {
 
                     loading.hide();
 
-                    if(datas.length != 0) {
+                    if(datas.length != '') {
                         for(var i = 0; i < datas.length; i++) {
                             if(datas[i].mobile == '') {
                                 datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
