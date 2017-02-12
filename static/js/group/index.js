@@ -62,7 +62,9 @@ var group = {
     //数据列表
     dataList: function() {
         $('.iboxlist').each(function() {
-            tool.list.load(this);
+            if(!$(this).hasClass('add-null')) {
+                tool.list.load(this);
+            }
         });
     },
 
@@ -140,6 +142,10 @@ var group = {
         //提交
         $('#userForm').click(function() {
             var flag =  $(box).hasClass('edit-user') ? 'edit' : 'add';
+
+            if($(box).hasClass('add-null')) {
+                flag = '';
+            }
 
             tool.addEdit.submits(this, flag);
         });
