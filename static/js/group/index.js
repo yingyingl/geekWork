@@ -548,8 +548,8 @@ var tool = {
             }
 
             //有医保的，对医保进行校验
-            if($(box + '.health_insurance:disabled').length == 0
-                && ($(box + '.health_insurance_address').val() == '' || $(box + '.health_insurance_address').val().indexOf('/') == -1)) {
+            if($(box + ' .health_insurance:visible').length != 0
+                && ($(box + ' .health_insurance_address').val() == '' || $(box + ' .health_insurance_address').val().indexOf('/') == -1)) {
                 tool.check.error(obj, '请选择医保所在地', true);
                 return false;
             }
@@ -608,6 +608,7 @@ var tool = {
                             '</td></tr>';
 
                         listBox.find('.table tbody').prepend(html);
+                        listBox.find('.dataTables_empty').parent().hide();
                     } else if(flag == 'edit') {
                         trbox.find('.table-name').attr('title', name).text(name);
                         trbox.find('.table-num').text(idNum);
