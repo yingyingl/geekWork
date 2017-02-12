@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 10:33:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 11:02:05
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,19 +7,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486891989,
+      1 => 1486893719,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486806989,
+      1 => 1486893663,
       2 => 'file',
     ),
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1486715566,
+      1 => 1486893705,
       2 => 'file',
     ),
   ),
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_58a02bd944cb30_84795962($_smarty_tpl);
+content_58a0329d57b5a6_14395069($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -292,10 +292,17 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
                                         <div class="col-xs-7">
                                             <select name="eid" class="form-control select-fangan">
-                                                <option value="2955">【极客保 - 意外型】测试</option>
-                                                <option value="2958">【极客保 - 重疾型】测试</option>
-                                                <option value="2960">【极客保 - 医疗型】测试</option>
-                                                <option value="2964">【极客保 - 基础版】测试</option>
+                                                <?php  $_smarty_tpl->tpl_vars['insuranceList'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['insuranceList']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['data']->value['insurance_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['insuranceList']->key => $_smarty_tpl->tpl_vars['insuranceList']->value) {
+$_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['insuranceList']->key;
+?>
+                                                    <option value="<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['product_name'];?>
+</option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -456,6 +463,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >  <!-- 鼠标经过效果 以及弹窗 -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/metisMenu/jquery.metisMenu.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/pagination.js"><?php echo '</script'; ?>
 >   <!-- 分页 -->
     <?php echo '<script'; ?>
@@ -505,9 +516,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 10:33:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 11:02:05
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a02bd944cb30_84795962')) {function content_58a02bd944cb30_84795962($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a0329d57b5a6_14395069')) {function content_58a0329d57b5a6_14395069($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

@@ -5,6 +5,7 @@ var group = {
         this.dataList();
         this.dataDel();
         this.dataAddEdit();
+        $('#side-menu').metisMenu();
     },
 
     start: function() {
@@ -606,7 +607,7 @@ var tool = {
                             '</td></tr>';
 
                         listBox.find('.table tbody').prepend(html);
-                    } else {
+                    } else if(flag == 'edit') {
                         trbox.find('.table-name').attr('title', name).text(name);
                         trbox.find('.table-num').text(idNum);
                         trbox.find('.table-mobile').text(mobile);

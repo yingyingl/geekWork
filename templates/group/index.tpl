@@ -159,10 +159,9 @@
 
                                         <div class="col-xs-7">
                                             <select name="eid" class="form-control select-fangan">
-                                                <option value="2955">【极客保 - 意外型】测试</option>
-                                                <option value="2958">【极客保 - 重疾型】测试</option>
-                                                <option value="2960">【极客保 - 医疗型】测试</option>
-                                                <option value="2964">【极客保 - 基础版】测试</option>
+                                                {foreach from=$data.insurance_list item=insuranceList key=key}
+                                                    <option value="{$insuranceList.id}">{$insuranceList.product_name}</option>
+                                                {/foreach}
                                             </select>
                                         </div>
                                     </div>
@@ -289,6 +288,7 @@
 
 {block name="js"}
     <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 以及弹窗 -->
+    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/plugins/bootstrap-datepicker.js"></script>
 
