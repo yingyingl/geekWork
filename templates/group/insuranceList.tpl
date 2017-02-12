@@ -1,6 +1,6 @@
 {extends file="template/front.tpl"}
 
-{block name="title"}用户首页{/block}
+{block name="title"}保障方案{/block}
 
 {block name="container"}
     <div class="wrapper wrapper-content">

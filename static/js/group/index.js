@@ -311,7 +311,7 @@ var tool = {
 
                     loading.hide();
 
-                    if(datas.length != '') {
+                    if(datas != '') {
                         for(var i = 0; i < datas.length; i++) {
                             if(datas[i].mobile == '') {
                                 datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
@@ -341,7 +341,7 @@ var tool = {
                             $(obj).attr('data-first', 'false');
                         }
                     } else {
-                        if(lists.length == 0) {
+                        if(lists == 0) {
                             tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">没有数据</td></tr>');
                         }
                     }
@@ -349,7 +349,7 @@ var tool = {
                 error: function(message) {
                     loading.hide();
 
-                    if(lists.length == 0) {
+                    if(lists == 0) {
                         tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">'+ message +'</td></tr>');
                     }
                 }
@@ -549,7 +549,7 @@ var tool = {
 
             //有医保的，对医保进行校验
             if($(box + '.health_insurance:disabled').length == 0
-                && ($(box + '.health_insurance_address').val() == '' || $(box + '.health_insurance_address').val().indexOf('') == -1)) {
+                && ($(box + '.health_insurance_address').val() == '' || $(box + '.health_insurance_address').val().indexOf('/') == -1)) {
                 tool.check.error(obj, '请选择医保所在地', true);
                 return false;
             }
