@@ -66,7 +66,7 @@
 
                     <!-- list -->
                     {foreach from=$data.insurance_list item=insuranceList key=key}
-                        <div class="ibox float-e-margins iboxlist" data-id="{$insuranceList.id}" data-load="true">
+                        <div class="ibox float-e-margins iboxlist iboxlist{$insuranceList.id}" data-id="{$insuranceList.id}" data-load="true">
                             <div class="ibox-title">
                                  <span>
                                     {$insuranceList.product_name}
@@ -297,6 +297,6 @@
     <script src="{#static_path#}/js/address/Popt.js"></script>
     <script src="{#static_path#}/js/address/address_mapping.js"></script>
 
-    <script src="{#static_path#}/js/ig_common.js"></script>
+    <script src="{#static_path#}/js/igCustom.js"></script>
     <script src="{#static_path#}/js/group/index.js"></script>
 {/block}

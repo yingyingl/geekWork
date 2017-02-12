@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 07:23:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 10:33:13
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486879912,
+      1 => 1486891989,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_589fff7b640b24_24261537($_smarty_tpl);
+content_58a02bd944cb30_84795962($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -192,7 +192,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['insuranceList']->key => $_smarty_tpl-
 $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
  $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['insuranceList']->key;
 ?>
-                        <div class="ibox float-e-margins iboxlist" data-id="<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+                        <div class="ibox float-e-margins iboxlist iboxlist<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+" data-id="<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
 " data-load="true">
                             <div class="ibox-title">
                                  <span>
@@ -481,7 +482,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/ig_common.js"><?php echo '</script'; ?>
+/js/igCustom.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -504,9 +505,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 07:23:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 10:33:13
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_589fff7b640b24_24261537')) {function content_589fff7b640b24_24261537($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a02bd944cb30_84795962')) {function content_58a02bd944cb30_84795962($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

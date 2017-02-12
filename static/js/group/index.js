@@ -83,6 +83,8 @@ var group = {
 
     //添加修改
     dataAddEdit: function() {
+        var box = tool.dom.addDialog;
+
         //新增成员, 修改成员
         $(document).on('click', '.editor_user, .add_user', function() {
             var insuranceId = $(this).closest('.iboxlist').attr('data-id'),
@@ -90,35 +92,55 @@ var group = {
 
             if($(this).hasClass('add_user')) {
                 memberId = 0;
-                $(tool.dom.addDialog).removeClass('edit-user');
-                $(tool.dom.addDialog + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
+                $(box).removeClass('edit-user');
+                $(box + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
             } else {
                 memberId = $(this).closest('tr').attr('data-id');
-                $(tool.dom.addDialog).addClass('edit-user');
+                $(box).addClass('edit-user');
             }
 
-            $(tool.dom.addDialog).attr('data-insuranceId', insuranceId).attr('data-memberId', memberId);
-            $(tool.dom.addDialog).modal();
+            $(box).attr('data-insuranceId', insuranceId).attr('data-memberId', memberId);
+            $(box).modal();
 
             tool.addEdit.startLoad(insuranceId, memberId);
         });
 
         //切换方案
-        $(tool.dom.addDialog + ' .form-fangan select').change(function() {
+        $(box + ' .form-fangan select').change(function() {
             var insuranceId = $(this).val(),
-                memberId = $(tool.dom.addDialog).attr('data-memberId');
+                memberId = $(box).attr('data-memberId');
 
             tool.addEdit.startLoad(insuranceId, memberId);
         });
 
         //地址设置
-        $(tool.dom.addDialog + ' .health_insurance_address').click(function (e) {
+        $(box + ' .health_insurance_address').click(function (e) {
             SelCity(this, e);
+        });
+
+        //输入框校验
+        $(box + ' .form-name').blur(function() {
+            tool.check.realName(this);
+        });
+        $(box + ' .form-idnum').blur(function() {
+            tool.check.idNum(this);
+        });
+        $(box + ' .form-mobile').blur(function() {
+            tool.check.mobile(this);
+        });
+
+        //切换证件类型
+        $('#certTypeId').change(function() {
+            var type = $(this).val();
+
+            tool.all.showBirthDiv(type);
         });
 
         //提交
         $('#userForm').click(function() {
-            tool.addEdit.submits(this);
+            var flag =  $(box).hasClass('edit-user') ? 'edit' : 'add';
+
+            tool.addEdit.submits(this, flag);
         });
     }
 };
@@ -179,6 +201,16 @@ var tool = {
 
         loading: function(status) {
             eval("$('._loading')." + status + '()');
+        },
+
+        showBirthDiv: function(flag) {
+            if (flag == 0) {
+                //身份证
+                $('#relBirthDiv').hide();
+            } else if (flag == 1) {
+                //出生证
+                $('#relBirthDiv').show();
+            }
         }
     },
 
@@ -192,11 +224,46 @@ var tool = {
                 return false;
             }
 
-            if(!realnameReg.test(name)) {
+            if(!realnameReg.test(v)) {
                 tool.check.error(obj, '真实姓名只能是汉字', true);
                 return false;
             }
 
+            tool.check.error(obj, '', false);
+            return true;
+        },
+
+        idNum: function(obj) {
+            var id_number = $.trim($(obj).val()),
+                relType = $('#relTypeId').val(),
+                certType = $('#certTypeId').val();
+
+            if ((relType == 1 && !check_id_number_format(id_number)) || (relType != 1 && certType == 0 && !check_id_number_format(id_number)) || (relType != 1 && certType == 1 && !checkBirthCertFormat(id_number))) {
+                tool.check.error(obj, '证件号码有误', true);
+
+                return false;
+            }
+
+            tool.check.error(obj, '', false);
+            return true;
+        },
+
+        //手机号
+        mobile: function(obj, flag) {
+            var v = $.trim($(obj).val()),
+                b = /^1[3-9][0-9]\d{8}$/;
+
+            if(v == '') {
+                tool.check.error(obj, '请输入手机号码', true);
+                return false;
+            }
+
+            if(!b.test(v)) {
+                tool.check.error(obj, '手机号码格式不对', true);
+                return false;
+            }
+
+            tool.check.error(obj, '', false);
             return true;
         },
 
@@ -204,11 +271,11 @@ var tool = {
             var msgObj = $("#add_user .msg");
 
             if (show) {
-                inputObj.css({"border-color": "red"});
+                $(inputObj).css({"border-color": "red"});
                 msgObj.html(msg);
             }
             else {
-                inputObj.css({"border-color": "#eeeeee"});
+                $(inputObj).css({"border-color": "#eeeeee"});
                 msgObj.html('');
             }
         }
@@ -409,7 +476,7 @@ var tool = {
     },
 
     addEdit: {
-        startLoad: function(insuranceId, memberId) {
+        startLoad: function(insuranceId, memberId, flag) {
             var param = {
                 url: '/group/memberInfo',
                 data: {
@@ -466,14 +533,42 @@ var tool = {
             tool.ajax.callAjax(param);
         },
 
-        submits: function(obj) {
+        indenty: function(obj) {
+            var box = tool.dom.addDialog;
+
+            if($(obj).hasClass('on')) {
+                return false;
+            }
+
+            if(!tool.check.realName(box + ' .form-name') || !tool.check.idNum(box + ' .form-idnum')
+                || !tool.check.mobile(box + ' .form-mobile')) {
+                return false;
+            }
+
+            //有医保的，对医保进行校验
+            if($(box + '.health_insurance:disabled').length == 0
+                && ($(box + '.health_insurance_address').val() == '' || $(box + '.health_insurance_address').val().indexOf('') == -1)) {
+                tool.check.error(obj, '请选择医保所在地', true);
+                return false;
+            }
+
+            return true;
+        },
+
+        submits: function(obj, flag) {
             var box = $(tool.dom.addDialog),
-                nameBox = box.find('.form-name'),
-                idNumBox = box.find('.form-idnum'),
-                mobileBox = box.find('.form-mobile'),
+                sid = box.attr('data-insuranceId'),
+                mid = box.attr('data-memberId'),
+                name = $.trim(box.find('.form-name').val()),
+                idNum = $.trim(box.find('.form-idnum').val()),
+                mobile = $.trim(box.find('.form-mobile').val()),
                 healthInsurance = box.find('.health_insurance'),
-                startTimeBox = box.find('.startTimeBox'),
-                endTimeBox = box.find('.endTimeBox');
+                startTime = box.find('.startTimeBox input').val(),
+                endTime = box.find('.endTimeBox input').val();
+
+            if(!tool.addEdit.indenty(obj)) {
+                return false;
+            }
 
             tool.all.loading('show');
 
@@ -481,17 +576,44 @@ var tool = {
                 id: obj,
                 url: '/group/postAddMember',
                 data: {
-                    insurance_id: box.attr('data-insuranceId'),
-                    name: $.trim(box.find('.form-name').val()),
-                    id_number: $.trim(box.find('.form-idnum').val()),
-                    mobile: $.trim(box.find('.form-mobile').val()),
-                    begin_date: box.find('.startTimeBox input').val(),
-                    end_date: box.find('.endTimeBox input').val()
+                    insurance_id: sid,
+                    name: name,
+                    id_number: idNum,
+                    mobile: mobile,
+                    begin_date: startTime,
+                    end_date: endTime
                 },
-                success: function() {
+                success: function(data) {
                     tool.all.loading('hide');
                     box.find('input').val('');
                     box.modal('hide');
+
+                    var listBox = $('.iboxlist' + sid).length > 0 ? $('.iboxlist' + sid) : $('.iboxlist'),
+                        trbox = listBox.find('tr[data-id="'+ mid +'"]');
+
+                    if(flag == 'add') {
+                        var html = '<tr data-id="'+ data.id +'" class="odd">' +
+                            '<td><input type="checkbox" name="idArr[]" value="'+ data.id +'" class="form-control"></td>' +
+                            '<td><div class="table-h table-name" style="width: 70px" title="'+ name +'">'+ name +'</div></td>' +
+                            '<td><div class="table-h table-num">'+ idNum +'</div></td>' +
+                            '<td><div class="table-h text-left table-mobile">'+ mobile +'</div></td>' +
+                            '<td><div class="table-h text-center table-start">'+ startTime +'</div></td>' +
+                            '<td><div class="table-h text-center table-end">'+ endTime +'</div></td>' +
+                            '<td><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>' +
+                            '<td><div class="btn-group">' +
+                            '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
+                            '<button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div>' +
+                            '</td></tr>';
+
+                        listBox.find('.table tbody').prepend(html);
+                    } else {
+                        trbox.find('.table-name').attr('title', name).text(name);
+                        trbox.find('.table-num').text(idNum);
+                        trbox.find('.table-mobile').text(mobile);
+                        trbox.find('.table-start').text(startTime);
+                        trbox.find('.table-end').text(endTime);
+                    }
+
                 },
                 error: function() {
                     tool.all.loading('hide');
@@ -520,6 +642,10 @@ var tool = {
                 type: options.type ? options.type : 'POST',
                 dataType: "json",
                 success: function(data) {
+                    if(options.id) {
+                        $(options.id).removeClass('on');
+                    }
+
                     if (data.success == 1) {
                         options.success(data);
                     }  else {
@@ -532,6 +658,10 @@ var tool = {
                 },
                 error: function() {
                     tool.ajax.error('网络异常');
+
+                    if(options.id) {
+                        $(options.id).removeClass('on');
+                    }
 
                     if(options.error) {
                         options.error('网络异常');

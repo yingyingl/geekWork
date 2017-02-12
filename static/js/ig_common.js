@@ -1,5 +1,3 @@
-//VM: 54mI5pys57yW5Y+377yaMi4zLjQK5L+u5pS55Lq65ZGY77ya5YiY5rWpCuS/ruaUueaXtumXtO+8mjIwMTYvMTAvMTEK5L+u5pS55YaF5a6577yaVEFTSyM4MDUgW+WJjeerr+W8gOWPkV0g5L+u5pS56LSi5Yqh55u45YWz55qE5bGV56S677yM55So5LqO5LyY5YyW55So5oi35L2T6aqM
-
 // To set it up as a global function:
 function formatMoney(number, places, symbol, thousand, decimal) {
     number = number || 0;
