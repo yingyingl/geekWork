@@ -480,6 +480,7 @@ var tool = {
         startLoad: function(insuranceId, memberId, flag) {
             var param = {
                 url: '/group/memberInfo',
+                type: 'GET',
                 data: {
                     member_id: memberId,
                     insurance_id: insuranceId
