@@ -107,7 +107,7 @@
 <script src="{#static_path#}/js/plugins/pace/pace.min.js"></script>
 <script src="{#static_path#}/js/plugins/slick/slick.min.js"></script>
 *}
-<script src="{#static_path#}/js/plugins/drag/drag.js"></script>
+<script src="{#static_path#}/js/plugins/drag.js"></script>
 
 {block name="js"}{/block}
 
