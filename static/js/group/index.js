@@ -4,6 +4,7 @@ var group = {
         this.ewmCode();
         this.dataList();
         this.dataDel();
+        this.dataAddEdit();
     },
 
     start: function() {
@@ -78,24 +79,70 @@ var group = {
 
             tool.list.del(memberIdArr, lines);
         });
+    },
+
+    //添加修改
+    dataAddEdit: function() {
+        //新增成员, 修改成员
+        $(document).on('click', '.editor_user, .add_user', function() {
+            var insuranceId = $(this).closest('.iboxlist').attr('data-id'),
+                memberId = 0;
+
+            if($(this).hasClass('add_user')) {
+                memberId = 0;
+                $(tool.dom.addDialog).removeClass('edit-user');
+                $(tool.dom.addDialog + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
+            } else {
+                memberId = $(this).closest('tr').attr('data-id');
+                $(tool.dom.addDialog).addClass('edit-user');
+            }
+
+            $(tool.dom.addDialog).attr('data-insuranceId', insuranceId).attr('data-memberId', memberId);
+            $(tool.dom.addDialog).modal();
+
+            tool.addEdit.startLoad(insuranceId, memberId);
+        });
+
+        //切换方案
+        $(tool.dom.addDialog + ' .form-fangan select').change(function() {
+            var insuranceId = $(this).val(),
+                memberId = $(tool.dom.addDialog).attr('data-memberId');
+
+            tool.addEdit.startLoad(insuranceId, memberId);
+        });
+
+        //地址设置
+        $(tool.dom.addDialog + ' .health_insurance_address').click(function (e) {
+            SelCity(this, e);
+        });
+
+        //提交
+        $('#userForm').click(function() {
+            tool.addEdit.submits(this);
+        });
     }
 };
 
 
 var tool = {
+    dom: {
+        addDialog: '#add_user'
+    },
+
     all: {
         allOpen: function(obj){
             if($(obj).attr('data-all') == 'true') {
                 $('.ibox-content').css('display', 'none');
                 $(obj).text('全部打开').attr('data-all','false');
+                $('.updown').removeClass('fa-chevron-up');
+                $('.updown').addClass('fa-chevron-down');
             } else {
                 $('.ibox-content').css('display', 'block');
                 $('#all').text('全部收起');
                 $('#all').attr('data-all','true');
+                $('.updown').removeClass('fa-chevron-down');
+                $('.updown').addClass('fa-chevron-up');
             }
-
-            $('.updown').removeClass('fa-chevron-down');
-            $('.updown').addClass('fa-chevron-up');
         },
 
         //分页
@@ -110,6 +157,60 @@ var tool = {
                 link_to: 'javascript:void(0)',
                 callback: callbackLoadList  //回调函数
             });
+        },
+
+        //设定日期的选择范围
+        setsDateRange: function(obj, startDate, endDate, defaultDate) {
+            obj.datepicker({
+                format: 'yyyy-mm-dd',
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                startDate: startDate,
+                endDate: endDate
+            });
+            obj.datepicker("setStartDate", startDate);
+            obj.datepicker("setEndDate", endDate);
+
+            if (defaultDate) {
+                obj.datepicker("setDate", defaultDate);
+            }
+        },
+
+        loading: function(status) {
+            eval("$('._loading')." + status + '()');
+        }
+    },
+
+    check: {
+        realName: function(obj) {
+            var v = $.trim($(obj).val()),
+                realnameReg=/^[\u4e00-\u9fa5·]{2,15}$/;
+
+            if(v == '') {
+                tool.check.error(obj, '请填写真实姓名', true);
+                return false;
+            }
+
+            if(!realnameReg.test(name)) {
+                tool.check.error(obj, '真实姓名只能是汉字', true);
+                return false;
+            }
+
+            return true;
+        },
+
+        error: function(inputObj, msg, show) {
+            var msgObj = $("#add_user .msg");
+
+            if (show) {
+                inputObj.css({"border-color": "red"});
+                msgObj.html(msg);
+            }
+            else {
+                inputObj.css({"border-color": "#eeeeee"});
+                msgObj.html('');
+            }
         }
     },
 
@@ -145,7 +246,7 @@ var tool = {
                     if(datas.length != '') {
                         for(var i = 0; i < datas.length; i++) {
                             if(datas[i].mobile == '') {
-                                datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
+                                datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
                             }
 
                             html += '<tr data-id="'+ datas[i].id +'" class="odd">' +
@@ -157,7 +258,7 @@ var tool = {
                                 '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
                                 '<td><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>' +
                                 '<td><div class="btn-group">' +
-                                '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" data-target="#edit_user" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
+                                '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
                                 '<button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div>' +
                                 '</td></tr>';
                         }
@@ -307,6 +408,106 @@ var tool = {
         }
     },
 
+    addEdit: {
+        startLoad: function(insuranceId, memberId) {
+            var param = {
+                url: '/group/memberInfo',
+                data: {
+                    member_id: memberId,
+                    insurance_id: insuranceId
+                },
+                success: function(data) {
+                    var datas = data.data,
+                        box = $(tool.dom.addDialog),
+                        nameBox = box.find('.form-name'),
+                        idNumBox = box.find('.form-idnum'),
+                        mobileBox = box.find('.form-mobile'),
+                        healthInsurance = box.find('.health_insurance'),
+                        startTimeBox = box.find('.startTimeBox'),
+                        endTimeBox = box.find('.endTimeBox');
+
+                    if($.trim(nameBox.val()) == '') {
+                        nameBox.val(datas.name);
+                    }
+
+                    if($.trim(idNumBox.val()) == '') {
+                        idNumBox.val(datas.id_number);
+                    }
+
+                    if($.trim(mobileBox.val()) == '') {
+                        mobileBox.val(datas.mobile);
+                    }
+
+                    //是否需要医保信息
+                    if(datas.need_medical_insurance == 1) {
+                        healthInsurance.show();
+                        box.attr('data-medical', datas.need_medical_insurance);
+                        healthInsurance.find('option[value="'+ datas.insurance_type +'"]').attr('selected', true);
+                    } else {
+                        box.attr('data-medical', 0);
+                        healthInsurance.hide();
+                    }
+
+                    //生效日期
+                    tool.all.setsDateRange(startTimeBox, datas.min_begin_date, datas.max_begin_date);
+                    tool.all.setsDateRange(endTimeBox, datas.min_end_date, datas.max_end_date);
+
+                    if(startTimeBox.find('input').val() == '') {
+                        startTimeBox.attr('data-date', datas.min_begin_date).find('input').val(datas.min_begin_date);
+                    }
+
+                    if(endTimeBox.find('input').val() == '') {
+                        endTimeBox.attr('data-date', datas.max_end_date).find('input').val(datas.max_end_date);
+                    }
+
+                }
+            };
+
+            tool.ajax.callAjax(param);
+        },
+
+        submits: function(obj) {
+            var box = $(tool.dom.addDialog),
+                nameBox = box.find('.form-name'),
+                idNumBox = box.find('.form-idnum'),
+                mobileBox = box.find('.form-mobile'),
+                healthInsurance = box.find('.health_insurance'),
+                startTimeBox = box.find('.startTimeBox'),
+                endTimeBox = box.find('.endTimeBox');
+
+            tool.all.loading('show');
+
+            var param = {
+                id: obj,
+                url: '/group/postAddMember',
+                data: {
+                    insurance_id: box.attr('data-insuranceId'),
+                    name: $.trim(box.find('.form-name').val()),
+                    id_number: $.trim(box.find('.form-idnum').val()),
+                    mobile: $.trim(box.find('.form-mobile').val()),
+                    begin_date: box.find('.startTimeBox input').val(),
+                    end_date: box.find('.endTimeBox input').val()
+                },
+                success: function() {
+                    tool.all.loading('hide');
+                    box.find('input').val('');
+                    box.modal('hide');
+                },
+                error: function() {
+                    tool.all.loading('hide');
+                }
+            };
+
+            if(box.attr('data-medical') != 0) {
+                param.data.province = box.find('.health_insurance #add_prov').attr('data-name');
+                param.data.city = box.find('.health_insurance #add_city').attr('data-name');
+                param.data.insurance_type = box.find('.health_insurance select').val();
+            }
+
+            tool.ajax.callAjax(param);
+        }
+    },
+
     ajax: {
         callAjax: function(options) {
             if(options.id) {
@@ -324,13 +525,17 @@ var tool = {
                     }  else {
                         tool.ajax.error(data.message);
 
-                        options.error(data.message);
+                        if(options.error) {
+                            options.error(data.message);
+                        }
                     }
                 },
                 error: function() {
                     tool.ajax.error('网络异常');
 
-                    options.error('网络异常');
+                    if(options.error) {
+                        options.error('网络异常');
+                    }
                 }
             });
         },

@@ -6767,3 +6767,12 @@ body.skin-3 {
     background: url(../images/ajax-loader.gif) no-repeat center;
     display: none;
 }
+
+.edit-header,
+.edit-user .add-header,
+.edit-user .form-horizontal .form-fangan {
+    display: none;
+}
+.edit-user .edit-header {
+    display: block;
+}
