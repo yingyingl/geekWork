@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 16:19:00
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 16:28:39
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\DataStatistics\lipei_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1601158a07302e16423-82760189%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '48a48b0facc6d70119fcf67f98072f38da9b47d0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\DataStatistics\\lipei_statistical.tpl',
-      1 => 1486912731,
+      1 => 1486999643,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1486907313,
+      1 => 1486997883,
       2 => 'file',
     ),
   ),
@@ -118,13 +118,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '1601158a07302e16423-82760189');
-content_58a07ce4d6aff8_19100264($_smarty_tpl);
+content_58a1d0a777d672_43432276($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
                 <div id="page" data-page="lipei_s"></div>
 
-                <div class="col-xs-10">
+                <div class="col-xs-10 iboxlist" data-id="1" data-load="true">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title"><span>报销统计</span></div>
 
@@ -135,22 +135,17 @@ $_smarty_tpl = array_pop($_tpl_stack);
                                 <canvas id="barChart" height="60"></canvas>
                             </div>
 
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>报销记录</th>
-                                    <th>状态</th>
-                                    <th>费用报销日期</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td >用户 <strong>王女</strong> 申请了[【极客保 - 意外型】测试]的报销</td>
-                                    <td class="text-navy">用户取消理赔申请</td>
-                                    <td>2017-02-02 16:16:26</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <div class="dataTables_wrapper">
+                                <p class="ajax-loading"></p>
+
+                                <table class="table table-hover">
+                                    <thead><tr><th>报销记录</th><th>状态</th><th>费用报销日期</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+
+                                <div class="pagination-list clearfix" id="pagination1"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -193,13 +188,18 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
     <?php echo '<script'; ?>
 >
-        var charData = $.parseJSON('[{ "year": "2017", "month": "2", "usernum": "1"}]');
+        var charData = "<?php echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];?>
+";
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/Chart.min.js"><?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/pagination.js"><?php echo '</script'; ?>
+>   <!-- 分页 -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/group/statistical.js"><?php echo '</script'; ?>
@@ -221,13 +221,13 @@ $_smarty_tpl = array_pop($_tpl_stack);
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 16:19:00
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 16:28:39
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a07ce4d6aff8_19100264')) {function content_58a07ce4d6aff8_19100264($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a1d0a777d672_43432276')) {function content_58a1d0a777d672_43432276($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
-                <a href="/templates/group/index">
+                <a href="/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
             </li>
@@ -241,7 +241,7 @@ $_smarty_tpl = array_pop($_tpl_stack);
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="userlist">
-                        <a href="/group/userList"><i class="fa fa-sitemap"></i>成员管理</a>
+                        <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
             </li>
@@ -252,10 +252,10 @@ $_smarty_tpl = array_pop($_tpl_stack);
                 </a>
                 <ul class="nav left-m collapse">
                     <li id="lipei_s">
-                        <a href="/DataStatistics/lipei_statistical"><i class="fa fa-line-chart"></i>报销统计</a>
+                        <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
                     <li id="user_s">
-                        <a href="/DataStatistics/user_statistical"><i class="fa fa-area-chart"></i>人管统计</a>
+                        <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
             </li>

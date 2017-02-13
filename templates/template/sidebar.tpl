@@ -2,7 +2,7 @@
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
-                <a href="/templates/group/index">
+                <a href="/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
             </li>
@@ -16,7 +16,7 @@
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="userlist">
-                        <a href="/group/userList"><i class="fa fa-sitemap"></i>成员管理</a>
+                        <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
             </li>
@@ -27,10 +27,10 @@
                 </a>
                 <ul class="nav left-m collapse">
                     <li id="lipei_s">
-                        <a href="/DataStatistics/lipei_statistical"><i class="fa fa-line-chart"></i>报销统计</a>
+                        <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
                     <li id="user_s">
-                        <a href="/DataStatistics/user_statistical"><i class="fa fa-area-chart"></i>人管统计</a>
+                        <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
             </li>

@@ -156,7 +156,31 @@ post   /group/delMember   参数：member_id 数组
             }
          }
 
+===================编辑成员接口==========================================
+
+请求方式：ajax  post
+   url:/group/postUpdateMember
+   参数：
+   id  主键id
+   mobile   手机号
+   begin_date 开始时间
+   end_date 结束时间
+   insurance_id 保单id
+   province 医保省份    当$insuranceInfo[need_medical_insurance]=1 时需要
+   city 医保城市  当$insuranceInfo[need_medical_insurance]=1 时需要
+   insurance_type  医保类型   当$insuranceInfo[need_medical_insurance]=1 时需要
+   返回：json
+   {"success":1,"message":"成功"}
+   id表示此次理赔记录id
+   success=1表示成功，0表示失败。 错误信息见message
+
+
 =================成员管理=========================
 type= effect 生效 type=reject 已拒成员列表 type=wait 待审核  type=uneffect 失效
 
 成员列表， memberList 后加type参数
+
+================数据统计=======================
+$data.statistics_data
+http://www.jikebao.com/statistics/lipeiLog?page=1
+http://www.jikebao.com/statistics/userLog?page=1

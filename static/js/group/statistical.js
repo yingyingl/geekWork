@@ -1,12 +1,17 @@
 var statistical = {
     init: function() {
-        var monthArr = this.setMonthArr(),
-            AddUserNumArr = this.setUserNumArrWithType(monthArr, '1'),
-            RemoveUserNumArr = this.setUserNumArrWithType(monthArr, '5'),
-            userArr = this.setUserNumArr(monthArr),
+        this.chart();
+        tool.list.load('.iboxlist', $('.iboxlist').attr('data-type'));
+    },
+
+    chart: function() {
+        var monthArr = tool.setMonthArr(),
+            AddUserNumArr = tool.setUserNumArrWithType(monthArr, '1'),
+            RemoveUserNumArr = tool.setUserNumArrWithType(monthArr, '5'),
+            userArr = tool.setUserNumArr(monthArr),
             flag = $('#pageLipei').val();
 
-        monthArr = this.formatMonth(monthArr);
+        monthArr = tool.formatMonth(monthArr);
 
         var barData = {
             labels: monthArr,
@@ -25,14 +30,14 @@ var statistical = {
 
         if(!flag) {
             barData.datasets.push({
-                    label: "删除成员",
-                    fillColor: "rgba(70,79,136,0.5)",
-                    strokeColor: "rgba(70,79,136,0.8)",
-                    highlightFill: "rgba(70,79,136,0.75)",
-                    pointColor : "#464f88",
-                    highlightStroke: "#464f88",
-                    data: RemoveUserNumArr
-                });
+                label: "删除成员",
+                fillColor: "rgba(70,79,136,0.5)",
+                strokeColor: "rgba(70,79,136,0.8)",
+                highlightFill: "rgba(70,79,136,0.75)",
+                pointColor : "#464f88",
+                highlightStroke: "#464f88",
+                data: RemoveUserNumArr
+            });
         }
 
         var barOptions = {
@@ -47,6 +52,153 @@ var statistical = {
         };
         var ctx = document.getElementById(flag == 1 ? "barChart" : "linkChart").getContext("2d");
         var myNewChart = new Chart(ctx).Line(barData, barOptions);
+    }
+};
+
+var tool = {
+    datas: charData && charData != '' ? $.parseJSON(charData) : 0,
+
+    list: {
+        load: function(obj, type) {
+            var id = $(obj).attr('data-id'),
+                page = $(obj).attr('data-page') ? $(obj).attr('data-page') : 1,
+                first = $(obj).attr('data-first'),
+                loading = $(obj).find('.ajax-loading'),
+                tbody = $(obj).find('.table tbody'),
+                lists = tbody.find('tr').length,
+                url = '',
+                dataJson = {};
+
+            if(type) {
+                url = '/statistics/userLog';
+            } else {
+                url = '/statistics/lipeiLog';
+            }
+
+            if($(obj).attr('data-load') == 'false') {
+                return;
+            }
+
+            $(obj).attr('data-load', 'false');
+            loading.show();
+
+            var param = {
+                url: url,
+                type: 'GET',
+                data: { page: page },
+                success: function(data) {
+                    var datas = data.list,
+                        html = '';
+
+                    loading.hide();
+
+                    if(datas != '') {
+                        for(var i = 0; i < datas.length; i++) {
+
+                            var status = type == 1 ? datas[i].operation : datas[i].status_text;
+
+                            html += '<tr><td >'+ datas[i].text +'</td><td class="text-navy">'+ status +'</td><td>'+ datas[i].create_time +'</td></tr>';
+                        }
+
+                        $(obj).attr('data-load', 'true');
+                        tbody.html(html);
+
+                        //第一次加载添加分页
+                        if(typeof first == 'undefined' || first == 'true') {
+                            tool.list.pagination($('#pagination' + id), data.total, data.pageSize, tool.list.pageCallback);
+
+                            $(obj).attr('data-first', 'false');
+                        }
+                    } else {
+                        if(lists == 0) {
+                            tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">没有数据</td></tr>');
+                        }
+                    }
+                },
+                error: function(message) {
+                    loading.hide();
+
+                    if(lists == 0) {
+                        tbody.html('<tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">'+ message +'</td></tr>');
+                    }
+                }
+            };
+
+            tool.ajax.callAjax(param);
+        },
+
+        pageCallback: function(page_id, jq) {
+            var box = jq.closest('.iboxlist'),
+                page = page_id - 0 + 1;
+
+            box.attr('data-page', page);
+
+            tool.list.load(box);
+        },
+
+        //分页
+        pagination: function(obj, count, pageSize, callbackLoadList) {
+            //调用分页插件
+            $(obj).pagination(count, {
+                num_edge_entries: 2,
+                num_display_entries: 8,
+                items_per_page: pageSize,
+                prev_text: '上一页',
+                next_text: '下一页',
+                link_to: 'javascript:void(0)',
+                callback: callbackLoadList  //回调函数
+            });
+        }
+    },
+
+    ajax: {
+        callAjax: function(options) {
+            if(options.id) {
+                $(options.id).addClass('on');
+            }
+
+            $.ajax({
+                url: options.url,
+                data: options.data,
+                type: options.type ? options.type : 'POST',
+                dataType: "json",
+                success: function(data) {
+                    if(options.id) {
+                        $(options.id).removeClass('on');
+                    }
+
+                    if (data.success == 1) {
+                        options.success(data);
+                    }  else {
+                        tool.ajax.error(data.message);
+
+                        if(options.error) {
+                            options.error(data.message);
+                        }
+                    }
+                },
+                error: function() {
+                    tool.ajax.error('网络异常');
+
+                    if(options.id) {
+                        $(options.id).removeClass('on');
+                    }
+
+                    if(options.error) {
+                        options.error('网络异常');
+                    }
+                }
+            });
+        },
+
+        error: function(message, obj) {
+            swal({
+                title: "提示！",
+                type: "warning",
+                text: message,
+                confirmButtonText: "确认"
+            });
+        }
     },
 
     setMonthArr: function() {
@@ -87,10 +239,10 @@ var statistical = {
     setUserNumArr: function(monthArr) {
         var userNumArr = new Array();
 
-        for(var i = 0; i < charData.length; i++) {
+        for(var i = 0; i < tool.datas.length; i++) {
             for(var j = 0; j < monthArr.length; j++) {
-                if(charData[i]['year'] == monthArr[j][0] && charData[i]['month'] == monthArr[j][1]) {
-                    monthArr[j][2] = charData[i]['usernum'];
+                if(tool.datas[i]['year'] == monthArr[j][0] && tool.datas[i]['month'] == monthArr[j][1]) {
+                    monthArr[j][2] = statistical.datas[i]['usernum'];
                 }
             }
         }
@@ -106,10 +258,10 @@ var statistical = {
         var tmpArr = $.extend(true, [], monthArr),
             userNumArr = new Array();
 
-        for(var i = 0; i < charData.length; i++) {
+        for(var i = 0; i < tool.datas.length; i++) {
             for(var j = 0; j < tmpArr.length; j++) {
-                if(charData[i]['year'] == tmpArr[j][0] && charData[i]['month'] == tmpArr[j][1] && charData[i]['type'] == type) {
-                    tmpArr[j][2]=charData[i]['usernum'];
+                if(tool.datas[i]['year'] == tmpArr[j][0] && tool.datas[i]['month'] == tmpArr[j][1] && tool.datas[i]['type'] == type) {
+                    tmpArr[j][2] = tool.datas[i]['usernum'];
                 }
             }
         }

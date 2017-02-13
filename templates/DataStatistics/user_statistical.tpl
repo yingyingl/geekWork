@@ -13,7 +13,7 @@
 
                 <div id="page" data-page="user_s"></div>
 
-                <div class="col-xs-10">
+                <div class="col-xs-10 iboxlist" data-type="1" data-id="1" data-load="true">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title"><span>成员管理统计</span></div>
 
@@ -24,27 +24,16 @@
                                 <canvas id="linkChart" height="60"></canvas>
                             </div>
 
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>成员加减记录</th>
-                                    <th>操作</th>
-                                    <th>日期</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>用户 <strong>是是是</strong> 被添加到 [ 【极客保 - 医疗型】测试 ] 中</td>
-                                    <td class="text-navy">增加成员</td>
-                                    <td>2017-02-02 14:29:59</td>
-                                </tr>
-                                <tr>
-                                    <td>用户 <strong>飞飞</strong> 被添加到 [ 【极客保 - 医疗型】测试 ] 中</td>
-                                    <td class="text-navy">增加成员</td>
-                                    <td>2017-02-02 14:27:53</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <div class="dataTables_wrapper">
+                                <p class="ajax-loading"></p>
+
+                                <table class="table table-hover">
+                                    <thead><tr><th>成员加减记录</th><th>操作</th><th>日期</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+
+                                <div class="pagination-list clearfix" id="pagination1"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,8 +44,9 @@
 
 {block name="js"}
     <script>
-        var charData=$.parseJSON('[{ "year": "2017","month":"1","type":"1","usernum":"4"}, { "year": "2017","month":"1","type":"2","usernum":"2"},{ "year":"2017","month":"1","type":"5","usernum":"2"},{ "year": "2017","month":"2","type":"1","usernum":"7"}]');
+        var charData = "{$data.statistics_data}";
     </script>
     <script src="{#static_path#}/js/plugins/Chart.min.js"></script>
+    <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/group/statistical.js"></script>
 {/block}
