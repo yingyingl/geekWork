@@ -6726,6 +6726,7 @@ body.skin-3 {
 .pagination-list {
     text-align: right;
     padding: 20px 0;
+    font-size: 12px;
 }
 .pagination-list a, .pagination-list .current {
     height: 20px;

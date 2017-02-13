@@ -19,7 +19,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title"><span>成员管理</span></div>
 
-                        <div class="ibox-content">
+                        <div class="ibox-content" id="userContent">
                             <ul id="ins_tabs" class="nav-tabs">
                                 <li class="active" data-target="0">
                                     <a data-toggle="tab" href="#tab-1" aria-expanded="true">在保成员列表</a>
@@ -36,7 +36,7 @@
                             </ul>
 
                             <div class="tab-content">
-                                <div id="tab-1" class="tab-pane active iboxlist"  data-id="" data-load="true">
+                                <div id="tab-1" class="tab-pane active iboxlist iboxlist1" data-id="1" data-type="effect" data-load="true">
                                     <div class="btn-group">
                                         <button class="btn btn-white del_user_all" type="button" >批量减人</button>
                                         <button class="btn btn-white add_user" data-toggle="modal" id="add_user_btn" type="button">增加成员</button>
@@ -49,13 +49,12 @@
                                         </form>
                                     </div>
 
-                                    <input type="hidden" name="eid" value="2955" />
-
-                                    <div class="m-t-35 form-inline">
+                                    <div class="m-t-35 form-inline dataTables_wrapper">
+                                        <p class="ajax-loading" style="display: none;"></p>
                                         <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th><input type="checkbox" id="checkboxALLInsurance">全选</th>
+                                            <th><input type="checkbox" class="checkboxAll" id="checkboxALLInsurance"></th>
                                             <th>姓名</th>
                                             <th>证件号码</th>
                                             <th>手机号码</th>
@@ -65,38 +64,25 @@
                                             <th></th>
                                         </tr>
                                         </thead>
-                                        <tbody id="user_all_insurance">
-                                        <tr id="77161">
-                                            <td><input type="checkbox" name="idArr[]" value="77161" class="form-control"/></td>
-                                            <td><div class="table-h table-name" style="width: 70px" title="测试测">测试测</div></td>
-                                            <td><div class="table-h">510900199111249619</div></td>
-                                            <td><div class="table-h text-left">13511111111</div></td>
-                                            <td><div class="table-h table-name" style="width:100px;margin:auto;text-align: center" title="【极客保 - 医疗型】测试">【极客保 - 医疗型】测试</div></td>
-                                            <td><div class="table-h text-center">2017-02-13</div></td>
-                                            <td><div class="table-h text-center">2018-01-24</div></td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-target="#edit_user" data-medicare-type="2" data-medicare-address="425000" data-is-medicare="1" title="修改成员信息"><i class="fa fa-edit text-navy"></i></button>
-                                                    <button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
+                                        <tbody id="user_all_insurance"></tbody>
                                         </table>
+
+                                        <div class="pagination-list clearfix" id="pagination1"></div>
                                     </div>
                                 </div>
 
-                                <div id="tab-2" class="tab-pane">
+                                <div id="tab-2" class="tab-pane iboxlist" data-id="2" data-type="wait" data-load="true">
                                     <div class="btn-group">
-                                        <button class="btn btn-default" type="button" id="yes_user_all_waiter" disabled="true">批量通过</button>
-                                        <button class="btn btn-default" type="button" id="no_user_all_waiter" disabled="true">批量拒绝</button>
+                                        <button class="btn btn-default" type="button" id="yes_user_all_waiter"{* disabled="true"*}>批量通过</button>
+                                        <button class="btn btn-default" type="button" id="no_user_all_waiter"{* disabled="true"*}>批量拒绝</button>
                                     </div>
 
-                                    <div class="m-t-35 form-inline">
+                                    <div class="m-t-35 form-inline dataTables_wrapper">
+                                        <p class="ajax-loading" style="display: none;"></p>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="checkboxALLWaiter">全选</th>
+                                                <th><input type="checkbox" class="checkboxAll" id="checkboxALLWaiter"></th>
                                                 <th>姓名</th>
                                                 <th>证件号码</th>
                                                 <th>手机号码</th>
@@ -107,22 +93,24 @@
                                                 <th></th>
                                             </tr>
                                             </thead>
-                                            <tbody id="user_all_waiter">
-                                            </tbody>
+                                            <tbody id="user_all_waiter"></tbody>
                                         </table>
+
+                                        <div class="pagination-list clearfix" id="pagination2"></div>
                                     </div>
                                 </div>
 
-                                <div id="tab-3" class="tab-pane">
+                                <div id="tab-3" class="tab-pane iboxlist" data-id="3" data-type="reject" data-load="true">
                                     <div class="btn-group">
                                         <button class="btn btn-outline btn-primary" type="button" id="yes_user_all_no">批量审核通过</button>
                                     </div>
 
-                                    <div class="m-t-35 form-inline">
+                                    <div class="m-t-35 form-inline dataTables_wrapper">
+                                        <p class="ajax-loading" style="display: none;"></p>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="checkboxALLNo">全选</th>
+                                                <th><input type="checkbox" class="checkboxAll" id="checkboxALLNo"></th>
                                                 <th>姓名</th>
                                                 <th>证件号码</th>
                                                 <th class="text-center">申请时间</th>
@@ -133,29 +121,16 @@
                                                 <th></th>
                                             </tr>
                                             </thead>
-                                            <tbody id="user_all_no">
-                                            <tr id="75817">
-                                                <td><input type="checkbox" name="idArr[]" value="75817" class="form-control"/></td>
-                                                <td><div class="table-h table-name" style="width: 60px" title="王男">王男</div></td>
-                                                <td><div class="table-h">341881197503161520</div></td>
-                                                <td><div class="table-h text-center" style="width: 80px">2017-01-30</div></td>
-                                                <td><div class="table-h text-center" style="width: 80px">2017-01-30</div></td>
-                                                <td><div class="table-h table-name text-center" style="width:70px;margin: auto" title="【极客保 - 意外型】测试">【极客保 - 意外型】测试</div></td>
-                                                <td><div class="table-h text-center" style="width: 80px">2017-02-01</div></td>
-                                                <td><div class="table-h text-center" style="width: 80px">2018-01-23</div></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button data-request="2017-01-30" data-start="2017-02-13" class="btn btn-white btn-bitbucket yes" title="审核通过"><i class="fa fa-check text-navy"></i></button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
+                                            <tbody id="user_all_no"></tbody>
                                         </table>
+
+                                        <div class="pagination-list clearfix" id="pagination3"></div>
                                     </div>
                                 </div>
 
-                                <div id="tab-4" class="tab-pane">
-                                    <div class="m-t-35 form-inline">
+                                <div id="tab-4" class="tab-pane iboxlist" data-id="4" data-type="uneffect" data-load="true">
+                                    <div class="m-t-35 form-inline dataTables_wrapper">
+                                        <p class="ajax-loading" style="display: none;"></p>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
@@ -167,17 +142,10 @@
                                                 <th class="text-center">失效原因</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td><div class="table-h table-name" style="width: 100px" title="宗测">宗测</div></td>
-                                                <td><div class="table-h">34180219890919273X</div></td>
-                                                <td><div class="table-h table-name text-center" style="width:220px;margin: auto" title="【极客保 - 医疗型】测试">【极客保 - 医疗型】测试</div></td>
-                                                <td><div class="table-h text-center">2017-02-03</div></td>
-                                                <td><div class="table-h text-center">2017-02-04</div></td>
-                                                <td><div class="table-h text-center">失效</div></td>
-                                            </tr>
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
+
+                                        <div class="pagination-list clearfix" id="pagination4"></div>
                                     </div>
                                 </div>
                             </div>

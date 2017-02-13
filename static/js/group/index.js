@@ -1,11 +1,11 @@
 var group = {
     init: function() {
-        this.start();
-        this.ewmCode();
-        this.dataList();
-        this.dataDel();
-        this.dataAddEdit();
-        $('#side-menu').metisMenu();
+        this.start();                 //首页，保障方案，成员管理
+        this.dataList();             //首页
+        this.ewmCode();              //首页，保障方案，成员管理
+        this.dataDel();             //首页，保障方案，成员管理
+        this.dataAddEdit();        //首页，保障方案，成员管理
+        this.userList();           //成员管理
     },
 
     start: function() {
@@ -40,6 +40,17 @@ var group = {
         $('#all').click(function() {
             tool.all.allOpen(this);
         });
+
+        $('#side-menu').metisMenu();
+    },
+
+    //数据列表
+    dataList: function() {
+        $('.iboxIndex').each(function() {
+            if(!$(this).hasClass('add-null')) {
+                tool.list.load(this);
+            }
+        });
     },
 
     //加入推送点击
@@ -56,15 +67,6 @@ var group = {
         //刷新二维码
         $('#refreshEwm').click(function() {
             tool.ewmCode.refreshs(this);
-        });
-    },
-
-    //数据列表
-    dataList: function() {
-        $('.iboxlist').each(function() {
-            if(!$(this).hasClass('add-null')) {
-                tool.list.load(this);
-            }
         });
     },
 
@@ -149,6 +151,36 @@ var group = {
 
             tool.addEdit.submits(this, flag);
         });
+    },
+
+    userList: function() {
+        if($('#userContent')[0]) {
+            var now = 0,
+                tabbox = $('#userContent .nav-tabs'),
+                conbox = $('#userContent .tab-content');
+
+            if(tabbox.find('.active').length == 0) {
+                tabbox.find('li').first().addClass('active');
+                now = 0;
+            } else {
+                now = tabbox.find('.active').index();
+            }
+
+            conbox.find('.tab-pane').eq(now).addClass('active').siblings().removeClass('active');
+
+            tool.list.load(conbox.find('.tab-pane.active'), conbox.find('.tab-pane.active').attr('data-type'));
+
+
+            //切换tab
+            tabbox.find('li').click(function() {
+                var nowbox = conbox.find('.tab-pane').eq($(this).index()),
+                    first = nowbox.attr('data-first');
+
+                if(typeof first == 'undefined' || first == 'true') {
+                    tool.list.load(nowbox, nowbox.attr('data-type'));
+                }
+            });
+        }
     }
 };
 
@@ -289,13 +321,21 @@ var tool = {
     },
 
     list: {
-        load: function(obj) {
+        load: function(obj, type) {
             var id = $(obj).attr('data-id'),
                 page = $(obj).attr('data-page') ? $(obj).attr('data-page') : 1,
                 first = $(obj).attr('data-first'),
                 loading = $(obj).find('.ajax-loading'),
                 tbody = $(obj).find('.table tbody'),
-                lists = tbody.find('tr').length;
+                lists = tbody.find('tr').length,
+                dataJson = {};
+
+            if(type) {
+                dataJson.type = type;
+            } else {
+                dataJson.insurance_id = id;
+                dataJson.page = page;
+            }
 
             if($(obj).attr('data-load') == 'false') {
                 return;
@@ -307,10 +347,7 @@ var tool = {
             var param = {
                 url: '/group/memberList',
                 type: 'GET',
-                data: {
-                    insurance_id: id,
-                    page: page
-                },
+                data: dataJson,
                 success: function(data) {
                     var datas = data.list,
                         html = '';
@@ -323,18 +360,72 @@ var tool = {
                                 datas[i].mobile = '<i class="fa fa-exclamation-triangle text-navy editor_user" style="cursor: pointer" data-toggle="modal" data-medicare-type="0" data-medicare-address="" data-is-medicare="0" title="手机号为重要信息，为空可能影响成员的保障方案，请点击填写"></i>';
                             }
 
-                            html += '<tr data-id="'+ datas[i].id +'" class="odd">' +
-                                '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
-                                '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
-                                '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
-                                '<td><div class="table-h text-left">'+ datas[i].mobile +'</div></td>' +
-                                '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
-                                '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
-                                '<td><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>' +
-                                '<td><div class="btn-group">' +
-                                '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
-                                '<button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div>' +
-                                '</td></tr>';
+                            switch(type) {
+                                case 'effect':  //在保成员列表
+                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                        '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
+                                        '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                        '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                        '<td><div class="table-h text-left">'+ datas[i].mobile +'</div></td>' +
+                                        '<td><div class="table-h table-name" style="width:100px;margin:auto;text-align: center" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
+                                        '<td><div class="btn-group"><button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="'+ datas[i].medical_insurance_type +'" data-medicare-province="'+ datas[i].medical_insurance_province +'" data-medicare-city="'+ datas[i].medical_insurance_city +'" data-is-medicare="0" title="修改成员信息"><i class="fa fa-edit text-navy"></i></button>                                            <input type="hidden" value="1485273600"><button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div></td></tr>';
+
+                                    break;
+                                case 'wait':    //待核成员列表
+                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                        '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
+                                        '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                        '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                        '<td><div class="table-h text-left">'+ datas[i].mobile +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].create_time +'</div></td>' +
+                                        '<td><div class="table-h table-name" style="width:100px;margin:auto;text-align: center" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
+                                        '</tr>';
+
+                                    break;
+                                case 'reject':    //已拒成员列表
+                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                        '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"/></td>' +
+                                        '<td><div class="table-h table-name" style="width: 60px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                        '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                        '<td><div class="table-h text-center" style="width: 80px">'+ datas[i].create_time +'</div></td>' +
+                                        '<td><div class="table-h text-center" style="width: 80px">'+ datas[i].update_time +'</div></td>' +
+                                        '<td><div class="table-h table-name text-center" style="width:70px;margin: auto" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
+                                        '<td><div class="table-h text-center" style="width: 80px">'+ datas[i].begin_date +'</div></td>' +
+                                        '<td><div class="table-h text-center" style="width: 80px">'+ datas[i].end_date +'</div></td>' +
+                                        '<td><div class="btn-group"><button data-request="'+ datas[i].create_time +'" data-start="'+ datas[i].begin_date +'" class="btn btn-white btn-bitbucket yes" title="审核通过"><i class="fa fa-check text-navy"></i></button></div></td>' +
+                                        '</tr>';
+
+                                    break;
+                                case 'uneffect':    //已失效成员列表
+                                    html += '<tr>' +
+                                        '<td><div class="table-h table-name" style="width: 100px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                        '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                        '<td><div class="table-h table-name text-center" style="width:220px;margin: auto" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
+                                        '<td><div class="table-h text-center">失效</div></td>' +
+                                        '</tr>';
+
+                                    break;
+                                default:
+                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                        '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
+                                        '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
+                                        '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
+                                        '<td><div class="table-h text-left">'+ datas[i].mobile +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
+                                        '<td><div class="table-h text-center"><i class="fa fa-check text-navy" title="保障中"></i></div></td>' +
+                                        '<td><div class="btn-group">' +
+                                        '<button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="0" title="编辑" data-medicare-address="" data-is-medicare="0"><i class="fa fa-edit text-navy"></i></button>' +
+                                        '<button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div>' +
+                                        '</td></tr>';
+                                    break;
+                            }
                         }
 
                         $(obj).attr('data-load', 'true');

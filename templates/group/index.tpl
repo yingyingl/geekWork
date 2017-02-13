@@ -66,7 +66,7 @@
 
                     <!-- list -->
                     {foreach from=$data.insurance_list item=insuranceList key=key}
-                        <div class="ibox float-e-margins iboxlist iboxlist{$insuranceList.id}" data-id="{$insuranceList.id}" data-load="true">
+                        <div class="ibox float-e-margins iboxIndex iboxlist iboxlist{$insuranceList.id}" data-id="{$insuranceList.id}" data-load="true">
                             <div class="ibox-title">
                                  <span>
                                     {$insuranceList.product_name}
@@ -89,14 +89,14 @@
                                         <table class="table table-hover dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                                             <thead>
                                             <tr role="row">
-                                                <th rowspan="1" colspan="1" style="width: 24px;"><input type="checkbox" class="checkboxAll"></th>
-                                                <th rowspan="1" colspan="1" style="width: 110px;">姓名</th>
-                                                <th rowspan="1" colspan="1" style="width: 195px;">证件号码</th>
-                                                <th rowspan="1" colspan="1" style="width: 121px;">手机号码</th>
-                                                <th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障开始</th>
-                                                <th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障结束</th>
-                                                <th class="text-center" style="width: 50px;" rowspan="1" colspan="1">状态</th>
-                                                <th rowspan="1" colspan="1" style="width: 121px;">操作</th>
+                                                <th style="width: 24px;"><input type="checkbox" class="checkboxAll"></th>
+                                                <th style="width: 110px;">姓名</th>
+                                                <th style="width: 195px;">证件号码</th>
+                                                <th style="width: 121px;">手机号码</th>
+                                                <th class="text-center"  style="width: 102px;">保障开始</th>
+                                                <th class="text-center" style="width: 102px;">保障结束</th>
+                                                <th class="text-center" style="width: 50px;">状态</th>
+                                                <th style="width: 121px;">操作</th>
                                             </tr>
                                             </thead>
                                             <tbody></tbody>

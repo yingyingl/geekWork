@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 11:20:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 15:39:24
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,19 +7,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486894723,
+      1 => 1486996761,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486893663,
+      1 => 1486910930,
       2 => 'file',
     ),
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1486893705,
+      1 => 1486907313,
       2 => 'file',
     ),
   ),
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_58a036ed6a33c4_06249120($_smarty_tpl);
+content_58a1c51c90bc95_99265405($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -192,7 +192,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['insuranceList']->key => $_smarty_tpl-
 $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
  $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['insuranceList']->key;
 ?>
-                        <div class="ibox float-e-margins iboxlist iboxlist<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
+                        <div class="ibox float-e-margins iboxIndex iboxlist iboxlist<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
 " data-id="<?php echo $_smarty_tpl->tpl_vars['insuranceList']->value['id'];?>
 " data-load="true">
                             <div class="ibox-title">
@@ -221,14 +221,14 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                         <table class="table table-hover dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                                             <thead>
                                             <tr role="row">
-                                                <th rowspan="1" colspan="1" style="width: 24px;"><input type="checkbox" class="checkboxAll"></th>
-                                                <th rowspan="1" colspan="1" style="width: 110px;">姓名</th>
-                                                <th rowspan="1" colspan="1" style="width: 195px;">证件号码</th>
-                                                <th rowspan="1" colspan="1" style="width: 121px;">手机号码</th>
-                                                <th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障开始</th>
-                                                <th class="text-center" rowspan="1" colspan="1" style="width: 102px;">保障结束</th>
-                                                <th class="text-center" style="width: 50px;" rowspan="1" colspan="1">状态</th>
-                                                <th rowspan="1" colspan="1" style="width: 121px;">操作</th>
+                                                <th style="width: 24px;"><input type="checkbox" class="checkboxAll"></th>
+                                                <th style="width: 110px;">姓名</th>
+                                                <th style="width: 195px;">证件号码</th>
+                                                <th style="width: 121px;">手机号码</th>
+                                                <th class="text-center"  style="width: 102px;">保障开始</th>
+                                                <th class="text-center" style="width: 102px;">保障结束</th>
+                                                <th class="text-center" style="width: 50px;">状态</th>
+                                                <th style="width: 121px;">操作</th>
                                             </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -453,7 +453,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/drag/drag.js"><?php echo '</script'; ?>
+/js/plugins/drag.js"><?php echo '</script'; ?>
 >
 
 
@@ -516,49 +516,41 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-12 11:20:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 15:39:24
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a036ed6a33c4_06249120')) {function content_58a036ed6a33c4_06249120($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a1c51c90bc95_99265405')) {function content_58a1c51c90bc95_99265405($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
-                <a href="/templates/group/index.html">
+                <a href="/templates/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:void(0)">
                     <i class="fa fa-calendar-o"></i><span class="nav-label">保障管理</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
                     <li id="insurance">
-                        <a href="/templates/group/insuranceList.html">
-                            <i class="fa fa-list-alt"></i>保障方案
-                        </a>
+                        <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="userlist">
-                        <a href="/templates/group/userList">
-                            <i class="fa fa-sitemap"></i>成员管理
-                        </a>
+                        <a href="/group/userList"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="javascript:void(0)">
                     <i class="fa fa-pie-chart"></i><span class="nav-label">数据统计</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
                     <li id="lipei_s">
-                        <a href="/templates/group/DataStatistics/lipei_statistical">
-                            <i class="fa fa-line-chart"></i>报销统计
-                        </a>
+                        <a href="/DataStatistics/lipei_statistical"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
                     <li id="user_s">
-                        <a href="/templates/group/DataStatistics/user_statistical">
-                            <i class="fa fa-area-chart"></i>人管统计
-                        </a>
+                        <a href="/DataStatistics/user_statistical"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
             </li>
@@ -569,32 +561,32 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                 </a>
                 <ul class="nav left-m nav-second-level collapse">
                     <li id="financialIndex">
-                        <a href="financial/index"><i class="fa fa-list"></i> 总览</a>
+                        <a href="/financial/index"><i class="fa fa-list"></i>总览</a>
                     </li>
                     <li id="charge">
-                        <a href="financial/charge"><i class="fa fa-money"></i> 充值</a>
+                        <a href="/financial/charge"><i class="fa fa-money"></i> 充值</a>
                     </li>
                     <li id="payment">
                         <a href="financial/payment"><i class="fa fa-external-link"></i> 缴费</a>
                     </li>
                     <li id="withdraw">
-                        <a href="financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
+                        <a href="/financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
                     </li>
                     <li id="manageInfo">
-                        <a href="financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
+                        <a href="/financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
                     </li>
                     <li id="changeFinancialPassword" style="margin-bottom:0">
-                        <a href="financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
+                        <a href="/financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
                     </li>
                 </ul>
             </li>
             <li id="updateGroupUserInfo">
-                <a href="group/updateGroupUserInfo">
+                <a href="/group/updateGroupUserInfo">
                     <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
                 </a>
             </li>
             <li id="admin_log">
-                <a href="DataStatistics/admin_log">
+                <a href="/DataStatistics/admin_log">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>
             </li>

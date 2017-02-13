@@ -129,3 +129,34 @@ post   /group/delMember   参数：member_id 数组
    id表示此次理赔记录id
 
    success=1表示成功，0表示失败。 错误信息见message
+
+
+获取用户信息接口
+  请求方式 ajax get
+  url: /group/memberInfo
+  参数: member_id 成员id, 可传0
+       insurance_id  保障id
+  返回：{
+         success: 1,
+         message: "成功",
+            data: {
+               need_medical_insurance: "1",    //是否需要医保信息
+               min_begin_date: "2017-02-11",   //最小生效时间
+               max_begin_date: "2018-02-10",    最大生效时间
+               min_end_date: "2017-02-11",      最小结束时间
+               max_end_date: "2018-02-10",      最大结束时间
+               name: "",                        姓名
+               id_number: "",                   证件号
+               mobile: "",                      手机
+               insurance_type: "",              医保类型：1城镇职工 2城镇居民 3新型农村合作医疗 0均为参加
+               province: "",                    医保省份
+               city: "",                        医保城市
+               begin_date: "2017-02-11",        默认开始时间
+               end_date: "2018-02-10"           默认结束时间
+            }
+         }
+
+=================成员管理=========================
+type= effect 生效 type=reject 已拒成员列表 type=wait 待审核  type=uneffect 失效
+
+成员列表， memberList 后加type参数

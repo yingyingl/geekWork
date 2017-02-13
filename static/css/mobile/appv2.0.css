@@ -1,0 +1,519 @@
+/*用户注册*/
+.big_em .weui_label{
+    width:5em;
+}
+.forget_pwd .weui_article{
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 10px;
+    margin: 20px 10px;
+    border-radius: 2px;
+}
+.page.forget_pwd .bd{
+    padding:0;
+}
+.forget_pwd #step2,
+.forget_pwd #step3,
+.forget_pwd #step4{
+    display: none;
+}
+/*提示文字*/
+.mark-font{
+    background-color: #fcf8e3;
+    margin: 10px; padding: 10px;
+    color: #8a6d3b;
+    border: 1px solid #faebcc;
+    border-radius: 5px;
+}
+/*移动端标品*/
+.table_pec,
+.table_pec img{
+    width:100%;
+}
+/*标品责任声明表格*/
+.statement_table{
+    margin:10px 0;
+}
+.statement_table th,
+.statement_table td {
+    border: 1px solid #666;
+}
+/*职业分类表*/
+.classify_table{
+    margin:5px;
+    border-collapse: collapse;
+}
+.classify_table th,
+.classify_table td{
+    padding:5px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #000;
+}
+/*调整文字为两端对齐*/
+.weui_media_desc .form_head_public{
+    display: inline-block;
+    height:15px;
+    text-align: justify;
+    vertical-align: middle;
+}
+.weui_media_desc .form_head_public:after{
+    content:"";
+    display: inline-block;
+    width:100%;
+    overflow:hidden;
+    height:0;
+}
+.weui_media_desc .form_head_font{
+    width:52px;
+}
+.weui_media_desc .form_content{
+    display: inline-block;
+    width:76%;
+    text-align: justify;
+    vertical-align: middle;
+}
+.weui_media_spec{
+    margin:10px;
+}
+/*reg_agreement样式*/
+.reg_agreement ul{
+    margin:10px 0;
+}
+.reg_agreement ul li{
+    text-indent: 2em;
+}
+.reg_agreement_table{
+    border-collapse:collapse;
+}
+.reg_agreement_table th,
+.reg_agreement_table td{
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 12px;
+    padding:5px;
+}
+/*理赔协助弹出框样式*/
+/*头部文字*/
+.modal-body-defined>h3,
+.modal-body-defined>h4.top-font{
+    font-weight: normal;
+    text-align: center;
+}
+.modal-body-defined>h3{
+    line-height:40px;
+    background-color: #18a689;
+    color: #fff;
+}
+.modal-body-defined>h4.top-font{
+    font-size: 14px;
+    color: #18a689;
+    margin:36px auto 32px;
+}
+/*下方主体内容*/
+.defined-box .bottom-body,
+.modal-body-defined .defined-box{
+    list-style-type: none;
+}
+.defined-box{
+    padding:0 15px;
+}
+.defined-box>li{
+    max-width:334px;
+    height:auto;
+    margin:0 auto 20px;
+}
+/*下面左右两块儿的样式*/
+.defined-box .ibox{
+    width:100%;
+    height:300px;
+    -webkit-box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    -moz-box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    box-shadow: 0 3px 5px rgba(150, 150, 150, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+/*下面左右两块儿的样式--头部*/
+.defined-box .top-head-font{
+    width:100%;
+    height:40px;
+    line-height:40px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+.top-head-font.head-A{
+    background-color: #1aa68b;
+}
+.top-head-font.head-B{
+    background-color: #f6a54a;
+}
+/*下面左右两块儿的样式--body*/
+.bottom-body{
+    padding:16px 20px;
+}
+.bottom-body li::before{
+    content: '';
+    width:10px;
+    height:10px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.body-A li::before{
+    background-color: #1aa68b;
+}
+.body-B li::before{
+    background-color: #f6a54a;
+}
+.body-A li{
+    line-height:43px;
+    font-size: 14px;
+}
+.body-B li{
+    line-height:54px;
+    font-size: 14px;
+}
+.border-A{
+    width:1px;
+    height:180px;
+    background-color: #1aa68b;
+    position: absolute;
+    left:25px;
+    top:74px;
+}
+.border-B{
+    width:1px;
+    height:166px;
+    background-color: #f6a54a;
+    position: absolute;
+    left:25px;
+    top:80px;
+}
+/*报销中心中为没有理赔申请的用户添加提示文字及图片*/
+.user_claim_pec{
+    display: block;
+    width:60%;
+    height:auto;
+    margin:70px auto 20px;
+}
+.user_claim_font{
+    display: block;
+    text-align: center;
+}
+a.user_claim_font{
+    color: #00ab9f;
+    margin-top: 5px;
+}
+/****结束****/
+/*#627优化文案*/
+#insurance_show .header_img{
+    display: block;
+    width: 100%;
+}
+#insurance_show .state{
+    padding:4px 20px;
+    background-color: #00ab9f;
+    color: #fff;
+    position: absolute;
+    right:20px;
+    top:0;
+    z-index:10;
+    border-radius: 0 0 5px 5px;
+    font-size: 12px;
+}
+#insurance_show .null{
+    background-color: #ccc;
+    color: #999;
+}
+#insurance_show .error{
+    background-color: #EF4F4F;
+}
+.weui_tabbar .kef{
+    width: 15%;
+    padding-top: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: url(../img/kf.png) no-repeat center 4px;
+    background-size:20px 20px;
+    background-color: #ffffff;
+    font-size: 10px;
+    text-align: center;
+    color: #333333;
+}
+.weui_tabbar .lipei_btn{
+    width: 85%;
+}
+#insurance_show .detail_content{
+    padding:14px 15px 10px;
+    color: #666;
+    font-size: 14px;
+}
+#insurance_show .detail_content li:not(:last-of-type){
+    margin-bottom: 10px;
+}
+.custom_weui_tabbar .weui_btn{
+    width: 100%;
+    border-radius: 0;
+}
+.custom_weui_tabbar .weui_btn:after{
+    border-radius: 0;
+    border:0;
+}
+.bg_title{
+    text-align: center;
+    font-size: 16px;
+    padding: 25px 0;
+}
+.bottom_content{
+    margin:0 20px;
+}
+.reimbursement_flow{
+    width:100%;
+    height:100px;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.reimbursement_flow li{
+    width:20%;
+    float: left;
+}
+.reimbursement_flow li:nth-of-type(1){
+    background: url(../../insgeek-mobile2.0/img/flow/flow1.png) no-repeat center center;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.reimbursement_flow li:nth-of-type(2){
+    background: url(../../insgeek-mobile2.0/img/flow/flow2.png) no-repeat center center;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.reimbursement_flow li:nth-of-type(3){
+    background: url(../../insgeek-mobile2.0/img/flow/flow3.png) no-repeat center center;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.reimbursement_flow li:nth-of-type(4){
+    background: url(../../insgeek-mobile2.0/img/flow/flow4.png) no-repeat center center;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.reimbursement_flow li:nth-of-type(5){
+    background: url(../../insgeek-mobile2.0/img/flow/flow5.png) no-repeat center center;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.clearfix:before,
+.clearfix:after{
+    content: '';
+    display: block;
+}
+.clearfix:after{
+    clear: both;
+}
+.custom_weui_tabbar .weui_cell:before{
+    width:0;
+}
+.weui_cell span.dot{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.deal_situation .weui_cell:not(:first-of-type) span.dot{
+    width:7px;
+    height:7px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+}
+.deal_situation .weui_cell:first-of-type span.dot{
+    width:7px;
+    height:7px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 3px solid #00ab9f;
+    margin-left: -3px;
+}
+.vertical_line{
+    width:1px;
+    background-color: #e9e9e9;
+    position: absolute;
+    left:15px;
+    top:0;
+}
+.deal_situation .weui_cell .vertical_line {
+    height:44px;
+}
+.deal_situation .weui_cell:first-of-type .vertical_line{
+    height:14px;
+    top:30px;
+}
+.deal_situation .weui_cell:last-of-type .vertical_line{
+    height:22px;
+}
+
+.bills_show{
+    display: block !important;
+    height:auto;
+}
+.bills_show figure{
+    width:25%;
+    height:100px;
+    float: left;
+}
+.bills_show figure:nth-of-type(1),
+.bills_show figure:nth-of-type(2),
+.bills_show figure:nth-of-type(3),
+.bills_show figure:nth-of-type(4){
+    margin:10px 0;
+}
+.bills_show figure .pec{
+    display: block;
+    width:100%;
+    height:60px;
+    background: url(../../insgeek-mobile2.0/img/flow/case_icon.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+.bills_show figure .font{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    margin-top: 10px;
+}
+/*理赔申请表单*/
+.top_remind{
+    background-color: #ffff00;
+    color: red;
+    font-size: 10px;
+    padding: 5px 7px;
+}
+/*#627优化文案结束*/
+/*#719列表页getAddressList*/
+.getAddressList .no_address{
+    width:100px;
+    height:auto;
+    position: absolute;
+    left:50%;
+    top:30%;
+    margin-left: -50px;
+}
+.no_address img{
+    width:100%;
+}
+.no_address .font{
+    width:100%;
+    height:auto;
+    text-align: center;
+    margin-top: 20px;
+    color: #bbb;
+}
+.panel_ft{
+    display: block;
+    padding:10px 15px 12px;
+    font-size: 14px;
+    position: relative;
+    color: #999;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.getAddressList .weui_cells{
+    margin-top: 0;
+}
+.getAddressList .weui_cells:before{
+    left:15px;
+}
+.getAddressList .weui_cell_hd,
+.getAddressList .weui_cell_bd ul,
+.getAddressList .weui_cell{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    color: #999;
+}
+.getAddressList .weui_cell_bd ul li,
+.getAddressList .weui_cell_hd{
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+    flex:1;
+}
+.getAddressList .weui_icon_checked:before{
+    padding-right:0.35rem;
+}
+.getAddressList .weui_cell_bd_right .pec{
+    display: inline-block;
+    width:20px;
+    height:22px;
+    vertical-align: middle;
+}
+/*定义图片icon的位置*/
+.getAddressList .weui_cell_bd_right li:nth-of-type(1) .pec{
+    background: url('../img/edit.png') no-repeat 0 0;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+.getAddressList .weui_cell_bd_right li:nth-of-type(2) .pec{
+    background: url('../img/delete.png') no-repeat 0 0;
+    -webkit-background-size:cover;
+    background-size:cover;
+}
+/*定义图片icon的位置结束*/
+.getAddressList .weui_cell_bd_right .font{
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+}
+/*列表页getAddressList结束*/
+/*添加新地址newAddress*/
+.dateAddress .first_weui_cell:after{
+    content: '';
+    width:100%;
+    height:1px;
+    border-bottom:1px solid #E5E5E5;
+    color: #E5E5E5;
+    position: absolute;
+    left:15px;
+    bottom: 0;
+    -webkit-transform-origin:0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.dateAddress .weui_cell_bd_right li{
+    float: right;
+}
+.dateAddress .weui_cell_bd_right .pec{
+    width:20px;
+    height:22px;
+    float: left;
+    background: url('../img/delete.png') no-repeat 0 0;
+    -webkit-background-size:cover;
+    background-size:cover;
+    margin-right: 10px;
+}
+.dateAddress .weui_cell_bd_right .font{
+    color: #999;
+}
+/*#719添加新地址newAddress结束*/
+#p-h p{
+    line-height: 28px;
+}    
+.argument-table{
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+.argument-table td{
+    border: 1px solid #ddd;
+    padding:5px 10px;
+}
+/*客服样式修改*/
+.weui_actionsheet_cell a{
+    color:#757575;
+    display: block;
+}

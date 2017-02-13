@@ -16,7 +16,7 @@
             <div id="page" data-page="insurance"></div>
             <div class="col-xs-10">
                 {foreach from=$data.insurance_list item=insuranceList key=key}
-                    <div class="col-md-6 iboxlist add-null" data-id="{$insuranceList.id}">
+                    <div class="col-md-6 iboxIndex iboxlist add-null" data-id="{$insuranceList.id}">
                         <div class="ibox">
                             <div class="ibox-content product-box">
                                 <div class="product-imitation">

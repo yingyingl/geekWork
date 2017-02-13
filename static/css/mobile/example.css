@@ -1,0 +1,624 @@
+body, html {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent
+}
+
+.page, body {
+    background-color: #fbf9fe
+}
+
+.container {
+    overflow: hidden
+}
+
+.container, .page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0
+}
+
+.page {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+.hd {
+    padding: 2em 0
+}
+
+.page_desc {
+    text-align: center;
+    color: #888;
+    font-size: 14px
+}
+
+.bd.spacing {
+    padding: 0 15px
+}
+
+.page_title {
+    text-align: center;
+    font-size: 34px;
+    color: #00ab9f;
+    font-weight: 400;
+    margin: 0 15%
+}
+
+.global_navs {
+    background-color: transparent
+}
+
+.global_navs:after, .global_navs:before {
+    border-color: #d9dbda
+}
+
+.global_navs .icon_nav {
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin-right: .7em
+}
+
+.page.button .page_title {
+    color: #225fba
+}
+
+.page.button .bd {
+    padding: 0 15px
+}
+
+.page.button .button_sp_area {
+    padding: 10px 0;
+    width: 60%;
+    margin: 0 auto;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    font-size: 0
+}
+
+.page.button .button_sp_area:after {
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    content: "."
+}
+
+.page.cell .page_title {
+    color: #225fba
+}
+
+.page.cell .bd {
+    padding-bottom: 30px
+}
+
+.page.toast {
+    background-color: #fff
+}
+
+.page.toast .bd {
+    padding: 120px 15px 0
+}
+
+.page.dialog {
+    background-color: #fff
+}
+
+.page.dialog .bd {
+    padding: 120px 15px 0
+}
+
+.page.article, .page.msg {
+    background-color: #fff
+}
+
+.page.article .page_title {
+    color: #de7c23
+}
+
+.page.icons {
+    background-color: #fff;
+    text-align: center
+}
+
+.page.icons .page_title {
+    color: #3e24bd
+}
+
+.page.icons .bd {
+    padding: 30px 0;
+    text-align: center
+}
+
+.page.icons .icon_sp_area {
+    padding: 10px 20px;
+    text-align: left
+}
+
+.page.icons i {
+    margin: 0 5px 10px
+}
+
+@-webkit-keyframes a {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes a {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@-webkit-keyframes b {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    to {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+}
+
+@keyframes b {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+    to {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+}
+
+.page.slideIn {
+    -webkit-animation: a .2s forwards;
+    animation: a .2s forwards
+}
+
+.page.slideOut {
+    -webkit-animation: b .2s forwards;
+    animation: b .2s forwards
+}
+
+#insurance_show .weui_cell_primary {
+    width: 30%
+}
+
+#insurance_show .weui_cell_ft {
+    width: 70%;
+    text-align: center
+}
+
+.weui_navbar .active{
+    background-color:#FFFFFF;
+    color: #000000;
+}
+.dunjiao{
+    font-size: 11px;
+    display: inline-block;
+    padding: 2px;
+    width: 11px;
+    height: 12px;
+    background-color: #00ab9f;
+    color: #FFF;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.yuejiao{
+    font-size: 11px;
+    display: inline-block;
+    padding: 2px;
+    width: 11px;
+    height: 12px;
+    background-color: #FFBE00;
+    color: #FFF;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.rijiao{
+    font-size: 11px;
+    display: inline-block;
+    padding: 2px;
+    width: 11px;
+    height: 12px;
+    background-color: #ed5565;
+    color: #FFF;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.xianzhi{
+    font-size: 11px;
+    display: inline-block;
+    padding: 1px 2px 2px 2px;
+    width: 11px;
+    height: 13px;
+    background-color: #FFBE00;
+    color: #FFF;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.weui_btn_t{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.33333333;
+    border-radius: 0px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    width: 100%;
+}
+.title_left {
+    border-left: 2px solid #FFBE00;
+    margin-right: 10px
+}
+.alink{
+    color: #61749B
+}
+/*个人中心样式*/
+.user-img{
+    margin: auto;
+    background: url("../img/user_img.png") center no-repeat;
+    background-size:100%;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position:relative
+}
+.user-img-w{
+    margin: auto;
+    background: url("../img/user_img_w.png") center no-repeat;
+    background-size:100%;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    position:relative
+}
+.user_name{
+    text-align: center;
+    color: #333333;
+    font-size: 17px;
+}
+
+.user-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.user-row-first{
+    padding: 0 15px;
+}
+.user-row-1-1{
+    width: 50%;
+    text-align: center;
+    font-size: 11px;
+}
+.user-money{
+    font-size: 24px;
+    color: #FFBE00;
+    font-weight: 700
+}
+.frost-line{
+    font-size: 24px;
+    color: #10AEFF;
+    font-weight: 700
+}
+.user-row-50{
+    width: 49%;
+    background-color: #FFFFFF;
+    text-align: center;
+    min-height: 32px;
+    line-height: 32px;
+    font-size: 17px;
+}
+.user-row-50:nth-child(2){
+    width: 2%;
+    color: #999;
+}
+.user-row .icon {
+    font-size: 21px;
+    color: #00ab9f
+}
+.user-row strong{
+    font-size: 19px;
+    color: #FFBE00
+}
+.uesr_set_right{
+    font-size: 15px;
+    color: #888
+}
+.user-img .icon{
+    position:absolute;
+    font-size: 23px;
+    color: #FFBE00;
+    bottom:0;
+    right: 10px;
+}
+.user-img-w .icon{
+    position:absolute;
+    font-size: 23px;
+    color: #FFBE00;
+    bottom:0;
+    right: 10px;
+}
+/*我的钱包*/
+.my_wallet{
+    margin-top: 0;
+}
+.my_wallet .icon{
+    font-size: 21px;
+    color: #F76260
+}
+.my_wallet .weui-cell_access .icon{
+    color: #00ab9f
+}
+.title_wallet{
+    font-size: 14px;
+}
+.my_wallet .weui-cell__ft{
+    font-size: 15px;
+}
+/*账户余额*/
+.user_money a{
+    color: #999999;
+}
+.user_money a:hover{
+    color: #333333;
+}
+.user_balance{
+    text-align: center;
+}
+.user_balance .icon{
+    font-size: 60px;
+    color: #FFBE00;
+}
+.remain_title{
+    font-size: 17px;
+    line-height: 10px;
+    color: #333;
+}
+.remain_title .user_money{
+    font-size: 1.6em;
+    font-weight: 500;
+    color: #FFBE00;
+}
+.user_money_help .icon{
+    font-size: 15px;
+}
+.remain_title_subhead{
+    color: #dddddd;
+}
+.user_get .icon{
+    font-size: 23px;
+}
+.user_get_error{
+    color: #F76260
+}
+.user_get_succeed{
+    color: #00ab9f
+}
+.user_get_ing{
+    color: #3cc51f
+}
+.none_get{
+    text-align: center;
+}
+.none_get h1{
+    font-size: 6rem;
+    color: #dddddd;
+}
+/*提现功能页面*/
+.get_money_now{
+    padding: 10px 15px;
+}
+.get_money_now_title{
+    font-weight: 500;
+}
+.get_money_now .get_all label{
+    width: 50px;
+    font-size: 36px;
+}
+.get_money_now .weui-cells:before{
+    border-top:0;
+}
+.get_money_now .get_all{
+    padding-bottom: 0;
+}
+.get_money_now .get_all .weui-input{
+    font-size: 30px;
+}
+.get_money_now a{
+    color: #00ab9f;
+    font-size: 13px;
+    font-weight: 300;
+}
+.money_pw{
+    padding: 2px 5px;
+    width: 90%;
+    font-size: 30px;
+    line-height: 35px;
+    border: 0;
+    background-color:#eeeeee;
+    border-radius:0;
+    text-align: center;
+}
+.user_payment_pw{
+    margin: 0 15px;
+    text-align: center;
+    padding: 80px 0 10px 0
+}
+.user_payment_pw .pw_title{
+    font-weight: 500;
+    font-size: 19px;
+    color: #666666;
+}
+.user_payment_pw input{
+    padding: 2px 5px;
+    font-size: 32px;
+    line-height: 41px;
+    border: 0;
+    background-color:#eeeeee;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px
+}
+.old_pw{
+    color: #FFBE00;
+}
+.new_pw{
+    color: #F76260
+}
+.buy_content .buy_title{
+    font-size: 23px;
+    font-weight: 500;
+    text-align: center;
+}
+.buy_content p{
+    text-align: center;
+}
+/*验证码样式*/
+.input_code{
+    padding: 2px 5px;
+    width: 40%;
+    font-size: 16px;
+    line-height: 35px;
+    border: 0;
+    background-color:#eeeeee;
+    border-radius:0;
+    text-align: center;
+    top: 0;
+    vertical-align:middle;
+}
+.img_code{
+    height: 39px;
+    width: auto;
+    vertical-align:middle;
+}
+.img_code_1{
+    height: 45px;
+    width: 35%;
+    vertical-align:middle;
+}
+
+/*密码框*/
+.fp_div {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    vertical-align: middle;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+.password_input {
+    position: absolute;
+    left: -122px;
+    top: 0;
+    width: 1000px;
+    height: 50px;
+    color: #fff;
+    font-size: 12px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-user-select: initial;
+    outline:none;
+    z-index: 999;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+
+.Password-box {
+    cursor:text;
+    background: #fff;
+    outline: none;
+    position: relative;
+    height: 46px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+}
+.Password-box i {
+    float: left;
+    padding: 20px 0;
+    height: 6px;
+    border-left: 1px solid #cccccc;
+    width:16.33%;
+}
+.Password-box .active {
+    background: url('../img/password-blink.gif') no-repeat center center;
+}
+.Password-box b {
+    display: block;
+    margin: 0 auto;
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+    visibility:hidden;
+    -webkit-border-radius: 4px;
+    background-color: #000000;
+    visibility: hidden;
+}
+.alert-box i{
+    width: 16%;
+}
+/*end密码框*/
+
+.weui-cell_access .weui-cell__ft:after {
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 15px;
+}
+a.weui-cell{
+    color:#000;
+}
