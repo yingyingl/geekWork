@@ -82,7 +82,7 @@
                                     <button class="btn btn-white add_user" type="button" data-toggle="modal" data-is-medicare="0">增加成员</button>
                                     <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code">加人推送</button>
                                 </div>
-                                <input type="hidden" name="eid" value="2955">
+
                                 <div class="m-t-35">
                                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid">
                                         <p class="ajax-loading"></p>
@@ -126,7 +126,7 @@
                             <div class="modal-body text-center">
                                 <img id="qrcodePic" src=""/>
                                 <div id="regURl" style="-o-text-overflow: ellipsis; font-size: 16px; margin: 20px auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 75%;"></div>
-                                <button class="btn btn-info" id="refreshEwm" style="margin-top: 15px;" type="button">刷新二维码</button>
+                                {*<button class="btn btn-info" id="refreshEwm" style="margin-top: 15px;" type="button">刷新二维码</button>*}
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-white" data-dismiss="modal" type="button">关闭</button>

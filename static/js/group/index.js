@@ -57,16 +57,11 @@ var group = {
     ewmCode: function() {
         $(document).on("click", ".two_code", function() {
             var eid = $(this).parent().siblings("input[name='eid']").val(),
-                imgObj = '#qrcodePic';
+                codeUrl = '/invite/qrcode?insurace_id=' + eid,
+                shortUrl = '/invite/first?insurace_id=' + eid;
 
-            $(imgObj).attr('data-eid', eid);
-
-            tool.ewmCode.load(this);
-        });
-
-        //刷新二维码
-        $('#refreshEwm').click(function() {
-            tool.ewmCode.refreshs(this);
+            $('#qrcodePic').attr('src', codeUrl);
+            $("#regURl").html('<span style="font-weight: bold">或分享链接，引导成员申请：</span><a href="'+ shortUrl +'" target="_balnk">'+ shortUrl +'</a>');
         });
     },
 
@@ -542,46 +537,6 @@ var tool = {
                     tool.ajax.callAjax(param);
                 }
             });
-        }
-    },
-
-    ewmCode: {
-        load: function(obj, flag) {
-            var param = {
-                url: '',
-                data: {
-                    eid: $('#qrcodePic').data('eid')
-                },
-                success: function() {
-                    $('#qrcodePic').attr('src', response.picurl);
-                    $("#regURl").html('<span style="font-weight: bold">或分享链接，引导成员申请：</span><a href="'+ response.shortUrl+'" target="_balnk">'+ response.shortUrl+'</a>');
-                }
-            };
-
-            if(flag == 'refresh') {
-                param.data.mode = 1;
-            }
-
-            tool.ajax.callAjax(param);
-        },
-
-        refreshs: function(obj) {
-            swal({
-                    cancelButtonText : '取消',
-                    closeOnConfirm : true,
-                    confirmButtonColor : '#DD6B55',
-                    confirmButtonText : '确认',
-                    showCancelButton : true,
-                    text : '您的员工将不能够再通过刷新之前的二维码和链接申请保障。',
-                    title : '是否刷新二维码？',
-                    type : 'warning'
-                },
-                function ( isConfirm ){
-                    if ( isConfirm ){
-                        tool.ewmCode.load(obj, 'refresh');
-                    }
-                }
-            ) ;
         }
     },
 

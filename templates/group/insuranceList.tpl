@@ -63,7 +63,6 @@
                         <div class="modal-body text-center">
                             <img id="qrcodePic" src=""/>
                             <div id="regURl" style="-o-text-overflow: ellipsis; font-size: 16px; margin: 20px auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 75%;"></div>
-                            <button class="btn btn-info" id="refreshEwm" style="margin-top: 15px;" type="button">刷新二维码</button>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-white" data-dismiss="modal" type="button">关闭</button>

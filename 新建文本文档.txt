@@ -184,3 +184,7 @@ type= effect 生效 type=reject 已拒成员列表 type=wait 待审核  type=une
 $data.statistics_data
 http://www.jikebao.com/statistics/lipeiLog?page=1
 http://www.jikebao.com/statistics/userLog?page=1
+
+===============二维码================
+http://www.jikebao.com/invite/qrcode?insurace_id=3
+http://www.jikebao.com/invite/first?insurace_id=3

@@ -57,7 +57,7 @@ var statistical = {
 };
 
 var tool = {
-    datas: charData && charData != '' ? $.parseJSON(charData) : 0,
+    datas: charData && charData != '' ? charData : 0,
 
     list: {
         load: function(obj, type) {
