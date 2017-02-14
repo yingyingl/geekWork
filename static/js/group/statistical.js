@@ -1,6 +1,7 @@
 var statistical = {
     init: function() {
         this.chart();
+        $('#side-menu').metisMenu();
         tool.list.load('.iboxlist', $('.iboxlist').attr('data-type'));
     },
 
@@ -9,7 +10,7 @@ var statistical = {
             AddUserNumArr = tool.setUserNumArrWithType(monthArr, '1'),
             RemoveUserNumArr = tool.setUserNumArrWithType(monthArr, '5'),
             userArr = tool.setUserNumArr(monthArr),
-            flag = $('#pageLipei').val();
+            flag = $('.iboxlist').attr('data-type');
 
         monthArr = tool.formatMonth(monthArr);
 
@@ -50,7 +51,7 @@ var statistical = {
             pointDot: false,
             datasetStrokeWidth: 1
         };
-        var ctx = document.getElementById(flag == 1 ? "barChart" : "linkChart").getContext("2d");
+        var ctx = document.getElementById(flag == 1 ? "linkChart" : "barChart").getContext("2d");
         var myNewChart = new Chart(ctx).Line(barData, barOptions);
     }
 };
@@ -69,7 +70,7 @@ var tool = {
                 url = '',
                 dataJson = {};
 
-            if(type) {
+            if(type == 1) {
                 url = '/statistics/userLog';
             } else {
                 url = '/statistics/lipeiLog';

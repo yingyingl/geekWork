@@ -13,7 +13,7 @@
 
                 <div id="page" data-page="lipei_s"></div>
 
-                <div class="col-xs-10 iboxlist" data-id="1" data-load="true">
+                <div class="col-xs-10 iboxlist" data-type="0" data-id="1" data-load="true">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title"><span>报销统计</span></div>
 
@@ -47,6 +47,7 @@
     <script>
         var charData = "{$data.statistics_data}";
     </script>
+    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/Chart.min.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/group/statistical.js"></script>

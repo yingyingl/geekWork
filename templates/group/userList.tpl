@@ -326,7 +326,6 @@
 {/block}
 
 {block name="js"}
-    <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 以及弹窗 -->
     <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/plugins/bootstrap-datepicker.js"></script>

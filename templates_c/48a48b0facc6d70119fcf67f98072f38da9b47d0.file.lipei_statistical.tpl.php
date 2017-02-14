@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 16:28:39
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:45:05
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\DataStatistics\lipei_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1601158a07302e16423-82760189%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '48a48b0facc6d70119fcf67f98072f38da9b47d0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\DataStatistics\\lipei_statistical.tpl',
-      1 => 1486999643,
+      1 => 1487033011,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -118,13 +118,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '1601158a07302e16423-82760189');
-content_58a1d0a777d672_43432276($_smarty_tpl);
+content_58a25311a67291_92797159($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
                 <div id="page" data-page="lipei_s"></div>
 
-                <div class="col-xs-10 iboxlist" data-id="1" data-load="true">
+                <div class="col-xs-10 iboxlist" data-type="0" data-id="1" data-load="true">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title"><span>报销统计</span></div>
 
@@ -152,8 +152,6 @@ $_smarty_tpl = array_pop($_tpl_stack);
             </div>
         </div>
     </div>
-
-    <input type="hidden" id="pageLipei" value="1">
 
 
         <?php echo $_smarty_tpl->getSubTemplate ("template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
@@ -221,9 +219,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 16:28:39
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:45:05
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a1d0a777d672_43432276')) {function content_58a1d0a777d672_43432276($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a25311a67291_92797159')) {function content_58a25311a67291_92797159($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

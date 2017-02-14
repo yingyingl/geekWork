@@ -85,6 +85,7 @@
 
 
 <script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
+<script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 以及弹窗 -->
 <script src="{#static_path#}/js/plugins/sweetalert.min.js"></script>        <!-- 确认弹窗 -->
 <script src="{#static_path#}/js/topup.js"></script>
 

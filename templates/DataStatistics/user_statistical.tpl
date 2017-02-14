@@ -46,6 +46,7 @@
     <script>
         var charData = "{$data.statistics_data}";
     </script>
+    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/Chart.min.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/group/statistical.js"></script>

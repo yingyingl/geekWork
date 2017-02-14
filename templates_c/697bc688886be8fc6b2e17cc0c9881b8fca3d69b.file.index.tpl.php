@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 15:39:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:50:08
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1486907313,
+      1 => 1486997883,
       2 => 'file',
     ),
   ),
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_58a1c51c90bc95_99265405($_smarty_tpl);
+content_58a25441210d54_47342196($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -516,13 +516,13 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-13 15:39:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:50:09
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a1c51c90bc95_99265405')) {function content_58a1c51c90bc95_99265405($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a25441210d54_47342196')) {function content_58a25441210d54_47342196($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
-                <a href="/templates/group/index">
+                <a href="/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
             </li>
@@ -536,7 +536,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="userlist">
-                        <a href="/group/userList"><i class="fa fa-sitemap"></i>成员管理</a>
+                        <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
             </li>
@@ -547,10 +547,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                 </a>
                 <ul class="nav left-m collapse">
                     <li id="lipei_s">
-                        <a href="/DataStatistics/lipei_statistical"><i class="fa fa-line-chart"></i>报销统计</a>
+                        <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
                     <li id="user_s">
-                        <a href="/DataStatistics/user_statistical"><i class="fa fa-area-chart"></i>人管统计</a>
+                        <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
             </li>
