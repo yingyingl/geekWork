@@ -41,8 +41,6 @@
             </div>
         </div>
     </div>
-
-    <input type="hidden" id="pageLipei" value="1">
 {/block}
 
 {block name="js"}
