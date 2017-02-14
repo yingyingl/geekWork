@@ -99,9 +99,17 @@ var group = {
                 memberId = 0;
                 $(box).removeClass('edit-user');
                 $(box + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
+
+                //添加时姓名和证件可修改
+                $(box).find('select[name="relType"], select[name="certType"]').attr('disabled', 'disabled');
+                $(box).find('input[name="realname"], input[name="id_number"]').attr('readonly', 'readonly');
             } else {
                 memberId = $(this).closest('tr').attr('data-id');
                 $(box).addClass('edit-user');
+
+                //编辑时姓名和证件不可修改
+                $(box).find('select[name="relType"], select[name="certType"]').attr('disabled', 'disabled');
+                $(box).find('input[name="realname"], input[name="id_number"]').attr('readonly', 'readonly');
             }
 
             $(box).attr('data-insuranceId', insuranceId).attr('data-memberId', memberId);
@@ -663,7 +671,17 @@ var tool = {
                 mobile = $.trim(box.find('.form-mobile').val()),
                 healthInsurance = box.find('.health_insurance'),
                 startTime = box.find('.startTimeBox input').val(),
-                endTime = box.find('.endTimeBox input').val();
+                endTime = box.find('.endTimeBox input').val(),
+                insuranceType = box.find('select[name="medicare_type"]').val(),
+                prov = box.find('#edit_prov').val(),
+                city = box.find('#edit_city').val(),
+                url = flag == 'add' ? '/group/postAddMember' : '/group/postUpdateMember',
+                datas = {
+                    insurance_id: sid,
+                    mobile: mobile,
+                    begin_date: startTime,
+                    end_date: endTime
+                };
 
             if(!tool.addEdit.indenty(obj)) {
                 return false;
@@ -671,17 +689,24 @@ var tool = {
 
             tool.all.loading('show');
 
+            //need_medical_insurance为1时需要医保信息
+            if(box.attr('data-medical') == 1) {
+                datas.province = prov;
+                datas.city = city;
+                datas.insurance_type = insuranceType;
+            }
+
+            if(flag == 'add') {
+                datas.name = name;
+                datas.id_number = idNum;
+            } else {
+                datas.id = mid;
+            }
+
             var param = {
                 id: obj,
-                url: '/group/postAddMember',
-                data: {
-                    insurance_id: sid,
-                    name: name,
-                    id_number: idNum,
-                    mobile: mobile,
-                    begin_date: startTime,
-                    end_date: endTime
-                },
+                url: url,
+                data: datas,
                 success: function(data) {
                     tool.all.loading('hide');
                     box.find('input').val('');
