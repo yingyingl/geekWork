@@ -1,11 +1,11 @@
 var statistical = {
     init: function() {
-        this.chart();
+        this.chartStart();
         $('#side-menu').metisMenu();
         tool.list.load('.iboxlist', $('.iboxlist').attr('data-type'));
     },
 
-    chart: function() {
+    chartStart: function() {
         var monthArr = tool.setMonthArr(),
             AddUserNumArr = tool.setUserNumArrWithType(monthArr, '1'),
             RemoveUserNumArr = tool.setUserNumArrWithType(monthArr, '5'),
@@ -18,18 +18,18 @@ var statistical = {
             labels: monthArr,
             datasets: [
                 {
-                    label: flag == 1 ? "My Second dataset" : "添加成员",
+                    label: flag == 1 ? "添加成员" : "My Second dataset",
                     fillColor: "rgba(26,179,148,0.5)",
                     strokeColor: "rgba(26,179,148,0.8)",
                     highlightFill: "rgba(26,179,148,0.75)",
                     pointColor : "#00ab9f",
                     highlightStroke: "#00ab9f",
-                    data: flag == 1 ? userArr : AddUserNumArr
+                    data: flag == 1 ? AddUserNumArr : userArr
                 }
             ]
         };
 
-        if(!flag) {
+        if(flag == 1) {
             barData.datasets.push({
                 label: "删除成员",
                 fillColor: "rgba(70,79,136,0.5)",
@@ -51,6 +51,7 @@ var statistical = {
             pointDot: false,
             datasetStrokeWidth: 1
         };
+
         var ctx = document.getElementById(flag == 1 ? "linkChart" : "barChart").getContext("2d");
         var myNewChart = new Chart(ctx).Line(barData, barOptions);
     }
@@ -243,7 +244,7 @@ var tool = {
         for(var i = 0; i < tool.datas.length; i++) {
             for(var j = 0; j < monthArr.length; j++) {
                 if(tool.datas[i]['year'] == monthArr[j][0] && tool.datas[i]['month'] == monthArr[j][1]) {
-                    monthArr[j][2] = statistical.datas[i]['usernum'];
+                    monthArr[j][2] = tool.datas[i]['usernum'];
                 }
             }
         }
