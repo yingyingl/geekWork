@@ -101,15 +101,19 @@ var group = {
                 $(box + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
 
                 //添加时姓名和证件可修改
-                $(box).find('select[name="relType"], select[name="certType"]').attr('disabled', 'disabled');
-                $(box).find('input[name="realname"], input[name="id_number"]').attr('readonly', 'readonly');
+                $(box).find('select[name="relType"]').removeAttr('disabled');
+                $(box).find('select[name="certType"]').removeAttr('disabled');
+                $(box).find('input[name="realname"]').removeAttr('readonly');
+                $(box).find('input[name="id_number"]').removeAttr('readonly');
             } else {
                 memberId = $(this).closest('tr').attr('data-id');
                 $(box).addClass('edit-user');
 
                 //编辑时姓名和证件不可修改
-                $(box).find('select[name="relType"], select[name="certType"]').attr('disabled', 'disabled');
-                $(box).find('input[name="realname"], input[name="id_number"]').attr('readonly', 'readonly');
+                $(box).find('select[name="relType"]').attr('disabled', 'disabled');
+                $(box).find('select[name="certType"]').attr('disabled', 'disabled');
+                $(box).find('input[name="realname"]').attr('readonly', 'readonly');
+                $(box).find('input[name="id_number"]').attr('readonly', 'readonly');
             }
 
             $(box).attr('data-insuranceId', insuranceId).attr('data-memberId', memberId);

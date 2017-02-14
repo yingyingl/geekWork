@@ -45,7 +45,7 @@
 
 {block name="js"}
     <script>
-        var charData = "{$data.statistics_data}";
+        var charData = {if !empty($data.statistics_data)}{$data.statistics_data}{else}''{/if};
     </script>
     <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/Chart.min.js"></script>
