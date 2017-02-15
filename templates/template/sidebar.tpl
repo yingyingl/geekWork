@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li id="admin_log">
-                <a href="/DataStatistics/admin_log">
+                <a href="/statistics/logPage">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>
             </li>

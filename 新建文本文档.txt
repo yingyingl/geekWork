@@ -188,3 +188,6 @@ http://www.jikebao.com/statistics/userLog?page=1
 ===============二维码================
 http://www.jikebao.com/invite/qrcode?insurace_id=3
 http://www.jikebao.com/invite/first?insurace_id=3
+==============操作记录==============
+http://www.jikebao.com/statistics/adminLog?page=1&type=1  管理记录
+http://www.jikebao.com/statistics/adminLog?page=1&type=0
