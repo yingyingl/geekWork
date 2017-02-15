@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 23:06:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:39:11
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/DataStatistics/user_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:34754258158a31ce7994f82-71268727%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c8be35a8b716cabdb8673d7acd599eb619a70377' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/DataStatistics/user_statistical.tpl',
-      1 => 1487081814,
+      1 => 1487165502,
       2 => 'file',
     ),
     '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
@@ -27,9 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_58a31ce7a15a84_85980679',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_58a31ce7a15a84_85980679')) {function content_58a31ce7a15a84_85980679($_smarty_tpl) {?><!DOCTYPE HTML>
 <html>
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '34754258158a31ce7994f82-71268727');
-content_58a31ce79f0473_05950923($_smarty_tpl);
+content_58a459ff2472b5_94957664($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -189,9 +189,8 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
     <?php echo '<script'; ?>
 >
-        var charData = <?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {
-echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
-} else { ?>''<?php }?>;
+        var charData = <?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {?>'<?php echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];?>
+'<?php }?>;
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
@@ -227,9 +226,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 23:06:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:39:11
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a31ce79f0473_05950923')) {function content_58a31ce79f0473_05950923($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a459ff2472b5_94957664')) {function content_58a459ff2472b5_94957664($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

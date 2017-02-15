@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 23:33:11
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:44:28
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/DataStatistics/lipei_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:205139735158a3128486bcb5-84658491%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1ce58ec8207e36830a5057eb9494989df031406d' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/DataStatistics/lipei_statistical.tpl',
-      1 => 1487086354,
+      1 => 1487166241,
       2 => 'file',
     ),
     '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '205139735158a3128486bcb5-84658491');
-content_58a323378eef36_83377893($_smarty_tpl);
+content_58a45b3c2e18d4_30908001($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -190,9 +190,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
     <?php echo '<script'; ?>
 >
-        var charData = <?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {
+        var charData = '<?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {
 echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
-} else { ?>''<?php }?>;
+}?>';
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
@@ -228,9 +228,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 23:33:11
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:44:28
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a323378eef36_83377893')) {function content_58a323378eef36_83377893($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a45b3c2e18d4_30908001')) {function content_58a45b3c2e18d4_30908001($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
