@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:53:52
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 03:08:41
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\DataStatistics\user_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:820258a0746d6ce3f0-63050364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '16ce4549b53db0fcc42349c668105841e366b13c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\DataStatistics\\user_statistical.tpl',
-      1 => 1487033611,
+      1 => 1487124507,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '820258a0746d6ce3f0-63050364');
-content_58a25520132e67_60481208($_smarty_tpl);
+content_58a3b829c95c13_68326806($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -189,8 +189,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
     <?php echo '<script'; ?>
 >
-        var charData = "<?php echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];?>
-";
+        var charData = <?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {
+echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
+} else { ?>''<?php }?>;
     <?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
@@ -226,9 +227,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:53:52
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 03:08:41
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a25520132e67_60481208')) {function content_58a25520132e67_60481208($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a3b829c95c13_68326806')) {function content_58a3b829c95c13_68326806($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">

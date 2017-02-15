@@ -58,7 +58,7 @@ var statistical = {
 };
 
 var tool = {
-    datas: charData && charData != '' ? charData : 0,
+    cDatas: charData && charData != '' ? charData : 0,
 
     list: {
         load: function(obj, type) {
@@ -239,12 +239,13 @@ var tool = {
     },
 
     setUserNumArr: function(monthArr) {
-        var userNumArr = new Array();
+        var userNumArr = new Array(),
+            jsons = tool.cDatas;
 
-        for(var i = 0; i < tool.datas.length; i++) {
+        for(var i = 0; i < jsons.length; i++) {
             for(var j = 0; j < monthArr.length; j++) {
-                if(tool.datas[i]['year'] == monthArr[j][0] && tool.datas[i]['month'] == monthArr[j][1]) {
-                    monthArr[j][2] = tool.datas[i]['usernum'];
+                if(jsons[i]['year'] == monthArr[j][0] && jsons[i]['month'] == monthArr[j][1]) {
+                    monthArr[j][2] = jsons[i]['usernum'];
                 }
             }
         }
@@ -258,12 +259,13 @@ var tool = {
 
     setUserNumArrWithType: function(monthArr, type) {
         var tmpArr = $.extend(true, [], monthArr),
-            userNumArr = new Array();
+            userNumArr = new Array(),
+            jsons = tool.cDatas;
 
-        for(var i = 0; i < tool.datas.length; i++) {
+        for(var i = 0; i < jsons.length; i++) {
             for(var j = 0; j < tmpArr.length; j++) {
-                if(tool.datas[i]['year'] == tmpArr[j][0] && tool.datas[i]['month'] == tmpArr[j][1] && tool.datas[i]['type'] == type) {
-                    tmpArr[j][2] = tool.datas[i]['usernum'];
+                if(jsons[i]['year'] == tmpArr[j][0] && jsons[i]['month'] == tmpArr[j][1] && jsons[i]['type'] == type) {
+                    tmpArr[j][2] = jsons[i]['usernum'];
                 }
             }
         }

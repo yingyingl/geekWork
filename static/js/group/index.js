@@ -377,7 +377,8 @@ var tool = {
                                         '<td><div class="table-h table-name" style="width:100px;margin:auto;text-align: center" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
                                         '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
                                         '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
-                                        '<td><div class="btn-group"><button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="'+ datas[i].medical_insurance_type +'" data-medicare-province="'+ datas[i].medical_insurance_province +'" data-medicare-city="'+ datas[i].medical_insurance_city +'" data-is-medicare="0" title="修改成员信息"><i class="fa fa-edit text-navy"></i></button>                                            <input type="hidden" value="1485273600"><button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div></td></tr>';
+                                        '<td><div class="btn-group"><button class="btn-white btn btn-bitbucket editor_user" data-toggle="modal" data-medicare-type="'+ datas[i].medical_insurance_type +'" data-medicare-province="'+ datas[i].medical_insurance_province +'" data-medicare-city="'+ datas[i].medical_insurance_city +'" data-is-medicare="0" title="修改成员信息"><i class="fa fa-edit text-navy"></i></button>                                            ' +
+                                        '<input type="hidden" value="1485273600"><button class="btn-white btn btn-bitbucket del_user" title="删减"><i class="fa fa-trash-o text-navy"></i></button></div></td></tr>';
 
                                     break;
                                 case 'wait':    //待核成员列表
@@ -414,7 +415,7 @@ var tool = {
                                         '<td><div class="table-h table-name text-center" style="width:220px;margin: auto" title="'+ datas[i].product_name +'">'+ datas[i].product_name +'</div></td>' +
                                         '<td><div class="table-h text-center">'+ datas[i].begin_date +'</div></td>' +
                                         '<td><div class="table-h text-center">'+ datas[i].end_date +'</div></td>' +
-                                        '<td><div class="table-h text-center">失效</div></td>' +
+                                        '<td><div class="table-h text-center">'+ datas[i].status_text +'</div></td>' +
                                         '</tr>';
 
                                     break;
