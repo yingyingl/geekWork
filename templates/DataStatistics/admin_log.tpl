@@ -1,6 +1,6 @@
 {extends file="template/front.tpl"}
 
-{block name="title"}报销统计{/block}
+{block name="title"}操作记录{/block}
 
 {block name="css"}{/block}
 

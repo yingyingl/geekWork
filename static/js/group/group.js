@@ -1,6 +1,3 @@
-//VM:54mI5pys57yW5Y+377yaMi4yLjgNCuS/ruaUueaXtumXtO+8mjIwMTYvMDcvMDYNCuS/ruaUueS6uuWRmO+8muWImOa1qQ0K5L+u5pS55YaF5a6577yaQlVHIzEwNTEg44CQ5o6o6YCB5Yqg5Lq644CR5a+55bey5aSx5pWI55qE5oiQ5ZGY6YCa6L+H5omr56CB5YaN5q2k55Sz6K+36K+l5pa55qGI5pe277yM5Zyo5pyq6YCa6L+H5a6h5qC455qE5oOF5Ya15LiL77yMR1VM6KGo55qEc3ViamVjdF9pZOS4ujANCg==
-
-
 function checkBirthCertExist(code,root){
     var flag=null;
     callAjax({'code': code.toUpperCase()}, 0, function (response) {
