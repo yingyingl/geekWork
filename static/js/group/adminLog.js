@@ -107,7 +107,7 @@ var tool = {
 
             box.attr('data-page', page);
 
-            tool.list.load(box);
+            tool.list.load(box, box.attr('data-type'));
         },
 
         //分页

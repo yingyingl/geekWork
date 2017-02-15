@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:45:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 22:35:16
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/DataStatistics/user_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:34754258158a31ce7994f82-71268727%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '62f07d2ce8a24b0afa806b30fd784a6cf96e65ac' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl',
-      1 => 1487069077,
+      1 => 1487167671,
       2 => 'file',
     ),
   ),
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '34754258158a31ce7994f82-71268727');
-content_58a45b680a9d67_00040539($_smarty_tpl);
+content_58a467247f4ef6_94046783($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -227,9 +227,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 21:45:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-15 22:35:16
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a45b680a9d67_00040539')) {function content_58a45b680a9d67_00040539($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a467247f4ef6_94046783')) {function content_58a467247f4ef6_94046783($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
@@ -297,7 +297,7 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
                 </a>
             </li>
             <li id="admin_log">
-                <a href="/DataStatistics/admin_log">
+                <a href="/statistics/logPage">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>
             </li>
