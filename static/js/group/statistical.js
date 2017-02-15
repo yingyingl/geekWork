@@ -8,7 +8,7 @@ var statistical = {
     chartStart: function() {
         var monthArr = tool.setMonthArr(),
             AddUserNumArr = tool.setUserNumArrWithType(monthArr, '1'),
-            RemoveUserNumArr = tool.setUserNumArrWithType(monthArr, '5'),
+            RemoveUserNumArr = tool.setUserNumArrWithType(monthArr, '3'),
             userArr = tool.setUserNumArr(monthArr),
             flag = $('.iboxlist').attr('data-type');
 
