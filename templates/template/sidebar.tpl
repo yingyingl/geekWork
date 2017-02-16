@@ -15,7 +15,7 @@
                     <li id="insurance">
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
-                    <li id="userlist">
+                    <li id="memberList">
                         <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
@@ -26,10 +26,10 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
-                    <li id="lipei_s">
+                    <li id="lipeiStatistics">
                         <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
-                    <li id="user_s">
+                    <li id="userStatistics">
                         <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
@@ -65,7 +65,7 @@
                     <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
                 </a>
             </li>
-            <li id="admin_log">
+            <li id="logPage">
                 <a href="/statistics/logPage">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>

@@ -245,7 +245,7 @@
 {/block}
 
 {block name="js"}
-    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/bootstrap-datepicker.js"></script>
 
     <script src="{#static_path#}/js/address/cityJson.js"></script>

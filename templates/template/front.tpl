@@ -90,7 +90,7 @@
 <script src="{#static_path#}/js/topup.js"></script>
 
 {*
-<script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
 <script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="{#static_path#}/js/zzsc.js"></script>*}
 {*<script src="{#static_path#}/js/common_ajax.js"></script>*}

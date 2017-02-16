@@ -54,8 +54,8 @@
                                     <th style="width: 10%" class="text-center">序号</th>
                                     <th style="width: 15%">姓名<br />证件号码</th>
                                     <th style="width: 15%">手机号码</th>
-                                    <th style="width: 20%;">医保信息</th>
                                     <th style="width: 20%">方案名称</th>
+                                    <th style="width: 20%;">医保信息</th>
                                     <th style="width: 20%">保障期间</th>
                                 </tr>
                                 </thead>
@@ -87,5 +87,6 @@
 {/block}
 
 {block name="js"}
+    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/group/upload.js"></script>
 {/block}

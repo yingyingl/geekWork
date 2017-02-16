@@ -1,6 +1,7 @@
 var uploads = {
     init: function() {
         this.start();
+        $('#side-menu').metisMenu();
     },
 
     start: function() {

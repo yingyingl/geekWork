@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 07:33:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 09:29:04
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\DataStatistics\user_statistical.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:820258a0746d6ce3f0-63050364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1487226142,
+      1 => 1487233716,
       2 => 'file',
     ),
   ),
@@ -118,7 +118,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '820258a0746d6ce3f0-63050364');
-content_58a547a96e6c19_31847173($_smarty_tpl);
+content_58a562d03f4e94_61997384($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -227,9 +227,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 07:33:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 09:29:04
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a547a96e6c19_31847173')) {function content_58a547a96e6c19_31847173($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a562d03f4e94_61997384')) {function content_58a562d03f4e94_61997384($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
@@ -246,7 +246,7 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
                     <li id="insurance">
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
-                    <li id="userlist">
+                    <li id="memberList">
                         <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
@@ -257,10 +257,10 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
-                    <li id="lipei_s">
+                    <li id="lipeiStatistics">
                         <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
-                    <li id="user_s">
+                    <li id="userStatistics">
                         <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
@@ -296,7 +296,7 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
                     <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
                 </a>
             </li>
-            <li id="admin_log">
+            <li id="logPage">
                 <a href="/statistics/logPage">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>
