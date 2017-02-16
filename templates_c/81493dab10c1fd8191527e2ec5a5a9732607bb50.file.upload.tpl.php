@@ -1,13 +1,13 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 07:33:13
-         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\DataStatistics\user_statistical.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:820258a0746d6ce3f0-63050364%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 08:59:17
+         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\upload.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2768258a547d2d9fa24-40137081%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '16ce4549b53db0fcc42349c668105841e366b13c' => 
+    '81493dab10c1fd8191527e2ec5a5a9732607bb50' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\DataStatistics\\user_statistical.tpl',
-      1 => 1487226142,
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\upload.tpl',
+      1 => 1487231551,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
@@ -23,19 +23,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '820258a0746d6ce3f0-63050364',
+  'nocache_hash' => '2768258a547d2d9fa24-40137081',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_58a0746d76bf25_29053384',
+  'unifunc' => 'content_58a547d2e8aac5_08550992',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_58a0746d76bf25_29053384')) {function content_58a0746d76bf25_29053384($_smarty_tpl) {?><!DOCTYPE HTML>
+<?php if ($_valid && !is_callable('content_58a547d2e8aac5_08550992')) {function content_58a547d2e8aac5_08550992($_smarty_tpl) {?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>成员管理统计</title>
+    <title>批量加人流程</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="" />
@@ -117,35 +117,78 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
- $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '820258a0746d6ce3f0-63050364');
-content_58a547a96e6c19_31847173($_smarty_tpl);
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '2768258a547d2d9fa24-40137081');
+content_58a55bd55edd40_86168791($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
-                <div id="page" data-page="user_s"></div>
-
-                <div class="col-xs-10 iboxlist" data-type="1" data-id="1" data-load="true">
+                <div class="col-xs-10">
                     <div class="ibox float-e-margins">
-                        <div class="ibox-title"><span>成员管理统计</span></div>
+                        <div class="ibox-title">
+                            <span onclick="location.href='/批量上传模板.xlsx'">批量加人流程<button type="submit" class="btn btn-primary btn-xs pull-right" >下载excel模板</button></span>
+                        </div>
 
                         <div class="ibox-content">
-                            <h3><span class="label" style="background-color: #00ab9f">&nbsp;</span><small> 增加成员</small> <span class="label" style="background-color: #464f88">&nbsp;</span><small> 减少成员 记录</small></h3>
+                            <div class="alert alert-success text-center">
+                                <h3>1.请选择保障方案成员excel文件
+                                    <span style="position:relative;">
+                                        <input type="file" name="local_file" style="position:absolute; left:0px; top:0px;width: 88px;height: 35px;filter:alpha(opacity=0);opacity:0" id="upload" />
+                                        <a href="#" class="btn btn-primary"> 选择文件</a>
+                                    </span>
+                                </h3>
 
-                            <div style="padding-bottom: 20px;">
-                                <canvas id="linkChart" height="60"></canvas>
-                            </div>
-
-                            <div class="dataTables_wrapper">
-                                <p class="ajax-loading"></p>
-
-                                <table class="table table-hover">
-                                    <thead><tr><th>成员加减记录</th><th>操作</th><th>日期</th></tr></thead>
-                                    <tbody></tbody>
-                                </table>
-
-                                <div class="pagination-list clearfix" id="pagination1"></div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="input-group" style="width: 330px;margin: auto">
+                                    <input type="text" id="viewfile" onmouseout="document.getElementById('upload').style.display='none';"  class="form-control">
+                                    <span class="input-group-btn"><button type="submit" name="upload" id="uploadID" class="btn btn-default" disabled>上传文档</button></span>
+                                </div>
                             </div>
                         </div>
+
+
+                        <div class="ibox-content" id="uploadList">
+                            <p class="ajax-loading" style="position: relative;"></p>
+
+                            <table class="table-bordered table-lian table-hover tooltip-demo">
+                                <thead>
+                                <tr>
+                                    <th colspan="13" style="text-align: left;background: #ffffff;padding: 10px;font-size: 14px">
+                                        本次批量上传人员共 <span class="text-info">1</span> 人，已上传人员信息错误为 <span class="table-error">1</span> 条
+                                        <div class="alert alert-danger text-center" style="display:none" id="verify_failID">
+                                            <p id="max_person_error_msg"></p>
+                                            <p id="avg_error_msg"></p>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="width: 10%" class="text-center">序号</th>
+                                    <th style="width: 15%">姓名<br />证件号码</th>
+                                    <th style="width: 15%">手机号码</th>
+                                    <th style="width: 20%;">医保信息</th>
+                                    <th style="width: 20%">方案名称</th>
+                                    <th style="width: 20%">保障期间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr><td class="text-center"><span class="table-error">1</span></td><td><p>老王</p><p style="margin-bottom: 0">411322198904092998</p></td><td><span class="table-error">111111</span></td><td><p>不需要</p></td><td>【极客保 - 意外型】测试</td><td><p><span class="label" style="padding: 3px">起</span><span class="table-error">2017-01-01</span></p><p style="margin-bottom: 0"><span class="label" style="padding: 3px">止</span><span>2017-08-08</span></p></td></tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="13" style="color: #676a6c">
+                                        注意： <span class="table-error">红色标示</span> 位置为错误信息，请再次核实上传内容，如有疑问请拨打客服电话：400-886-2309
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                            <div class="bottomBtn text-center" style="margin-top: 20px;">
+                                <a href='javascript:void(0)' class="btn btn-w-m btn-white uploadBtn">重新上传</a>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -188,27 +231,8 @@ $_smarty_tpl = array_pop($_tpl_stack);
 
 
     <?php echo '<script'; ?>
->
-        var charData = '<?php if (!empty($_smarty_tpl->tpl_vars['data']->value['statistics_data'])) {
-echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
-}?>';
-    <?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/metisMenu/jquery.metisMenu.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/Chart.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/pagination.js"><?php echo '</script'; ?>
->   <!-- 分页 -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/group/statistical.js"><?php echo '</script'; ?>
+/js/group/upload.js"><?php echo '</script'; ?>
 >
 
 
@@ -227,9 +251,9 @@ echo $_smarty_tpl->tpl_vars['data']->value['statistics_data'];
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 07:33:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 08:59:17
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a547a96e6c19_31847173')) {function content_58a547a96e6c19_31847173($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a55bd55edd40_86168791')) {function content_58a55bd55edd40_86168791($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
