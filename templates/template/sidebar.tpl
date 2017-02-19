@@ -61,7 +61,7 @@
                 </ul>
             </li>
             <li id="updateGroupUserInfo">
-                <a href="/group/updateGroupUserInfo">
+                <a href="/enterprise_user/settingPage">
                     <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
                 </a>
             </li>
