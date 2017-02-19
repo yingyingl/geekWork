@@ -46,7 +46,7 @@
     <script>
         var charData = '{if !empty($data.statistics_data)}{$data.statistics_data}{/if}';
     </script>
-    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/Chart.min.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/group/statistical.js"></script>

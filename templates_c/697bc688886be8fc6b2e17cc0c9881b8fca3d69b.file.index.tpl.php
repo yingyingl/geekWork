@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:50:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 09:28:48
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19528589d6fb8f1a826-12757569%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,19 +7,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '697bc688886be8fc6b2e17cc0c9881b8fca3d69b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\index.tpl',
-      1 => 1486996761,
+      1 => 1487124507,
       2 => 'file',
     ),
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1486910930,
+      1 => 1487033542,
       2 => 'file',
     ),
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
-      1 => 1486997883,
+      1 => 1487233716,
       2 => 'file',
     ),
   ),
@@ -123,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '19528589d6fb8f1a826-12757569');
-content_58a25441210d54_47342196($_smarty_tpl);
+content_58a562c0baaed4_67023136($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -214,7 +214,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                                     <button class="btn btn-white add_user" type="button" data-toggle="modal" data-is-medicare="0">增加成员</button>
                                     <button class="btn btn-white two_code" type="button" data-toggle="modal" data-target="#two_code">加人推送</button>
                                 </div>
-                                <input type="hidden" name="eid" value="2955">
+
                                 <div class="m-t-35">
                                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline" role="grid">
                                         <p class="ajax-loading"></p>
@@ -259,7 +259,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                             <div class="modal-body text-center">
                                 <img id="qrcodePic" src=""/>
                                 <div id="regURl" style="-o-text-overflow: ellipsis; font-size: 16px; margin: 20px auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 75%;"></div>
-                                <button class="btn btn-info" id="refreshEwm" style="margin-top: 15px;" type="button">刷新二维码</button>
+                                
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-white" data-dismiss="modal" type="button">关闭</button>
@@ -439,6 +439,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/bootstrap.min.js"><?php echo '</script'; ?>
+>  <!-- 鼠标经过效果 以及弹窗 -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/sweetalert.min.js"><?php echo '</script'; ?>
 >        <!-- 确认弹窗 -->
 <?php echo '<script'; ?>
@@ -457,10 +461,6 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 
 
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/plugins/bootstrap.min.js"><?php echo '</script'; ?>
->  <!-- 鼠标经过效果 以及弹窗 -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/metisMenu/jquery.metisMenu.js"><?php echo '</script'; ?>
@@ -516,9 +516,9 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-14 01:50:09
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-16 09:28:48
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a25441210d54_47342196')) {function content_58a25441210d54_47342196($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58a562c0baaed4_67023136')) {function content_58a562c0baaed4_67023136($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
@@ -535,7 +535,7 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                     <li id="insurance">
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
-                    <li id="userlist">
+                    <li id="memberList">
                         <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
                     </li>
                 </ul>
@@ -546,10 +546,10 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
-                    <li id="lipei_s">
+                    <li id="lipeiStatistics">
                         <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
                     </li>
-                    <li id="user_s">
+                    <li id="userStatistics">
                         <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
                     </li>
                 </ul>
@@ -585,8 +585,8 @@ $_smarty_tpl->tpl_vars['insuranceList']->_loop = true;
                     <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
                 </a>
             </li>
-            <li id="admin_log">
-                <a href="/DataStatistics/admin_log">
+            <li id="logPage">
+                <a href="/statistics/logPage">
                     <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
                 </a>
             </li>

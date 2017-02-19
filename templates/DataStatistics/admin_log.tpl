@@ -1,6 +1,6 @@
 {extends file="template/front.tpl"}
 
-{block name="title"}报销统计{/block}
+{block name="title"}操作记录{/block}
 
 {block name="css"}{/block}
 
@@ -58,7 +58,7 @@
 {/block}
 
 {block name="js"}
-    <script src="{#static_path#}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/plugins/pagination.js"></script>   <!-- 分页 -->
     <script src="{#static_path#}/js/group/adminLog.js"></script>
 {/block}
