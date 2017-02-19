@@ -22,7 +22,7 @@
                     <div class="ibox-title">
                         用户首页
                         <div class="pull-right">
-                            <button data-toggle="dropdown" class="btn btn-xs btn-primary" onclick="location.href='UploadUserInfo/flow_batch.html'" >批量加人</button>
+                            <button data-toggle="dropdown" class="btn btn-xs btn-primary" onclick="location.href='/group/excelPage'" >批量加人</button>
                             <button class="btn btn-xs btn-primary" data-all="true" id="all">全部收起</button>
                         </div>
                     </div>

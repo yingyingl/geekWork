@@ -67,6 +67,7 @@ var tool = {
         var param = {
             url: '/group/postExcel',
             data: { upload:  $('#upload').val()},
+            enctype: 'multipart/form-data',
             success: function(data) {
                 var lists = data.data.list,
                     errors = data.data.error,
@@ -196,6 +197,7 @@ var tool = {
                 data: options.data,
                 type: options.type ? options.type : 'POST',
                 dataType: "json",
+                enctype: options.enctype ? options.enctype : '',
                 success: function(data) {
                     if(options.id) {
                         $(options.id).removeClass('on');

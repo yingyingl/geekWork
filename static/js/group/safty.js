@@ -1,14 +1,37 @@
  var safty = {
      init: function() {
+         safty.start();
          safty.changePwd();
          
          $('#side-menu').metisMenu();
      },
+
+     start: function() {
+         //选项卡基本信息
+         $('#tab-title').click(function (){
+             $(tool.ids.updatePwdObj).attr('disabled',true);
+             tool.resetForm();
+             $(tool.ids.errObj).html('').hide();
+         });
+
+         //企业认证
+         $('#tab-title1').click(function (){
+             $(tool.ids.submitBtnObj).attr('disabled',true);
+             tool.resetForm();
+             $(tool.ids.errMsg2).hide();
+         });
+     },
      
      changePwd: function() {
-         $(tool.ids.pwdObj).blur(tool.check.pwd());
-         $(tool.ids.newPwdObj).blur(tool.check.newPwd());
-         $(tool.ids.reNewPwdObj).blur(tool.check.reNewPwd());
+         $(tool.ids.pwdObj).blur(function() {
+             tool.check.pwd()
+         });
+         $(tool.ids.newPwdObj).blur(function() {
+             tool.check.newPwd()
+         });
+         $(tool.ids.reNewPwdObj).blur(function() {
+             tool.check.reNewPwd()
+         });
          
          $(tool.ids.updatePwdObj).click(function(){
              tool.changePwd.load(this);
@@ -24,13 +47,17 @@
          reNewPwdObj: "#new_password_repet",
          errObj: '#errorMsg',
          updatePwdObj: '#updatePasswordBtn',
-         errMsg2: '#errorMsg2'
+         errMsg2: '#errorMsg2',
+         submitBtnObj: '#submitBtn'
      },
      
      bool: {
          newPwdFlag: false,
          rePwdFlag: false,
-         pwdFlag: false
+         pwdFlag: false,
+         orginFlag: true,
+         realNameFlag: false,
+         usciFlag: true
      },
      
      changePwd: {
@@ -41,10 +68,19 @@
                  data: {
                      old_password: $.trim($(tool.ids.pwdObj).val()),
                      password: $.trim($(tool.ids.newPwdObj).val())
+                 },
+                 success: function(){
+                     tool.showInfo('密码修改成功', true);
+
+                     tool.resetForm();
+
+                     tool.check.updateSubmitBtn();
                  }
              };
-             
-             tool.ajax.callAjax(param);
+
+             if(tool.bool.newPwdFlag && tool.bool.pwdFlag && tool.bool.rePwdFlag) {
+                 tool.ajax.callAjax(param);
+             }
          }
      },
      
@@ -80,7 +116,7 @@
          },
          
          pwd: function() {
-             var password = $(tool.ids.pwdObj).val();
+             var password = $.trim($(tool.ids.pwdObj).val());
      
              if(password == '') {
                  tool.bool.pwdFlag = tool.showInfo('请输入原密码', false);
@@ -91,9 +127,8 @@
              
              tool.check.updateSubmitBtn();
          },
-         
-         //检查旧密码的格式
-         newPwd: function() {   //checkNewPasswordFormat
+
+         newPwd: function() {
              var newPassword = $.trim($(tool.ids.newPwdObj).val()),
                  password = $.trim($(tool.ids.pwdObj).val());
          
@@ -109,7 +144,7 @@
          
          reNewPwd: function() {
              var newPassword = $.trim($(tool.ids.newPwdObj).val()),
-                 repetPassword = $.trim($(tool.ids.ewPwdObj).val());
+                 repetPassword = $.trim($(tool.ids.reNewPwdObj).val());
          
              if(!tool.bool.newPwdFlag){
                 //如果新密码为空则repetPasswordFlag = false,但不提示错误
@@ -195,9 +230,22 @@
             $(this).html('').hide();
             $(tool.ids.errMsg2).text('').hide();
         });
+     },
+
+     resetForm: function() {
+         $('.tab-content').find('input').val('');
+
+         tool.bool.pwdFlag = false;
+         tool.bool.newPwdFlag = false;
+         tool.bool.rePwdFlag = false;
+         tool.bool.orginFlag = true;
+         tool.bool.realNameFlag = false;
+         tool.bool.usciFlag = true;
      }
  };
- 
+
+
+ safty.init();
  
  
  
@@ -222,35 +270,7 @@ $(function () {
    
 
     
-    // 检查输入内容
-    function updatePassword() {
-        if(passwordFlag && newPasswordFlag && repetPasswordFlag ){
-            callAjax( { 'option' : 'group', 'password' : passwordObj.val(), 'user' : 'wh2000292' }, 0, function ( response ) {
-                if ( response != 1 ) {
-                    showInformation('旧密码输入有误',false);
-                    return ;
-                } else {
-                    callAjax($('#formGroupInfo').serialize(),0,function(response){
-                        showInformation('密码修改成功',true);
-                        resetForm();
-                        updateSubmitBtn();
-                    },'http://www.insgeek.com/user/update_user_password_ajax/');
-                }
-            }, "http://www.insgeek.com/check/check_password_ajax/" );
-        }
-    }
-    //重置表单
-    function resetForm(){
-        $('#formGroupInfo')[0].reset();
-        $('#formAuthentication')[0].reset();
-        passwordFlag = false;
-        newPasswordFlag = false;
-        repetPasswordFlag = false;
-        organization_flag = true;
-        realname_flag = false;
-        usci_flag = true;
-    }
-    
+
     
     
     
@@ -338,18 +358,7 @@ $(function () {
         }
         submitBtn();
     }
-    //选项卡基本信息
-    $('#tab-title').click(function (){
-        updatePasswordObj.attr('disabled',true);
-        resetForm();
-        showErrorObj.html('').hide();
-    })
-    //企业认证
-    $('#tab-title1').click(function (){
-        submitBtnObj.attr('disabled',true);
-        resetForm();
-        errorMsg2Obj.hide();
-    })
+
     organizationObj.blur(checkOrganization);
     realnameObj.blur(checkRealname);
     usciObj.blur(checkUsci);

@@ -1,14 +1,127 @@
-{extends file="template/front.tpl"}
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-19 22:50:47
+         compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:161196049858a9a9adf00735-01995311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '37f8fabcde0936f35d7b5e123d22ca1e03dd588e' => 
+    array (
+      0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl',
+      1 => 1487515843,
+      2 => 'file',
+    ),
+    '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
+    array (
+      0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front.tpl',
+      1 => 1487513953,
+      2 => 'file',
+    ),
+    '62f07d2ce8a24b0afa806b30fd784a6cf96e65ac' => 
+    array (
+      0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl',
+      1 => 1487513953,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '161196049858a9a9adf00735-01995311',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_58a9a9ae073f78_46461486',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58a9a9ae073f78_46461486')) {function content_58a9a9ae073f78_46461486($_smarty_tpl) {?><!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户首页</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
 
-{block name="title"}账户维护{/block}
+    <link rel="shortcut icon" href=""/>
+    <link rel="bookmark" href=""/>
 
-{block name="container"}
+
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
+
+    
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/animate.css"  rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/style.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/home.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/drag/drag.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+    <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
+        <a target="_blank" class="alert-link" href="http://browsehappy.com/">立即升级</a>
+    </div>
+    <![endif]-->
+
+    
+</head>
+<body class="top-navigation gray-bg">
+
+<!--固定定位回到顶部-->
+<div class="position-fixed">
+    <div class="position-menu">
+        <a class="position-icon position-icon-same myclear">
+            <i class="position-icon-1"></i>
+            <div class="icon-hover hover-font">
+                <div>工作日&nbsp;08:00-20:00</div>
+                <span class="label label-warning">现在咨询</span>
+            </div>
+        </a>
+        <span class="position-icon position-icon-same myclear">
+            <i class="position-icon-2"></i>
+            <span class="icon-hover hover-font hover-wechat">
+                <img class="hover-wechat-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/images/weixin_erweima.jpg" alt=""/>
+            </span>
+        </span>
+        <span class="position-icon position-icon-same myclear">
+            <i class="position-icon-3"></i>
+            <span class="icon-hover hover-font form-bg-1">
+                <span>工作日&nbsp;08:00-20:00</span>
+                <span class="fa fa-phone">&nbsp;400-886-2309</span>
+            </span>
+        </span>
+        <span class="position-icon position-icon-same enter-top">
+            <i class="position-icon-5"></i>
+        </span>
+    </div>
+</div>
+<!--回到顶部结束-->
+
+<div id="wrapper">
+    <div class="gray-bg" id="page-wrapper" style="padding: 0">
+    <!--头部内容开始-->
+        <?php echo $_smarty_tpl->getSubTemplate ("template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+
+        
     
 <div class="wrapper wrapper-content">
     <div class="container">
         <div class="row">
 
-            {include file="template/sidebar.tpl"}
+            <?php /*  Call merged included template "template/sidebar.tpl" */
+$_tpl_stack[] = $_smarty_tpl;
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '161196049858a9a9adf00735-01995311');
+content_58a9b0c7910797_85272569($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); 
+/*  End of included template "template/sidebar.tpl" */?>
 
             <div id="page" data-page="updateGroupUserInfo"></div>
 
@@ -68,10 +181,11 @@
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">保障方案：</div>
                                         <div class="charge-body">
-                                            {foreach from=insurance_name item=inName}
-                                                <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">{$inName}</button>
-                                            {/foreach}
-                                        </div>
+                                            <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
+                                                【极客保 - 意外型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
+                                            【极客保 - 重疾型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
+                                            【极客保 - 医疗型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
+                                            【极客保 - 基础版】测试									</button>							</div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="deposit-password charge-group clearfix">
@@ -285,10 +399,145 @@
         </div>
     </div>
 </div>
-{/block}
 
-{block name="js"}
-    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
-    <script src="{#static_path#}/js/address/jquery.cityselect.js"></script>
-    <script src="{#static_path#}/js/group/safty.js"></script>
-{/block}
+
+        <?php echo $_smarty_tpl->getSubTemplate ("template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+    </div>
+</div>
+
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/jquery-2.1.1.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/bootstrap.min.js"><?php echo '</script'; ?>
+>  <!-- 鼠标经过效果 以及弹窗 -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/sweetalert.min.js"><?php echo '</script'; ?>
+>        <!-- 确认弹窗 -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/topup.js"><?php echo '</script'; ?>
+>
+
+
+
+
+
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/drag.js"><?php echo '</script'; ?>
+>
+
+
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/jquery.metisMenu.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/address/jquery.cityselect.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/group/safty.js"><?php echo '</script'; ?>
+>
+
+
+<?php echo '<script'; ?>
+>
+    var url1 = window.location.href;
+    if (url1.indexOf('/puser/1') >= 0)
+    {
+        $("#login img").css("opacity","2");
+        $('#groupuser').removeClass("active");
+        $('#tab-1').removeClass("active");
+        $('#puser').addClass("active");
+        $('#tab-2').addClass("active");
+    }
+<?php echo '</script'; ?>
+>
+</body>
+</html><?php }} ?>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-19 22:50:47
+         compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_58a9b0c7910797_85272569')) {function content_58a9b0c7910797_85272569($_smarty_tpl) {?><div class="col-xs-2">
+    <div class="top-border white-bg">
+        <ul class="nav metismenu" id="side-menu">
+            <li id="index-group">
+                <a href="/group/index">
+                    <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i class="fa fa-calendar-o"></i><span class="nav-label">保障管理</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="insurance">
+                        <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
+                    </li>
+                    <li id="memberList">
+                        <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i class="fa fa-pie-chart"></i><span class="nav-label">数据统计</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="lipeiStatistics">
+                        <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
+                    </li>
+                    <li id="userStatistics">
+                        <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-calculator"></i><span class="nav-label">财务中心</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m nav-second-level collapse">
+                    <li id="financialIndex">
+                        <a href="/financial/index"><i class="fa fa-list"></i>总览</a>
+                    </li>
+                    <li id="charge">
+                        <a href="/financial/charge"><i class="fa fa-money"></i> 充值</a>
+                    </li>
+                    <li id="payment">
+                        <a href="financial/payment"><i class="fa fa-external-link"></i> 缴费</a>
+                    </li>
+                    <li id="withdraw">
+                        <a href="/financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
+                    </li>
+                    <li id="manageInfo">
+                        <a href="/financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
+                    </li>
+                    <li id="changeFinancialPassword" style="margin-bottom:0">
+                        <a href="/financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="updateGroupUserInfo">
+                <a href="/enterprise_user/settingPage">
+                    <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
+                </a>
+            </li>
+            <li id="logPage">
+                <a href="/statistics/logPage">
+                    <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div><?php }} ?>

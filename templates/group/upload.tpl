@@ -29,7 +29,7 @@
 
                                 <div class="hr-line-dashed"></div>
                                 <div class="input-group" style="width: 330px;margin: auto">
-                                    <input type="text" id="viewfile" onmouseout="document.getElementById('upload').style.display='none';"  class="form-control">
+                                    <input type="text" id="viewfile" class="form-control">
                                     <span class="input-group-btn"><button type="submit" name="upload" id="uploadID" class="btn btn-default" disabled>上传文档</button></span>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 <thead>
                                 <tr>
                                     <th colspan="13" style="text-align: left;background: #ffffff;padding: 10px;font-size: 14px">
-                                        本次批量上传人员共 <span class="text-info">1</span> 人，已上传人员信息错误为 <span class="table-error">1</span> 条
+                                        本次批量上传人员共 <span class="text-info">0</span> 人，已上传人员信息错误为 <span class="table-error">0</span> 条
                                         <div class="alert alert-danger text-center" style="display:none" id="verify_failID">
                                             <p id="max_person_error_msg"></p>
                                             <p id="avg_error_msg"></p>
@@ -59,9 +59,7 @@
                                     <th style="width: 20%">保障期间</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr><td class="text-center"><span class="table-error">1</span></td><td><p>老王</p><p style="margin-bottom: 0">411322198904092998</p></td><td><span class="table-error">111111</span></td><td><p>不需要</p></td><td>【极客保 - 意外型】测试</td><td><p><span class="label" style="padding: 3px">起</span><span class="table-error">2017-01-01</span></p><p style="margin-bottom: 0"><span class="label" style="padding: 3px">止</span><span>2017-08-08</span></p></td></tr>
-                                </tbody>
+                                <tbody></tbody>
                                 <tfoot>
                                 <tr>
                                     <td colspan="13" style="color: #676a6c">
