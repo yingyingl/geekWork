@@ -9,7 +9,7 @@
 
                 {include file="template/sidebar.tpl"}
 
-                <div id="page" data-page="financialIndex"></div>
+                <div id="page" data-page="indexGroup"></div>
 
                 <div class="col-xs-10">
                     <div class="row">

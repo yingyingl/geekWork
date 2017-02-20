@@ -58,11 +58,12 @@
     </div>
 </div>
 
+<input type="hidden" id="staticPath" value="{#static_path#}" >
 
 <script src="{#static_path#}/js/plugins/jquery-2.1.1.js"></script>
 <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 以及弹窗 -->
 <script src="{#static_path#}/js/plugins/sweetalert.min.js"></script>        <!-- 确认弹窗 -->
-<script src="{#static_path#}/js/topup.js"></script>
+<script src="{#static_path#}/js/common.js"></script>
 <script src="{#static_path#}/js/plugins/drag.js"></script>
 
 {block name="js"}{/block}

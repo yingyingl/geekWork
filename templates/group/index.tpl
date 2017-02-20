@@ -14,7 +14,7 @@
 
                 {include file="template/sidebar.tpl"}
 
-                <div id="page" data-page="index-group"></div>
+                <div id="page" data-page="indexGroup"></div>
 
                 <div class="col-xs-10">
 

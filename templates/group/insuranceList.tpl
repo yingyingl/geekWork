@@ -13,7 +13,8 @@
 
             {include file="template/sidebar.tpl"}
 
-            <div id="page" data-page="insurance"></div>
+            <div id="page" data-page="insuranceList"></div>
+
             <div class="col-xs-10">
                 {foreach from=$data.insurance_list item=insuranceList key=key}
                     <div class="col-md-6 iboxIndex iboxlist add-null" data-id="{$insuranceList.id}">

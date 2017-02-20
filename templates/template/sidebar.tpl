@@ -1,7 +1,7 @@
 <div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
-            <li id="index-group">
+            <li id="indexGroup">
                 <a href="/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
@@ -12,7 +12,7 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
-                    <li id="insurance">
+                    <li id="insuranceList">
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="memberList">
