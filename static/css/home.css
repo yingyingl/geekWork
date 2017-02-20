@@ -2164,3 +2164,25 @@ h4.list-group-item-heading{
     background-color: #00ab9f !important;
     color: #fff !important;
 }
+
+
+#rightButton{ position:fixed; _position:absolute; top:300px; right:0; z-index:999999; display:block;}
+#right_ul{ position:relative;list-style:none;}
+#right_ul .online_name{display: block;width: 100%;height: 100%;}
+#right_online{ background:url(../../static/images/right-nav/kefu_01.png) no-repeat; width:46px; height:42px; }
+#right_online:hover{ background:url(../../static/images/right-nav/kefu_02.png) no-repeat; width:46px; height:42px; }
+#right_weixin{  background:url(../../static/images/right-nav/weixin_01.png) no-repeat; width:46px; height:46px; }
+#right_weixin:hover{  background:url(../../static/images/right-nav/weixin_02.png) no-repeat; width:46px; height:46px; }
+#right_tel{ background:url(../../static/images/right-nav/tel_01.png) no-repeat; width:46px; height:42px; }
+#right_tel:hover{ background:url(../../static/images/right-nav/tel_02.png) no-repeat; width:46px; height:42px; }
+#right_tip{  background:url(../../static/images/right-nav/bg_01.png) no-repeat; font-size:14px; width:180px; height:56px; position:absolute; right:46px; top:-10px; display:none; z-index:999999; padding: 8px;text-align: center;}
+#right_tip p{
+    line-height: 0.8;color: #ffffff;font-weight: 700;
+}
+.flagShow_erweima{
+    background:url(../../static/images/right-nav/erweima.png) no-repeat;width:252px; height:91px;position:absolute; right:70px; top:-10px; display:none; z-index:999999;
+}
+.flag_weixin{ display:none;}
+#backToTop{z-index:999999; display:none;}
+a.backToTop_a{ background:url(../../static/images/right-nav/up_go.png) no-repeat; width:46px; height:46px; display:block; }
+a.backToTop_a:active{ background:url(../../static/images/right-nav/up_go.png) no-repeat; }

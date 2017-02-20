@@ -11,26 +11,13 @@
     <link rel="shortcut icon" href=""/>
     <link rel="bookmark" href=""/>
 
-
     <link href="{#static_path#}/css/bootstrap.css" rel="stylesheet">
     <link href="{#static_path#}/css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
     <link href="{#static_path#}/css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
-
-    {*
-       <link href="{#static_path#}/css/plugins/blueimp/css/blueimp-gallery.css" rel="stylesheet">
-       <link href="{#static_path#}/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-       <link href="{#static_path#}/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-       <link href="{#static_path#}/css/plugins/steps/jquery.steps.css" rel="stylesheet">
-       <link href="{#static_path#}/css/plugins/footable/footable.core.css" rel="stylesheet">
-       <link href="{#static_path#}/css/plugins/morris/morris-0.4.3.css" rel="stylesheet">*}
     <link href="{#static_path#}/css/animate.css"  rel="stylesheet">
     <link href="{#static_path#}/css/style.css" rel="stylesheet">
     <link href="{#static_path#}/css/home.css" rel="stylesheet">
     <link href="{#static_path#}/css/plugins/drag/drag.css" rel="stylesheet">
-{*
-    <link href="{#static_path#}/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="{#static_path#}/css/plugins/slick/slick-theme.css" rel="stylesheet">*}
 
     <!--[if lt IE 9]>
     <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
@@ -43,32 +30,20 @@
 <body class="top-navigation gray-bg">
 
 <!--固定定位回到顶部-->
-<div class="position-fixed">
-    <div class="position-menu">
-        <a class="position-icon position-icon-same myclear">
-            <i class="position-icon-1"></i>
-            <div class="icon-hover hover-font">
-                <div>工作日&nbsp;08:00-20:00</div>
-                <span class="label label-warning">现在咨询</span>
-            </div>
-        </a>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-2"></i>
-            <span class="icon-hover hover-font hover-wechat">
-                <img class="hover-wechat-img" src="{#static_path#}/images/weixin_erweima.jpg" alt=""/>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-3"></i>
-            <span class="icon-hover hover-font form-bg-1">
-                <span>工作日&nbsp;08:00-20:00</span>
-                <span class="fa fa-phone">&nbsp;400-886-2309</span>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same enter-top">
-            <i class="position-icon-5"></i>
-        </span>
-    </div>
+<div id="rightButton">
+    <ul id="right_ul">
+        <li id="right_online" class="right_ico" show="online" hide="tel" hide1="weixin"><a class="online_name" href="javascript:;"></a></li>
+        <li id="right_weixin" class="right_ico" show="weixin" hide="tel" hide1="online"></li>
+        <li id="right_tel" class="right_ico" show="tel" hide="weixin" hide1="online"></li>
+        <li id="right_tip" class="png">
+            <p class="flag_online">工作日早8点 - 晚8点</p>
+            <p class="flag_online"><button type="button" class="btn btn-xs btn-warning" style="font-weight: 700">在线咨询</button></p>
+            <p class="flag_weixin"></p>
+            <p class="flag_tel" style="margin-top: 5px">工作日早8点 - 晚8点</p>
+            <p class="flag_tel">400-886-2309</p>
+        </li>
+        <li><div id="backToTop"><a href="javascript:;" onfocus="this.blur();" class="backToTop_a png"></a></div></li>
+    </ul>
 </div>
 <!--回到顶部结束-->
 
@@ -88,26 +63,6 @@
 <script src="{#static_path#}/js/plugins/bootstrap.min.js"></script>  <!-- 鼠标经过效果 以及弹窗 -->
 <script src="{#static_path#}/js/plugins/sweetalert.min.js"></script>        <!-- 确认弹窗 -->
 <script src="{#static_path#}/js/topup.js"></script>
-
-{*
-<script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
-<script src="{#static_path#}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="{#static_path#}/js/zzsc.js"></script>*}
-{*<script src="{#static_path#}/js/common_ajax.js"></script>*}
-{*<script src="{#static_path#}/js/igCustom.js"></script>*}
-{*<script src="{#static_path#}/js/vuejs/vue.js"></script>*}
-{*<script src="{#static_path#}/js/ig_common.js"></script>
-<script src="{#static_path#}/js/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="{#static_path#}/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-<script src="{#static_path#}/js/plugins/iCheck/icheck.min.js"></script>
-<script src="{#static_path#}/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="{#static_path#}/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
-<script src="{#static_path#}/js/plugins/staps/jquery.steps.min.js"></script>
-<script src="{#static_path#}/js/plugins/footable/footable.all.min.js"></script>
-<script src="{#static_path#}/js/inspinia.js"></script>
-<script src="{#static_path#}/js/plugins/pace/pace.min.js"></script>
-<script src="{#static_path#}/js/plugins/slick/slick.min.js"></script>
-*}
 <script src="{#static_path#}/js/plugins/drag.js"></script>
 
 {block name="js"}{/block}

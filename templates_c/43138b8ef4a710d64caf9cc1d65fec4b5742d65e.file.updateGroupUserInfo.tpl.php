@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 08:53:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 10:27:58
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\updateGroupUserInfo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1998758aa8ce47c65f1-47783626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
-      1 => 1487235422,
+      1 => 1487582742,
       2 => 'file',
     ),
     '1274aa4b66132fed7876bd1d3251a277d2585188' => 
@@ -44,15 +44,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="shortcut icon" href=""/>
     <link rel="bookmark" href=""/>
 
-
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
-
-    
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/animate.css"  rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -61,7 +58,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/home.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/drag/drag.css" rel="stylesheet">
-
 
     <!--[if lt IE 9]>
     <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
@@ -74,33 +70,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body class="top-navigation gray-bg">
 
 <!--固定定位回到顶部-->
-<div class="position-fixed">
-    <div class="position-menu">
-        <a class="position-icon position-icon-same myclear">
-            <i class="position-icon-1"></i>
-            <div class="icon-hover hover-font">
-                <div>工作日&nbsp;08:00-20:00</div>
-                <span class="label label-warning">现在咨询</span>
-            </div>
-        </a>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-2"></i>
-            <span class="icon-hover hover-font hover-wechat">
-                <img class="hover-wechat-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/weixin_erweima.jpg" alt=""/>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-3"></i>
-            <span class="icon-hover hover-font form-bg-1">
-                <span>工作日&nbsp;08:00-20:00</span>
-                <span class="fa fa-phone">&nbsp;400-886-2309</span>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same enter-top">
-            <i class="position-icon-5"></i>
-        </span>
-    </div>
+<div id="rightButton">
+    <ul id="right_ul">
+        <li id="right_online" class="right_ico" show="online" hide="tel" hide1="weixin"><a class="online_name" href="javascript:;"></a></li>
+        <li id="right_weixin" class="right_ico" show="weixin" hide="tel" hide1="online"></li>
+        <li id="right_tel" class="right_ico" show="tel" hide="weixin" hide1="online"></li>
+        <li id="right_tip" class="png">
+            <p class="flag_online">工作日早8点 - 晚8点</p>
+            <p class="flag_online"><button type="button" class="btn btn-xs btn-warning" style="font-weight: 700">在线咨询</button></p>
+            <p class="flag_weixin"></p>
+            <p class="flag_tel" style="margin-top: 5px">工作日早8点 - 晚8点</p>
+            <p class="flag_tel">400-886-2309</p>
+        </li>
+        <li><div id="backToTop"><a href="javascript:;" onfocus="this.blur();" class="backToTop_a png"></a></div></li>
+    </ul>
 </div>
 <!--回到顶部结束-->
 
@@ -119,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '1998758aa8ce47c65f1-47783626');
-content_58aaa07984dea3_56127206($_smarty_tpl);
+content_58aab69e21c759_03595745($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -430,12 +413,6 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/topup.js"><?php echo '</script'; ?>
 >
-
-
-
-
-
-
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/drag.js"><?php echo '</script'; ?>
@@ -471,9 +448,9 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 08:53:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 10:27:58
          compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58aaa07984dea3_56127206')) {function content_58aaa07984dea3_56127206($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58aab69e21c759_03595745')) {function content_58aab69e21c759_03595745($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
