@@ -3,6 +3,7 @@
          safty.start();
          safty.changePwd();
          safty.changeMobile();
+         safty.changeEmail();
          
          $('#side-menu').metisMenu();
      },
@@ -15,6 +16,15 @@
                  event.preventDefault();
                  return;
              }
+         });
+
+         /*sweetAlert*/
+         $('.demo1').click(function(){
+             swal({
+                 confirmButtonText:"确定",
+                 title: "提示",
+                 text: "为了保障您的利益，请致电客服专员 400-886-2309"
+             });
          });
 
          //选项卡基本信息
@@ -50,7 +60,7 @@
 
      /*修改手机*/
      changeMobile: function() {
-         if($(tool.ids.mobileShowID2).text() == '') {
+         if($(tool.ids.phone).text() == '') {
              $(tool.ids.oldMobileObj).hide();
              $(tool.ids.newMobileObj).show();
          } else {
@@ -58,21 +68,30 @@
              $(tool.ids.newMobileObj).hide();
          }
 
+         //旧验证码框失去焦点
          $(tool.ids.oldCodeObj).blur(function() {
              tool.check.code(this, tool.ids.oldErrObj);
+         }).focus(function() {
+             $(tool.ids.oldErrObj).hide();
          });
 
+         //新手机号框失去焦点
          $(tool.ids.newMobileShow).blur(function() {
              tool.check.code(this, tool.ids.newErrObj);
+         }).focus(function() {
+             $(tool.ids.newErrObj).hide();
          });
 
+         //新密码框失去焦点
          $(tool.ids.newCodeObj).blur(function() {
              tool.check.code(this, tool.ids.newErrObj);
+         }).focus(function() {
+             $(tool.ids.newErrObj).hide();
          });
 
          //旧手机号获取验证码
          $(tool.ids.oldMobVerifyId).click(function() {
-             var mobile = $(tool.ids.mobileShowID2).text(),
+             var mobile = $(tool.ids.phone).text(),
                  errorBox = tool.ids.oldErrObj;
 
              if($(this).hasClass('on')) {
@@ -106,6 +125,44 @@
          $(tool.ids.newMobileSub).click(function() {
              tool.changeMobile.newSub(this);
          });
+     },
+
+     //修改邮箱
+     changeEmail: function() {
+
+         $(tool.ids.emailObj).blur(function() {
+             tool.check.email(this, tool.ids.emailErrObj);
+         }).focus(function() {
+             $(tool.ids.emailErrObj).hide();
+         });
+
+         $(tool.ids.emailSubObj).click(function() {
+             var email = $.trim($(tool.ids.emailObj).val()),
+                 errorBox = tool.ids.emailErrObj;
+
+             if($(this).hasClass('on') || !tool.check.email(tool.ids.emailObj, errorBox)) {
+                 return;
+             }
+
+             var param = {
+                 id: this,
+                 url: '',
+                 success: function() {
+                     $(tool.ids.email).text(email);
+                     $(tool.ids.email).parent().find('a').text('修改');
+                     $('#emailSectionID').modal('hide');
+
+                     tool.showInfo('邮箱修改成功', true);
+                 },
+                 error: function(message) {
+                     $(tool.ids.newCodeObj).val('');
+
+                     $(errorBox).show().find('i').text(message);
+                 }
+             };
+
+             tool.ajax.callAjax(param);
+         });
      }
  };
  
@@ -121,6 +178,7 @@
          submitBtnObj: '#submitBtn',
          oldMobVerifyId: '#set_old_mob_verifyID',
          newMobVerifyId: '#set_new_mob_verifyID',
+         phone: '#phone',
          mobileShowID2: '#mobileShowID2',
          newMobileShow: '#mobileID',
          oldMobileObj: '#oldMobileFormID',
@@ -130,7 +188,11 @@
          oldCodeObj: '#oldVerifyCodeID',
          newCodeObj: '#newVerifyCodeID',
          oldErrObj: '#oldMobileErrorID',
-         newErrObj: '#newMobileErrorID'
+         newErrObj: '#newMobileErrorID',
+         email: '#email',
+         emailObj: '#emailID',
+         emailSubObj: '#emailSubmitID',
+         emailErrObj: '#emailErrorID'
      },
      
      bool: {
@@ -200,7 +262,7 @@
          },
 
          oldSub: function(obj) {
-             var mobile = $(tool.ids.mobileShowID2).text(),
+             var mobile = $(tool.ids.phone).text(),
                  code = $.trim($(tool.ids.oldCodeObj).val()),
                  errorBox = tool.ids.oldErrObj;
 
@@ -215,17 +277,12 @@
                  id: obj,
                  url: '',
                  success: function() {
-                     $(tool.ids.mobileShowID2).text(mobile);
-                     $('#phone').text(mobile);
-                     $('#phoneID').hide();
-
-                     tool.showInfo('密码手机号码成功', true);
-
-                     $(tool.ids.oldMobileObj).show();
-                     $(tool.ids.newMobileObj).hide();
+                     $(tool.ids.oldMobileObj).hide();
+                     $(tool.ids.newMobileObj).show();
                  },
-                 error: function() {
+                 error: function(message) {
                      $(tool.ids.newCodeObj).val('');
+                     $(errorBox).show().find('i').text(message);
                  }
              };
 
@@ -250,15 +307,16 @@
                  success: function() {
                      $(tool.ids.mobileShowID2).text(mobile);
                      $('#phone').text(mobile);
-                     $('#phoneID').hide();
+                     $('#phoneID').modal('hide');
 
-                     tool.showInfo('密码手机号码成功', true);
+                     tool.showInfo('手机号码修改成功', true);
 
                      $(tool.ids.oldMobileObj).show();
                      $(tool.ids.newMobileObj).hide();
                  },
-                 error: function() {
+                 error: function(message) {
                      $(tool.ids.newCodeObj).val('');
+                     $(errorBox).show().find('i').text(message);
                  }
              };
 
@@ -346,7 +404,7 @@
              var reg = /^1[3-9][0-9]\d{8}$/;
 
              if(v == '') {
-                 $(errorBox).show().find('i').text('请输入投保人手机号');
+                 $(errorBox).show().find('i').text('请输入手机号');
 
                  return false;
              }
@@ -375,6 +433,26 @@
 
                  return false;
              }
+
+             $(errorBox).hide().find('i').text('');
+             return true;
+         },
+
+         email: function(obj, errorBox) {
+             var emailReg = /^([a-zA-Z0-9\-_.+]+)@([a-zA-Z0-9\-]+[.][a-zA-Z0-9\-.]+)$/,
+                 email = $.trim($(obj).val()),
+                 len = email.length;
+
+             if(len == 0) {
+                 $(errorBox).show().find('i').text('请输入邮箱');
+                 return false;
+             }
+
+             if(!emailReg.test(email) && len > 50) {
+                 $(errorBox).show().find('i').text('请输入正确的邮箱');
+                 return false;
+             }
+
 
              $(errorBox).hide().find('i').text('');
              return true;
@@ -464,28 +542,12 @@
  safty.init();
  
  
- 
+
+
+
+
  
 $(function () {
-
-    /*sweetAlert*/
-    $('.demo1').click(function(){
-        swal({
-            confirmButtonText:"确定",
-            title: "提示",
-            text: "为了保障您的利益，请致电客服专员 400-886-2309"
-        });
-    });
-   
-
-    
-
-    
-    
-    
-    
-    
-    
     /*******************************************华丽的分割线******************************************************/
     /*卡片二*/
     var submitBtnObj = $('#submitBtn');//提交按钮
@@ -669,73 +731,6 @@ $(function () {
         });
     }
 
-    /*修改电子邮箱*/
-    var emailErrorObj=$('#emailErrorID');
-    var tmpEmail=$.trim("wh2000292@163.com");
-    emailErrorObj.hide();
-    var emailObj=$('#emailID');
-    var emailSubmitObj=$('#emailSubmitID');
-
-    emailObj.on('blur',function()
-    {
-        var email=$.trim($(this).val());
-        var result=check_email_format(email);
-        if(result==0&&tmpEmail!='')
-        {
-            emailErrorObj.html(errorIconSquare+'错误！邮箱不能修改为空').show();
-            return;
-        }
-        else if(result==1)
-        {
-            emailErrorObj.html('').hide();
-            return;
-        }
-        else
-        {
-            emailErrorObj.html(errorIconSquare+'错误！电子邮箱格式错误，请输入正确的电子邮箱').show();
-            return;
-        }
-    });
-
-    /*点击提交修改电子邮箱*/
-    emailSubmitObj.on('click',function()
-    {
-        var email =$.trim(emailObj.val());
-        emailErrorObj.html('').hide();
-        if(email== tmpEmail)
-        {
-//                emailErrorObj.html(errorIconSquare+'错误！请使用与原电子邮箱不同的邮箱地址进行绑定').show();
-            $('#emailSectionID').modal('hide');
-            return;
-        }
-        if(check_email_format(email) != 1)
-        {
-            emailErrorObj.html(errorIconSquare+'错误！电子邮箱格式错误，请输入正确的电子邮箱').show();
-            return;
-        }
-        else
-        {
-            emailErrorObj.html('').hide();
-            if(updateGroupEmail(email))
-            {
-                tmpEmail=email;
-                emailObj.val(email);
-                $('#emailSectionID').modal('hide');
-                $('#email').text(email);
-                stateMsg.html(successIconSquare+'电子邮箱修改成功.').show();
-
-//                uc_update_user(email,'',root);//同步到uc修改邮箱
-
-                return;
-            }
-            else
-            {
-                emailErrorObj.html(errorIconSquare+'错误！电子邮箱修改失败').show();
-                return;
-            }
-        }
-    });
-
     function updateGroupEmail(email){
         var f = false;
         callAjax({email:email},PRD, function (res) {
@@ -745,6 +740,9 @@ $(function () {
         },'http://www.insgeek.com/Group/updateGroupEmail/');
         return f;
     }
+
+
+
     /*---------------修改地址--------------*/
     var tmpAddress='';
     var errorIconSquare='<i class="fa fa-pencil-square"></i> ';
