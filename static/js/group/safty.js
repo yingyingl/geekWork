@@ -77,7 +77,7 @@
 
          //新手机号框失去焦点
          $(tool.ids.newMobileShow).blur(function() {
-             tool.check.code(this, tool.ids.newErrObj);
+             tool.check.mobile(this, tool.ids.newErrObj);
          }).focus(function() {
              $(tool.ids.newErrObj).hide();
          });
@@ -114,7 +114,7 @@
              if($(this).hasClass('on')) {
                  return;
              }
-             if(!tool.check.mobile(tool.ids.newMobileShow, tool.ids.newErrObj)) {
+             if(!tool.check.mobile(tool.ids.newMobileShow, errorBox)) {
                  return;
              }
 
@@ -146,7 +146,8 @@
 
              var param = {
                  id: this,
-                 url: '',
+                 url: '/enterprise_user/postChangeInfo',
+                 data: { email: email },
                  success: function() {
                      $(tool.ids.email).text(email);
                      $(tool.ids.email).parent().find('a').text('修改');
@@ -275,7 +276,8 @@
 
              var param = {
                  id: obj,
-                 url: '',
+                 url: '/enterprise_user/postChangeMobileFirst',
+                 data: { smscode: code},
                  success: function() {
                      $(tool.ids.oldMobileObj).hide();
                      $(tool.ids.newMobileObj).show();
@@ -303,7 +305,11 @@
 
              var param = {
                  id: obj,
-                 url: '',
+                 url: '/enterprise_user/postChangeMobileSecond',
+                 data: {
+                     mobile: mobile,
+                     smscode: code
+                 },
                  success: function() {
                      $(tool.ids.mobileShowID2).text(mobile);
                      $('#phone').text(mobile);

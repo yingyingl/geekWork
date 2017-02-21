@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:03:40
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:15:33
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:161196049858a9a9adf00735-01995311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,19 +7,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '37f8fabcde0936f35d7b5e123d22ca1e03dd588e' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl',
-      1 => 1487682218,
+      1 => 1487682904,
       2 => 'file',
     ),
     '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front.tpl',
-      1 => 1487513953,
+      1 => 1487682369,
       2 => 'file',
     ),
     '62f07d2ce8a24b0afa806b30fd784a6cf96e65ac' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl',
-      1 => 1487513953,
+      1 => 1487682369,
       2 => 'file',
     ),
   ),
@@ -44,15 +44,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="shortcut icon" href=""/>
     <link rel="bookmark" href=""/>
 
-
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
-
-    
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/animate.css"  rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -61,7 +58,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/home.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/plugins/drag/drag.css" rel="stylesheet">
-
 
     <!--[if lt IE 9]>
     <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
@@ -74,33 +70,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <body class="top-navigation gray-bg">
 
 <!--固定定位回到顶部-->
-<div class="position-fixed">
-    <div class="position-menu">
-        <a class="position-icon position-icon-same myclear">
-            <i class="position-icon-1"></i>
-            <div class="icon-hover hover-font">
-                <div>工作日&nbsp;08:00-20:00</div>
-                <span class="label label-warning">现在咨询</span>
-            </div>
-        </a>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-2"></i>
-            <span class="icon-hover hover-font hover-wechat">
-                <img class="hover-wechat-img" src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/images/weixin_erweima.jpg" alt=""/>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same myclear">
-            <i class="position-icon-3"></i>
-            <span class="icon-hover hover-font form-bg-1">
-                <span>工作日&nbsp;08:00-20:00</span>
-                <span class="fa fa-phone">&nbsp;400-886-2309</span>
-            </span>
-        </span>
-        <span class="position-icon position-icon-same enter-top">
-            <i class="position-icon-5"></i>
-        </span>
-    </div>
+<div id="rightButton">
+    <ul id="right_ul">
+        <li id="right_online" class="right_ico" show="online" hide="tel" hide1="weixin"><a class="online_name" href="javascript:;"></a></li>
+        <li id="right_weixin" class="right_ico" show="weixin" hide="tel" hide1="online"></li>
+        <li id="right_tel" class="right_ico" show="tel" hide="weixin" hide1="online"></li>
+        <li id="right_tip" class="png">
+            <p class="flag_online">工作日早8点 - 晚8点</p>
+            <p class="flag_online"><button type="button" class="btn btn-xs btn-warning" style="font-weight: 700">在线咨询</button></p>
+            <p class="flag_weixin"></p>
+            <p class="flag_tel" style="margin-top: 5px">工作日早8点 - 晚8点</p>
+            <p class="flag_tel">400-886-2309</p>
+        </li>
+        <li><div id="backToTop"><a href="javascript:;" onfocus="this.blur();" class="backToTop_a png"></a></div></li>
+    </ul>
 </div>
 <!--回到顶部结束-->
 
@@ -119,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '161196049858a9a9adf00735-01995311');
-content_58ac3aace53794_82373387($_smarty_tpl);
+content_58ac3d75875202_82488359($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -186,7 +169,7 @@ $_smarty_tpl = array_pop($_tpl_stack);
                                         <div class="charge-head">保障方案：</div>
                                         <div class="charge-body">
                                             <?php  $_smarty_tpl->tpl_vars['inName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['inName']->_loop = false;
- $_from = 'insurance_name'; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['data']->value['insurance_name']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['inName']->key => $_smarty_tpl->tpl_vars['inName']->value) {
 $_smarty_tpl->tpl_vars['inName']->_loop = true;
 ?>
@@ -240,14 +223,16 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                                     <div class="deposit-password charge-group clearfix">
                                         <div class="charge-head large-charge-head">企业名称：</div>
                                         <div class="charge-body">
-                                            <input aria-required="true" class="form-control input-min-width" id="realname"  maxlength="32" placeholder="请输入企业名称" name="realname" required="" value="测试" type="text"  disabled>
+                                            <input aria-required="true" class="form-control input-min-width" id="realname"  maxlength="32" placeholder="请输入企业名称" name="realname" required="" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['enterprise_name'];?>
+" type="text"  disabled>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="deposit-password charge-group clearfix">
                                         <div class="charge-head large-charge-head">统一社会信用代码：</div>
                                         <div class="charge-body clearfixfix" style="position: relative;">
-                                            <input aria-required="true" class="form-control input-min-width" id="usci" name="usci" style="float: left;" placeholder="请输入18位统一社会信用代码" required="" maxlength="18" value="111111111111111112" type="text"  disabled>
+                                            <input aria-required="true" class="form-control input-min-width" id="usci" name="usci" style="float: left;" placeholder="请输入18位统一社会信用代码" required="" maxlength="18" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['union_code'];?>
+" type="text"  disabled>
                                             <div class="prompt-font" style="float: left;line-height: 34px;color: #f8ac59;position: absolute;right: 100px;bottom: -38px;">请至少填写一项企业认证代码</div>
                                         </div>
                                     </div>
@@ -255,7 +240,8 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                                     <div class="deposit-password charge-group clearfix"  >
                                         <div class="charge-head large-charge-head">组织机构代码：</div>
                                         <div class="charge-body" >
-                                            <input aria-required="true" class="form-control input-min-width" id="organization"   name="repeat" placeholder="请输入9位组织机构代码"  maxlength="9" required="" value="" type="text"  >
+                                            <input aria-required="true" class="form-control input-min-width" id="organization"   name="repeat" placeholder="请输入9位组织机构代码"  maxlength="9" required="" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['organization_code'];?>
+" type="text"  >
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
@@ -357,29 +343,31 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                             <h4 class="modal-title">修改手机</h4>
                         </div>
-                        <form method="post" id="oldMobileFormID" class="form-horizontal">
+
+                        <div id="oldMobileFormID" class="form-horizontal">
                             <div class="modal-body" style="padding-top: 50px">
                                 <div class="alert alert-warning">
                                     <i class="fa fa-mobile"></i> 发送验证码到原手机<span id="mobileShowID2">18600182395</span>
                                 </div>
-                                <div class="alert alert-danger" id="oldMobileErrorID">
+                                <div class="alert alert-danger" id="oldMobileErrorID" style="display: none">
                                     <i class="fa fa-minus-square"></i>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    <input type="text" class="form-control" id="oldVerifyCodeID" onkeypress="if(event.keyCode == 13){ $('#mobileNextID').click(); return false;}" name="oldVerifyMob">
+                                    <input type="text" class="form-control" id="oldVerifyCodeID" name="oldVerifyMob" onkeypress="if(event.keyCode == 13){ $('#mobileNextID').click(); return false;}">
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_old_mob_verifyID">发送验证码</button></span>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
                                     <button type="button" class="btn btn-primary btn-block m-t" id="mobileNextID"> 下一步</button>
                                 </div>
                             </div>
-                        </form>
-                        <form method="post" id="newMobileFormID" class="form-horizontal">
+                        </div>
+
+                        <div id="newMobileFormID" class="form-horizontal">
                             <div class="modal-body" style="padding-top: 50px">
                                 <div class="alert alert-warning">
                                     <i class="fa fa-mobile"></i> 验证新号码
                                 </div>
-                                <div class="alert alert-danger" id="newMobileErrorID">
+                                <div class="alert alert-danger" id="newMobileErrorID" style="display: none">
                                     <i class="fa fa-minus-square"></i>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
@@ -395,7 +383,8 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                                     <button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
                         </div>
@@ -414,6 +403,8 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
     </div>
 </div>
 
+<input type="hidden" id="staticPath" value="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+" >
 
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -429,14 +420,8 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
 >        <!-- 确认弹窗 -->
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/topup.js"><?php echo '</script'; ?>
+/js/common.js"><?php echo '</script'; ?>
 >
-
-
-
-
-
-
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/plugins/drag.js"><?php echo '</script'; ?>
@@ -472,12 +457,12 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:03:40
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:15:33
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58ac3aace53794_82373387')) {function content_58ac3aace53794_82373387($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58ac3d75875202_82488359')) {function content_58ac3d75875202_82488359($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
-            <li id="index-group">
+            <li id="indexGroup">
                 <a href="/group/index">
                     <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
                 </a>
@@ -488,7 +473,7 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav left-m collapse">
-                    <li id="insurance">
+                    <li id="insuranceList">
                         <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
                     </li>
                     <li id="memberList">

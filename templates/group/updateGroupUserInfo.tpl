@@ -68,7 +68,7 @@
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">保障方案：</div>
                                         <div class="charge-body">
-                                            {foreach from=insurance_name item=inName}
+                                            {foreach from=$data.insurance_name item=inName}
                                                 <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">{$inName}</button>
                                             {/foreach}
                                         </div>
@@ -118,14 +118,14 @@
                                     <div class="deposit-password charge-group clearfix">
                                         <div class="charge-head large-charge-head">企业名称：</div>
                                         <div class="charge-body">
-                                            <input aria-required="true" class="form-control input-min-width" id="realname"  maxlength="32" placeholder="请输入企业名称" name="realname" required="" value="测试" type="text"  disabled>
+                                            <input aria-required="true" class="form-control input-min-width" id="realname"  maxlength="32" placeholder="请输入企业名称" name="realname" required="" value="{$data.userInfo.enterprise_name}" type="text"  disabled>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="deposit-password charge-group clearfix">
                                         <div class="charge-head large-charge-head">统一社会信用代码：</div>
                                         <div class="charge-body clearfixfix" style="position: relative;">
-                                            <input aria-required="true" class="form-control input-min-width" id="usci" name="usci" style="float: left;" placeholder="请输入18位统一社会信用代码" required="" maxlength="18" value="111111111111111112" type="text"  disabled>
+                                            <input aria-required="true" class="form-control input-min-width" id="usci" name="usci" style="float: left;" placeholder="请输入18位统一社会信用代码" required="" maxlength="18" value="{$data.userInfo.union_code}" type="text"  disabled>
                                             <div class="prompt-font" style="float: left;line-height: 34px;color: #f8ac59;position: absolute;right: 100px;bottom: -38px;">请至少填写一项企业认证代码</div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                     <div class="deposit-password charge-group clearfix"  >
                                         <div class="charge-head large-charge-head">组织机构代码：</div>
                                         <div class="charge-body" >
-                                            <input aria-required="true" class="form-control input-min-width" id="organization"   name="repeat" placeholder="请输入9位组织机构代码"  maxlength="9" required="" value="" type="text"  >
+                                            <input aria-required="true" class="form-control input-min-width" id="organization"   name="repeat" placeholder="请输入9位组织机构代码"  maxlength="9" required="" value="{$data.userInfo.organization_code}" type="text"  >
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
