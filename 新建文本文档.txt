@@ -320,3 +320,9 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
       url: /enterprise_user/postChangeInfo
       参数：email
       返回：{"success":1,"message":"成功"}
+
+      获取短信验证码
+          方式: ajax post
+          url: /util/postsms
+          参数： flag:  enterprise_change_mobile
+                captcha  图形验证

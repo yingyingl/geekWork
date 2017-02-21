@@ -239,11 +239,16 @@
                         <div id="oldMobileFormID" class="form-horizontal">
                             <div class="modal-body" style="padding-top: 50px">
                                 <div class="alert alert-warning">
-                                    <i class="fa fa-mobile"></i> 发送验证码到原手机<span id="mobileShowID2">18600182395</span>
+                                    <i class="fa fa-mobile"></i> 发送验证码到原手机<span id="mobileShowID2">{$data.userInfo.mobile}</span>
                                 </div>
                                 <div class="alert alert-danger" id="oldMobileErrorID" style="display: none">
                                     <i class="fa fa-minus-square"></i>
                                 </div>
+                                <div class="input-group" style="width: 50%;margin: auto">
+                                    <input type="text" class="form-control imgcode" name="oldImgCode">
+                                    <span class="input-group-btn"><img src="/util/captcha?flag=enterprise_change_mobile" data-flag="/util/captcha?flag=enterprise_change_mobile" class="changeImgCode" style="width: 96px; height: 34px;"></span>
+                                </div>
+                                <br />
                                 <div class="input-group" style="width: 50%;margin: auto">
                                     <input type="text" class="form-control" id="oldVerifyCodeID" name="oldVerifyMob" onkeypress="if(event.keyCode == 13){ $('#mobileNextID').click(); return false;}">
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_old_mob_verifyID">发送验证码</button></span>
@@ -267,9 +272,13 @@
                                 </div>
                                 <br />
                                 <div class="input-group" style="width: 50%;margin: auto">
+                                    <input type="text" class="form-control imgcode" name="newImgCode">
+                                    <span class="input-group-btn"><img src="/util/captcha?flag=enterprise_change_mobile" data-flag="/util/captcha?flag=enterprise_change_mobile" class="changeImgCode" style="width: 96px; height: 34px;"></span>
+                                </div>
+                                <br />
+                                <div class="input-group" style="width: 50%;margin: auto">
                                     <input type="text" class="form-control"  onkeypress="if(event.keyCode == 13){ $('#mobileSubmitID').click(); return false;}" id="newVerifyCodeID" name="oldVerifyMob">
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_new_mob_verifyID">发送验证码</button></span>
-
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
                                     <button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>

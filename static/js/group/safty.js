@@ -40,6 +40,16 @@
              tool.resetForm();
              $(tool.ids.errMsg2).hide();
          });
+
+
+         //改变图形验证
+         $('.changeImgCode').click(function() {
+             var flag = $(this).attr('data-flag'),
+                 dates = (new Date()).getTime();
+
+             $(this).attr('src', flag + '&v=' + dates);
+             $(this).closest('.imgcode').val('');
+         });
      },
      
      changePwd: function() {
@@ -60,45 +70,51 @@
 
      /*修改手机*/
      changeMobile: function() {
-         if($(tool.ids.phone).text() == '') {
-             $(tool.ids.oldMobileObj).hide();
-             $(tool.ids.newMobileObj).show();
+         var oldMobileObj = tool.ids.oldMobileObj,
+             newMobileObj = tool.ids.newMobileObj,
+             phoneBox = tool.ids.phone,
+             oldErrObj = tool.ids.oldErrObj,
+             newErrObj = tool.ids.newErrObj;
+
+         if($(phoneBox).text() == '') {
+             $(oldMobileObj).hide();
+             $(newMobileObj).show();
          } else {
-             $(tool.ids.oldMobileObj).show();
-             $(tool.ids.newMobileObj).hide();
+             $(oldMobileObj).show();
+             $(newMobileObj).hide();
          }
 
          //旧验证码框失去焦点
          $(tool.ids.oldCodeObj).blur(function() {
-             tool.check.code(this, tool.ids.oldErrObj);
+             tool.check.code(this, oldErrObj);
          }).focus(function() {
-             $(tool.ids.oldErrObj).hide();
+             $(oldErrObj).hide();
          });
 
          //新手机号框失去焦点
          $(tool.ids.newMobileShow).blur(function() {
-             tool.check.mobile(this, tool.ids.newErrObj);
+             tool.check.mobile(this, newErrObj);
          }).focus(function() {
-             $(tool.ids.newErrObj).hide();
+             $(newErrObj).hide();
          });
 
          //新密码框失去焦点
          $(tool.ids.newCodeObj).blur(function() {
-             tool.check.code(this, tool.ids.newErrObj);
+             tool.check.code(this, newErrObj);
          }).focus(function() {
-             $(tool.ids.newErrObj).hide();
+             $(newErrObj).hide();
          });
 
          //旧手机号获取验证码
          $(tool.ids.oldMobVerifyId).click(function() {
-             var mobile = $(tool.ids.phone).text(),
-                 errorBox = tool.ids.oldErrObj;
+             var mobile = $(phoneBox).text(),
+                 imgcodeObj = $(this).parent().parent().find('.imgcode');
 
-             if($(this).hasClass('on')) {
+             if($(this).hasClass('on') || !tool.check.imgCode(imgcodeObj, oldErrObj)) {
                  return;
              }
 
-             tool.changeMobile.sendSms(this, mobile, errorBox);
+             tool.changeMobile.sendSms(this, mobile, oldErrObj);
          });
 
          //提交旧手机号验证码
@@ -109,16 +125,16 @@
          //新手机号获取验证码
          $(tool.ids.newMobVerifyId).click(function() {
              var mobile = $.trim($(tool.ids.newMobileShow).val()),
-                 errorBox = tool.ids.newErrObj;
+                 imgcodeObj = $(this).parent().parent().find('.imgcode');
 
-             if($(this).hasClass('on')) {
+             if($(this).hasClass('on') || !tool.check.imgCode(imgcodeObj, newErrObj)) {
                  return;
              }
-             if(!tool.check.mobile(tool.ids.newMobileShow, errorBox)) {
+             if(!tool.check.mobile(tool.ids.newMobileShow, newErrObj)) {
                  return;
              }
 
-             tool.changeMobile.sendSms(this, mobile, errorBox);
+             tool.changeMobile.sendSms(this, mobile, newErrObj);
          });
 
          //提交旧手机号验证码
@@ -235,8 +251,12 @@
 
              var param = {
                  id: obj,
-                 url: '',
-                 data: { mobile: mobile },
+                 url: '/util/postsms',
+                 data: {
+                     flag: 'enterprise_change_mobile',
+                     captcha: $.trim($(obj).parent().parent().find('.imgcode').val()),
+                     mobile: mobile
+                 },
                  type: 'GET',
                  success: function() {
                      var count = 60,
@@ -265,9 +285,10 @@
          oldSub: function(obj) {
              var mobile = $(tool.ids.phone).text(),
                  code = $.trim($(tool.ids.oldCodeObj).val()),
-                 errorBox = tool.ids.oldErrObj;
+                 errorBox = tool.ids.oldErrObj,
+                 imgcodeObj = $(obj).parent().parent().find('.imgcode');
 
-             if($(obj).hasClass('on')) {
+             if($(obj).hasClass('on') || !tool.check.imgCode(imgcodeObj, errorBox)) {
                  return;
              }
              if(!tool.check.code(tool.ids.oldCodeObj, errorBox)) {
@@ -294,9 +315,10 @@
          newSub: function(obj) {
              var mobile = $.trim($(tool.ids.newMobileShow).val()),
                  code = $.trim($(tool.ids.newCodeObj).val()),
-                 errorBox = tool.ids.newErrObj;
+                 errorBox = tool.ids.newErrObj,
+                 imgcodeObj = $(obj).parent().parent().find('.imgcode');
 
-             if($(obj).hasClass('on')) {
+             if($(obj).hasClass('on') || !tool.check.imgCode(imgcodeObj, errorBox)) {
                  return;
              }
              if(!tool.check.mobile(tool.ids.newMobileShow, errorBox) || !tool.check.code(tool.ids.newCodeObj, errorBox)) {
@@ -436,6 +458,19 @@
 
              if(v.length != 6) {
                  $(errorBox).show().find('i').text('请输入正确的验证码');
+
+                 return false;
+             }
+
+             $(errorBox).hide().find('i').text('');
+             return true;
+         },
+
+         imgCode: function(obj, errorBox) {
+             var v = $.trim($(obj).val());
+
+             if(v == '') {
+                 $(errorBox).show().find('i').text('请输入图形验证码');
 
                  return false;
              }
