@@ -474,7 +474,7 @@ var tool = {
 
         delAll: function(obj) {
             var checkAll = $(obj).parent('.btn-group').siblings('.m-t-35').find("input[name='idArr[]']:checked"),
-                lines = checkAll.parents('tr'),
+                lines = $(obj).parents('.iboxlist'),
                 len = checkAll.length,
                 memberIdArr = [];
 
