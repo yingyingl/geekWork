@@ -11,7 +11,7 @@
 
                 {include file="template/sidebar.tpl"}
 
-                <div id="page" data-page="admin_log"></div>
+                <div id="page" data-page="logPage"></div>
 
                 <div class="col-xs-10">
                     <div class="ibox float-e-margins">

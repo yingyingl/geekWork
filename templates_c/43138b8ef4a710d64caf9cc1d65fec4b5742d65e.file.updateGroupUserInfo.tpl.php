@@ -1,16 +1,112 @@
-{extends file="template/front.tpl"}
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 10:27:58
+         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\group\updateGroupUserInfo.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1998758aa8ce47c65f1-47783626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '43138b8ef4a710d64caf9cc1d65fec4b5742d65e' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\group\\updateGroupUserInfo.tpl',
+      1 => 1487577207,
+      2 => 'file',
+    ),
+    '8914ad3932f41f14fd678cbb4594545fc290ffb6' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\front.tpl',
+      1 => 1487582742,
+      2 => 'file',
+    ),
+    '1274aa4b66132fed7876bd1d3251a277d2585188' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\datebaofront-dev\\geekwork\\templates\\template\\sidebar.tpl',
+      1 => 1487563373,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1998758aa8ce47c65f1-47783626',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_58aa8ce490b218_89271942',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58aa8ce490b218_89271942')) {function content_58aa8ce490b218_89271942($_smarty_tpl) {?><!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>账户维护</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
 
-{block name="title"}账户维护{/block}
+    <link rel="shortcut icon" href=""/>
+    <link rel="bookmark" href=""/>
 
-{block name="container"}
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/font-awesome.css" rel="stylesheet">  <!--图标样式-->
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/sweetalert.css" rel="stylesheet">    <!-- 确认弹窗 -->
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/animate.css"  rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/style.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/home.css" rel="stylesheet">
+    <link href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/plugins/drag/drag.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <div class="alert alert-danger topframe" role="alert">您的浏览器实在<strong>太旧了！</strong>，请先升级完浏览器！
+        <a target="_blank" class="alert-link" href="http://browsehappy.com/">立即升级</a>
+    </div>
+    <![endif]-->
+
+    
+</head>
+<body class="top-navigation gray-bg">
+
+<!--固定定位回到顶部-->
+<div id="rightButton">
+    <ul id="right_ul">
+        <li id="right_online" class="right_ico" show="online" hide="tel" hide1="weixin"><a class="online_name" href="javascript:;"></a></li>
+        <li id="right_weixin" class="right_ico" show="weixin" hide="tel" hide1="online"></li>
+        <li id="right_tel" class="right_ico" show="tel" hide="weixin" hide1="online"></li>
+        <li id="right_tip" class="png">
+            <p class="flag_online">工作日早8点 - 晚8点</p>
+            <p class="flag_online"><button type="button" class="btn btn-xs btn-warning" style="font-weight: 700">在线咨询</button></p>
+            <p class="flag_weixin"></p>
+            <p class="flag_tel" style="margin-top: 5px">工作日早8点 - 晚8点</p>
+            <p class="flag_tel">400-886-2309</p>
+        </li>
+        <li><div id="backToTop"><a href="javascript:;" onfocus="this.blur();" class="backToTop_a png"></a></div></li>
+    </ul>
+</div>
+<!--回到顶部结束-->
+
+<div id="wrapper">
+    <div class="gray-bg" id="page-wrapper" style="padding: 0">
+    <!--头部内容开始-->
+        <?php echo $_smarty_tpl->getSubTemplate ("template/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+
+        
     
 <div class="wrapper wrapper-content">
     <div class="container">
         <div class="row">
 
-            {include file="template/sidebar.tpl"}
+            <?php /*  Call merged included template "template/sidebar.tpl" */
+$_tpl_stack[] = $_smarty_tpl;
+ $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '1998758aa8ce47c65f1-47783626');
+content_58aab69e21c759_03595745($_smarty_tpl);
+$_smarty_tpl = array_pop($_tpl_stack); 
+/*  End of included template "template/sidebar.tpl" */?>
 
-            <div id="page" data-page="settingPage"></div>
+            <div id="page" data-page="updateGroupUserInfo"></div>
 
             <div class="col-xs-10">
                 <div class="ibox finance-recharge">
@@ -37,40 +133,45 @@
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">联系电话：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="phone">{$data.userInfo.mobile}</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID">{if !empty($data.userInfo.mobile)}修改{else}绑定{/if}</a>
+                                            <span class="pull-left" id="phone">18600182395</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID">修改</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">电子邮箱：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="email">{$data.userInfo.email}</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID">{if !empty($data.userInfo.email)}修改{else}绑定{/if}</a>
+                                            <span class="pull-left" id="email">wh2000292@163.com</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID">修改</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head" id="addressShowID">联系地址：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left">{$data.userInfo.address}</span>
-                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange">{if !empty($data.userInfo.address)}修改{else}绑定{/if}</a>
+                                            <span class="pull-left"></span>
+                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange">修改</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">登录账号：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left">{$data.userInfo.username}</span>
+                                            <span class="pull-left">wh2000292</span>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">保障方案：</div>
                                         <div class="charge-body">
-                                            {foreach from=insurance_name item=inName}
-                                                <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">{$inName}</button>
-                                            {/foreach}
+                                            <?php  $_smarty_tpl->tpl_vars['inName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['inName']->_loop = false;
+ $_from = 'insurance_name'; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['inName']->key => $_smarty_tpl->tpl_vars['inName']->value) {
+$_smarty_tpl->tpl_vars['inName']->_loop = true;
+?>
+                                                <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button"><?php echo $_smarty_tpl->tpl_vars['inName']->value;?>
+</button>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
@@ -288,10 +389,139 @@
         </div>
     </div>
 </div>
-{/block}
 
-{block name="js"}
-    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
-    <script src="{#static_path#}/js/address/jquery.cityselect.js"></script>
-    <script src="{#static_path#}/js/group/safty.js"></script>
-{/block}
+
+        <?php echo $_smarty_tpl->getSubTemplate ("template/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+    </div>
+</div>
+
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/jquery-2.1.1.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/bootstrap.min.js"><?php echo '</script'; ?>
+>  <!-- 鼠标经过效果 以及弹窗 -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/sweetalert.min.js"><?php echo '</script'; ?>
+>        <!-- 确认弹窗 -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/topup.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/drag.js"><?php echo '</script'; ?>
+>
+
+
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/plugins/jquery.metisMenu.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/address/jquery.cityselect.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/group/safty.js"><?php echo '</script'; ?>
+>
+
+
+<?php echo '<script'; ?>
+>
+    var url1 = window.location.href;
+    if (url1.indexOf('/puser/1') >= 0)
+    {
+        $("#login img").css("opacity","2");
+        $('#groupuser').removeClass("active");
+        $('#tab-1').removeClass("active");
+        $('#puser').addClass("active");
+        $('#tab-2').addClass("active");
+    }
+<?php echo '</script'; ?>
+>
+</body>
+</html><?php }} ?>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-20 10:27:58
+         compiled from "C:\xampp\htdocs\datebaofront-dev\geekwork\templates\template\sidebar.tpl" */ ?>
+<?php if ($_valid && !is_callable('content_58aab69e21c759_03595745')) {function content_58aab69e21c759_03595745($_smarty_tpl) {?><div class="col-xs-2">
+    <div class="top-border white-bg">
+        <ul class="nav metismenu" id="side-menu">
+            <li id="index-group">
+                <a href="/group/index">
+                    <i class="fa fa-home"></i><span class="nav-label">用户首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i class="fa fa-calendar-o"></i><span class="nav-label">保障管理</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="insurance">
+                        <a href="/group/insuranceList"><i class="fa fa-list-alt"></i>保障方案</a>
+                    </li>
+                    <li id="memberList">
+                        <a href="/group/memberListPage"><i class="fa fa-sitemap"></i>成员管理</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)">
+                    <i class="fa fa-pie-chart"></i><span class="nav-label">数据统计</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m collapse">
+                    <li id="lipeiStatistics">
+                        <a href="/statistics/lipeiStatisticsPage"><i class="fa fa-line-chart"></i>报销统计</a>
+                    </li>
+                    <li id="userStatistics">
+                        <a href="/statistics/userStatisticsPage"><i class="fa fa-area-chart"></i>人管统计</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-calculator"></i><span class="nav-label">财务中心</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav left-m nav-second-level collapse">
+                    <li id="financialIndex">
+                        <a href="/financial/index"><i class="fa fa-list"></i>总览</a>
+                    </li>
+                    <li id="charge">
+                        <a href="/financial/charge"><i class="fa fa-money"></i> 充值</a>
+                    </li>
+                    <li id="payment">
+                        <a href="financial/payment"><i class="fa fa-external-link"></i> 缴费</a>
+                    </li>
+                    <li id="withdraw">
+                        <a href="/financial/withdraw"><i class="fa fa-credit-card"></i> 提现</a>
+                    </li>
+                    <li id="manageInfo">
+                        <a href="/financial/manageInfo"><i class="fa fa-cogs"></i> 管理设置</a>
+                    </li>
+                    <li id="changeFinancialPassword" style="margin-bottom:0">
+                        <a href="/financial/changeFinancialPassword"><i class="fa fa-tasks"></i> 财务密码</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="updateGroupUserInfo">
+                <a href="/enterprise_user/settingPage">
+                    <i class="fa fa-cog"></i><span class="nav-label">账户维护</span>
+                </a>
+            </li>
+            <li id="logPage">
+                <a href="/statistics/logPage">
+                    <i class="fa fa-pencil-square"></i><span class="nav-label">操作记录</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div><?php }} ?>

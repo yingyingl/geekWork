@@ -13,7 +13,7 @@
 
                 {include file="template/sidebar.tpl"}
 
-                <div id="page" data-page="userlist"></div>
+                <div id="page" data-page="memberList"></div>
 
                 <div class="col-xs-10">
                     <div class="ibox float-e-margins">

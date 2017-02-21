@@ -11,7 +11,7 @@
 
                 {include file="template/sidebar.tpl"}
 
-                <div id="page" data-page="lipei_s"></div>
+                <div id="page" data-page="lipeiStatistics"></div>
 
                 <div class="col-xs-10 iboxlist" data-type="0" data-id="1" data-load="true">
                     <div class="ibox float-e-margins">

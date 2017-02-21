@@ -2,11 +2,31 @@
      init: function() {
          safty.start();
          safty.changePwd();
+         safty.changeMobile();
+         safty.changeEmail();
          
          $('#side-menu').metisMenu();
      },
 
      start: function() {
+         $(window).on('keydown', function(e) {
+             var event = e || window.event;
+             var keyCode = event.keyCode;
+             if(keyCode == 32) {
+                 event.preventDefault();
+                 return;
+             }
+         });
+
+         /*sweetAlert*/
+         $('.demo1').click(function(){
+             swal({
+                 confirmButtonText:"确定",
+                 title: "提示",
+                 text: "为了保障您的利益，请致电客服专员 400-886-2309"
+             });
+         });
+
          //选项卡基本信息
          $('#tab-title').click(function (){
              $(tool.ids.updatePwdObj).attr('disabled',true);
@@ -24,17 +44,124 @@
      
      changePwd: function() {
          $(tool.ids.pwdObj).blur(function() {
-             tool.check.pwd()
+             tool.check.pwd();
          });
          $(tool.ids.newPwdObj).blur(function() {
-             tool.check.newPwd()
+             tool.check.newPwd();
          });
          $(tool.ids.reNewPwdObj).blur(function() {
-             tool.check.reNewPwd()
+             tool.check.reNewPwd();
          });
          
          $(tool.ids.updatePwdObj).click(function(){
              tool.changePwd.load(this);
+         });
+     },
+
+     /*修改手机*/
+     changeMobile: function() {
+         if($(tool.ids.phone).text() == '') {
+             $(tool.ids.oldMobileObj).hide();
+             $(tool.ids.newMobileObj).show();
+         } else {
+             $(tool.ids.oldMobileObj).show();
+             $(tool.ids.newMobileObj).hide();
+         }
+
+         //旧验证码框失去焦点
+         $(tool.ids.oldCodeObj).blur(function() {
+             tool.check.code(this, tool.ids.oldErrObj);
+         }).focus(function() {
+             $(tool.ids.oldErrObj).hide();
+         });
+
+         //新手机号框失去焦点
+         $(tool.ids.newMobileShow).blur(function() {
+             tool.check.code(this, tool.ids.newErrObj);
+         }).focus(function() {
+             $(tool.ids.newErrObj).hide();
+         });
+
+         //新密码框失去焦点
+         $(tool.ids.newCodeObj).blur(function() {
+             tool.check.code(this, tool.ids.newErrObj);
+         }).focus(function() {
+             $(tool.ids.newErrObj).hide();
+         });
+
+         //旧手机号获取验证码
+         $(tool.ids.oldMobVerifyId).click(function() {
+             var mobile = $(tool.ids.phone).text(),
+                 errorBox = tool.ids.oldErrObj;
+
+             if($(this).hasClass('on')) {
+                 return;
+             }
+
+             tool.changeMobile.sendSms(this, mobile, errorBox);
+         });
+
+         //提交旧手机号验证码
+         $(tool.ids.oldMobileSub).click(function() {
+             tool.changeMobile.oldSub(this);
+         });
+
+         //新手机号获取验证码
+         $(tool.ids.newMobVerifyId).click(function() {
+             var mobile = $.trim($(tool.ids.newMobileShow).val()),
+                 errorBox = tool.ids.newErrObj;
+
+             if($(this).hasClass('on')) {
+                 return;
+             }
+             if(!tool.check.mobile(tool.ids.newMobileShow, tool.ids.newErrObj)) {
+                 return;
+             }
+
+             tool.changeMobile.sendSms(this, mobile, errorBox);
+         });
+
+         //提交旧手机号验证码
+         $(tool.ids.newMobileSub).click(function() {
+             tool.changeMobile.newSub(this);
+         });
+     },
+
+     //修改邮箱
+     changeEmail: function() {
+
+         $(tool.ids.emailObj).blur(function() {
+             tool.check.email(this, tool.ids.emailErrObj);
+         }).focus(function() {
+             $(tool.ids.emailErrObj).hide();
+         });
+
+         $(tool.ids.emailSubObj).click(function() {
+             var email = $.trim($(tool.ids.emailObj).val()),
+                 errorBox = tool.ids.emailErrObj;
+
+             if($(this).hasClass('on') || !tool.check.email(tool.ids.emailObj, errorBox)) {
+                 return;
+             }
+
+             var param = {
+                 id: this,
+                 url: '',
+                 success: function() {
+                     $(tool.ids.email).text(email);
+                     $(tool.ids.email).parent().find('a').text('修改');
+                     $('#emailSectionID').modal('hide');
+
+                     tool.showInfo('邮箱修改成功', true);
+                 },
+                 error: function(message) {
+                     $(tool.ids.newCodeObj).val('');
+
+                     $(errorBox).show().find('i').text(message);
+                 }
+             };
+
+             tool.ajax.callAjax(param);
          });
      }
  };
@@ -48,7 +175,24 @@
          errObj: '#errorMsg',
          updatePwdObj: '#updatePasswordBtn',
          errMsg2: '#errorMsg2',
-         submitBtnObj: '#submitBtn'
+         submitBtnObj: '#submitBtn',
+         oldMobVerifyId: '#set_old_mob_verifyID',
+         newMobVerifyId: '#set_new_mob_verifyID',
+         phone: '#phone',
+         mobileShowID2: '#mobileShowID2',
+         newMobileShow: '#mobileID',
+         oldMobileObj: '#oldMobileFormID',
+         newMobileObj: '#newMobileFormID',
+         oldMobileSub: '#mobileNextID',
+         newMobileSub: '#mobileSubmitID',
+         oldCodeObj: '#oldVerifyCodeID',
+         newCodeObj: '#newVerifyCodeID',
+         oldErrObj: '#oldMobileErrorID',
+         newErrObj: '#newMobileErrorID',
+         email: '#email',
+         emailObj: '#emailID',
+         emailSubObj: '#emailSubmitID',
+         emailErrObj: '#emailErrorID'
      },
      
      bool: {
@@ -81,6 +225,102 @@
              if(tool.bool.newPwdFlag && tool.bool.pwdFlag && tool.bool.rePwdFlag) {
                  tool.ajax.callAjax(param);
              }
+         }
+     },
+
+     changeMobile: {
+         sendSms: function(obj, mobile, errorBox) {
+             $(obj).addClass('on').text('获取中...');
+
+             var param = {
+                 id: obj,
+                 url: '',
+                 data: { mobile: mobile },
+                 type: 'GET',
+                 success: function() {
+                     var count = 60,
+                         timer = null;
+
+                     timer = setInterval(function () {
+                         if (count > 0) {
+                             $(obj).text(count + 's重新获取');
+                             count--;
+                         } else {
+                             clearInterval(timer);
+                             $(obj).removeClass('on').text('获取验证码');
+                         }
+                     }, 1000);
+                 },
+
+                 error: function(message) {
+                     $(obj).removeClass('on').text('获取验证码');
+                     $(errorBox).show().find('i').text(message);
+                 }
+             };
+
+             tool.ajax.callAjax(param);
+         },
+
+         oldSub: function(obj) {
+             var mobile = $(tool.ids.phone).text(),
+                 code = $.trim($(tool.ids.oldCodeObj).val()),
+                 errorBox = tool.ids.oldErrObj;
+
+             if($(obj).hasClass('on')) {
+                 return;
+             }
+             if(!tool.check.code(tool.ids.oldCodeObj, errorBox)) {
+                 return;
+             }
+
+             var param = {
+                 id: obj,
+                 url: '',
+                 success: function() {
+                     $(tool.ids.oldMobileObj).hide();
+                     $(tool.ids.newMobileObj).show();
+                 },
+                 error: function(message) {
+                     $(tool.ids.newCodeObj).val('');
+                     $(errorBox).show().find('i').text(message);
+                 }
+             };
+
+             tool.ajax.callAjax(param);
+         },
+
+         newSub: function(obj) {
+             var mobile = $.trim($(tool.ids.newMobileShow).val()),
+                 code = $.trim($(tool.ids.newCodeObj).val()),
+                 errorBox = tool.ids.newErrObj;
+
+             if($(obj).hasClass('on')) {
+                 return;
+             }
+             if(!tool.check.mobile(tool.ids.newMobileShow, errorBox) || !tool.check.code(tool.ids.newCodeObj, errorBox)) {
+                 return;
+             }
+
+             var param = {
+                 id: obj,
+                 url: '',
+                 success: function() {
+                     $(tool.ids.mobileShowID2).text(mobile);
+                     $('#phone').text(mobile);
+                     $('#phoneID').modal('hide');
+
+                     tool.showInfo('手机号码修改成功', true);
+
+                     $(tool.ids.oldMobileObj).show();
+                     $(tool.ids.newMobileObj).hide();
+                 },
+                 error: function(message) {
+                     $(tool.ids.newCodeObj).val('');
+                     $(errorBox).show().find('i').text(message);
+                 }
+             };
+
+             tool.ajax.callAjax(param);
          }
      },
      
@@ -157,6 +397,65 @@
              }
             
              tool.check.updateSubmitBtn();
+         },
+
+         mobile: function(obj, errorBox) {
+             var v = $.trim($(obj).val());
+             var reg = /^1[3-9][0-9]\d{8}$/;
+
+             if(v == '') {
+                 $(errorBox).show().find('i').text('请输入手机号');
+
+                 return false;
+             }
+
+             if(!reg.test(v)) {
+                 $(errorBox).show().find('i').text('请输入正确的手机号码');
+
+                 return false;
+             }
+
+             $(errorBox).hide().find('i').text('');
+             return true;
+         },
+
+         code: function(obj, errorBox) {
+             var v = $.trim($(obj).val());
+
+             if(v == '') {
+                 $(errorBox).show().find('i').text('请输入验证码');
+
+                 return false;
+             }
+
+             if(v.length != 6) {
+                 $(errorBox).show().find('i').text('请输入正确的验证码');
+
+                 return false;
+             }
+
+             $(errorBox).hide().find('i').text('');
+             return true;
+         },
+
+         email: function(obj, errorBox) {
+             var emailReg = /^([a-zA-Z0-9\-_.+]+)@([a-zA-Z0-9\-]+[.][a-zA-Z0-9\-.]+)$/,
+                 email = $.trim($(obj).val()),
+                 len = email.length;
+
+             if(len == 0) {
+                 $(errorBox).show().find('i').text('请输入邮箱');
+                 return false;
+             }
+
+             if(!emailReg.test(email) && len > 50) {
+                 $(errorBox).show().find('i').text('请输入正确的邮箱');
+                 return false;
+             }
+
+
+             $(errorBox).hide().find('i').text('');
+             return true;
          }
      },
      
@@ -201,12 +500,7 @@
         },
 
         error: function(message, obj) {
-            swal({
-                title: "提示！",
-                type: "warning",
-                text: message,
-                confirmButtonText: "确认"
-            });
+            tool.showInfo(message, true);
         }
     },
      
@@ -248,35 +542,12 @@
  safty.init();
  
  
- 
+
+
+
+
  
 $(function () {
-    $(window).on('keydown',function(e){
-        var event=e||window.event;
-        var keyCode=event.keyCode;
-        if(keyCode==32){
-            event.preventDefault();
-            return;
-        }
-    })
-    /*sweetAlert*/
-    $('.demo1').click(function(){
-        swal({
-            confirmButtonText:"确定",
-            title: "提示",
-            text: "为了保障您的利益，请致电客服专员 400-886-2309"
-        });
-    });
-   
-
-    
-
-    
-    
-    
-    
-    
-    
     /*******************************************华丽的分割线******************************************************/
     /*卡片二*/
     var submitBtnObj = $('#submitBtn');//提交按钮
@@ -459,72 +730,6 @@ $(function () {
             }
         });
     }
-    /*修改电子邮箱*/
-    var emailErrorObj=$('#emailErrorID');
-    var tmpEmail=$.trim("wh2000292@163.com");
-    emailErrorObj.hide();
-    var emailObj=$('#emailID');
-    var emailSubmitObj=$('#emailSubmitID');
-
-    emailObj.on('blur',function()
-    {
-        var email=$.trim($(this).val());
-        var result=check_email_format(email);
-        if(result==0&&tmpEmail!='')
-        {
-            emailErrorObj.html(errorIconSquare+'错误！邮箱不能修改为空').show();
-            return;
-        }
-        else if(result==1)
-        {
-            emailErrorObj.html('').hide();
-            return;
-        }
-        else
-        {
-            emailErrorObj.html(errorIconSquare+'错误！电子邮箱格式错误，请输入正确的电子邮箱').show();
-            return;
-        }
-    });
-
-    /*点击提交修改电子邮箱*/
-    emailSubmitObj.on('click',function()
-    {
-        var email =$.trim(emailObj.val());
-        emailErrorObj.html('').hide();
-        if(email== tmpEmail)
-        {
-//                emailErrorObj.html(errorIconSquare+'错误！请使用与原电子邮箱不同的邮箱地址进行绑定').show();
-            $('#emailSectionID').modal('hide');
-            return;
-        }
-        if(check_email_format(email) != 1)
-        {
-            emailErrorObj.html(errorIconSquare+'错误！电子邮箱格式错误，请输入正确的电子邮箱').show();
-            return;
-        }
-        else
-        {
-            emailErrorObj.html('').hide();
-            if(updateGroupEmail(email))
-            {
-                tmpEmail=email;
-                emailObj.val(email);
-                $('#emailSectionID').modal('hide');
-                $('#email').text(email);
-                stateMsg.html(successIconSquare+'电子邮箱修改成功.').show();
-
-//                uc_update_user(email,'',root);//同步到uc修改邮箱
-
-                return;
-            }
-            else
-            {
-                emailErrorObj.html(errorIconSquare+'错误！电子邮箱修改失败').show();
-                return;
-            }
-        }
-    });
 
     function updateGroupEmail(email){
         var f = false;
@@ -535,6 +740,9 @@ $(function () {
         },'http://www.insgeek.com/Group/updateGroupEmail/');
         return f;
     }
+
+
+
     /*---------------修改地址--------------*/
     var tmpAddress='';
     var errorIconSquare='<i class="fa fa-pencil-square"></i> ';
@@ -645,352 +853,4 @@ $(function () {
 //              newStrArea[2] = '';
 //          }
     setCity(newStrArea[0],newStrArea[1],newStrArea[2]);
-    /*修改手机号码*/
-    /*手机修改相关objs*/
-    var tmpMobile='18600182395';
-    var mobileShow2Obj=$('#mobileShowID2');
-    var oldVerifyMobObj=$('#oldVerifyCodeID');
-    var setOldMobVerifyObj=$('#set_old_mob_verifyID');
-    var oldMobileErrorObj=$('#oldMobileErrorID');
-    oldMobileErrorObj.hide();
-    var oldMobileSubmitBtnObj=$('#mobileNextID');
-    var oldMobileFormObj=$('#oldMobileFormID');
-    stateMsg.html(successIconSquare + '为了保证您的权益，请如实填写您的账户信息及个人信息').show();
-
-
-    var newMobileObj=$('#mobileID');
-    var newVerifyMobObj=$('#newVerifyCodeID');
-    var newMobileErrorObj=$('#newMobileErrorID');
-    newMobileErrorObj.hide();
-    var setNewMobVerifyObj=$('#set_new_mob_verifyID');
-    var newMobileSubmitBtnObj=$('#mobileSubmitID');
-    var newUserNameSubmitBtnObj=$("#usernameSubmitID");
-    var newUserNameErrorObj = $("#userNameErrorID");
-//        newUserNameErrorObj.hide();
-    var newMobileFormObj=$('#newMobileFormID');
-
-    if(tmpMobile=='')
-    {
-        oldMobileFormObj.hide();
-        newMobileFormObj.show();
-        step1Pass = true;
-    }
-    else
-    {
-        oldMobileFormObj.show();
-        newMobileFormObj.hide();
-        step1Pass = false;
-    }
-    /*修改手机*/
-    var step1Pass=false;
-    //step1
-    /*获取原验证码*/
-    var old_verify_mob_try_count=3;
-    var old_number=1;
-    var old_send=true;
-    setOldMobVerifyObj.on('click',function()
-    {
-        if(old_send&&(old_number>0)&&(old_number<6))
-        {
-            oldMobileErrorObj.html('').hide();
-            //获取原手机号码
-            var mobile=tmpMobile;
-            /*手机号错误，不进行验证码的获取*/
-            if (!check_mobile_format(mobile, false))
-            {
-                return;
-            }
-            else
-            {
-                if (set_mobile_verify_mob(mobile, root))
-                {
-                    old_number++;
-                    old_send=false;
-                    old_verify_mob_try_count=3;
-                    $(this).html('已经发送');
-                    setTimeout(timing_begin,3000);
-                    /*到时删除正确的手机验证码*/
-                    setTimeout(del_old_mob_verify,123000);
-                }
-                else
-                {
-                    $(this).html('发送失败');
-                }
-            }
-        }
-        else if(!old_send)
-        {}
-        else
-        {
-            $(this).html('最多获取5次');
-        }
-    });
-
-    /*删除该手机号有效的验证码*/
-    function del_old_mob_verify()
-    {
-        var mobile=tmpMobile;
-        del_mobile_verify_mob(mobile,root);
-        //结束倒计时
-        var obj = $("#show_time_old");
-        var num=0;
-        obj.html(num);
-    }
-
-    function timing_begin()
-    {
-        setOldMobVerifyObj.html('<font style="color:#FFFFFF;">倒计时<em style="font-style:normal;color:#ee3300;" id="show_time_old">120</em> 秒</font>');
-        autoTime();
-    }
-    function autoTime() {
-        var obj = $("#show_time_old");
-        var num = parseInt(obj.html());
-        num--;
-        obj.html(num);
-        if (num < 0) {
-            old_number = 1;
-            old_send = true;
-            setOldMobVerifyObj.html('重新发送');
-            clearTimeout(setT);
-            return;
-        }
-        var setT = setTimeout(autoTime, 1000);
-    }
-
-
-    //点击下一步，验证原手机号
-    oldMobileSubmitBtnObj.on('click',function()
-    {
-        if(step1Pass)
-        {
-            oldMobileFormObj.hide();
-            newMobileFormObj.show();
-            return;
-        }
-        var old_mobile=tmpMobile;
-        var old_verify_mob=$.trim(oldVerifyMobObj.val());
-        oldMobileErrorObj.html('').hide();
-        var result=check_verify_mob(old_mobile, old_verify_mob, root);
-        if (result != 1)
-        {
-            oldMobileErrorObj.html(errorIconSquare+'错误！原手机号的验证码不匹配').show();
-            old_verify_mob_try_count--;
-            if (old_verify_mob_try_count < 1) {
-                del_old_mob_verify();
-            }
-        }
-        else
-        {
-            //通过验证，开始第二步
-            oldMobileFormObj.hide();
-            newMobileFormObj.show();
-            del_old_mob_verify();
-            step1Pass=true;
-        }
-
-    });
-
-
-    //step2验证新手机号
-    /*获取新手机号验证码*/
-    var new_verify_mob_try_count=3;
-    var new_number=1;
-    var new_send=true;
-    var mobile_befor; //记录修改前的验证码
-    var maxnum_day = 11;   //每天最大发送验证码次数
-    var count = 0;         //三分钟内发送的验证次数
-    var time = 180000;     //时间段3分钟=180000毫秒
-    var maxnum_sen3 = 3;		//三分钟内发送的验证次数
-    var curntnum = 1;    //统计点击按钮的次数
-    var valbtn = document.getElementById("set_new_mob_verifyID");
-
-
-    newMobileObj.on('blur',function()
-    {
-        var mobile=$.trim($(this).val());
-        var result=check_mobile_format(mobile,false);
-        if(result==0)
-        {
-            newMobileErrorObj.html(errorIconSquare+'错误！新手机号码不能为空').show();
-            return;
-        }
-        else if(result==1)
-        {
-            newMobileErrorObj.html('').hide();
-            equals(mobile_befor, mobile);   //检查手机号码是否改变
-            return;
-        }
-        else
-        {
-            newMobileErrorObj.html(errorIconSquare+'错误！新手机号的格式错误,请输入11位的手机号').show();
-            return;
-        }
-    });
-
-    //str1为修改前的手机号码，str2为修改后的手机密码，检查手机号码是否改变
-    function equals(str1, str2) {
-        if (str1 == str2) {
-            return true;
-        } else {
-            //del_mob_verify();
-            del_new_mob_verify(str1, root);
-            //结束倒计时
-            var obj = $("#show_time_new");
-            var num=0;
-            obj.html(num);
-
-        }
-    }
-
-    setNewMobVerifyObj.on('click',function()
-    {
-        newMobileErrorObj.html('').hide();
-        if(!step1Pass&&tmpMobile!='')
-        {
-            newMobileErrorObj.html(errorIconSquare+'错误！原手机号未通过验证').show();
-            return;
-        }
-        var mobile = $.trim(newMobileObj.val());
-        if(check_mobile_format(mobile,false)!=1){
-            newMobileErrorObj.html(errorIconSquare+'错误！新手机号的格式错误,请输入11位的手机号').show();
-            return;
-        }
-        if(tmpMobile==mobile) {
-            newMobileErrorObj.html(errorIconSquare+'错误！新手机号码不能与旧手机号码相同').show();
-            return;
-        }
-        if (curntnum == maxnum_day) {
-            newMobileErrorObj.html('您今天已经发送10次验证码,请明天再发送!').show();
-            return;
-        } else {
-            if (count == 0) {
-                setTimeout(clock, time);
-
-            } else if (count == maxnum_sen3) {
-                newMobileErrorObj.html('您发送验证码的次数过于频繁,请三分钟后再发送!').show();
-                return;
-            }
-
-            if (new_send && (new_number > 0) && (new_number < 6)) {
-                //获取新手机号码
-                mobile_befor = mobile;
-                /*手机号错误，不进行验证码的获取*/
-                if (!check_mobile_format(mobile, false)) {
-                    return;
-                }
-                else {
-                    if (set_mobile_verify_mob(mobile, root))
-                    {
-                        count = count + 1;
-                        curntnum += 1;
-                        new_number++;
-                        new_send = false;
-                        new_verify_mob_try_count = 3;
-                        $(this).html('已经发送');
-                        setTimeout(timing_begin_new, 3000);
-                        /*到时删除正确的手机验证码*/
-                        setTimeout(del_new_mob_verify, 123000);
-                    }
-                    else {
-                        $(this).html('发送失败');
-                    }
-                }
-            }
-            else if (!new_send) {
-            }
-            else {
-                $(this).html('最多获取5次');
-            }
-        }
-    });
-    function clock() {
-        count = 0;
-        valbtn.removeAttribute("disabled");
-        newMobileErrorObj.hide();
-    }
-
-    /*删除该手机号有效的验证码*/
-    function del_new_mob_verify()
-    {
-        var mobile=$.trim(newMobileObj.val());
-        del_mobile_verify_mob(mobile,root);
-        //结束倒计时
-        var obj = $("#show_time_new");
-        var num=0;
-        obj.html(num);
-    }
-
-    function timing_begin_new()
-    {
-        setNewMobVerifyObj.html('<font style="color:#FFFFFF;">倒计时<em style="font-style:normal;color:#ee3300;" id="show_time_new">120</em> 秒</font>');
-        autoTime_new();
-    }
-    function autoTime_new() {
-        var obj = $("#show_time_new");
-        var num = parseInt(obj.html());
-        num--;
-        obj.html(num);
-        if (num < 0) {
-            new_number = 1;
-            new_send = true;
-            setNewMobVerifyObj.html('重新发送');
-            clearTimeout(setT);
-            return;
-        }
-        var setT = setTimeout(autoTime_new, 1000);
-    }
-
-    //提交新的手机号
-    newMobileSubmitBtnObj.on('click',function()
-    {
-        var newVerifyMob =$.trim(newVerifyMobObj.val());
-        var newMobile=$.trim(newMobileObj.val());
-        newMobileErrorObj.html('').hide();
-        if(!newVerifyMob) {
-            newMobileErrorObj.html(errorIconSquare+'错误！请输入验证码').show();
-            return;
-        }
-        if(newMobile==tmpMobile)
-        {
-            newMobileErrorObj.html(errorIconSquare+'错误！请使用与原手机号不同的新手机号码进行绑定').show();
-            return;
-        }
-        var result=check_verify_mob(newMobile, newVerifyMob, root);
-        switch (result) {
-            case 0:
-                newMobileErrorObj.html(errorIconSquare+'错误！新手机号码的验证码不匹配').show();
-                new_verify_mob_try_count--;
-                if (new_verify_mob_try_count < 1)
-                {
-                    del_new_mob_verify();
-                }
-                break;
-            case -1:
-                newMobileErrorObj.html(errorIconSquare+'错误！新手机号的格式错误,请输入11位的手机号').show();
-                break;
-            case 2:
-                newMobileErrorObj.html(errorIconSquare+'错误！手机验证码有误').show();
-                break;
-            default:
-                callAjax( {"mobile": newMobile,"verify_mob":newVerifyMob}, 0, function ( response ) {
-                    if ( response == 1 ) {
-                        step1Pass=false;
-                        mobileShow2Obj.html(newMobile);
-                        tmpMobile=newMobile;
-                        del_new_mob_verify();
-                        $('#phoneID').modal('hide');
-                        $('#phone').text(newMobile);
-                        oldVerifyMobObj.val('');
-                        newMobileObj.val('');
-                        newVerifyMobObj.val('');
-                        stateMsg.html(successIconSquare+'手机号修改成功.').show();
-                        oldMobileFormObj.show();
-                        newMobileFormObj.hide();
-                    }else{
-                        newMobileErrorObj.html(errorIconSquare+'错误！手机修改失败').show();
-                    }
-                }, "http://www.insgeek.com/user/update_user_contact_mobile_ajax/" );
-                break;
-        }
-    });
 });
