@@ -164,7 +164,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">E-mail:</label>
                                     <div class="col-sm-8">
-                                        <input name="email" id="emailID" type="text" class="form-control" onkeypress="if(event.keyCode == 13){ $('#emailSubmitID').click(); return false;}" placeholder="请输入邮箱" value="wh2000292@163.com">
+                                        <input name="email" id="emailID" type="text" class="form-control" onkeypress="if(event.keyCode == 13){ $('#emailSubmitID').click(); return false;}" placeholder="请输入邮箱" value="{$data.userInfo.email}">
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +272,7 @@
                                 </div>
                                 <br />
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    <input type="text" class="form-control imgcode" name="newImgCode">
+                                    <input type="text" class="form-control imgcode new" name="newImgCode">
                                     <span class="input-group-btn"><img src="/util/captcha?flag=enterprise_change_mobile" data-flag="/util/captcha?flag=enterprise_change_mobile" class="changeImgCode" style="width: 96px; height: 34px;"></span>
                                 </div>
                                 <br />
@@ -281,7 +281,7 @@
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_new_mob_verifyID">发送验证码</button></span>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    <button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>
+                                    {*<button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>*}
                                 </div>
                             </div>
                         </div>

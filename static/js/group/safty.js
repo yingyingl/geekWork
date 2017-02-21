@@ -85,6 +85,17 @@
          }
 
          //旧验证码框失去焦点
+         $('.imgcode').blur(function() {
+             tool.check.imgCode(this, $(this).hasClass('new') ? newErrObj : oldErrObj);
+         }).focus(function() {
+             if($(this).hasClass('new')) {
+                 $(newErrObj).hide();
+             } else {
+                 $(oldErrObj).hide();
+             }
+         });
+
+         //旧验证码框失去焦点
          $(tool.ids.oldCodeObj).blur(function() {
              tool.check.code(this, oldErrObj);
          }).focus(function() {
@@ -108,7 +119,7 @@
          //旧手机号获取验证码
          $(tool.ids.oldMobVerifyId).click(function() {
              var mobile = $(phoneBox).text(),
-                 imgcodeObj = $(this).parent().parent().find('.imgcode');
+                 imgcodeObj = $(this).closest('.modal-body').find('.imgcode');
 
              if($(this).hasClass('on') || !tool.check.imgCode(imgcodeObj, oldErrObj)) {
                  return;
@@ -125,7 +136,7 @@
          //新手机号获取验证码
          $(tool.ids.newMobVerifyId).click(function() {
              var mobile = $.trim($(tool.ids.newMobileShow).val()),
-                 imgcodeObj = $(this).parent().parent().find('.imgcode');
+                 imgcodeObj = $(this).closest('.modal-body').find('.imgcode');
 
              if($(this).hasClass('on') || !tool.check.imgCode(imgcodeObj, newErrObj)) {
                  return;
@@ -286,7 +297,7 @@
              var mobile = $(tool.ids.phone).text(),
                  code = $.trim($(tool.ids.oldCodeObj).val()),
                  errorBox = tool.ids.oldErrObj,
-                 imgcodeObj = $(obj).parent().parent().find('.imgcode');
+                 imgcodeObj = $(obj).closest('.modal-body').find('.imgcode');
 
              if($(obj).hasClass('on') || !tool.check.imgCode(imgcodeObj, errorBox)) {
                  return;
@@ -316,7 +327,7 @@
              var mobile = $.trim($(tool.ids.newMobileShow).val()),
                  code = $.trim($(tool.ids.newCodeObj).val()),
                  errorBox = tool.ids.newErrObj,
-                 imgcodeObj = $(obj).parent().parent().find('.imgcode');
+                 imgcodeObj = $(obj).closest('.modal-body').find('.imgcode');
 
              if($(obj).hasClass('on') || !tool.check.imgCode(imgcodeObj, errorBox)) {
                  return;

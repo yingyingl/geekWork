@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 22:00:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 22:28:54
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:161196049858a9a9adf00735-01995311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '37f8fabcde0936f35d7b5e123d22ca1e03dd588e' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl',
-      1 => 1487685621,
+      1 => 1487687329,
       2 => 'file',
     ),
     '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
@@ -102,7 +102,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '161196049858a9a9adf00735-01995311');
-content_58ac47fe109272_63500586($_smarty_tpl);
+content_58ac4ea64243c4_84632955($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
@@ -381,7 +381,7 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                                 </div>
                                 <br />
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    <input type="text" class="form-control imgcode" name="newImgCode">
+                                    <input type="text" class="form-control imgcode new" name="newImgCode">
                                     <span class="input-group-btn"><img src="/util/captcha?flag=enterprise_change_mobile" data-flag="/util/captcha?flag=enterprise_change_mobile" class="changeImgCode" style="width: 96px; height: 34px;"></span>
                                 </div>
                                 <br />
@@ -390,7 +390,7 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_new_mob_verifyID">发送验证码</button></span>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    <button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -467,9 +467,9 @@ $_smarty_tpl->tpl_vars['inName']->_loop = true;
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 22:00:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 22:28:54
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58ac47fe109272_63500586')) {function content_58ac47fe109272_63500586($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58ac4ea64243c4_84632955')) {function content_58ac4ea64243c4_84632955($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="indexGroup">
