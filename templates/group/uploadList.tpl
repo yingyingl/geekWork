@@ -11,32 +11,29 @@
 
                 <div class="col-xs-10">
                     <div class="ibox float-e-margins">
+
                         <div class="ibox-title">
-                            <form action="http://www.insgeek.com/Service/down_load_file" method="post">
-                                <input type="hidden" name="group_id" value="61249"/>
-                                <span>批量加人流程<a type="button" class="btn btn-primary btn-xs pull-right" href='flow_batch.html'>重新上传</a>
-					<button type="submit" class="btn btn-primary btn-xs pull-right" style="margin-right: 20px">下载excel模板</button></span>
-                            </form>
+                            <div>
+                                <span>批量加人流程
+                                    <a type="button" class="btn btn-primary btn-xs pull-right" href='/group/excelPage'>重新上传</a>
+                                    <button type="submit" class="btn btn-primary btn-xs pull-right" onclick="location.href='/批量上传模板.xlsx'" style="margin-right: 20px">下载excel模板</button
+                                </span>
+                            </div>
                         </div>
+
                         <div class="ibox-content" id="loading">
                             <div class="spiner-example" style="height: 300px">
                                 <div class="loading" style="height: 200px"></div>
                             </div>
                         </div>
-                        <!--连带被保险人显示模板 start-->
-                        <!--连带被保险人显示模板 end-->
 
+                        <div class="ibox-content" id="uploadList">
 
-                        <!--医保信息模板 连带子女 start-->
-                        <!--医保信息模板 连带子女 end-->
-
-                        <!--医保信息模板 非连带子女 start-->
-                        <div class="ibox-content">
                             <table class="table-bordered table-lian table-hover tooltip-demo">
                                 <thead>
                                 <tr>
                                     <th colspan="13" style="text-align: left;background: #ffffff;padding: 10px;font-size: 14px">
-                                        本次批量上传人员共 <span class="text-info">1</span> 人，已上传人员信息错误为 <span class="table-error">1</span> 条
+                                        本次批量上传人员共 <span class="text-info">{if !empty($data.list)}{$data.list|count}{else}0{/if}</span> 人，已上传人员信息错误为 <span class="table-error">{$data.has_error}</span> 条
                                         <!--，总预计保费<span class="table-error">￥0</span>-->
                                         <div class="alert alert-danger text-center" style="display:none" id="verify_failID">
                                             <p id="max_person_error_msg"></p>
@@ -54,60 +51,89 @@
                                     <!--<th style="width: 50px" class="text-center">预计保费</th>-->
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="text-center">
-                                        <span data-toggle="tooltip" data-placement="top" class="table-error">1</span>                </td>
-                                    <td>
-                                        <p>
-                                            老王                                                </p>
-                                        <p style="margin-bottom: 0">
-                                            411322198904092998                                                </p>
-                                    </td>
-                                    <td>
-                                        <span data-toggle="tooltip" data-placement="top" data-original-title="手机格式错误" class="table-error">111111</span>                </td>
-                                    <td>
-                                        <p>不需要</p>                </td>
-                                    <td>
-                                        【极客保 - 意外型】测试                                        </td>
-                                    <td>
-                                        <p>
-                                            <span class="label" style="padding: 3px">起</span>
-                                            <span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">
-                                                                            2017-01-01                                </span>                    </p>
-                                        <p style="margin-bottom: 0">
-                                            <span class="label" style="padding: 3px">止</span>
-                                            <span>2017-08-08</span>
-                                        </p>
-                                    </td>
-                                    <!--<td class="text-center">-->
-                                    <!--￥-->
-                                    <!--</td>-->
-                                </tr>        </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="13" style="color: #676a6c">
-                                        注意： <span class="table-error">红色标示</span> 位置为错误信息，请再次核实上传内容，如有疑问请拨打客服电话：400-886-2309
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                            <div class="text-center" style="margin-top: 20px">
-                                <a href='flow_batch.html' class="btn btn-w-m btn-white">重新上传</a>
-                            </div>
-                        </div>        <!--医保信息模板 非连带子女 end-->
 
+                                <tbody>
+                                {if !empty($data.list)}
+                                    {foreach from=$data.list item=lists key=num}
+                                        <tr>
+                                            <td class="text-center">
+                                                {if in_array(1, $data.error[num])}<span data-toggle="tooltip" data-placement="top" class="table-error">{/if}
+                                                    {$key + 1}
+                                                {if in_array(1, $data.error[num])}</span>{/if}
+                                            </td>
+                                            <td>
+                                                <p {if !empty($data.error[num][0])}class="table-error"{/if}>{$lists[0]}</p>
+                                                <p {if !empty($data.error[num][1])}class="table-error"{/if} style="margin-bottom: 0">{if !empty($lists[1])} {$lists[1]} {else} 无效值 {/if}</p>
+                                            </td>
+                                            <td>
+                                                {if !empty($data.error[num][2])}<span data-toggle="tooltip" data-placement="top" data-original-title="手机格式错误" class="table-error">{/if}
+                                                    {if !empty($lists[2])} {$lists[2]} {else} 无效值 {/if}
+                                                {if !empty($data.error[num][2])}</span>{/if}
+                                            </td>
+                                            <td>
+                                                {if !empty($data.error[num][5])}
+                                                    不需要
+                                                {else}
+                                                    {$lists[4]}
+                                                {/if}
+                                            </td>
+                                            <td>
+                                                {if !empty($data.error[num][3])}
+                                                    <span data-toggle="tooltip" data-placement="top" class="table-error">无效值</span>
+                                                {else}
+                                                    {$lists[3]}
+                                                {/if}
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <span class="label" style="padding: 3px">起</span>
+                                                    {if !empty($data.error[num][6]) || empty($lists[6])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
+                                                         {if !empty($lists[6])} {$lists[6]} {else}无效值{/if}
+                                                    {if !empty($data.error[num][6]) || empty($lists[6])}</span>{/if}
+                                                </p>
+                                                <p style="margin-bottom: 0">
+                                                    <span class="label" style="padding: 3px">止</span>
+                                                    {if !empty($data.error[num][7]) || empty($lists[7])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
+                                                        {if !empty($lists[7])} {$lists[7]} {else}无效值{/if}
+                                                    {if !empty($data.error[num][7]) || empty($lists[7])}</span>{/if}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    {/foreach}
+
+                                {/if}
+                                </tbody>
+
+                                {if !empty($data.has_error)}
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="13" style="color: #676a6c">
+                                            注意： <span class="table-error">红色标示</span> 位置为错误信息，请再次核实上传内容，如有疑问请拨打客服电话：400-886-2309
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                {/if}
+                            </table>
+
+                            <div class="text-center" style="margin-top: 20px">
+                                {if !empty($data.has_error)}
+                                    <a href='/group/excelPage' class="btn btn-w-m btn-white">重新上传</a>
+                                {else}
+                                    <a href='javascript:void(0)' class="btn btn-w-m btn-white">立即提交</a>
+                                {/if}
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+{/block}
 
-    <div class="layer2 _loading" style=""></div>
-
-    <div class="load _loading">
-        <img src="http://www.insgeek.com/public/insgeek2.0/img/user/loading.gif">
-        <p>提交中，请稍后！</p>
-    </div>
+{block name="js"}
+    <script>var listData = {if !empty($data.data)}{$data.data}{else}''{/if};</script>
+    <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
+    <script src="{#static_path#}/js/group/upload.js"></script>
 {/block}

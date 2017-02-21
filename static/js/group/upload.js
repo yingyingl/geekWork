@@ -21,20 +21,20 @@ var uploads = {
 
         //上传
         $('#uploadID').on('click', function() {
-            $('#upload').hide();
+            /*$('#upload').hide();
             $(this).prop('disabled',true).removeClass('btn-primary').addClass('btn-default');
             $(this).text('上传中,请稍后...');
 
-            tool.list(this);
+            tool.list(this);*/
+
+            $('#uploadFormID').submit();
+            $(this).prop('disabled',true);
+            $(this).text('上传中,请稍后...');
         });
 
-        //重新上传或提交
-        $('#uploadList .bottomBtn a').click(function() {
-            if($(this).hasClass('uploadBtn')) {
-                $('#upload').click();
-            } else {
-                tool.listSubmit(this);
-            }
+        //提交
+        $('#uploadList').click(function() {
+            tool.uploadSubmit(this);
         });
     }
 };
@@ -147,6 +147,27 @@ var tool = {
                 $('#uploadList .ajax-loading').hide();
                 $('#upload').show();
                 $(obj).text('上传文档');
+            }
+        };
+
+        tool.ajax.callAjax(param);
+    },
+
+    uploadSubmit: function(obj) {
+        if($(obj).hasClass('on')) {
+            return;
+        }
+
+        $(obj).addClass('on').text('正在提交...');
+
+        var param = {
+            url: '/group/postBatchAddMember',
+            data: { member:  listData},
+            success: function(data) {
+                location.href = '/group/memberListPage';
+            },
+            error: function() {
+                $(obj).removeClass('on');
             }
         };
 

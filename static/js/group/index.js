@@ -93,7 +93,10 @@ var group = {
             if($(this).hasClass('add_user')) {
                 memberId = 0;
                 $(box).removeClass('edit-user');
-                $(box + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
+
+                if(typeof insuranceId != 'undefined') {
+                    $(box + ' .select-fangan option[value="'+ insuranceId +'"]').attr('selected', true);
+                }
 
                 //添加时姓名和证件可修改
                 $(box).find('select[name="relType"]').removeAttr('disabled');
@@ -101,6 +104,7 @@ var group = {
                 $(box).find('input[name="realname"]').removeAttr('readonly');
                 $(box).find('input[name="id_number"]').removeAttr('readonly');
             } else {
+                insuranceId = $(this).closest('tr').attr('data-isid');
                 memberId = $(this).closest('tr').attr('data-id');
                 $(box).addClass('edit-user');
 
