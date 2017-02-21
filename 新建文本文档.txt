@@ -265,3 +265,58 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
   例如：[["老同1","411322198904092991","18600182394","重疾","A.城镇职工","甘肃省 平凉市","2017-01-29","2017-02-03"],["老同2","411322198904092998","18600182393","重疾","A.城镇职工","甘肃省 平凉市","2017-01-29","2017-02-03"]]
   返回：
   {"success":1,"message":"成功"}
+
+  ==============账户维护================
+  6.账户维护-首页
+    请求方式：get 页面
+    url: /enterprise_user/settingPage
+    参数：无
+    页面变量：
+    $data=
+  array (
+    'userInfo' =>
+          array (
+            'id' => '6',
+            'username' => 'wh2000292',        //用户名
+            'mobile' => '18600182395',        //手机号
+            'is_del' => '0',
+            'create_time' => '1485496334',
+            'email' => '',                    //电子邮箱
+            'address' => '',                  //地址
+            'enterprise_name' => '企业名称1',  //企业名称
+            'union_code' => '',               //统一社会信用码
+            'organization_code' => '',        //组织结构代码
+            'bill_date' => '12',
+          ),
+    'insurance_name' =>                       //保险名称列表
+          array (
+            0 => '极客保 - 意外型',
+            1 => '【医疗保险】 企业名称1',
+          ),
+        )
+
+  7. 修改手机号第一步,验证原手机号
+     请求方式：ajax post
+     url: /enterprise_user/postChangeMobileFirst
+     参数：smscode 手机验证码
+     返回：{"success":1,"message":"成功"}
+
+  8. 修改手机第二步，更换新手机号
+     请求方式：ajax post
+     url: /enterprise_user/postChangeMobileSecond
+     参数：mobile 新手机号
+          smscode 验证码
+     返回：{"success":1,"message":"成功"}
+
+  9. 修改账户密码
+     请求方式： ajax post
+     url:/enterprise_user/postChangePwd
+     参数： old_password  原密码
+           password 新密码
+     返回：{"success":1,"message":"成功"}
+
+  10. 修改信息（修改邮箱或地址)
+      请求方式： ajax post
+      url: /enterprise_user/postChangeInfo
+      参数：email
+      返回：{"success":1,"message":"成功"}

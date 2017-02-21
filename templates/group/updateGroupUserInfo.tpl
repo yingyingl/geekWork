@@ -10,7 +10,7 @@
 
             {include file="template/sidebar.tpl"}
 
-            <div id="page" data-page="updateGroupUserInfo"></div>
+            <div id="page" data-page="settingPage"></div>
 
             <div class="col-xs-10">
                 <div class="ibox finance-recharge">
@@ -37,31 +37,31 @@
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">联系电话：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="phone">18600182395</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID">修改</a>
+                                            <span class="pull-left" id="phone">{$data.userInfo.mobile}</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID">{if !empty($data.userInfo.mobile)}修改{else}绑定{/if}</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">电子邮箱：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="email">wh2000292@163.com</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID">修改</a>
+                                            <span class="pull-left" id="email">{$data.userInfo.email}</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID">{if !empty($data.userInfo.email)}修改{else}绑定{/if}</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head" id="addressShowID">联系地址：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left"></span>
-                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange">修改</a>
+                                            <span class="pull-left">{$data.userInfo.address}</span>
+                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange">{if !empty($data.userInfo.address)}修改{else}绑定{/if}</a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">登录账号：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left">wh2000292</span>
+                                            <span class="pull-left">{$data.userInfo.username}</span>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>

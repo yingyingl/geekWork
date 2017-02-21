@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-19 22:50:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:03:40
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:161196049858a9a9adf00735-01995311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '37f8fabcde0936f35d7b5e123d22ca1e03dd588e' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/group/updateGroupUserInfo.tpl',
-      1 => 1487515843,
+      1 => 1487682218,
       2 => 'file',
     ),
     '068ce81b3254a2ee0fd79b3bac2e49a13fe7245f' => 
@@ -35,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html>
 <head>
     <meta charset="utf-8">
-    <title>用户首页</title>
+    <title>账户维护</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="" />
@@ -119,11 +119,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <?php /*  Call merged included template "template/sidebar.tpl" */
 $_tpl_stack[] = $_smarty_tpl;
  $_smarty_tpl = $_smarty_tpl->setupInlineSubTemplate("template/sidebar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0, '161196049858a9a9adf00735-01995311');
-content_58a9b0c7910797_85272569($_smarty_tpl);
+content_58ac3aace53794_82373387($_smarty_tpl);
 $_smarty_tpl = array_pop($_tpl_stack); 
 /*  End of included template "template/sidebar.tpl" */?>
 
-            <div id="page" data-page="updateGroupUserInfo"></div>
+            <div id="page" data-page="settingPage"></div>
 
             <div class="col-xs-10">
                 <div class="ibox finance-recharge">
@@ -150,42 +150,50 @@ $_smarty_tpl = array_pop($_tpl_stack);
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">联系电话：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="phone">18600182395</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID">修改</a>
+                                            <span class="pull-left" id="phone"><?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['mobile'];?>
+</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#phoneID"><?php if (!empty($_smarty_tpl->tpl_vars['data']->value['userInfo']['mobile'])) {?>修改<?php } else { ?>绑定<?php }?></a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">电子邮箱：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left" id="email">wh2000292@163.com</span>
-                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID">修改</a>
+                                            <span class="pull-left" id="email"><?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['email'];?>
+</span>
+                                            <a  data-toggle="modal" class="btn btn-primary btn-xs pull-right" href="#emailSectionID"><?php if (!empty($_smarty_tpl->tpl_vars['data']->value['userInfo']['email'])) {?>修改<?php } else { ?>绑定<?php }?></a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head" id="addressShowID">联系地址：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left"></span>
-                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange">修改</a>
+                                            <span class="pull-left"><?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['address'];?>
+</span>
+                                            <a data-toggle="modal" class="btn btn-primary btn-xs pull-right demo1" id="zyChange"><?php if (!empty($_smarty_tpl->tpl_vars['data']->value['userInfo']['address'])) {?>修改<?php } else { ?>绑定<?php }?></a>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">登录账号：</div>
                                         <div class="charge-body">
-                                            <span class="pull-left">wh2000292</span>
+                                            <span class="pull-left"><?php echo $_smarty_tpl->tpl_vars['data']->value['userInfo']['username'];?>
+</span>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group clearfix">
                                         <div class="charge-head">保障方案：</div>
                                         <div class="charge-body">
-                                            <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
-                                                【极客保 - 意外型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
-                                            【极客保 - 重疾型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
-                                            【极客保 - 医疗型】测试									</button><button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button">
-                                            【极客保 - 基础版】测试									</button>							</div>
+                                            <?php  $_smarty_tpl->tpl_vars['inName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['inName']->_loop = false;
+ $_from = 'insurance_name'; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['inName']->key => $_smarty_tpl->tpl_vars['inName']->value) {
+$_smarty_tpl->tpl_vars['inName']->_loop = true;
+?>
+                                                <button class="btn  btn-primary btn-xs" onclick="location.href='/Home/Group/insuranceList'" style="margin-right: 10px;" type="button"><?php echo $_smarty_tpl->tpl_vars['inName']->value;?>
+</button>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="deposit-password charge-group clearfix">
@@ -464,9 +472,9 @@ $_smarty_tpl = array_pop($_tpl_stack);
 >
 </body>
 </html><?php }} ?>
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-19 22:50:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-21 21:03:40
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/sidebar.tpl" */ ?>
-<?php if ($_valid && !is_callable('content_58a9b0c7910797_85272569')) {function content_58a9b0c7910797_85272569($_smarty_tpl) {?><div class="col-xs-2">
+<?php if ($_valid && !is_callable('content_58ac3aace53794_82373387')) {function content_58ac3aace53794_82373387($_smarty_tpl) {?><div class="col-xs-2">
     <div class="top-border white-bg">
         <ul class="nav metismenu" id="side-menu">
             <li id="index-group">
