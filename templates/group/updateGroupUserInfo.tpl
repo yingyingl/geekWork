@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="charge-group payment-last-money clearfixfix">
-                                        <button class="btn btn-primary btn-sm btn-de submitBtn" type="button" id="submitBtn" disabled>提交修改</button>
+                                        {*<button class="btn btn-primary btn-sm btn-de submitBtn" type="button" id="submitBtn" disabled>提交修改</button>*}
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                         </div>
                         <form method="post" id="addressFormID" class="form-horizontal">
                             <div class="modal-body" style="padding-top: 50px">
-                                <div class="alert alert-danger" id="addressErrorID">
+                                <div class="alert alert-danger" id="addressErrorID" style="display: none;">
                                     <i class="fa fa-minus-square"></i> 错误！请输入正确联系地址
                                 </div>
                                 <div class="form-group">
@@ -281,7 +281,7 @@
                                     <span class="input-group-btn"> <button type="button" class="btn btn-primary" id="set_new_mob_verifyID">发送验证码</button></span>
                                 </div>
                                 <div class="input-group" style="width: 50%;margin: auto">
-                                    {*<button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>*}
+                                    <button type="button" class="btn btn-primary btn-block m-t" id="mobileSubmitID"> 确认修改</button>
                                 </div>
                             </div>
                         </div>
