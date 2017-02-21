@@ -369,7 +369,7 @@ var tool = {
 
                             switch(type) {
                                 case 'effect':  //在保成员列表
-                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                    html += '<tr data-id="'+ datas[i].id +'" data-isid="'+ datas[i].insurance_id +'">' +
                                         '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
                                         '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
                                         '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
@@ -382,7 +382,7 @@ var tool = {
 
                                     break;
                                 case 'wait':    //待核成员列表
-                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                    html += '<tr data-id="'+ datas[i].id +'" data-isid="'+ datas[i].insurance_id +'">' +
                                         '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
                                         '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
                                         '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
@@ -395,7 +395,7 @@ var tool = {
 
                                     break;
                                 case 'reject':    //已拒成员列表
-                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                    html += '<tr data-id="'+ datas[i].id +'" data-isid="'+ datas[i].insurance_id +'">' +
                                         '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"/></td>' +
                                         '<td><div class="table-h table-name" style="width: 60px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
                                         '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
@@ -420,7 +420,7 @@ var tool = {
 
                                     break;
                                 default:
-                                    html += '<tr data-id="'+ datas[i].id +'">' +
+                                    html += '<tr data-id="'+ datas[i].id +'" data-isid="'+ id +'">' +
                                         '<td><input type="checkbox" name="idArr[]" value="'+ datas[i].id +'" class="form-control"></td>' +
                                         '<td><div class="table-h table-name" style="width: 70px" title="'+ datas[i].name +'">'+ datas[i].name +'</div></td>' +
                                         '<td><div class="table-h">'+ datas[i].id_number +'</div></td>' +
@@ -474,7 +474,7 @@ var tool = {
 
         delAll: function(obj) {
             var checkAll = $(obj).parent('.btn-group').siblings('.m-t-35').find("input[name='idArr[]']:checked"),
-                lines = $(obj).parents('.iboxlist'),
+                lines = $(obj).parents('tr'),
                 len = checkAll.length,
                 memberIdArr = [];
 
@@ -516,7 +516,7 @@ var tool = {
                         url: '/group/delMember',
                         data: {
                             member_id: dataArr,
-                            insurance_id: lines.attr('data-id')
+                            insurance_id: lines.attr('data-isid')
                         },
                         success: function() {
                             swal({
@@ -676,7 +676,7 @@ var tool = {
                         trbox = listBox.find('tr[data-id="'+ mid +'"]');
 
                     if(flag == 'add') {
-                        var html = '<tr data-id="'+ data.id +'" class="odd">' +
+                        var html = '<tr data-id="'+ data.id +'" data-isid="'+ sid +'" class="odd">' +
                             '<td><input type="checkbox" name="idArr[]" value="'+ data.id +'" class="form-control"></td>' +
                             '<td><div class="table-h table-name" style="width: 70px" title="'+ name +'">'+ name +'</div></td>' +
                             '<td><div class="table-h table-num">'+ idNum +'</div></td>' +
