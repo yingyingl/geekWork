@@ -21,11 +21,6 @@
                             </div>
                         </div>
 
-                        <div class="ibox-content" id="loading">
-                            <div class="spiner-example" style="height: 300px">
-                                <div class="loading" style="height: 200px"></div>
-                            </div>
-                        </div>
 
                         <div class="ibox-content" id="uploadList">
 
@@ -57,28 +52,28 @@
                                     {foreach from=$data.list item=lists key=num}
                                         <tr>
                                             <td class="text-center">
-                                                {if in_array(1, $data.error[num])}<span data-toggle="tooltip" data-placement="top" class="table-error">{/if}
+                                                {if in_array(1, $data.error[$num])}<span data-toggle="tooltip" data-placement="top" class="table-error">{/if}
                                                     {$key + 1}
-                                                {if in_array(1, $data.error[num])}</span>{/if}
+                                                {if in_array(1, $data.error[$num])}</span>{/if}
                                             </td>
                                             <td>
-                                                <p {if !empty($data.error[num][0])}class="table-error"{/if}>{$lists[0]}</p>
-                                                <p {if !empty($data.error[num][1])}class="table-error"{/if} style="margin-bottom: 0">{if !empty($lists[1])} {$lists[1]} {else} 无效值 {/if}</p>
+                                                <p {if !empty($data.error[$num][0])}class="table-error"{/if}>{$lists[0]}</p>
+                                                <p {if !empty($data.error[$num][1])}class="table-error"{/if} style="margin-bottom: 0">{if !empty($lists[1])} {$lists[1]} {else} 无效值 {/if}</p>
                                             </td>
                                             <td>
-                                                {if !empty($data.error[num][2])}<span data-toggle="tooltip" data-placement="top" data-original-title="手机格式错误" class="table-error">{/if}
+                                                {if !empty($data.error[$num][2])}<span data-toggle="tooltip" data-placement="top" data-original-title="手机格式错误" class="table-error">{/if}
                                                     {if !empty($lists[2])} {$lists[2]} {else} 无效值 {/if}
-                                                {if !empty($data.error[num][2])}</span>{/if}
+                                                {if !empty($data.error[$num][2])}</span>{/if}
                                             </td>
                                             <td>
-                                                {if !empty($data.error[num][5])}
+                                                {if !empty($data.error[$num][5])}
                                                     不需要
                                                 {else}
                                                     {$lists[4]}
                                                 {/if}
                                             </td>
                                             <td>
-                                                {if !empty($data.error[num][3])}
+                                                {if !empty($data.error[$num][3])}
                                                     <span data-toggle="tooltip" data-placement="top" class="table-error">无效值</span>
                                                 {else}
                                                     {$lists[3]}
@@ -87,15 +82,15 @@
                                             <td>
                                                 <p>
                                                     <span class="label" style="padding: 3px">起</span>
-                                                    {if !empty($data.error[num][6]) || empty($lists[6])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
+                                                    {if !empty($data.error[$num][6]) || empty($lists[6])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
                                                          {if !empty($lists[6])} {$lists[6]} {else}无效值{/if}
-                                                    {if !empty($data.error[num][6]) || empty($lists[6])}</span>{/if}
+                                                    {if !empty($data.error[$num][6]) || empty($lists[6])}</span>{/if}
                                                 </p>
                                                 <p style="margin-bottom: 0">
                                                     <span class="label" style="padding: 3px">止</span>
-                                                    {if !empty($data.error[num][7]) || empty($lists[7])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
+                                                    {if !empty($data.error[$num][7]) || empty($lists[7])}<span data-toggle="tooltip" data-placement="top" data-original-title="生效日期不在规定范围内" class="table-error">{/if}
                                                         {if !empty($lists[7])} {$lists[7]} {else}无效值{/if}
-                                                    {if !empty($data.error[num][7]) || empty($lists[7])}</span>{/if}
+                                                    {if !empty($data.error[$num][7]) || empty($lists[7])}</span>{/if}
                                                 </p>
                                             </td>
                                         </tr>
