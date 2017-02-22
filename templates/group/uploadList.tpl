@@ -22,7 +22,7 @@
                         </div>
 
 
-                        <div class="ibox-content" id="uploadList">
+                        <div class="ibox-content">
 
                             <table class="table-bordered table-lian table-hover tooltip-demo">
                                 <thead>
@@ -114,7 +114,7 @@
                                 {if !empty($data.has_error)}
                                     <a href='/group/excelPage' class="btn btn-w-m btn-white">重新上传</a>
                                 {else}
-                                    <a href='javascript:void(0)' class="btn btn-w-m btn-white">立即提交</a>
+                                    <a href='javascript:void(0)' id="uploadList" class="btn btn-w-m btn-white">立即提交</a>
                                 {/if}
                             </div>
 
@@ -128,7 +128,7 @@
 {/block}
 
 {block name="js"}
-    <script>var listData = {if !empty($data.data)}{$data.data}{else}''{/if};</script>
+    <script>var listData = '{if !empty($data.data)}{$data.data}{/if}';</script>
     <script src="{#static_path#}/js/plugins/jquery.metisMenu.js"></script>
     <script src="{#static_path#}/js/group/upload.js"></script>
 {/block}

@@ -326,3 +326,54 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
           url: /util/postsms
           参数： flag:  enterprise_change_mobile
                 captcha  图形验证
+
+ ================分享==================
+
+ 11. 邀请用户第一步页面
+     请求方式：get 页面
+     url: /invite/first
+     参数：insurance_id 保险订单id
+     页面变量：'data'=>array (
+   'insurance' =>
+   array (
+     'id' => '1',
+     'enterprise_uid' => '1',
+     'product_id' => '1',
+     'product_name' => '极客保 - 意外型',   //产品名称
+     'enterprise_name' => '测试公司',      //公司名称
+     'insurance_no' => 'I111',
+     'begin_date' => '2017-01-03',
+     'end_date' => '2017-02-03',
+     'contract' => '',
+     'status' => '0',
+     'payment_circle' => '0',
+     'price' => '0.00',
+     'need_medical_insurance' => '0',  //是否需要医保
+   ),
+ )
+
+ 12. 邀请-判断是否存在用户
+     请求方式： ajax get
+     url: /invite/existUser
+     参数：id_number 身份证号
+     返回：{"success":1,"message":"成功","exist":1}
+          如果 exist=1 需要输入用户密码
+
+ 13. 邀请第一步，提交数据
+     请求方式：ajax post
+     参数：  insurance_id  保障id
+            id_number  身份证号
+            password  密码，当证件号已存在用户时需要
+     返回：{"success":1,"message":"成功"}
+
+ 14. 邀请第二步，提交数据
+     请求方式：ajax post
+     参数： insurance_id 保障id
+           id_number 身份证号
+           name  姓名
+           mobile 手机号
+           insurance_type  医保类型
+           province 省份
+           city 城市
+           smscode 验证码
+    返回：{"success":1,"message":"成功"}
