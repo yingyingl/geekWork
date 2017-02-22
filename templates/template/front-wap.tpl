@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{#static_path#}/css/mobile/example.css">
     <link rel="stylesheet" href="{#static_path#}/css/mobile/appv2.0.css"/>
     <link rel="stylesheet" href="{#static_path#}/css/mobile/iconfont.css">
+
+    {block name="css"}{/block}
 </head>
 <body ontouchstart>
 

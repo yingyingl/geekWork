@@ -1,6 +1,7 @@
 var share = {
     init: function() {
         this.start();
+        this.sure();
     },
 
     start: function() {
@@ -17,6 +18,43 @@ var share = {
         $('#nextBtnID').bind('touch click', function() {
             tool.first(this);
         });
+    },
+
+    sure: function() {
+        //改变图形验证码
+        $('#changeCode').click(function() {
+            var flag = $(this).attr('data-flag'),
+                dates = (new Date()).getTime();
+
+            $(this).attr('src', flag + '&v=' + dates);
+        });
+
+
+        $(tool.dom.realnameObj).change(function() {
+            tool.check.name(this);
+        });
+
+        $(tool.dom.mobileObj).change(function() {
+            tool.check.mobile(this);
+        });
+
+        $(tool.dom.imgCodeObj).change(function() {
+            tool.check.imgCode(this);
+        });
+
+        $(tool.dom.codeObj).change(function() {
+            tool.check.code(this);
+        });
+
+        //获取验证码
+        $('#set_user_mob_verify').bind('touch click', function() {
+            tool.second.smsCode(this);
+        });
+
+        //提交
+        $('#submitId').bind('touch click', function() {
+            tool.second.load(this);
+        });
     }
 };
 
@@ -26,7 +64,11 @@ var tool = {
         accountIdObj: '#groupReg #mainAccountID',
         pwdObj: '#groupReg .password',
         pwdInput: '#passwordID',
-        tips: '.js_tooltips'
+        tips: '.js_tooltips',
+        realnameObj: '#realname input',
+        mobileObj: '#mobileID',
+        imgCodeObj: '#verify_imgCode',
+        codeObj: '#verify_mobID'
     },
 
     bool: {
@@ -69,6 +111,150 @@ var tool = {
         tool.ajax.callAjax(param);
     },
 
+    second: {
+        smsCode: function(obj) {
+            if($(obj).hasClass('on') || !tool.check.mobile(tool.dom.mobileObj) || !tool.check.imgCode(tool.dom.imgCodeObj)) {
+                return;
+            }
+
+            var options = {
+                id: obj,
+                url: '/util/postsms',
+                data: {
+                    flag: 'invite',
+                    captcha: $.trim($(tool.dom.imgCodeObj).val()),
+                    mobile: $.trim($(tool.dom.mobileObj).val())
+                },
+                success: function() {
+                    var count = 60,
+                        timer = null;
+
+                    timer = setInterval(function () {
+                        if (count > 0) {
+                            $(obj).text(count + 's重新获取');
+                            count--;
+                        } else {
+                            clearInterval(timer);
+                            $(obj).removeClass('on').text('获取验证码');
+                        }
+                    }, 1000);
+                },
+                error: function() {
+                    $(obj).removeClass('on').text('获取验证码');
+                }
+            };
+
+            tool.ajax.callAjax(options);
+        },
+
+
+        load: function(obj) {
+            if($(obj).hasClass('on')
+                || !tool.check.name(tool.dom.realnameObj) || !tool.check.mobile(tool.dom.mobileObj)
+                || !tool.check.imgCode(tool.dom.imgCodeObj) || !tool.check.code(tool.dom.codeObj)) {
+                return false;
+            }
+
+            var options = {
+                id: obj,
+                url: '/invite/postSecond',
+                data: {
+                    insurance_id: $('#insuranceId').val(),
+                    id_number: $('#idNumber').val(),
+                    name: $.trim($(tool.dom.realnameObj).val()),
+                    mobile: $.trim($(tool.dom.mobileObj).val()),
+                    smscode: $.trim($(tool.dom.codeObj).val()),
+                    insurance_type: '',
+                    province: '',
+                    city: ''
+                },
+                success: function() {
+                    location.href = '／invite/success';
+                }
+            };
+
+            tool.ajax.callAjax(options);
+        }
+    },
+
+    check: {
+        name: function(obj) {
+            var v = $.trim($(obj).val()),
+                reg1=/^([\u4e00-\u9fa5·]){2,15}$/,
+                reg2=/^([a-zA-Z]){3,15}$/;
+
+
+            tool.error.removeError($(obj));
+
+            if(v == '') {
+                tool.error.showToastError('被保险人的真实姓名不能为空。', 5000, $(obj));
+
+                return false;
+            }
+
+            if(!reg1.test(v) && !reg2.test(v)) {
+                tool.error.showToastError('被保险人的真实姓名格式错误。', 5000, $(obj));
+
+                return false;
+            }
+
+            return true;
+        },
+
+        mobile: function(obj) {
+            var v = $.trim($(obj).val()),
+                reg1=/^1[3-8][0-9]{9}$/;
+
+
+            tool.error.removeError($(obj));
+
+            if(v == '') {
+                tool.error.showToastError('请输入手机号码。', 5000, $(obj));
+
+                return false;
+            }
+
+            if(!reg1.test(v)) {
+                tool.error.showToastError('手机号码格式错误。', 5000, $(obj));
+
+                return false;
+            }
+
+            return true;
+        },
+
+        //验证码
+        code: function(obj) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                tool.error.showToastError('请输入验证码。', 5000, $(obj));
+
+                return false;
+            }
+
+            if(v.length != 6) {
+                tool.error.showToastError('验证码错误。', 5000, $(obj));
+
+                return false;
+            }
+
+            return true;
+        },
+
+        imgCode: function(obj) {
+            var v = $.trim($(obj).val());
+
+            if(v == '') {
+                tool.error.showToastError('请输入图形验证码。', 5000, $(obj));
+
+                return false;
+            }
+
+            return true;
+        }
+    },
+
     error: {
         showToastError: function(msg,timeout,obj) {
             if(obj!=null){
@@ -99,7 +285,6 @@ var tool = {
         }
     },
 
-    check: {},
 
     ajax: {
         callAjax: function(options) {

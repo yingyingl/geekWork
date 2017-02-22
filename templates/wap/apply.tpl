@@ -14,7 +14,7 @@
 
                     <div class="mark-font" style="margin-top: 0">您正在申请[{$data.insurance.enterprise_name}]的[{$data.insurance.product_name}]，请填写您的真实资料。</div>
 
-                    <form action="http://www.insgeek.com/groupreg/regstep/group_id/61249/eid/2955/code/1G0IGD" class="form-group" method="post" id="formID">
+                    <div class="form-group" method="post" id="formID">
                         <div class="weui_cells">
                             <div class="weui_cell{* weui_cell_select weui_select_after*}">
                                 <div class="weui_cell_hd">被保险人</div>
@@ -103,7 +103,7 @@
                             <input name="group_id" type="hidden" value="61249"/>
                             <input name="eid" type="hidden" value="2955"/>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="weui_btn_area">
                         <button class="weui_btn weui_btn_primary" id="nextBtnID" type="button">下一步</button>
@@ -114,20 +114,6 @@
             </article>
         </section>
     </div>
-
-    <!--BEGIN dialog1-->
-    <div class="weui_dialog_confirm" id="twoBtDia" style="display: none;">
-        <div class="weui_mask"></div>
-        <div class="weui_dialog">
-            <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
-            <div class="weui_dialog_bd"></div>
-            <div class="weui_dialog_ft">
-                <a href="javascript:;" class="weui_btn_dialog default">取消</a>
-                <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
-            </div>
-        </div>
-    </div>
-    <!--END dialog1-->
 
     <!--BEGIN dialog2-->
     <div class="weui_dialog_alert" id="oneBtDia" style="display: none;">

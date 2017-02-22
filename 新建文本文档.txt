@@ -373,6 +373,7 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
 
  14. 邀请第二步，提交数据/invite/second
      请求方式：ajax post
+     /invite/postSecond
      参数： insurance_id 保障id
            id_number 身份证号
            name  姓名
@@ -382,3 +383,5 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
            city 城市
            smscode 验证码
     返回：{"success":1,"message":"成功"}
+
+    $data.id_number

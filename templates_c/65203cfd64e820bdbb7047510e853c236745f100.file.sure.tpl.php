@@ -1,8 +1,49 @@
-{extends file="template/front-wap.tpl"}
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-22 23:37:32
+         compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/sure.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:90793817158adaa003e71f1-54411996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '65203cfd64e820bdbb7047510e853c236745f100' => 
+    array (
+      0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/sure.tpl',
+      1 => 1487777849,
+      2 => 'file',
+    ),
+    'e6ffc1d3cb79cf9300fc55afa2b9c8c03e9baf08' => 
+    array (
+      0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front-wap.tpl',
+      1 => 1487774858,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '90793817158adaa003e71f1-54411996',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_58adaa0045ac02_66087915',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_58adaa0045ac02_66087915')) {function content_58adaa0045ac02_66087915($_smarty_tpl) {?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <title></title>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/mobile/weui.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/mobile/example.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/mobile/appv2.0.css"/>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/css/mobile/iconfont.css">
+</head>
+<body ontouchstart>
 
-{block name="title"}申请入保{/block}
 
-{block name="container"}
     <div id="section_container">
         <div class="hd">
             <h3 class="page_title">申请入保</h3>
@@ -26,9 +67,10 @@
                     </div>
 
                     <div class="weui_cell">
-                        <div class="weui_cell_hd" style="width: 110px">身份证</div>
+                        <div class="weui_cell_hd">身份证</div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input name="mainAccount" type="text" class="weui_input" id="idNumber" placeholder="证件号码" value="{$data.id_number}" readonly style="color: #808080">
+                            <input name="mainAccount" type="text" class="weui_input" placeholder="证件号码" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id_number'];?>
+" readonly style="color: #808080">
                         </div>
                         <div class="weui_cell_ft">
                             <i class=""></i>
@@ -41,6 +83,8 @@
                         <div class="weui_cell_hd" style="width: 110px">联系电话</div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <input class="noborder weui_input" name="mobile" id="mobileID" placeholder="输入您的电话" type="tel" value="" >
+                            <input id="mainMobile" type="hidden" value=""/>
+                            <input id="relMobile" type="hidden" value=""/>
                         </div>
                         <div class="weui_cell_ft">
                             <i class=""></i>
@@ -50,12 +94,12 @@
                     <div class="weui_cell" id="mobile_verify_line" >
                         <div class="weui_cell_hd" style="width: 110px">图形验证码</div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="noborder weui_input" name="verify_mob" id="verify_imgCode" placeholder="输入图形验证码" type="text">
+                            <input class="noborder weui_input" name="verify_mob" id="verify_imgCode" placeholder="输入验证码" type="text">
                         </div>
                         <div class="weui_cell_ft">
                             <i class=""></i>
                         </div>
-                        <img src="/util/captcha?flag=invite" data-flag="/util/captcha?flag=invite" style="width: 92px;" id="changeCode">
+                        <img src="#" style="width: 92px;" id="imgCode">
                         <p class="ig-msg" id="verify_mob_msgID" style="font-size: 12px; font-style: normal;"></p>
                     </div>
 
@@ -109,9 +153,32 @@
     </div>
     <!--END dialog2-->
 
-    <input type="hidden" id="insuranceId" value="{$data.insurance_id}">
-{/block}
 
-{block name="js"}
-    <script src="{#static_path#}/js/wap/share.js"></script>
-{/block}
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/mobile/zepto.min.js"><?php echo '</script'; ?>
+>
+
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/mobile/router.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"><?php echo '</script'; ?>
+>
+
+
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/igCustom.js"><?php echo '</script'; ?>
+>
+    
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
+/js/wap/share.js"><?php echo '</script'; ?>
+>
+
+
+</body>
+</html><?php }} ?>
