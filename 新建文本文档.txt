@@ -356,17 +356,22 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
      请求方式： ajax get
      url: /invite/existUser
      参数：id_number 身份证号
-     返回：{"success":1,"message":"成功","exist":1}
-          如果 exist=1 需要输入用户密码
+     返回：{"success":1,
+           "message":"成功",
+           "exist":1
+           "uid": 1， //证件号对应的用户ID
+           "login_uid":2  //当前登录的uid, 0为未登录
+           }
 
  13. 邀请第一步，提交数据
      请求方式：ajax post
+     /invite/postFirst
      参数：  insurance_id  保障id
             id_number  身份证号
             password  密码，当证件号已存在用户时需要
      返回：{"success":1,"message":"成功"}
 
- 14. 邀请第二步，提交数据
+ 14. 邀请第二步，提交数据/invite/second
      请求方式：ajax post
      参数： insurance_id 保障id
            id_number 身份证号

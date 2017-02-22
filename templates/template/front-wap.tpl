@@ -16,7 +16,7 @@
 
 
 <script src="{#static_path#}/js/mobile/zepto.min.js"></script>
-<script src="{#static_path#}/js/mobile/zepto.touch.js"></script>
+{*<script src="{#static_path#}/js/mobile/zepto.touch.js"></script>*}
 <script src="{#static_path#}/js/mobile/router.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 

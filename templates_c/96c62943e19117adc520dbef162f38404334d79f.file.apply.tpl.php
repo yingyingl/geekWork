@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-22 21:41:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-22 22:47:47
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/apply.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:153199888358ad91eea48aa1-71574747%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '96c62943e19117adc520dbef162f38404334d79f' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/apply.tpl',
-      1 => 1487770902,
+      1 => 1487774817,
       2 => 'file',
     ),
     'e6ffc1d3cb79cf9300fc55afa2b9c8c03e9baf08' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front-wap.tpl',
-      1 => 1487769016,
+      1 => 1487774858,
       2 => 'file',
     ),
   ),
@@ -68,11 +68,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             </div>
 
                             <div class="weui_cell">
-                                <div class="weui_cell_hd">
-                                    员工信息
-                                </div>
+                                <div class="weui_cell_hd">员工信息</div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" class="weui_input" name="mainAccount" id="mainAccountID" placeholder="登录名/身份证号码" value=""  style="padding-left: 35px">
+                                    <input type="text" class="weui_input" name="mainAccount" id="mainAccountID" placeholder="身份证号码" value=""  style="padding-left: 35px">
                                 </div>
                                 <div class="weui_cell_ft">
                                     <i class=""></i>
@@ -90,6 +88,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="weui_cells_title relativeCert" style="display: none">连带被保险人</div>
                         <div class="weui_cells relativeCert" style="display: none">
                             <div class="weui_cell weui_cell_select weui_select_before">
@@ -145,6 +145,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <input name="eid" type="hidden" value="2955"/>
                         </div>
                     </form>
+
                     <div class="weui_btn_area">
                         <button class="weui_btn weui_btn_primary" id="nextBtnID" type="button">下一步</button>
                         <a class="weui_btn weui_btn_default" href="http://www.insgeek.com/Login/forget_pw">忘记密码？</a>
@@ -188,10 +189,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/mobile/zepto.min.js"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/mobile/zepto.touch.js"><?php echo '</script'; ?>
->
+
 <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/mobile/router.min.js"><?php echo '</script'; ?>
@@ -203,7 +201,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/group/group.js"><?php echo '</script'; ?>
+/js/igCustom.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>

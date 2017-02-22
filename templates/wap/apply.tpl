@@ -27,11 +27,9 @@
                             </div>
 
                             <div class="weui_cell">
-                                <div class="weui_cell_hd">
-                                    员工信息
-                                </div>
+                                <div class="weui_cell_hd">员工信息</div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" class="weui_input" name="mainAccount" id="mainAccountID" placeholder="登录名/身份证号码" value=""  style="padding-left: 35px">
+                                    <input type="text" class="weui_input" name="mainAccount" id="mainAccountID" placeholder="身份证号码" value=""  style="padding-left: 35px">
                                 </div>
                                 <div class="weui_cell_ft">
                                     <i class=""></i>
@@ -49,6 +47,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="weui_cells_title relativeCert" style="display: none">连带被保险人</div>
                         <div class="weui_cells relativeCert" style="display: none">
                             <div class="weui_cell weui_cell_select weui_select_before">
@@ -104,6 +104,7 @@
                             <input name="eid" type="hidden" value="2955"/>
                         </div>
                     </form>
+
                     <div class="weui_btn_area">
                         <button class="weui_btn weui_btn_primary" id="nextBtnID" type="button">下一步</button>
                         <a class="weui_btn weui_btn_default" href="http://www.insgeek.com/Login/forget_pw">忘记密码？</a>
@@ -140,9 +141,11 @@
         </div>
     </div>
     <!--END dialog2-->
+
+    <input type="hidden" id="insuranceId" value="{$data.insurance.id}" >
 {/block}
 
 {block name="js"}
-    <script src="{#static_path#}/js/group/group.js"></script>
+    <script src="{#static_path#}/js/igCustom.js"></script>
     <script src="{#static_path#}/js/wap/share.js"></script>
 {/block}
