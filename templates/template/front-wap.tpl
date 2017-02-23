@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta content="telephone=no" name="format-detection" />
-    <title></title>
+    <title>{block name="title"}{/block}</title>
     <link rel="stylesheet" href="{#static_path#}/css/mobile/weui.css">
     <link rel="stylesheet" href="{#static_path#}/css/mobile/example.css">
     <link rel="stylesheet" href="{#static_path#}/css/mobile/appv2.0.css"/>

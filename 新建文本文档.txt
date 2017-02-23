@@ -385,3 +385,139 @@ http://www.jikebao.com/statistics/adminLog?page=1&type=0
     返回：{"success":1,"message":"成功"}
 
     $data.id_number
+
+==============财务中心====================
+    财务中心-总览
+        请求方式：页面 get
+        url: /financial/index
+        参数：无
+        页面变量：$data=array (
+            'should_pay' => 0,            //当前应缴
+            'total_banlance' => '50.00',  //账户余额
+            'cash_banlance' => 50,        //可提现余额
+          )
+
+    16.财务中心-总览-账单列表
+       请求方式： ajax get
+       url: /financial/billList
+       参数：无
+       返回：{
+             success: 1,
+             message: "成功",
+             list: [
+                {
+                   id: "5",
+                   bill_no: "00002",             //账单号
+                   begin_date: "2017-02-11",     //开始时间
+                   end_date: "2017-02-12",       //结束时间
+                   enterprise_uid: "6",
+                   fee: "50.49",                 //金额
+                   status: "0",
+                   payment_fee: "0.00",
+                   create_time: "1486775417",
+                   data_status: "0",
+                   is_del: "0",
+                   status_text: "未缴费"         //状态
+                },
+                {
+                   id: "1",
+                   bill_no: "00001",
+                   begin_date: "2017-01-25",
+                   end_date: "2017-02-10",
+                   enterprise_uid: "6",
+                   fee: "0.00",
+                   status: "0",
+                   payment_fee: "0.00",
+                   create_time: "1486738164",
+                   data_status: "0",
+                   is_del: "0"，
+                   status_text: "未缴费"      //状态
+                }
+             ]
+             }
+
+    17.财务中心-总览-账单明细（流水列表）
+       请求方式： ajax get
+       url: /financial/billDetailList
+       参数：page 页码
+            bill_id  为空则为流水列表，不为空，则为账单明细
+       返回：{
+                success: 1,
+                message: "成功",
+                list: [
+                {
+                   id: "16",
+                   enterprise_uid: "6",
+                   bill_id: "5",
+                   log_no: "B6-8167.353570",                         //流水单号
+                   type: "0",
+                   fee: "0.00",                                      //金额
+                   desc_text: "退费:[极客保 - 意外型]修改保障日期",      //发生项目
+                   is_del: "0",
+                   create_time: "2017-02-20 21:46:19"                //创建时间
+                },
+                {
+                   id: "15",
+                   enterprise_uid: "6",
+                   bill_id: "5",
+                   log_no: "B6-6648.047324",
+                   type: "1",
+                   fee: "16.83",
+                   desc_text: "退费：[【医疗保险】 企业名称1]减人",
+                   is_del: "0",
+                   create_time: "2017-02-20 21:46:19"
+                },
+             }
+
+    18.财务中心-总览-充值记录
+       请求方式： ajax get
+       url: /financial/chargeList
+       参数：page 页码
+       返回：{
+             success: 1,
+             message: "成功",
+             list: [
+                {
+                   id: "3",
+                   enterprise_uid: "6",
+                   trade_no: "148584737181355847",       //充值流水号
+                   trade_type: "0",
+                   product_name: "充值",
+                   fee: "100.00",                        //充值金额
+                   pay_method: "alipay",                 //支付方式： alipay 支付宝 bank 银行转账 weixin 微信支付
+                   status: "1",
+                   platform_trade_no: "P123",
+                   platform_fee: "100.00",
+                   is_del: "0",
+                   create_time: "2017-01-31 15:22:51",   //发生时间
+                   update_time: "0"
+                }
+             ]
+             }
+
+    19.财务中心-提现记录
+       请求方式： ajax get
+       url: /financial/cashHistory
+       参数：page 页码
+       返回：{
+                success: 1,
+                message: "成功",
+                list: [
+                   {
+                      id: "9",
+                      enterprise_uid: "6",
+                      fee: "50.00",                         //提现金额
+                      order_no: "T148600070824631270",      //交易单号
+                      account_name: "王鹤",
+                      account_type: "0",
+                      account_no: "566663445435",           //收款账户
+                      bank: "招商银行",
+                      bank_branch: "中关村支行",
+                      bank_no: "",                         //银行流水
+                      status: "0",
+                      is_del: "0",
+                      create_time: "2017-02-02 09:58:28",  //发生时间
+                      status_text: "提现处理中"             //提现状态
+                   }
+                ]
+             }

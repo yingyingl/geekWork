@@ -10,7 +10,7 @@ var share = {
             tool.checkAccountId(this, 1);
         });
 
-        if($(tool.dom.accountIdObj).val().length != '') {
+        if($.trim($(tool.dom.accountIdObj).val()) != '') {
             tool.checkAccountId(tool.dom.accountIdObj, 1);
         }
 
@@ -29,6 +29,9 @@ var share = {
             $(this).attr('src', flag + '&v=' + dates);
         });
 
+        $('input').bind('input propertychange', function() {
+            $('.weui_cell_ft i').removeClass('weui_icon_warn');
+        });
 
         $(tool.dom.realnameObj).change(function() {
             tool.check.name(this);

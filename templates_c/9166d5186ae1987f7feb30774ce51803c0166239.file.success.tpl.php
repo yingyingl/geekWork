@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-23 00:17:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-23 20:25:00
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/success.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:171410762858adb6f35c0544-18353144%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e6ffc1d3cb79cf9300fc55afa2b9c8c03e9baf08' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front-wap.tpl',
-      1 => 1487780272,
+      1 => 1487852693,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta content="telephone=no" name="format-detection" />
-    <title></title>
+    <title>申请成功</title>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/mobile/weui.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>

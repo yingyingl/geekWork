@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-22 23:37:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-23 20:43:04
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/sure.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:90793817158adaa003e71f1-54411996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '65203cfd64e820bdbb7047510e853c236745f100' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/sure.tpl',
-      1 => 1487777849,
+      1 => 1487779531,
       2 => 'file',
     ),
     'e6ffc1d3cb79cf9300fc55afa2b9c8c03e9baf08' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front-wap.tpl',
-      1 => 1487774858,
+      1 => 1487852693,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta content="telephone=no" name="format-detection" />
-    <title></title>
+    <title>申请入保</title>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/mobile/weui.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -40,6 +40,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/mobile/appv2.0.css"/>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/mobile/iconfont.css">
+
+    
 </head>
 <body ontouchstart>
 
@@ -67,9 +69,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     </div>
 
                     <div class="weui_cell">
-                        <div class="weui_cell_hd">身份证</div>
+                        <div class="weui_cell_hd" style="width: 110px">身份证</div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input name="mainAccount" type="text" class="weui_input" placeholder="证件号码" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id_number'];?>
+                            <input name="mainAccount" type="text" class="weui_input" id="idNumber" placeholder="证件号码" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['id_number'];?>
 " readonly style="color: #808080">
                         </div>
                         <div class="weui_cell_ft">
@@ -83,8 +85,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <div class="weui_cell_hd" style="width: 110px">联系电话</div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <input class="noborder weui_input" name="mobile" id="mobileID" placeholder="输入您的电话" type="tel" value="" >
-                            <input id="mainMobile" type="hidden" value=""/>
-                            <input id="relMobile" type="hidden" value=""/>
                         </div>
                         <div class="weui_cell_ft">
                             <i class=""></i>
@@ -94,12 +94,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <div class="weui_cell" id="mobile_verify_line" >
                         <div class="weui_cell_hd" style="width: 110px">图形验证码</div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="noborder weui_input" name="verify_mob" id="verify_imgCode" placeholder="输入验证码" type="text">
+                            <input class="noborder weui_input" name="verify_mob" id="verify_imgCode" placeholder="输入图形验证码" type="text">
                         </div>
                         <div class="weui_cell_ft">
                             <i class=""></i>
                         </div>
-                        <img src="#" style="width: 92px;" id="imgCode">
+                        <img src="/util/captcha?flag=invite" data-flag="/util/captcha?flag=invite" style="width: 92px;" id="changeCode">
                         <p class="ig-msg" id="verify_mob_msgID" style="font-size: 12px; font-style: normal;"></p>
                     </div>
 
@@ -153,6 +153,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <!--END dialog2-->
 
+    <input type="hidden" id="insuranceId" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['insurance_id'];?>
+">
+
 
 
 <?php echo '<script'; ?>
@@ -169,11 +172,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 
 
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
-/js/igCustom.js"><?php echo '</script'; ?>
->
-    
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /js/wap/share.js"><?php echo '</script'; ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-22 22:47:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2017-02-23 20:25:03
          compiled from "/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/apply.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:153199888358ad91eea48aa1-71574747%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '96c62943e19117adc520dbef162f38404334d79f' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/wap/apply.tpl',
-      1 => 1487774817,
+      1 => 1487776584,
       2 => 'file',
     ),
     'e6ffc1d3cb79cf9300fc55afa2b9c8c03e9baf08' => 
     array (
       0 => '/Users/lorine/Documents/workspace/datebaofront-dev/geekwork/templates/template/front-wap.tpl',
-      1 => 1487774858,
+      1 => 1487852693,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta content="telephone=no" name="format-detection" />
-    <title></title>
+    <title>申请入保</title>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/mobile/weui.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
@@ -40,6 +40,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 /css/mobile/appv2.0.css"/>
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->getConfigVariable('static_path');?>
 /css/mobile/iconfont.css">
+
+    
 </head>
 <body ontouchstart>
 
@@ -57,7 +59,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ]的[<?php echo $_smarty_tpl->tpl_vars['data']->value['insurance']['product_name'];?>
 ]，请填写您的真实资料。</div>
 
-                    <form action="http://www.insgeek.com/groupreg/regstep/group_id/61249/eid/2955/code/1G0IGD" class="form-group" method="post" id="formID">
+                    <div class="form-group" method="post" id="formID">
                         <div class="weui_cells">
                             <div class="weui_cell">
                                 <div class="weui_cell_hd">被保险人</div>
@@ -144,7 +146,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                             <input name="group_id" type="hidden" value="61249"/>
                             <input name="eid" type="hidden" value="2955"/>
                         </div>
-                    </form>
+                    </div>
 
                     <div class="weui_btn_area">
                         <button class="weui_btn weui_btn_primary" id="nextBtnID" type="button">下一步</button>
@@ -155,20 +157,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </article>
         </section>
     </div>
-
-    <!--BEGIN dialog1-->
-    <div class="weui_dialog_confirm" id="twoBtDia" style="display: none;">
-        <div class="weui_mask"></div>
-        <div class="weui_dialog">
-            <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
-            <div class="weui_dialog_bd"></div>
-            <div class="weui_dialog_ft">
-                <a href="javascript:;" class="weui_btn_dialog default">取消</a>
-                <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
-            </div>
-        </div>
-    </div>
-    <!--END dialog1-->
 
     <!--BEGIN dialog2-->
     <div class="weui_dialog_alert" id="oneBtDia" style="display: none;">
@@ -182,6 +170,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
     </div>
     <!--END dialog2-->
+
+    <input type="hidden" id="insuranceId" value="<?php echo $_smarty_tpl->tpl_vars['data']->value['insurance']['id'];?>
+" >
 
 
 
